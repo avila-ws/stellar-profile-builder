@@ -1,4 +1,3 @@
-
 import { Briefcase, Server, Lock, Code, Database, Bitcoin, ChevronDown, ChevronUp, Building2, Building, Home, Palmtree, Landmark } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Card, CardContent } from "@/components/ui/card";
@@ -39,32 +38,33 @@ const WorkExperience = ({
       
       <Accordion type="single" collapsible className="mt-0 border-none">
         <AccordionItem value="description" className="border-none">
-          <div className="cursor-pointer group" onClick={() => setIsExpanded(!isExpanded)}>
-            <h3 className="text-xl font-semibold group-hover:text-primary transition-colors">
-              {companyUrl ? (
-                <a 
-                  href={companyUrl} 
-                  target="_blank" 
-                  rel="noopener noreferrer" 
-                  className="hover:text-primary transition-colors"
-                  onClick={(e) => e.stopPropagation()}
-                >
-                  {company}
-                </a>
-              ) : company}
-            </h3>
-            <div className="flex flex-col sm:flex-row sm:items-center gap-2 mb-2 mt-1">
-              <span className="font-medium">{role}</span>
-              <span className="hidden sm:block text-muted-foreground">•</span>
-              <span className="text-muted-foreground">{period}</span>
-              <span className="hidden sm:block text-muted-foreground">•</span>
-              <span className="text-muted-foreground">{location}</span>
-            </div>
-            
-            <AccordionTrigger className="py-1 text-sm text-primary hover:no-underline justify-start p-0">
-              {isExpanded ? "Hide details" : "View details"}
-            </AccordionTrigger>
+          <h3 className="text-xl font-semibold hover:text-primary transition-colors">
+            {companyUrl ? (
+              <a 
+                href={companyUrl} 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="hover:text-primary transition-colors"
+                onClick={(e) => e.stopPropagation()}
+              >
+                {company}
+              </a>
+            ) : company}
+          </h3>
+          <div className="flex flex-col sm:flex-row sm:items-center gap-2 mb-2 mt-1">
+            <span className="font-medium">{role}</span>
+            <span className="hidden sm:block text-muted-foreground">•</span>
+            <span className="text-muted-foreground">{period}</span>
+            <span className="hidden sm:block text-muted-foreground">•</span>
+            <span className="text-muted-foreground">{location}</span>
           </div>
+          
+          <AccordionTrigger 
+            className="py-1 text-sm text-primary hover:no-underline justify-start p-0"
+            onClick={() => setIsExpanded(!isExpanded)}
+          >
+            {isExpanded ? "Hide details" : "View details"}
+          </AccordionTrigger>
           
           <AccordionContent>
             <ul className="list-disc pl-5 space-y-2 mt-2">
@@ -306,3 +306,4 @@ const ExperienceSection = () => {
 };
 
 export default ExperienceSection;
+

@@ -15,16 +15,24 @@ const EducationCard = ({ institution, url, degrees }: EducationCardProps) => {
   const [isOpen, setIsOpen] = useState(false);
   
   return (
-    <div>
+    <div 
+      className="cursor-pointer hover:bg-accent/50 rounded-md p-2 -m-2 transition-colors"
+      onClick={() => setIsOpen(!isOpen)}
+    >
       <h4 className="font-medium flex items-center justify-between">
-        <a href={url} target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">
+        <a 
+          href={url} 
+          target="_blank" 
+          rel="noopener noreferrer" 
+          className="hover:text-primary transition-colors"
+          onClick={(e) => e.stopPropagation()}
+        >
           {institution}
         </a>
         <Button 
           variant="ghost" 
           size="sm" 
-          className="p-0 h-8 w-8"
-          onClick={() => setIsOpen(!isOpen)}
+          className="p-0 h-8 w-8 pointer-events-none"
         >
           {isOpen ? <ChevronUp className="h-4 w-4" /> : <ChevronDown className="h-4 w-4" />}
           <span className="sr-only">Toggle</span>
@@ -113,19 +121,20 @@ const AboutSection = () => {
                 </div>
               </Card>
               
-              <Card className="p-6">
+              <Card 
+                className="p-6 cursor-pointer hover:shadow-md transition-shadow duration-300"
+                onClick={() => setLanguagesOpen(!languagesOpen)}
+              >
                 <Collapsible open={languagesOpen} onOpenChange={setLanguagesOpen}>
                   <div className="flex items-center justify-between">
                     <h3 className="text-xl font-semibold flex items-center">
                       <Globe className="h-6 w-6 text-primary mr-2 flex-shrink-0" />
                       Languages
                     </h3>
-                    <CollapsibleTrigger asChild>
-                      <Button variant="ghost" size="sm" className="p-0 h-8 w-8">
-                        {languagesOpen ? <ChevronUp className="h-4 w-4" /> : <ChevronDown className="h-4 w-4" />}
-                        <span className="sr-only">Toggle</span>
-                      </Button>
-                    </CollapsibleTrigger>
+                    <Button variant="ghost" size="sm" className="p-0 h-8 w-8 pointer-events-none">
+                      {languagesOpen ? <ChevronUp className="h-4 w-4" /> : <ChevronDown className="h-4 w-4" />}
+                      <span className="sr-only">Toggle</span>
+                    </Button>
                   </div>
                   
                   <CollapsibleContent>
