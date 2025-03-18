@@ -1,14 +1,11 @@
-
 import { Shield, Code, Cloud } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useEffect, useState } from "react";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Dialog, DialogContent, DialogTrigger, DialogTitle } from "@/components/ui/dialog";
 import { AspectRatio } from "@/components/ui/aspect-ratio";
-
 const HeroSection = () => {
   const [isVisible, setIsVisible] = useState(false);
-
   useEffect(() => {
     // Add a small delay before starting animations for better perceived performance
     const timer = setTimeout(() => {
@@ -16,7 +13,6 @@ const HeroSection = () => {
     }, 100);
     return () => clearTimeout(timer);
   }, []);
-
   return <section id="home" className="pt-28 pb-20 md:pt-36 md:pb-32 overflow-hidden">
       <div className="container max-w-7xl mx-auto px-4 sm:px-6">
         <div className="flex flex-col items-center text-center">
@@ -34,15 +30,11 @@ const HeroSection = () => {
                   </Avatar>
                 </div>
               </DialogTrigger>
-              <DialogContent className="p-0 border-0 bg-transparent shadow-none max-w-3xl w-full flex items-center justify-center">
+              <DialogContent className="p-0 border-0 bg-transparent shadow-none max-w-3xl w-full flex items-center justify-center rounded-none">
                 <DialogTitle className="sr-only">Renzo Avila Profile Photo</DialogTitle>
                 <div className="relative w-full max-w-md mx-auto">
                   <div className="aspect-square overflow-hidden rounded-full border-4 border-primary/20 shadow-xl">
-                    <img 
-                      src="/lovable-uploads/74204ed6-b70d-42fc-962a-ad475ddd4383.png" 
-                      alt="Renzo Avila" 
-                      className="w-full h-full object-cover"
-                    />
+                    <img src="/lovable-uploads/74204ed6-b70d-42fc-962a-ad475ddd4383.png" alt="Renzo Avila" className="w-full h-full object-cover" />
                   </div>
                 </div>
               </DialogContent>
@@ -111,5 +103,4 @@ const HeroSection = () => {
       </div>
     </section>;
 };
-
 export default HeroSection;
