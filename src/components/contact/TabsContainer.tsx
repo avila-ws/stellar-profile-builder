@@ -23,19 +23,19 @@ const TabsContainer = () => {
   
   return (
     <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
-      <TabsList className="grid w-full max-w-md mx-auto mb-8 grid-cols-2">
-        <TabsTrigger value="message">Send Message</TabsTrigger>
-        <TabsTrigger value="schedule">Schedule Meeting</TabsTrigger>
+      <TabsList className="grid w-full max-w-md mx-auto mb-8 grid-cols-2 animate-slide-in-top">
+        <TabsTrigger value="message" className="transition-all duration-300">Send Message</TabsTrigger>
+        <TabsTrigger value="schedule" className="transition-all duration-300">Schedule Meeting</TabsTrigger>
       </TabsList>
       
-      <TabsContent value="message">
+      <TabsContent value="message" className="animate-fade-in">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
           <ContactInfo onScheduleClick={handleScheduleClick} />
           <ContactForm />
         </div>
       </TabsContent>
       
-      <TabsContent value="schedule">
+      <TabsContent value="schedule" className="animate-fade-in">
         <BookingCalendar />
       </TabsContent>
     </Tabs>
