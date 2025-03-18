@@ -1,5 +1,4 @@
-
-import { Briefcase, Server, Lock, Code, Database, Bitcoin, ChevronDown, ChevronUp, Building2, Bank, Building, Home, Palmtree } from "lucide-react";
+import { Briefcase, Server, Lock, Code, Database, Bitcoin, ChevronDown, ChevronUp, Building2, Building, Home, Palmtree, Landmark } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Card, CardContent } from "@/components/ui/card";
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
@@ -149,7 +148,7 @@ const ExperienceSection = () => {
                 role="DevSecOps Engineer"
                 period="Oct 2019 - Sep 2020"
                 location="Peru"
-                icon={<Bank className="h-5 w-5 text-primary" />}
+                icon={<Landmark className="h-5 w-5 text-primary" />}
                 description={[
                   "Led cybersecurity initiatives, collaborating with departments to oversee cloud-based applications and new implementations, ensuring optimal standards and resulting in a 30% increase in system uptime",
                   "Enhanced software security by integrating advanced code analysis techniques, boosting protection standards by 35% and reducing production code vulnerabilities by 25%",
