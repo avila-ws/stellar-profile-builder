@@ -1,10 +1,13 @@
+
 import { Shield, Code, Cloud } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useEffect, useState } from "react";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
+
 const HeroSection = () => {
   const [isVisible, setIsVisible] = useState(false);
+
   useEffect(() => {
     // Add a small delay before starting animations for better perceived performance
     const timer = setTimeout(() => {
@@ -12,6 +15,7 @@ const HeroSection = () => {
     }, 100);
     return () => clearTimeout(timer);
   }, []);
+
   return <section id="home" className="pt-28 pb-20 md:pt-36 md:pb-32 overflow-hidden">
       <div className="container max-w-7xl mx-auto px-4 sm:px-6">
         <div className="flex flex-col items-center text-center">
@@ -32,11 +36,11 @@ const HeroSection = () => {
               <DialogContent className="p-0 border-0 bg-transparent shadow-none max-w-3xl w-full flex items-center justify-center">
                 <div className="relative w-full max-w-xl mx-auto">
                   {/* Black vignette overlay effect */}
-                  <div className="absolute inset-0 shadow-[inset_0_0_100px_40px_rgba(0,0,0,0)] z-10 rounded-full"></div>
+                  <div className="absolute inset-0 shadow-[inset_0_0_100px_40px_rgba(0,0,0,0.5)] z-10 rounded-full"></div>
                   
-                  {/* Image container with negative top margin to crop the top portion */}
+                  {/* Image container with increased negative top margin to crop more of the top portion */}
                   <div className="overflow-hidden rounded-full">
-                    <img src="/lovable-uploads/78d2e6ac-44c0-4542-ab78-92637203a5fd.png" alt="Renzo Avila" className="w-full h-auto object-cover transform transition-transform duration-300 scale-110 border-4 border-primary/20 -mt-10" />
+                    <img src="/lovable-uploads/78d2e6ac-44c0-4542-ab78-92637203a5fd.png" alt="Renzo Avila" className="w-full h-auto object-cover transform transition-transform duration-300 scale-110 border-4 border-primary/20 -mt-24" />
                   </div>
                 </div>
               </DialogContent>
@@ -105,4 +109,5 @@ const HeroSection = () => {
       </div>
     </section>;
 };
+
 export default HeroSection;
