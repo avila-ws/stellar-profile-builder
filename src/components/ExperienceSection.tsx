@@ -1,3 +1,4 @@
+
 import { Briefcase, Server, Lock, Code, Database, Bitcoin, ChevronDown, ChevronUp, Building2, Building, Home, Palmtree, Landmark } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Card, CardContent } from "@/components/ui/card";
@@ -29,6 +30,8 @@ const WorkExperience = ({
 }: WorkExperienceProps) => {
   const [isExpanded, setIsExpanded] = useState(false);
   
+  const toggleExpand = () => setIsExpanded(!isExpanded);
+  
   return (
     <div className="relative pl-12 pb-8">
       {!isLast && <div className="absolute top-0 left-5 h-full w-px bg-border"></div>}
@@ -36,9 +39,9 @@ const WorkExperience = ({
         {icon}
       </div>
       
-      <Accordion type="single" collapsible className="mt-0 border-none">
+      <Accordion type="single" collapsible className="mt-0 border-none" value={isExpanded ? "description" : ""}>
         <AccordionItem value="description" className="border-none">
-          <div className="cursor-pointer group" onClick={() => setIsExpanded(!isExpanded)}>
+          <div>
             <h3 className="text-xl font-semibold flex items-center">
               {companyUrl ? (
                 <a 
@@ -54,7 +57,10 @@ const WorkExperience = ({
                 <span>{company}</span>
               )}
             </h3>
-            <div className="flex flex-col sm:flex-row sm:items-center gap-2 mb-2 mt-1">
+            <div 
+              className="flex flex-col sm:flex-row sm:items-center gap-2 mb-2 mt-1 cursor-pointer hover:text-primary transition-colors"
+              onClick={toggleExpand}
+            >
               <span className="font-medium">{role}</span>
               <span className="hidden sm:block text-muted-foreground">•</span>
               <span className="text-muted-foreground">{period}</span>
@@ -65,9 +71,9 @@ const WorkExperience = ({
           
           <AccordionTrigger 
             className="py-1 text-sm text-primary hover:no-underline justify-start p-0"
-            onClick={() => setIsExpanded(!isExpanded)}
+            onClick={toggleExpand}
           >
-            {isExpanded ? "Hide details" : "View details"}
+            {isExpanded ? "Ocultar detalles" : "Ver detalles"}
           </AccordionTrigger>
           
           <AccordionContent>
