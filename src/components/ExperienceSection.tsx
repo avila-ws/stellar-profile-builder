@@ -91,7 +91,7 @@ const WorkExperience = ({
             className="py-1 text-sm text-primary hover:no-underline justify-start p-0"
             onClick={toggleExpand}
           >
-            {isExpanded ? "Ocultar detalles" : "Ver detalles"}
+            {isExpanded ? "Hide details" : "Show details"}
           </AccordionTrigger>
           
           <AccordionContent>
