@@ -3,10 +3,15 @@ import { Shield, Code, Cloud } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useEffect, useState } from "react";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { HoverCard, HoverCardContent, HoverCardTrigger } from "@/components/ui/hover-card";
+import { 
+  AlertDialog,
+  AlertDialogContent,
+  AlertDialogTrigger,
+} from "@/components/ui/alert-dialog";
 
 const HeroSection = () => {
   const [isVisible, setIsVisible] = useState(false);
+  const [isImageOpen, setIsImageOpen] = useState(false);
   
   useEffect(() => {
     // Add a small delay before starting animations for better perceived performance
@@ -16,6 +21,20 @@ const HeroSection = () => {
     
     return () => clearTimeout(timer);
   }, []);
+
+  // Handle closing the image modal by clicking anywhere
+  useEffect(() => {
+    if (isImageOpen) {
+      const handleClickOutside = () => {
+        setIsImageOpen(false);
+      };
+      
+      document.addEventListener('click', handleClickOutside);
+      return () => {
+        document.removeEventListener('click', handleClickOutside);
+      };
+    }
+  }, [isImageOpen]);
 
   return (
     <section id="home" className="pt-28 pb-20 md:pt-36 md:pb-32 overflow-hidden">
@@ -34,28 +53,31 @@ const HeroSection = () => {
               isVisible ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-4"
             }`}
           >
-            <HoverCard>
-              <HoverCardTrigger asChild>
+            <AlertDialog open={isImageOpen} onOpenChange={setIsImageOpen}>
+              <AlertDialogTrigger asChild>
                 <div className="cursor-pointer transition-transform duration-300 hover:scale-105">
                   <Avatar className="w-40 h-40 border-4 border-primary/20 shadow-lg">
                     <AvatarImage 
-                      src="/lovable-uploads/78d2e6ac-44c0-4542-ab78-92637203a5fd.png" 
+                      src="/lovable-uploads/104383f0-b1b4-4c3c-ac8a-6a02b8172fdf.png" 
                       alt="Renzo Avila"
                     />
                     <AvatarFallback className="text-2xl font-bold">RA</AvatarFallback>
                   </Avatar>
                 </div>
-              </HoverCardTrigger>
-              <HoverCardContent className="w-80 p-0 border-0">
-                <div className="overflow-hidden rounded-md">
+              </AlertDialogTrigger>
+              <AlertDialogContent 
+                className="p-0 border-0 overflow-hidden bg-transparent max-w-5xl flex items-center justify-center"
+                onClick={(e) => e.stopPropagation()} // Prevent closing when clicking the image itself
+              >
+                <div className="relative w-full h-full">
                   <img 
-                    src="/lovable-uploads/78d2e6ac-44c0-4542-ab78-92637203a5fd.png" 
+                    src="/lovable-uploads/104383f0-b1b4-4c3c-ac8a-6a02b8172fdf.png" 
                     alt="Renzo Avila"
-                    className="w-full h-auto object-cover transform transition-transform duration-300 scale-110"
+                    className="w-auto max-h-[80vh] max-w-full object-contain rounded-lg"
                   />
                 </div>
-              </HoverCardContent>
-            </HoverCard>
+              </AlertDialogContent>
+            </AlertDialog>
           </div>
           
           <h1 
