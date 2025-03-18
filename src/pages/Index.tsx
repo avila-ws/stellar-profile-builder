@@ -5,7 +5,6 @@ import AboutSection from "@/components/AboutSection";
 import ExperienceSection from "@/components/ExperienceSection";
 import ContactSection from "@/components/ContactSection";
 import Footer from "@/components/Footer";
-import TestimonialCarousel from "@/components/TestimonialCarousel";
 
 const Index = () => {
   return (
@@ -14,7 +13,6 @@ const Index = () => {
       <HeroSection />
       <AboutSection />
       <ExperienceSection />
-      <TestimonialCarousel />
       <ContactSection />
       <Footer />
     </div>
