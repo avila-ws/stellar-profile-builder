@@ -95,7 +95,18 @@ const WorkExperience = ({
           </AccordionTrigger>
           
           <AccordionContent>
-            <ul className="list-disc pl-5 space-y-2 mt-2">
+            <ul 
+              className="list-disc pl-5 space-y-2 mt-2 cursor-pointer hover:text-primary/80 transition-colors"
+              onClick={toggleExpand}
+              role="button"
+              tabIndex={0}
+              onKeyDown={(e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                  e.preventDefault();
+                  toggleExpand();
+                }
+              }}
+            >
               {description.map((item, index) => (
                 <li key={index} className="text-muted-foreground">
                   {highlightDescription(item)}
