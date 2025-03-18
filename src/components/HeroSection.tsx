@@ -19,8 +19,26 @@ const HeroSection = () => {
             DevSecOps Engineer with 6 years of experience integrating security into CI/CD pipelines and managing ISO 27001-compliant cloud infrastructures.
           </p>
           
+          <div className="flex flex-wrap justify-center gap-3 mb-8">
+            <a href="https://maps.app.goo.gl/QnToM6RPniyKprZD7" target="_blank" rel="noopener noreferrer" className="inline-flex items-center text-sm text-muted-foreground hover:text-primary transition-colors">
+              <span className="font-medium">Barcelona, Spain</span>
+            </a>
+            <span className="text-muted-foreground">•</span>
+            <a href="https://www.linkedin.com/in/blockchain-security-devops-finance-devsecops-rust-engineer/" target="_blank" rel="noopener noreferrer" className="inline-flex items-center text-sm text-muted-foreground hover:text-primary transition-colors">
+              <span className="font-medium">LinkedIn</span>
+            </a>
+            <span className="text-muted-foreground">•</span>
+            <a href="https://wa.me/443301229696?text=Hello%2C%20I%20would%20like%20to%20get%20in%20touch%20with%20you" target="_blank" rel="noopener noreferrer" className="inline-flex items-center text-sm text-muted-foreground hover:text-primary transition-colors">
+              <span className="font-medium">+44 330 122 9696</span>
+            </a>
+            <span className="text-muted-foreground">•</span>
+            <a href="https://calendar.app.google/oy7TjX11PNBx6PoJ9" target="_blank" rel="noopener noreferrer" className="inline-flex items-center text-sm text-muted-foreground hover:text-primary transition-colors">
+              <span className="font-medium">RENZO@AVILA.WS</span>
+            </a>
+          </div>
+          
           <p className="text-lg text-muted-foreground max-w-3xl mb-10">
-            Based in Barcelona, Spain • Trilingual in English, Portuguese, and Spanish
+            Trilingual in English, Portuguese, and Spanish • Specialized in Blockchain, AWS Security & ISO 27001
           </p>
           
           <div className="flex flex-wrap justify-center gap-4 mb-12">

@@ -1,9 +1,13 @@
 
 import { useState, useEffect } from 'react';
 import { cn } from "@/lib/utils";
+import { useTheme } from "@/context/ThemeProvider";
+import { Moon, Sun } from "lucide-react";
+import { Button } from "@/components/ui/button";
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
+  const { theme, toggleTheme } = useTheme();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -18,7 +22,7 @@ const Navbar = () => {
     <nav className={cn(
       "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
       scrolled 
-        ? "bg-white/90 backdrop-blur-md shadow-sm py-3" 
+        ? "bg-background/90 backdrop-blur-md shadow-sm py-3 dark:bg-background/80" 
         : "bg-transparent py-5"
     )}>
       <div className="container max-w-7xl mx-auto px-4 sm:px-6 flex justify-between items-center">
@@ -31,9 +35,25 @@ const Navbar = () => {
           <a href="#contact" className="text-foreground hover:text-primary transition-colors">Contact</a>
         </div>
         
-        <a href="#contact" className="hidden md:inline-flex bg-primary text-white px-4 py-2 rounded-md font-medium hover:bg-primary/90 transition-colors">
-          Get in Touch
-        </a>
+        <div className="flex items-center gap-4">
+          <Button 
+            variant="ghost" 
+            size="icon" 
+            onClick={toggleTheme} 
+            className="rounded-full"
+          >
+            {theme === "light" ? (
+              <Moon className="h-5 w-5" />
+            ) : (
+              <Sun className="h-5 w-5" />
+            )}
+            <span className="sr-only">Toggle theme</span>
+          </Button>
+          
+          <a href="#contact" className="hidden md:inline-flex bg-primary text-primary-foreground px-4 py-2 rounded-md font-medium hover:bg-primary/90 transition-colors">
+            Get in Touch
+          </a>
+        </div>
       </div>
     </nav>
   );
