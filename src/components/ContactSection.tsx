@@ -53,88 +53,90 @@ const ContactSection = () => {
           
           <TabsContent value="message">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-              <div>
+              <div className="bg-white dark:bg-card rounded-xl p-6 shadow-sm border border-gray-100 dark:border-gray-800">
                 <h3 className="text-2xl font-semibold mb-6">Contact Information</h3>
                 
                 <div className="space-y-6">
-                  <div className="flex items-center gap-4">
+                  <div className="flex items-center gap-4 p-3 hover:bg-gray-50 dark:hover:bg-gray-900/10 rounded-lg transition-colors">
                     <div className="bg-primary/10 p-3 rounded-full">
                       <Mail className="h-6 w-6 text-primary" />
                     </div>
                     <div>
-                      <p className="text-sm text-muted-foreground">Email</p>
-                      <a href="mailto:renzo@avila.ws" className="font-medium hover:text-primary transition-colors">renzo@avila.ws</a>
+                      <p className="text-sm text-gray-600 dark:text-muted-foreground">Email</p>
+                      <a href="mailto:renzo@avila.ws" className="font-medium text-gray-900 dark:text-foreground hover:text-primary transition-colors">renzo@avila.ws</a>
                     </div>
                   </div>
                   
-                  <div className="flex items-center gap-4">
+                  <div className="flex items-center gap-4 p-3 hover:bg-gray-50 dark:hover:bg-gray-900/10 rounded-lg transition-colors">
                     <div className="bg-primary/10 p-3 rounded-full">
                       <Phone className="h-6 w-6 text-primary" />
                     </div>
                     <div>
-                      <p className="text-sm text-muted-foreground">Phone</p>
-                      <a href="https://wa.me/443301229696?text=Hello%2C%20I%20would%20like%20to%20get%20in%20touch%20with%20you" target="_blank" rel="noopener noreferrer" className="font-medium hover:text-primary transition-colors">+44 330 122 9696</a>
+                      <p className="text-sm text-gray-600 dark:text-muted-foreground">Phone</p>
+                      <a href="https://wa.me/443301229696?text=Hello%2C%20I%20would%20like%20to%20get%20in%20touch%20with%20you" target="_blank" rel="noopener noreferrer" className="font-medium text-gray-900 dark:text-foreground hover:text-primary transition-colors">+44 330 122 9696</a>
                     </div>
                   </div>
                   
-                  <div className="flex items-center gap-4">
+                  <div className="flex items-center gap-4 p-3 hover:bg-gray-50 dark:hover:bg-gray-900/10 rounded-lg transition-colors">
                     <div className="bg-primary/10 p-3 rounded-full">
                       <Calendar className="h-6 w-6 text-primary" />
                     </div>
                     <div>
-                      <p className="text-sm text-muted-foreground">Schedule a meeting</p>
-                      <Button variant="link" className="font-medium hover:text-primary transition-colors p-0 h-auto" onClick={handleScheduleClick}>
+                      <p className="text-sm text-gray-600 dark:text-muted-foreground">Schedule a meeting</p>
+                      <Button variant="link" className="font-medium text-gray-900 dark:text-foreground hover:text-primary transition-colors p-0 h-auto" onClick={handleScheduleClick}>
                         Book a time on my calendar <ChevronRight className="h-4 w-4 ml-1" />
                       </Button>
                     </div>
                   </div>
                   
-                  <div className="flex items-center gap-4">
+                  <div className="flex items-center gap-4 p-3 hover:bg-gray-50 dark:hover:bg-gray-900/10 rounded-lg transition-colors">
                     <div className="bg-primary/10 p-3 rounded-full">
                       <MapPin className="h-6 w-6 text-primary" />
                     </div>
                     <div>
-                      <p className="text-sm text-muted-foreground">Location</p>
-                      <a href="https://maps.app.goo.gl/QnToM6RPniyKprZD7" target="_blank" rel="noopener noreferrer" className="font-medium hover:text-primary transition-colors">Barcelona, Spain</a>
+                      <p className="text-sm text-gray-600 dark:text-muted-foreground">Location</p>
+                      <a href="https://maps.app.goo.gl/QnToM6RPniyKprZD7" target="_blank" rel="noopener noreferrer" className="font-medium text-gray-900 dark:text-foreground hover:text-primary transition-colors">Barcelona, Spain</a>
                     </div>
                   </div>
                   
-                  <h4 className="text-xl font-medium mt-8 mb-4">Connect with me</h4>
-                  
-                  <div className="flex gap-4">
-                    <a href="https://www.linkedin.com/in/blockchain-security-devops-finance-devsecops-rust-engineer/" target="_blank" rel="noopener noreferrer" className="bg-card hover:bg-accent transition-colors p-4 rounded-full border">
-                      <Linkedin className="h-6 w-6" />
-                    </a>
-                    <a href="https://github.com/" target="_blank" rel="noopener noreferrer" className="bg-card hover:bg-accent transition-colors p-4 rounded-full border">
-                      <Github className="h-6 w-6" />
-                    </a>
+                  <div className="border-t border-gray-100 dark:border-gray-800 pt-6 mt-6">
+                    <h4 className="text-xl font-medium mb-4">Connect with me</h4>
+                    
+                    <div className="flex gap-4">
+                      <a href="https://www.linkedin.com/in/blockchain-security-devops-finance-devsecops-rust-engineer/" target="_blank" rel="noopener noreferrer" className="bg-white dark:bg-card hover:bg-gray-50 dark:hover:bg-accent transition-colors p-4 rounded-full border shadow-sm">
+                        <Linkedin className="h-6 w-6 text-gray-700 dark:text-foreground" />
+                      </a>
+                      <a href="https://github.com/" target="_blank" rel="noopener noreferrer" className="bg-white dark:bg-card hover:bg-gray-50 dark:hover:bg-accent transition-colors p-4 rounded-full border shadow-sm">
+                        <Github className="h-6 w-6 text-gray-700 dark:text-foreground" />
+                      </a>
+                    </div>
                   </div>
                 </div>
               </div>
               
-              <div>
+              <div className="bg-white dark:bg-card rounded-xl p-6 shadow-sm border border-gray-100 dark:border-gray-800">
                 <h3 className="text-2xl font-semibold mb-6">Send me a message</h3>
                 
                 <form onSubmit={handleSubmit} className="space-y-6">
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                     <div className="space-y-2">
-                      <label htmlFor="name" className="text-sm font-medium">Name</label>
+                      <label htmlFor="name" className="text-sm font-medium text-gray-700 dark:text-muted-foreground">Name</label>
                       <Input id="name" placeholder="Your name" required />
                     </div>
                     
                     <div className="space-y-2">
-                      <label htmlFor="email" className="text-sm font-medium">Email</label>
+                      <label htmlFor="email" className="text-sm font-medium text-gray-700 dark:text-muted-foreground">Email</label>
                       <Input id="email" type="email" placeholder="Your email" required />
                     </div>
                   </div>
                   
                   <div className="space-y-2">
-                    <label htmlFor="subject" className="text-sm font-medium">Subject</label>
+                    <label htmlFor="subject" className="text-sm font-medium text-gray-700 dark:text-muted-foreground">Subject</label>
                     <Input id="subject" placeholder="Subject" required />
                   </div>
                   
                   <div className="space-y-2">
-                    <label htmlFor="message" className="text-sm font-medium">Message</label>
+                    <label htmlFor="message" className="text-sm font-medium text-gray-700 dark:text-muted-foreground">Message</label>
                     <Textarea 
                       id="message" 
                       placeholder="Your message" 
