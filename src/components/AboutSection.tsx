@@ -1,8 +1,60 @@
 
-import { CheckCircle, Globe, GraduationCap, Shield, Building } from "lucide-react";
+import { CheckCircle, Globe, GraduationCap, Shield, Building, ChevronDown, ChevronUp } from "lucide-react";
 import { Card } from "@/components/ui/card";
+import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
+import { useState } from "react";
+import { Button } from "@/components/ui/button";
+
+interface EducationCardProps {
+  institution: string;
+  url: string;
+  degrees: Array<{title: string, description: string}>;
+}
+
+const EducationCard = ({ institution, url, degrees }: EducationCardProps) => {
+  const [isOpen, setIsOpen] = useState(false);
+  
+  return (
+    <div>
+      <h4 className="font-medium flex items-center justify-between">
+        <a href={url} target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">
+          {institution}
+        </a>
+        <Button 
+          variant="ghost" 
+          size="sm" 
+          className="p-0 h-8 w-8"
+          onClick={() => setIsOpen(!isOpen)}
+        >
+          {isOpen ? <ChevronUp className="h-4 w-4" /> : <ChevronDown className="h-4 w-4" />}
+          <span className="sr-only">Toggle</span>
+        </Button>
+      </h4>
+      
+      <Collapsible open={isOpen} onOpenChange={setIsOpen}>
+        <CollapsibleContent>
+          <ul className="list-disc pl-5 space-y-1 mt-1 text-muted-foreground">
+            {degrees.map((degree, index) => (
+              <li key={index}>
+                <span className="font-medium">{degree.title}</span> - {degree.description}
+              </li>
+            ))}
+          </ul>
+        </CollapsibleContent>
+      </Collapsible>
+      
+      {!isOpen && (
+        <div className="mt-1 text-muted-foreground text-sm">
+          Click to see details about {degrees.length} degree{degrees.length > 1 ? 's' : ''}
+        </div>
+      )}
+    </div>
+  );
+};
 
 const AboutSection = () => {
+  const [languagesOpen, setLanguagesOpen] = useState(false);
+  
   return (
     <section id="about" className="py-20 bg-muted/50 dark:bg-muted/10">
       <div className="container max-w-7xl mx-auto px-4 sm:px-6">
@@ -29,42 +81,61 @@ const AboutSection = () => {
                 </h3>
                 
                 <div className="space-y-5">
-                  <div>
-                    <h4 className="font-medium">
-                      <a href="https://web.archive.org/web/20110806134524/http://www.unitec.edu.ve/index5.jsp" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">
-                        Central University of Technology
-                      </a>
-                    </h4>
-                    <ul className="list-disc pl-5 space-y-1 mt-1 text-muted-foreground">
-                      <li>B.Sc. in Systems Engineering - Specialized in IT-driven business optimization and strategic data management</li>
-                      <li>B.Sc. in Business Administration and Management - Competent in operational efficiency and strategic administrative leadership</li>
-                    </ul>
-                  </div>
+                  <EducationCard 
+                    institution="Central University of Technology"
+                    url="https://web.archive.org/web/20110806134524/http://www.unitec.edu.ve/index5.jsp"
+                    degrees={[
+                      {
+                        title: "B.Sc. in Systems Engineering",
+                        description: "Specialized in IT-driven business optimization and strategic data management"
+                      },
+                      {
+                        title: "B.Sc. in Business Administration and Management", 
+                        description: "Competent in operational efficiency and strategic administrative leadership"
+                      }
+                    ]}
+                  />
                   
-                  <div>
-                    <h4 className="font-medium">
-                      <a href="https://ujap.edu.ve/" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">
-                        Forensic Science and Cybersecurity Academy
-                      </a>
-                    </h4>
-                    <ul className="list-disc pl-5 space-y-1 mt-1 text-muted-foreground">
-                      <li>Diploma in Forensic Science and Criminalistics - Specialized in forensic techniques and criminal analysis</li>
-                      <li>Diploma in Forensic Computing and Cybercrime - Trained in cybercrime investigation and forensic computing</li>
-                    </ul>
-                  </div>
+                  <EducationCard 
+                    institution="Forensic Science and Cybersecurity Academy"
+                    url="https://ujap.edu.ve/"
+                    degrees={[
+                      {
+                        title: "Diploma in Forensic Science and Criminalistics",
+                        description: "Specialized in forensic techniques and criminal analysis"
+                      },
+                      {
+                        title: "Diploma in Forensic Computing and Cybercrime", 
+                        description: "Trained in cybercrime investigation and forensic computing"
+                      }
+                    ]}
+                  />
                 </div>
               </Card>
               
               <Card className="p-6">
-                <h3 className="text-xl font-semibold mb-4 flex items-center">
-                  <Globe className="h-6 w-6 text-primary mr-2 flex-shrink-0" />
-                  Languages
-                </h3>
-                <ul className="list-disc pl-5 space-y-1">
-                  <li>English (Fluent)</li>
-                  <li>Portuguese (Fluent)</li>
-                  <li>Spanish (Native)</li>
-                </ul>
+                <Collapsible open={languagesOpen} onOpenChange={setLanguagesOpen}>
+                  <div className="flex items-center justify-between">
+                    <h3 className="text-xl font-semibold flex items-center">
+                      <Globe className="h-6 w-6 text-primary mr-2 flex-shrink-0" />
+                      Languages
+                    </h3>
+                    <CollapsibleTrigger asChild>
+                      <Button variant="ghost" size="sm" className="p-0 h-8 w-8">
+                        {languagesOpen ? <ChevronUp className="h-4 w-4" /> : <ChevronDown className="h-4 w-4" />}
+                        <span className="sr-only">Toggle</span>
+                      </Button>
+                    </CollapsibleTrigger>
+                  </div>
+                  
+                  <CollapsibleContent>
+                    <ul className="list-disc pl-5 space-y-1 mt-2">
+                      <li>English (Fluent)</li>
+                      <li>Portuguese (Fluent)</li>
+                      <li>Spanish (Native)</li>
+                    </ul>
+                  </CollapsibleContent>
+                </Collapsible>
               </Card>
             </div>
           </div>

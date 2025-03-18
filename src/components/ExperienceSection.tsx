@@ -1,7 +1,10 @@
 
-import { Briefcase, Server, Lock, Code, Database, Bitcoin } from "lucide-react";
+import { Briefcase, Server, Lock, Code, Database, Bitcoin, ChevronDown, ChevronUp } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Card, CardContent } from "@/components/ui/card";
+import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
+import { useState } from "react";
+import { Button } from "@/components/ui/button";
 
 interface WorkExperienceProps {
   company: string;
@@ -53,19 +56,47 @@ interface SkillCategoryProps {
   icon: React.ReactNode;
 }
 
-const SkillCategory = ({ title, skills, icon }: SkillCategoryProps) => (
-  <Card className="p-6">
-    <h4 className="font-semibold text-lg mb-3 flex items-center">
-      {icon}
-      <span className="ml-2">{title}</span>
-    </h4>
-    <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
-      {skills.map((skill) => (
-        <span key={skill} className="bg-primary/10 text-primary px-2 py-1 rounded text-sm">{skill}</span>
-      ))}
-    </div>
-  </Card>
-);
+const SkillCategory = ({ title, skills, icon }: SkillCategoryProps) => {
+  const [isOpen, setIsOpen] = useState(false);
+
+  return (
+    <Card className="p-6">
+      <Collapsible open={isOpen} onOpenChange={setIsOpen} className="space-y-2">
+        <div className="flex items-center justify-between">
+          <h4 className="font-semibold text-lg flex items-center">
+            {icon}
+            <span className="ml-2">{title}</span>
+          </h4>
+          <CollapsibleTrigger asChild>
+            <Button variant="ghost" size="sm" className="p-0 h-8 w-8">
+              {isOpen ? <ChevronUp className="h-4 w-4" /> : <ChevronDown className="h-4 w-4" />}
+              <span className="sr-only">Toggle</span>
+            </Button>
+          </CollapsibleTrigger>
+        </div>
+        
+        <CollapsibleContent className="space-y-2">
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-2 pt-2">
+            {skills.map((skill) => (
+              <span key={skill} className="bg-primary/10 text-primary px-2 py-1 rounded text-sm">{skill}</span>
+            ))}
+          </div>
+        </CollapsibleContent>
+        
+        {!isOpen && (
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-2 pt-2">
+            {skills.slice(0, 12).map((skill) => (
+              <span key={skill} className="bg-primary/10 text-primary px-2 py-1 rounded text-sm">{skill}</span>
+            ))}
+            {skills.length > 12 && (
+              <span className="bg-primary/10 text-primary px-2 py-1 rounded text-sm">+{skills.length - 12} more</span>
+            )}
+          </div>
+        )}
+      </Collapsible>
+    </Card>
+  );
+};
 
 const ExperienceSection = () => {
   return (
@@ -230,9 +261,8 @@ const ExperienceSection = () => {
               
               <Card className="p-6">
                 <CardContent className="p-0">
-                  <h4 className="font-semibold text-base mb-3">More Technologies</h4>
                   <p className="text-sm text-muted-foreground">
-                    My complete tech stack includes 150+ tools and technologies across cloud platforms, security frameworks, programming languages, database systems, and blockchain protocols to deliver secure, scalable, and efficient solutions.
+                    My complete tech stack includes 150+ tools and technologies. Click on each category above to see the full list of technologies I've worked with.
                   </p>
                 </CardContent>
               </Card>
