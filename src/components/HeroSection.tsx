@@ -34,7 +34,7 @@ const HeroSection = () => {
             }`}
           >
             <Avatar className="w-40 h-40 border-4 border-primary/20 shadow-lg">
-              <AvatarImage src="/lovable-uploads/5d69a563-1b84-46ce-b1c2-dbc333a60efe.png" alt="Renzo Avila" />
+              <AvatarImage src="/lovable-uploads/52c10e6f-2bd5-44a8-a6ec-024d9a18d65e.png" alt="Renzo Avila" />
               <AvatarFallback className="text-2xl font-bold">RA</AvatarFallback>
             </Avatar>
           </div>
