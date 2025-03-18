@@ -4,6 +4,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
+
 interface WorkExperienceProps {
   company: string;
   companyUrl?: string;
@@ -14,6 +15,7 @@ interface WorkExperienceProps {
   isLast?: boolean;
   icon?: React.ReactNode;
 }
+
 const WorkExperience = ({
   company,
   companyUrl,
@@ -41,23 +43,26 @@ const WorkExperience = ({
         <span className="hidden sm:block text-muted-foreground">•</span>
         <span className="text-muted-foreground">{location}</span>
       </div>
-      <ul className="list-disc pl-5 space-y-1 mt-2">
-        {description.map((item, index) => <li key={index} className="text-muted-foreground my-0 py-0 bg-slate-900">{item}</li>)}
+      <ul className="list-disc pl-5 space-y-2 mt-3">
+        {description.map((item, index) => <li key={index} className="text-muted-foreground">{item}</li>)}
       </ul>
     </div>;
 };
+
 interface SkillCategoryProps {
   title: string;
   skills: string[];
   icon: React.ReactNode;
 }
+
 const SkillCategory = ({
   title,
   skills,
   icon
 }: SkillCategoryProps) => {
   const [isOpen, setIsOpen] = useState(false);
-  return <Card className="p-6">
+  
+  return <Card className="p-6 hover:shadow-md transition-shadow duration-300">
       <Collapsible open={isOpen} onOpenChange={setIsOpen} className="space-y-2">
         <div className="flex items-center justify-between">
           <h4 className="font-semibold text-lg flex items-center">
@@ -79,12 +84,13 @@ const SkillCategory = ({
         </CollapsibleContent>
         
         {!isOpen && <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-2 pt-2">
-            {skills.slice(0, 12).map(skill => <span key={skill} className="bg-primary/10 text-primary px-2 py-1 rounded text-sm">{skill}</span>)}
-            {skills.length > 12 && <span className="bg-primary/10 text-primary px-2 py-1 rounded text-sm">+{skills.length - 12} more</span>}
+            {skills.slice(0, 8).map(skill => <span key={skill} className="bg-primary/10 text-primary px-2 py-1 rounded text-sm">{skill}</span>)}
+            {skills.length > 8 && <span className="bg-secondary text-secondary-foreground px-2 py-1 rounded text-sm font-medium">+{skills.length - 8} more</span>}
           </div>}
       </Collapsible>
     </Card>;
 };
+
 const ExperienceSection = () => {
   return <section id="experience" className="py-20">
       <div className="container max-w-7xl mx-auto px-4 sm:px-6">
@@ -139,4 +145,5 @@ const ExperienceSection = () => {
       </div>
     </section>;
 };
+
 export default ExperienceSection;
