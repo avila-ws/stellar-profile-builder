@@ -6,7 +6,7 @@ const BookingCalendar = () => {
     <div className="container mx-auto px-4 animate-fade-in">
       <h3 className="text-2xl font-semibold mb-6">Schedule a Meeting</h3>
       
-      <div className="w-full bg-white rounded-lg overflow-hidden shadow-md">
+      <div className="w-full bg-white dark:bg-background rounded-lg overflow-hidden shadow-md">
         {/* Google Calendar Appointment Scheduling integration */}
         <iframe 
           src="https://calendar.google.com/calendar/appointments/schedules/AcZssZ0RKCJXNFIQLYjZhar5z2JTUIK5ap37_6yYwdKoWJtmqjnv4wukx8T-JIMIRGTGqiaORDc2LY3J?gv=true" 
@@ -15,7 +15,7 @@ const BookingCalendar = () => {
           height="1050" 
           frameBorder="0"
           title="Google Calendar Appointment Scheduling"
-          className="bg-white"
+          className="bg-white dark:bg-background"
         ></iframe>
       </div>
     </div>
