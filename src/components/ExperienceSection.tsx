@@ -91,11 +91,14 @@ const WorkExperience = ({
             className="py-1 text-sm text-primary hover:no-underline justify-start p-0"
             onClick={toggleExpand}
           >
-            {isExpanded ? "Ocultar detalles" : "Ver detalles"}
+            {isExpanded ? "Hide details" : "View details"}
           </AccordionTrigger>
           
           <AccordionContent>
-            <ul className="list-disc pl-5 space-y-2 mt-2">
+            <ul 
+              className="list-disc pl-5 space-y-2 mt-2 cursor-pointer"
+              onClick={toggleExpand}
+            >
               {description.map((item, index) => (
                 <li key={index} className="text-muted-foreground">
                   {highlightDescription(item)}
