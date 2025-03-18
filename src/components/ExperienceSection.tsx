@@ -1,5 +1,5 @@
 
-import { Briefcase, Server, Lock, Code, Database, Bitcoin, ChevronDown, ChevronUp } from "lucide-react";
+import { Briefcase, Server, Lock, Code, Database, Bitcoin, ChevronDown, ChevronUp, Building2, Bank, Building, Home, Palmtree } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Card, CardContent } from "@/components/ui/card";
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
@@ -14,16 +14,17 @@ interface WorkExperienceProps {
   location: string;
   description: string[];
   isLast?: boolean;
+  icon?: React.ReactNode;
 }
 
-const WorkExperience = ({ company, companyUrl, role, period, location, description, isLast = false }: WorkExperienceProps) => {
+const WorkExperience = ({ company, companyUrl, role, period, location, description, isLast = false, icon = <Briefcase className="h-5 w-5 text-primary" /> }: WorkExperienceProps) => {
   return (
     <div className="relative pl-12 pb-8">
       {!isLast && (
         <div className="absolute top-0 left-5 h-full w-px bg-border"></div>
       )}
       <div className="absolute top-1 left-0 h-10 w-10 rounded-full bg-primary/10 flex items-center justify-center">
-        <Briefcase className="h-5 w-5 text-primary" />
+        {icon}
       </div>
       <h3 className="text-xl font-semibold">
         {companyUrl ? (
@@ -118,6 +119,7 @@ const ExperienceSection = () => {
                 role="DevSecOps Engineer"
                 period="Oct 2022 - Present"
                 location="Mexico"
+                icon={<Building2 className="h-5 w-5 text-primary" />}
                 description={[
                   "Led and coordinated the ISO 27001 certification, reducing security incidents by 50% and enhancing AWS security with robust endpoint protection and incident management policies",
                   "Developed automated security testing and integrated advanced code analysis, improving software protection by 45% and reducing production vulnerabilities by 25%",
@@ -132,6 +134,7 @@ const ExperienceSection = () => {
                 role="DevSecOps Engineer"
                 period="Oct 2020 - Sep 2022"
                 location="Peru"
+                icon={<Building className="h-5 w-5 text-primary" />}
                 description={[
                   "Established and fortified B89's security infrastructure, reducing vulnerabilities by 50% and integrating comprehensive security measures in fintech applications, enhancing overall system resilience",
                   "Directed key blockchain projects, managing infrastructure across multiple blockchain protocols, resulting in a 60% increase in transaction throughput and a 40% decrease in operational costs",
@@ -146,6 +149,7 @@ const ExperienceSection = () => {
                 role="DevSecOps Engineer"
                 period="Oct 2019 - Sep 2020"
                 location="Peru"
+                icon={<Bank className="h-5 w-5 text-primary" />}
                 description={[
                   "Led cybersecurity initiatives, collaborating with departments to oversee cloud-based applications and new implementations, ensuring optimal standards and resulting in a 30% increase in system uptime",
                   "Enhanced software security by integrating advanced code analysis techniques, boosting protection standards by 35% and reducing production code vulnerabilities by 25%",
@@ -159,6 +163,7 @@ const ExperienceSection = () => {
                 role="Front-End Software Engineer"
                 period="Oct 2018 - Sep 2019"
                 location="United States"
+                icon={<Home className="h-5 w-5 text-primary" />}
                 description={[
                   "Optimized CRM and ERP systems with React.js, collaborating with DevOps to automate security checks and streamline workflows, boosting user experience by 30%",
                   "Enhanced front-end security and API integrations, working with DevOps to improve CI/CD pipelines, increasing system resilience and performance by 25%",
@@ -172,6 +177,7 @@ const ExperienceSection = () => {
                 role="Blockchain Full-Stack Software Engineer"
                 period="Oct 2015 - Sep 2018"
                 location="Peru"
+                icon={<Server className="h-5 w-5 text-primary" />}
                 description={[
                   "Led over 20 blockchain projects, enhancing security and efficiency for financial and enterprise applications across Latin America, the Caribbean, and Europe",
                   "Designed and deployed scalable blockchain architectures, improving data integrity, security, and operational processes, increasing efficiency by 40% and reducing errors by 30%",
@@ -185,6 +191,7 @@ const ExperienceSection = () => {
                 role="Android Software Engineer"
                 period="Oct 2013 - Sep 2015"
                 location="Venezuela"
+                icon={<Palmtree className="h-5 w-5 text-primary" />}
                 description={[
                   "Developed and launched secure Android applications, integrating geolocation and payment systems, enhancing user engagement by 10% and operational efficiency",
                   "Optimized application security and performance, incorporating secure API integrations and encryption protocols, leading to a 40% increase in user satisfaction",
