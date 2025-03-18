@@ -35,7 +35,7 @@ const HeroSection = () => {
           >
             <Avatar className="w-40 h-40 border-4 border-primary/20 shadow-lg">
               <AvatarImage 
-                src="/lovable-uploads/64f2166d-2a78-4599-98ce-d535cbdf0e43.png" 
+                src="/lovable-uploads/78d2e6ac-44c0-4542-ab78-92637203a5fd.png" 
                 alt="Renzo Avila"
               />
               <AvatarFallback className="text-2xl font-bold">RA</AvatarFallback>
