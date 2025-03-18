@@ -30,18 +30,26 @@ const AboutSection = () => {
                 
                 <div className="space-y-5">
                   <div>
-                    <h4 className="font-medium">Central University of Technology</h4>
+                    <h4 className="font-medium">
+                      <a href="https://web.archive.org/web/20110806134524/http://www.unitec.edu.ve/index5.jsp" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">
+                        Central University of Technology
+                      </a>
+                    </h4>
                     <ul className="list-disc pl-5 space-y-1 mt-1 text-muted-foreground">
-                      <li>B.Sc. in Systems Engineering - Specialized in IT-driven business optimization</li>
-                      <li>B.Sc. in Business Administration and Management</li>
+                      <li>B.Sc. in Systems Engineering - Specialized in IT-driven business optimization and strategic data management</li>
+                      <li>B.Sc. in Business Administration and Management - Competent in operational efficiency and strategic administrative leadership</li>
                     </ul>
                   </div>
                   
                   <div>
-                    <h4 className="font-medium">Forensic Science and Cybersecurity Academy</h4>
+                    <h4 className="font-medium">
+                      <a href="https://ujap.edu.ve/" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">
+                        Forensic Science and Cybersecurity Academy
+                      </a>
+                    </h4>
                     <ul className="list-disc pl-5 space-y-1 mt-1 text-muted-foreground">
-                      <li>Diploma in Forensic Science and Criminalistics</li>
-                      <li>Diploma in Forensic Computing and Cybercrime</li>
+                      <li>Diploma in Forensic Science and Criminalistics - Specialized in forensic techniques and criminal analysis</li>
+                      <li>Diploma in Forensic Computing and Cybercrime - Trained in cybercrime investigation and forensic computing</li>
                     </ul>
                   </div>
                 </div>
