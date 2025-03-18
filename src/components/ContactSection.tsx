@@ -23,10 +23,16 @@ const ContactSection = () => {
   };
   
   const handleScheduleClick = () => {
-    // Find the schedule tab trigger and programmatically click it
+    // Directly set the tab value to "schedule" instead of trying to find and click an element
     const scheduleTab = document.querySelector('[data-value="schedule"]') as HTMLElement;
     if (scheduleTab) {
       scheduleTab.click();
+    } else {
+      // Fallback - scroll to contact section
+      const contactSection = document.getElementById("contact");
+      if (contactSection) {
+        contactSection.scrollIntoView({ behavior: "smooth" });
+      }
     }
   };
   
