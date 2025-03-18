@@ -41,20 +41,20 @@ const ContactSection = () => {
     <section id="contact" className="py-20 bg-muted/50 dark:bg-muted/10">
       <div className="container max-w-7xl mx-auto px-4 sm:px-6">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-foreground">Get in Touch</h2>
+          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-gray-900 dark:text-foreground">Get in Touch</h2>
           <div className="h-1 w-20 bg-primary mx-auto rounded-full"></div>
         </div>
         
         <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
           <TabsList className="grid w-full max-w-md mx-auto mb-8 grid-cols-2">
-            <TabsTrigger value="message">Send Message</TabsTrigger>
-            <TabsTrigger value="schedule">Schedule Meeting</TabsTrigger>
+            <TabsTrigger value="message" className="text-gray-800 dark:text-muted-foreground">Send Message</TabsTrigger>
+            <TabsTrigger value="schedule" className="text-gray-800 dark:text-muted-foreground">Schedule Meeting</TabsTrigger>
           </TabsList>
           
           <TabsContent value="message">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
               <div>
-                <h3 className="text-2xl font-semibold mb-6 text-foreground">Contact Information</h3>
+                <h3 className="text-2xl font-semibold mb-6 text-gray-900 dark:text-foreground">Contact Information</h3>
                 
                 <div className="space-y-6">
                   <div className="flex items-center gap-4">
@@ -99,21 +99,21 @@ const ContactSection = () => {
                     </div>
                   </div>
                   
-                  <h4 className="text-xl font-medium mt-8 mb-4 text-foreground">Connect with me</h4>
+                  <h4 className="text-xl font-medium mt-8 mb-4 text-gray-900 dark:text-foreground">Connect with me</h4>
                   
                   <div className="flex gap-4">
                     <a href="https://www.linkedin.com/in/blockchain-security-devops-finance-devsecops-rust-engineer/" target="_blank" rel="noopener noreferrer" className="bg-card hover:bg-accent transition-colors p-4 rounded-full border">
-                      <Linkedin className="h-6 w-6" />
+                      <Linkedin className="h-6 w-6 text-gray-800 dark:text-foreground" />
                     </a>
                     <a href="https://github.com/" target="_blank" rel="noopener noreferrer" className="bg-card hover:bg-accent transition-colors p-4 rounded-full border">
-                      <Github className="h-6 w-6" />
+                      <Github className="h-6 w-6 text-gray-800 dark:text-foreground" />
                     </a>
                   </div>
                 </div>
               </div>
               
               <div>
-                <h3 className="text-2xl font-semibold mb-6 text-foreground">Send me a message</h3>
+                <h3 className="text-2xl font-semibold mb-6 text-gray-900 dark:text-foreground">Send me a message</h3>
                 
                 <form onSubmit={handleSubmit} className="space-y-6">
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
