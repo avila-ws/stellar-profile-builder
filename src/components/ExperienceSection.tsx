@@ -59,7 +59,7 @@ const WorkExperience = ({
       
       <Accordion type="single" collapsible className="mt-0 border-none" value={isExpanded ? "description" : ""}>
         <AccordionItem value="description" className="border-none">
-          <div>
+          <div className="cursor-pointer" onClick={toggleExpand}>
             <h3 className="text-xl font-semibold flex items-center">
               {companyUrl ? (
                 <a 
@@ -76,8 +76,7 @@ const WorkExperience = ({
               )}
             </h3>
             <div 
-              className="flex flex-col sm:flex-row sm:items-center gap-2 mb-2 mt-1 cursor-pointer hover:text-primary transition-colors"
-              onClick={toggleExpand}
+              className="flex flex-col sm:flex-row sm:items-center gap-2 mb-2 mt-1 hover:text-primary transition-colors"
             >
               <span className="font-medium">{role}</span>
               <span className="hidden sm:block text-muted-foreground">•</span>
@@ -89,9 +88,9 @@ const WorkExperience = ({
           
           <AccordionTrigger 
             className="py-1 text-sm text-primary hover:no-underline justify-start p-0"
-            onClick={toggleExpand}
+            onClick={(e) => e.stopPropagation()}
           >
-            {isExpanded ? "Ocultar detalles" : "Ver detalles"}
+            {isExpanded ? "Hide details" : "View details"}
           </AccordionTrigger>
           
           <AccordionContent>
@@ -337,3 +336,4 @@ const ExperienceSection = () => {
 };
 
 export default ExperienceSection;
+
