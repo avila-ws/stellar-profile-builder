@@ -67,6 +67,48 @@ const ContactSection = () => {
     })
   };
   
+  // Card hover animation
+  const cardHoverAnimation = {
+    rest: { 
+      scale: 1,
+      boxShadow: "0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)",
+      transition: { 
+        duration: 0.2,
+        type: "tween",
+        ease: "easeOut"
+      }
+    },
+    hover: {
+      scale: 1.02,
+      y: -5,
+      boxShadow: "0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)",
+      transition: { 
+        duration: 0.2,
+        type: "tween",
+        ease: "easeIn"
+      }
+    }
+  };
+  
+  // Input field animation
+  const inputAnimation = {
+    rest: { scale: 1 },
+    focus: { scale: 1.02 }
+  };
+  
+  // Form field animations
+  const formFieldVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: (i: number) => ({
+      opacity: 1,
+      y: 0,
+      transition: {
+        delay: 0.1 * i,
+        duration: 0.4
+      }
+    })
+  };
+  
   return (
     <motion.section 
       id="contact" 
@@ -238,97 +280,145 @@ const ContactSection = () => {
                   </div>
                 </div>
                 
-                <div>
+                <motion.div 
+                  initial="rest"
+                  whileHover="hover"
+                  animate="rest"
+                  variants={cardHoverAnimation}
+                  className="bg-card dark:bg-card/5 backdrop-blur-sm p-6 rounded-xl border border-border/50"
+                >
                   <h3 className="text-2xl font-semibold mb-6">Send me a message</h3>
                   
                   <form onSubmit={handleSubmit} className="space-y-6">
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                       <motion.div 
                         className="space-y-2"
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ delay: 0.1, duration: 0.4 }}
+                        custom={0}
+                        initial="hidden"
+                        whileInView="visible"
+                        viewport={{ once: true }}
+                        variants={formFieldVariants}
                       >
                         <label htmlFor="name" className="text-sm font-medium">Name</label>
-                        <Input 
-                          id="name" 
-                          placeholder="Your name" 
-                          required 
-                          value={formState.name}
-                          onChange={handleInputChange}
-                          className="border-b focus:ring-2 focus:ring-primary/50 transition-all duration-300"
-                        />
+                        <motion.div
+                          initial="rest"
+                          whileFocus="focus"
+                          animate="rest"
+                          variants={inputAnimation}
+                        >
+                          <Input 
+                            id="name" 
+                            placeholder="Your name" 
+                            required 
+                            value={formState.name}
+                            onChange={handleInputChange}
+                            className="border-b focus:ring-2 focus:ring-primary/50 transition-all duration-300"
+                          />
+                        </motion.div>
                       </motion.div>
                       
                       <motion.div 
                         className="space-y-2"
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ delay: 0.2, duration: 0.4 }}
+                        custom={1}
+                        initial="hidden"
+                        whileInView="visible"
+                        viewport={{ once: true }}
+                        variants={formFieldVariants}
                       >
                         <label htmlFor="email" className="text-sm font-medium">Email</label>
-                        <Input 
-                          id="email" 
-                          type="email" 
-                          placeholder="Your email" 
-                          required 
-                          value={formState.email}
-                          onChange={handleInputChange}
-                          className="border-b focus:ring-2 focus:ring-primary/50 transition-all duration-300"
-                        />
+                        <motion.div
+                          initial="rest"
+                          whileFocus="focus"
+                          animate="rest"
+                          variants={inputAnimation}
+                        >
+                          <Input 
+                            id="email" 
+                            type="email" 
+                            placeholder="Your email" 
+                            required 
+                            value={formState.email}
+                            onChange={handleInputChange}
+                            className="border-b focus:ring-2 focus:ring-primary/50 transition-all duration-300"
+                          />
+                        </motion.div>
                       </motion.div>
                     </div>
                     
                     <motion.div 
                       className="space-y-2"
-                      initial={{ opacity: 0, y: 20 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ delay: 0.3, duration: 0.4 }}
+                      custom={2}
+                      initial="hidden"
+                      whileInView="visible"
+                      viewport={{ once: true }}
+                      variants={formFieldVariants}
                     >
                       <label htmlFor="subject" className="text-sm font-medium">Subject</label>
-                      <Input 
-                        id="subject" 
-                        placeholder="Subject" 
-                        required 
-                        value={formState.subject}
-                        onChange={handleInputChange}
-                        className="border-b focus:ring-2 focus:ring-primary/50 transition-all duration-300"
-                      />
+                      <motion.div
+                        initial="rest"
+                        whileFocus="focus"
+                        animate="rest"
+                        variants={inputAnimation}
+                      >
+                        <Input 
+                          id="subject" 
+                          placeholder="Subject" 
+                          required 
+                          value={formState.subject}
+                          onChange={handleInputChange}
+                          className="border-b focus:ring-2 focus:ring-primary/50 transition-all duration-300"
+                        />
+                      </motion.div>
                     </motion.div>
                     
                     <motion.div 
                       className="space-y-2"
-                      initial={{ opacity: 0, y: 20 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ delay: 0.4, duration: 0.4 }}
+                      custom={3}
+                      initial="hidden"
+                      whileInView="visible"
+                      viewport={{ once: true }}
+                      variants={formFieldVariants}
                     >
                       <label htmlFor="message" className="text-sm font-medium">Message</label>
-                      <Textarea 
-                        id="message" 
-                        placeholder="Your message" 
-                        className="min-h-[150px] border-b focus:ring-2 focus:ring-primary/50 transition-all duration-300" 
-                        required 
-                        value={formState.message}
-                        onChange={handleInputChange}
-                      />
+                      <motion.div
+                        initial="rest"
+                        whileFocus="focus"
+                        animate="rest"
+                        variants={inputAnimation}
+                      >
+                        <Textarea 
+                          id="message" 
+                          placeholder="Your message" 
+                          className="min-h-[150px] border-b focus:ring-2 focus:ring-primary/50 transition-all duration-300" 
+                          required 
+                          value={formState.message}
+                          onChange={handleInputChange}
+                        />
+                      </motion.div>
                     </motion.div>
                     
                     <motion.div
-                      initial={{ opacity: 0, y: 20 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ delay: 0.5, duration: 0.4 }}
+                      custom={4}
+                      initial="hidden"
+                      whileInView="visible"
+                      viewport={{ once: true }}
+                      variants={formFieldVariants}
                     >
                       <Button 
                         type="submit" 
-                        className="w-full sm:w-auto relative overflow-hidden"
-                        whileHover={{ scale: 1.05 }}
-                        whileTap={{ scale: 0.95 }}
+                        className="w-full sm:w-auto relative overflow-hidden group"
                       >
-                        Send Message
+                        <span className="relative z-10">Send Message</span>
+                        <motion.span 
+                          className="absolute inset-0 bg-primary/20 rounded-md"
+                          initial={{ scale: 0, opacity: 0 }}
+                          whileHover={{ scale: 1, opacity: 1 }}
+                          transition={{ duration: 0.3 }}
+                        />
                       </Button>
                     </motion.div>
                   </form>
-                </div>
+                </motion.div>
               </motion.div>
             </TabsContent>
             
