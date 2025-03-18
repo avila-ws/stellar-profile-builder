@@ -15,7 +15,7 @@ const BookingCalendar = () => {
           height="1050" 
           frameBorder="0"
           title="Google Calendar Appointment Scheduling"
-          className="bg-white dark:bg-gray-100"
+          className="bg-white"
         ></iframe>
       </div>
     </div>
