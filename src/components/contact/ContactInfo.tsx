@@ -9,11 +9,11 @@ interface ContactInfoProps {
 
 const ContactInfo = ({ onScheduleClick }: ContactInfoProps) => {
   return (
-    <div className="animate-slide-in-bottom bg-card rounded-lg shadow-sm p-6 border">
+    <div className="animate-slide-in-bottom bg-card rounded-lg shadow-sm p-6 border h-full">
       <h3 className="text-2xl font-semibold mb-6">Contact Information</h3>
       
-      <div className="space-y-6 stagger-animation">
-        <div className="flex items-center gap-4 opacity-0 animation-delay-100 group">
+      <div className="space-y-6">
+        <div className="flex items-center gap-4 group">
           <div className="bg-primary/10 p-3 rounded-full transition-all duration-300 group-hover:bg-primary group-hover:text-white">
             <Mail className="h-6 w-6 text-primary group-hover:text-white" />
           </div>
@@ -23,7 +23,7 @@ const ContactInfo = ({ onScheduleClick }: ContactInfoProps) => {
           </div>
         </div>
         
-        <div className="flex items-center gap-4 opacity-0 animation-delay-200 group">
+        <div className="flex items-center gap-4 group">
           <div className="bg-primary/10 p-3 rounded-full transition-all duration-300 group-hover:bg-primary group-hover:text-white">
             <Phone className="h-6 w-6 text-primary group-hover:text-white" />
           </div>
@@ -33,7 +33,7 @@ const ContactInfo = ({ onScheduleClick }: ContactInfoProps) => {
           </div>
         </div>
         
-        <div className="flex items-center gap-4 opacity-0 animation-delay-300 group">
+        <div className="flex items-center gap-4 group">
           <div className="bg-primary/10 p-3 rounded-full transition-all duration-300 group-hover:bg-primary group-hover:text-white">
             <Calendar className="h-6 w-6 text-primary group-hover:text-white" />
           </div>
@@ -45,7 +45,7 @@ const ContactInfo = ({ onScheduleClick }: ContactInfoProps) => {
           </div>
         </div>
         
-        <div className="flex items-center gap-4 opacity-0 animation-delay-400 group">
+        <div className="flex items-center gap-4 group">
           <div className="bg-primary/10 p-3 rounded-full transition-all duration-300 group-hover:bg-primary group-hover:text-white">
             <MapPin className="h-6 w-6 text-primary group-hover:text-white" />
           </div>
@@ -55,9 +55,9 @@ const ContactInfo = ({ onScheduleClick }: ContactInfoProps) => {
           </div>
         </div>
         
-        <h4 className="text-xl font-medium mt-8 mb-4 opacity-0 animation-delay-500">Connect with me</h4>
+        <h4 className="text-xl font-medium mt-8 mb-4">Connect with me</h4>
         
-        <div className="flex gap-4 opacity-0 animation-delay-600">
+        <div className="flex gap-4">
           <a href="https://www.linkedin.com/in/blockchain-security-devops-finance-devsecops-rust-engineer/" target="_blank" rel="noopener noreferrer" className="bg-card hover:bg-primary hover:text-white transition-colors p-4 rounded-full border hover:scale-110 transform transition-transform duration-300">
             <Linkedin className="h-6 w-6" />
           </a>

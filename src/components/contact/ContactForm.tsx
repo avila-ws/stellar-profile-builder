@@ -28,28 +28,28 @@ const ContactForm = () => {
   };
 
   return (
-    <div className="animate-slide-in-bottom animation-delay-300 bg-card rounded-lg shadow-sm p-6 border">
+    <div className="bg-card rounded-lg shadow-sm p-6 border h-full">
       <h3 className="text-2xl font-semibold mb-6">Send me a message</h3>
       
-      <form onSubmit={handleSubmit} className="space-y-6 stagger-animation">
+      <form onSubmit={handleSubmit} className="space-y-6">
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-          <div className="space-y-2 opacity-0 animation-delay-100">
+          <div className="space-y-2">
             <label htmlFor="name" className="text-sm font-medium">Name</label>
             <Input id="name" placeholder="Your name" required className="transition-all duration-300 focus:scale-101" />
           </div>
           
-          <div className="space-y-2 opacity-0 animation-delay-200">
+          <div className="space-y-2">
             <label htmlFor="email" className="text-sm font-medium">Email</label>
             <Input id="email" type="email" placeholder="Your email" required className="transition-all duration-300 focus:scale-101" />
           </div>
         </div>
         
-        <div className="space-y-2 opacity-0 animation-delay-300">
+        <div className="space-y-2">
           <label htmlFor="subject" className="text-sm font-medium">Subject</label>
           <Input id="subject" placeholder="Subject" required className="transition-all duration-300 focus:scale-101" />
         </div>
         
-        <div className="space-y-2 opacity-0 animation-delay-400">
+        <div className="space-y-2">
           <label htmlFor="message" className="text-sm font-medium">Message</label>
           <Textarea 
             id="message" 
@@ -61,7 +61,7 @@ const ContactForm = () => {
         
         <Button 
           type="submit" 
-          className="w-full sm:w-auto opacity-0 animation-delay-500 transition-all duration-300 hover:scale-105"
+          className="w-full sm:w-auto transition-all duration-300 hover:scale-105"
           disabled={isSubmitting}
         >
           {isSubmitting ? (

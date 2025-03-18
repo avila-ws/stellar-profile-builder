@@ -23,7 +23,7 @@ const TabsContainer = () => {
   
   return (
     <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
-      <TabsList className="grid w-full max-w-md mx-auto mb-8 grid-cols-2 animate-slide-in-top">
+      <TabsList className="grid w-full max-w-md mx-auto mb-8 grid-cols-2">
         <TabsTrigger 
           value="message" 
           className="transition-all duration-300 data-[state=active]:bg-primary data-[state=active]:text-primary-foreground"
@@ -39,16 +39,14 @@ const TabsContainer = () => {
       </TabsList>
       
       <TabsContent value="message" className="animate-fade-in">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           <ContactInfo onScheduleClick={handleScheduleClick} />
           <ContactForm />
         </div>
       </TabsContent>
       
       <TabsContent value="schedule" className="animate-fade-in">
-        <div className="bg-card rounded-lg shadow-sm border p-4">
-          <BookingCalendar />
-        </div>
+        <BookingCalendar />
       </TabsContent>
     </Tabs>
   );
