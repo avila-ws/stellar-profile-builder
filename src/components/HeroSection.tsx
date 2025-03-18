@@ -15,8 +15,12 @@ const HeroSection = () => {
             Renzo Avila
           </h1>
           
-          <p className="text-xl md:text-2xl text-muted-foreground max-w-3xl mb-10">
-            Integrating security into CI/CD pipelines, managing ISO 27001-compliant cloud infrastructures, and delivering secure solutions for blockchain and fintech projects.
+          <p className="text-xl md:text-2xl text-muted-foreground max-w-3xl mb-4">
+            DevSecOps Engineer with 6 years of experience integrating security into CI/CD pipelines and managing ISO 27001-compliant cloud infrastructures.
+          </p>
+          
+          <p className="text-lg text-muted-foreground max-w-3xl mb-10">
+            Based in Barcelona, Spain • Trilingual in English, Portuguese, and Spanish
           </p>
           
           <div className="flex flex-wrap justify-center gap-4 mb-12">
@@ -32,19 +36,19 @@ const HeroSection = () => {
             <div className="flex flex-col items-center bg-card p-6 rounded-lg shadow-sm border">
               <Shield className="h-12 w-12 text-primary mb-4" />
               <h3 className="text-lg font-semibold mb-2">Security Integration</h3>
-              <p className="text-muted-foreground text-center">Embedding security best practices throughout the development lifecycle</p>
+              <p className="text-muted-foreground text-center">Reduced security incidents by 50% through ISO 27001 implementation</p>
             </div>
             
             <div className="flex flex-col items-center bg-card p-6 rounded-lg shadow-sm border">
               <Cloud className="h-12 w-12 text-primary mb-4" />
               <h3 className="text-lg font-semibold mb-2">Cloud Infrastructure</h3>
-              <p className="text-muted-foreground text-center">Managing ISO 27001-compliant cloud solutions</p>
+              <p className="text-muted-foreground text-center">AWS expert with experience across 30+ services and tools</p>
             </div>
             
             <div className="flex flex-col items-center bg-card p-6 rounded-lg shadow-sm border">
               <Code className="h-12 w-12 text-primary mb-4" />
-              <h3 className="text-lg font-semibold mb-2">Pipeline Expertise</h3>
-              <p className="text-muted-foreground text-center">Building and optimizing secure CI/CD workflows</p>
+              <h3 className="text-lg font-semibold mb-2">Blockchain Expertise</h3>
+              <p className="text-muted-foreground text-center">Led 20+ blockchain projects across Latin America, Caribbean, and Europe</p>
             </div>
           </div>
         </div>

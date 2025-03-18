@@ -25,6 +25,9 @@ const Footer = () => {
             <a href="#contact" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
               Contact
             </a>
+            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+              LinkedIn
+            </a>
           </div>
         </div>
       </div>

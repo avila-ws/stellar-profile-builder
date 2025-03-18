@@ -1,5 +1,5 @@
 
-import { Mail, Linkedin, Github, Phone } from "lucide-react";
+import { Mail, Linkedin, Github, Phone, MapPin } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -39,7 +39,7 @@ const ContactSection = () => {
                 </div>
                 <div>
                   <p className="text-sm text-muted-foreground">Email</p>
-                  <p className="font-medium">renzo.avila@example.com</p>
+                  <p className="font-medium">renzo@avila.ws</p>
                 </div>
               </div>
               
@@ -49,7 +49,17 @@ const ContactSection = () => {
                 </div>
                 <div>
                   <p className="text-sm text-muted-foreground">Phone</p>
-                  <p className="font-medium">+1 (555) 123-4567</p>
+                  <p className="font-medium">+44 330 122 9696</p>
+                </div>
+              </div>
+              
+              <div className="flex items-center gap-4">
+                <div className="bg-primary/10 p-3 rounded-full">
+                  <MapPin className="h-6 w-6 text-primary" />
+                </div>
+                <div>
+                  <p className="text-sm text-muted-foreground">Location</p>
+                  <p className="font-medium">Barcelona, Spain</p>
                 </div>
               </div>
               

@@ -1,5 +1,5 @@
 
-import { CheckCircle, Globe } from "lucide-react";
+import { CheckCircle, Globe, GraduationCap, Shield } from "lucide-react";
 
 const AboutSection = () => {
   return (
@@ -20,9 +20,21 @@ const AboutSection = () => {
               My work spans across various industries, particularly in fintech and blockchain, where I've implemented security measures that protect sensitive data while enabling rapid deployment cycles.
             </p>
             
-            <div className="flex items-center gap-3 mb-6">
-              <Globe className="h-6 w-6 text-primary flex-shrink-0" />
-              <span className="text-lg font-medium">Trilingual: English, Portuguese, and Spanish</span>
+            <div className="flex flex-col gap-5 mb-6">
+              <div className="flex items-center gap-3">
+                <Globe className="h-6 w-6 text-primary flex-shrink-0" />
+                <span className="text-lg font-medium">Trilingual: English, Portuguese, and Spanish</span>
+              </div>
+              
+              <div className="flex items-center gap-3">
+                <GraduationCap className="h-6 w-6 text-primary flex-shrink-0" />
+                <span className="text-lg font-medium">B.Sc. in Systems Engineering & Business Administration</span>
+              </div>
+              
+              <div className="flex items-center gap-3">
+                <Shield className="h-6 w-6 text-primary flex-shrink-0" />
+                <span className="text-lg font-medium">Diploma in Forensic Computing and Cybercrime</span>
+              </div>
             </div>
           </div>
           
@@ -33,8 +45,8 @@ const AboutSection = () => {
               <li className="flex gap-4">
                 <CheckCircle className="h-6 w-6 text-primary flex-shrink-0" />
                 <div>
-                  <span className="font-medium">Reduced security incidents by 50%</span>
-                  <p className="text-muted-foreground">Through implementation of automated security scanning and remediation processes</p>
+                  <span className="font-medium">Led ISO 27001 certification</span>
+                  <p className="text-muted-foreground">Reduced security incidents by 50% and enhanced AWS security with robust endpoint protection</p>
                 </div>
               </li>
               
@@ -42,23 +54,23 @@ const AboutSection = () => {
                 <CheckCircle className="h-6 w-6 text-primary flex-shrink-0" />
                 <div>
                   <span className="font-medium">Enhanced code analysis</span>
-                  <p className="text-muted-foreground">Integrated SAST and DAST tools into CI/CD pipelines, identifying vulnerabilities earlier in the development cycle</p>
+                  <p className="text-muted-foreground">Improved software protection by 45% and reduced production vulnerabilities by 25%</p>
                 </div>
               </li>
               
               <li className="flex gap-4">
                 <CheckCircle className="h-6 w-6 text-primary flex-shrink-0" />
                 <div>
-                  <span className="font-medium">Cloud security expertise</span>
-                  <p className="text-muted-foreground">Implemented and maintained ISO 27001-compliant infrastructure across multiple cloud platforms</p>
+                  <span className="font-medium">Blockchain leadership</span>
+                  <p className="text-muted-foreground">Directed key blockchain projects with 60% increase in transaction throughput and 40% decrease in costs</p>
                 </div>
               </li>
               
               <li className="flex gap-4">
                 <CheckCircle className="h-6 w-6 text-primary flex-shrink-0" />
                 <div>
-                  <span className="font-medium">Security culture development</span>
-                  <p className="text-muted-foreground">Led training initiatives that embedded security best practices across development teams</p>
+                  <span className="font-medium">CI/CD pipeline automation</span>
+                  <p className="text-muted-foreground">Embedded compliance enforcement, vulnerability scanning, and security gates into development lifecycle</p>
                 </div>
               </li>
             </ul>

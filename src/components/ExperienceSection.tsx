@@ -1,12 +1,13 @@
 
 import { Briefcase } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { Card } from "@/components/ui/card";
 
 interface WorkExperienceProps {
   company: string;
   role: string;
   period: string;
-  description: string;
+  description: string[];
   isLast?: boolean;
 }
 
@@ -25,7 +26,11 @@ const WorkExperience = ({ company, role, period, description, isLast = false }: 
         <span className="hidden sm:block text-muted-foreground">•</span>
         <span className="text-muted-foreground">{period}</span>
       </div>
-      <p className="text-muted-foreground">{description}</p>
+      <ul className="list-disc pl-5 space-y-1 mt-2">
+        {description.map((item, index) => (
+          <li key={index} className="text-muted-foreground">{item}</li>
+        ))}
+      </ul>
     </div>
   );
 };
@@ -46,23 +51,48 @@ const ExperienceSection = () => {
             <div className="space-y-2">
               <WorkExperience 
                 company="R2 – NeoBank Mexico"
-                role="DevSecOps Lead Engineer"
-                period="2021 - Present"
-                description="Leading security integration for CI/CD pipelines, implementing automated vulnerability scanning, and managing cloud infrastructure security for a rapidly growing fintech platform."
+                role="DevSecOps Engineer"
+                period="Oct 2022 - Present"
+                description={[
+                  "Led ISO 27001 certification, reducing security incidents by 50%",
+                  "Developed automated security testing, improving protection by 45%",
+                  "Conducted security audits, increasing threat detection by 30%",
+                  "Designed robust cloud security policies ensuring compliance"
+                ]}
               />
               
               <WorkExperience 
                 company="B89 – NeoBank Peru"
-                role="Senior DevSecOps Engineer"
-                period="2019 - 2021"
-                description="Designed and maintained secure infrastructure for a digital banking platform, implementing security controls and ensuring compliance with financial regulations."
+                role="DevSecOps Engineer"
+                period="Oct 2020 - Sep 2022"
+                description={[
+                  "Established security infrastructure, reducing vulnerabilities by 50%",
+                  "Directed blockchain projects with 60% throughput increase",
+                  "Led cross-functional teams, enhancing efficiency by 35%",
+                  "Automated security in CI/CD pipelines with compliance enforcement"
+                ]}
               />
               
               <WorkExperience 
                 company="BCP – Bank Peru"
-                role="DevOps Engineer"
-                period="2017 - 2019"
-                description="Managed deployment pipelines and infrastructure automation, helping transform traditional banking systems toward a more agile and secure delivery model."
+                role="DevSecOps Engineer"
+                period="Oct 2019 - Sep 2020"
+                description={[
+                  "Led cybersecurity initiatives with 30% system uptime increase",
+                  "Enhanced software security, reducing vulnerabilities by 25%",
+                  "Coordinated cross-departmental security efforts, reducing deployment times by 30%"
+                ]}
+              />
+              
+              <WorkExperience 
+                company="Previous Experience"
+                role="Various Engineering Roles"
+                period="2013 - 2019"
+                description={[
+                  "Front-End Engineer at Keller Williams Realty (2018-2019)",
+                  "Blockchain Full-Stack Engineer at NTT DATA (2015-2018)",
+                  "Android Software Engineer at Paraiso Creativo (2013-2015)"
+                ]}
                 isLast
               />
             </div>
@@ -71,30 +101,42 @@ const ExperienceSection = () => {
           <div>
             <h3 className="text-2xl font-semibold mb-8">Technical Skills</h3>
             
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              {[
-                { name: "AWS", level: "Expert", percentage: "95%" },
-                { name: "Docker", level: "Expert", percentage: "90%" },
-                { name: "Kubernetes", level: "Advanced", percentage: "85%" },
-                { name: "CI/CD Pipelines", level: "Expert", percentage: "95%" },
-                { name: "Terraform", level: "Advanced", percentage: "80%" },
-                { name: "Security Automation", level: "Expert", percentage: "90%" },
-                { name: "Python", level: "Advanced", percentage: "85%" },
-                { name: "Bash", level: "Advanced", percentage: "80%" },
-              ].map((skill, index) => (
-                <div key={index} className="bg-card p-5 rounded-lg border">
-                  <div className="flex justify-between mb-2">
-                    <span className="font-medium">{skill.name}</span>
-                    <span className="text-sm text-muted-foreground">{skill.level}</span>
-                  </div>
-                  <div className="w-full h-2 bg-muted rounded-full overflow-hidden">
-                    <div 
-                      className="h-full bg-primary rounded-full" 
-                      style={{ width: skill.percentage }}
-                    ></div>
-                  </div>
+            <div className="space-y-6">
+              <Card className="p-6">
+                <h4 className="font-semibold text-lg mb-3">AWS Cloud & DevOps</h4>
+                <div className="grid grid-cols-3 sm:grid-cols-4 gap-2">
+                  {["EC2", "EKS", "Lambda", "DynamoDB", "CloudFormation", "Cognito", "S3", "Docker", "Kubernetes", "Terraform", "Jenkins", "Prometheus", "Grafana"].map((skill) => (
+                    <span key={skill} className="bg-primary/10 text-primary px-2 py-1 rounded text-sm">{skill}</span>
+                  ))}
                 </div>
-              ))}
+              </Card>
+              
+              <Card className="p-6">
+                <h4 className="font-semibold text-lg mb-3">Security & Compliance</h4>
+                <div className="grid grid-cols-3 sm:grid-cols-4 gap-2">
+                  {["Imperva", "Snyk", "Veracode", "Qualys", "OWASP", "Fortify", "Okta", "Prisma Cloud", "Burp Suite", "Checkmarx"].map((skill) => (
+                    <span key={skill} className="bg-primary/10 text-primary px-2 py-1 rounded text-sm">{skill}</span>
+                  ))}
+                </div>
+              </Card>
+              
+              <Card className="p-6">
+                <h4 className="font-semibold text-lg mb-3">Development</h4>
+                <div className="grid grid-cols-3 sm:grid-cols-4 gap-2">
+                  {["JavaScript", "TypeScript", "Python", "Rust", "Go", "React", "Node.js", "Express.js", "Next.js", "Django", "Flask", "Git", "CI/CD"].map((skill) => (
+                    <span key={skill} className="bg-primary/10 text-primary px-2 py-1 rounded text-sm">{skill}</span>
+                  ))}
+                </div>
+              </Card>
+              
+              <Card className="p-6">
+                <h4 className="font-semibold text-lg mb-3">Blockchain & Databases</h4>
+                <div className="grid grid-cols-3 sm:grid-cols-4 gap-2">
+                  {["Ethereum", "Solidity", "web3.js", "Hyperledger", "PostgreSQL", "MongoDB", "MySQL", "Redis", "GraphQL", "Elasticsearch"].map((skill) => (
+                    <span key={skill} className="bg-primary/10 text-primary px-2 py-1 rounded text-sm">{skill}</span>
+                  ))}
+                </div>
+              </Card>
             </div>
           </div>
         </div>
