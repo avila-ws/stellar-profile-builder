@@ -30,37 +30,53 @@ const WorkExperience = ({
 }: WorkExperienceProps) => {
   const [isExpanded, setIsExpanded] = useState(false);
   
-  return <div className="relative pl-12 pb-8">
+  return (
+    <div className="relative pl-12 pb-8">
       {!isLast && <div className="absolute top-0 left-5 h-full w-px bg-border"></div>}
       <div className="absolute top-1 left-0 h-10 w-10 rounded-full bg-primary/10 flex items-center justify-center">
         {icon}
       </div>
-      <h3 className="text-xl font-semibold">
-        {companyUrl ? <a href={companyUrl} target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">
-            {company}
-          </a> : company}
-      </h3>
-      <div className="flex flex-col sm:flex-row sm:items-center gap-2 mb-2 mt-1">
-        <span className="font-medium">{role}</span>
-        <span className="hidden sm:block text-muted-foreground">•</span>
-        <span className="text-muted-foreground">{period}</span>
-        <span className="hidden sm:block text-muted-foreground">•</span>
-        <span className="text-muted-foreground">{location}</span>
-      </div>
       
-      <Accordion type="single" collapsible className="mt-3 border-none">
+      <Accordion type="single" collapsible className="mt-0 border-none">
         <AccordionItem value="description" className="border-none">
-          <AccordionTrigger className="py-1 text-sm text-primary hover:no-underline">
-            {isExpanded ? "Hide details" : "View details"}
-          </AccordionTrigger>
+          <div className="cursor-pointer group" onClick={() => setIsExpanded(!isExpanded)}>
+            <h3 className="text-xl font-semibold group-hover:text-primary transition-colors">
+              {companyUrl ? (
+                <a 
+                  href={companyUrl} 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="hover:text-primary transition-colors"
+                  onClick={(e) => e.stopPropagation()}
+                >
+                  {company}
+                </a>
+              ) : company}
+            </h3>
+            <div className="flex flex-col sm:flex-row sm:items-center gap-2 mb-2 mt-1">
+              <span className="font-medium">{role}</span>
+              <span className="hidden sm:block text-muted-foreground">•</span>
+              <span className="text-muted-foreground">{period}</span>
+              <span className="hidden sm:block text-muted-foreground">•</span>
+              <span className="text-muted-foreground">{location}</span>
+            </div>
+            
+            <AccordionTrigger className="py-1 text-sm text-primary hover:no-underline justify-start p-0">
+              {isExpanded ? "Hide details" : "View details"}
+            </AccordionTrigger>
+          </div>
+          
           <AccordionContent>
             <ul className="list-disc pl-5 space-y-2 mt-2">
-              {description.map((item, index) => <li key={index} className="text-muted-foreground">{item}</li>)}
+              {description.map((item, index) => (
+                <li key={index} className="text-muted-foreground">{item}</li>
+              ))}
             </ul>
           </AccordionContent>
         </AccordionItem>
       </Accordion>
-    </div>;
+    </div>
+  );
 };
 
 interface SkillCategoryProps {
@@ -121,17 +137,92 @@ const ExperienceSection = () => {
             <h3 className="text-2xl font-semibold mb-8">Work History</h3>
             
             <div className="space-y-2">
-              <WorkExperience company="R2 – NeoBank" companyUrl="https://r2.co/" role="DevSecOps Engineer" period="Oct 2022 - Present" location="Mexico" icon={<Building2 className="h-5 w-5 text-primary" />} description={["Led and coordinated the ISO 27001 certification, reducing security incidents by 50% and enhancing AWS security with robust endpoint protection and incident management policies", "Developed automated security testing and integrated advanced code analysis, improving software protection by 45% and reducing production vulnerabilities by 25%", "Conducted security audits and proactive risk assessments, increasing threat detection capabilities by 30% and ensuring faster incident response, reducing potential attack impact by 20%", "Designed and enforced robust cloud security policies, ensuring compliance with industry standards and fortifying AWS IAM governance to mitigate unauthorized access risks"]} />
+              <WorkExperience 
+                company="R2 – NeoBank" 
+                companyUrl="https://r2.co/" 
+                role="DevSecOps Engineer" 
+                period="Oct 2022 - Present" 
+                location="Mexico" 
+                icon={<Building2 className="h-5 w-5 text-primary" />} 
+                description={[
+                  "Led and coordinated the ISO 27001 certification, reducing security incidents by 50% and enhancing AWS security with robust endpoint protection and incident management policies", 
+                  "Developed automated security testing and integrated advanced code analysis, improving software protection by 45% and reducing production vulnerabilities by 25%", 
+                  "Conducted security audits and proactive risk assessments, increasing threat detection capabilities by 30% and ensuring faster incident response, reducing potential attack impact by 20%", 
+                  "Designed and enforced robust cloud security policies, ensuring compliance with industry standards and fortifying AWS IAM governance to mitigate unauthorized access risks"
+                ]} 
+              />
               
-              <WorkExperience company="B89 – NeoBank" companyUrl="https://www.b89.io/" role="DevSecOps Engineer" period="Oct 2020 - Sep 2022" location="Peru" icon={<Building className="h-5 w-5 text-primary" />} description={["Established and fortified B89's security infrastructure, reducing vulnerabilities by 50% and integrating comprehensive security measures in fintech applications, enhancing overall system resilience", "Directed key blockchain projects, managing infrastructure across multiple blockchain protocols, resulting in a 60% increase in transaction throughput and a 40% decrease in operational costs", "Led cross-functional teams to integrate advanced security into financial solutions, enhancing operational efficiency by 35% and improving quality metrics by 30%", "Automated security processes within CI/CD pipelines, embedding compliance enforcement, vulnerability scanning, and security gates into the development lifecycle"]} />
+              <WorkExperience 
+                company="B89 – NeoBank" 
+                companyUrl="https://www.b89.io/" 
+                role="DevSecOps Engineer" 
+                period="Oct 2020 - Sep 2022" 
+                location="Peru" 
+                icon={<Building className="h-5 w-5 text-primary" />} 
+                description={[
+                  "Established and fortified B89's security infrastructure, reducing vulnerabilities by 50% and integrating comprehensive security measures in fintech applications, enhancing overall system resilience", 
+                  "Directed key blockchain projects, managing infrastructure across multiple blockchain protocols, resulting in a 60% increase in transaction throughput and a 40% decrease in operational costs", 
+                  "Led cross-functional teams to integrate advanced security into financial solutions, enhancing operational efficiency by 35% and improving quality metrics by 30%", 
+                  "Automated security processes within CI/CD pipelines, embedding compliance enforcement, vulnerability scanning, and security gates into the development lifecycle"
+                ]} 
+              />
               
-              <WorkExperience company="BCP – Bank" companyUrl="https://www.viabcp.com/" role="DevSecOps Engineer" period="Oct 2019 - Sep 2020" location="Peru" icon={<Landmark className="h-5 w-5 text-primary" />} description={["Led cybersecurity initiatives, collaborating with departments to oversee cloud-based applications and new implementations, ensuring optimal standards and resulting in a 30% increase in system uptime", "Enhanced software security by integrating advanced code analysis techniques, boosting protection standards by 35% and reducing production code vulnerabilities by 25%", "Coordinated cross-departmental efforts, deploying and securing new banking applications and systems, aligning with BCP's strategic goals, leading to a 30% reduction in deployment times"]} />
+              <WorkExperience 
+                company="BCP – Bank" 
+                companyUrl="https://www.viabcp.com/" 
+                role="DevSecOps Engineer" 
+                period="Oct 2019 - Sep 2020" 
+                location="Peru" 
+                icon={<Landmark className="h-5 w-5 text-primary" />} 
+                description={[
+                  "Led cybersecurity initiatives, collaborating with departments to oversee cloud-based applications and new implementations, ensuring optimal standards and resulting in a 30% increase in system uptime", 
+                  "Enhanced software security by integrating advanced code analysis techniques, boosting protection standards by 35% and reducing production code vulnerabilities by 25%", 
+                  "Coordinated cross-departmental efforts, deploying and securing new banking applications and systems, aligning with BCP's strategic goals, leading to a 30% reduction in deployment times"
+                ]} 
+              />
               
-              <WorkExperience company="Keller Williams Realty" companyUrl="https://www.kw.com/" role="Front-End Software Engineer" period="Oct 2018 - Sep 2019" location="United States" icon={<Home className="h-5 w-5 text-primary" />} description={["Optimized CRM and ERP systems with React.js, collaborating with DevOps to automate security checks and streamline workflows, boosting user experience by 30%", "Enhanced front-end security and API integrations, working with DevOps to improve CI/CD pipelines, increasing system resilience and performance by 25%", "Aligned UX/UI development with secure DevOps practices, ensuring automated testing, compliance enforcement, and seamless deployments, improving business applications by 20%"]} />
+              <WorkExperience 
+                company="Keller Williams Realty" 
+                companyUrl="https://www.kw.com/" 
+                role="Front-End Software Engineer" 
+                period="Oct 2018 - Sep 2019" 
+                location="United States" 
+                icon={<Home className="h-5 w-5 text-primary" />} 
+                description={[
+                  "Optimized CRM and ERP systems with React.js, collaborating with DevOps to automate security checks and streamline workflows, boosting user experience by 30%", 
+                  "Enhanced front-end security and API integrations, working with DevOps to improve CI/CD pipelines, increasing system resilience and performance by 25%", 
+                  "Aligned UX/UI development with secure DevOps practices, ensuring automated testing, compliance enforcement, and seamless deployments, improving business applications by 20%"
+                ]} 
+              />
               
-              <WorkExperience company="NTT DATA - Consulting Firm" companyUrl="https://pe.nttdata.com/" role="Blockchain Full-Stack Software Engineer" period="Oct 2015 - Sep 2018" location="Peru" icon={<Server className="h-5 w-5 text-primary" />} description={["Led over 20 blockchain projects, enhancing security and efficiency for financial and enterprise applications across Latin America, the Caribbean, and Europe", "Designed and deployed scalable blockchain architectures, improving data integrity, security, and operational processes, increasing efficiency by 40% and reducing errors by 30%", "Managed blockchain infrastructure and innovation, optimizing performance by 25%, ensuring seamless deployment, scalability, and reliability for enterprise-grade solutions"]} />
+              <WorkExperience 
+                company="NTT DATA - Consulting Firm" 
+                companyUrl="https://pe.nttdata.com/" 
+                role="Blockchain Software Engineer" 
+                period="Oct 2015 - Sep 2018" 
+                location="Peru" 
+                icon={<Server className="h-5 w-5 text-primary" />} 
+                description={[
+                  "Led over 20 blockchain projects, enhancing security and efficiency for financial and enterprise applications across Latin America, the Caribbean, and Europe", 
+                  "Designed and deployed scalable blockchain architectures, improving data integrity, security, and operational processes, increasing efficiency by 40% and reducing errors by 30%", 
+                  "Managed blockchain infrastructure and innovation, optimizing performance by 25%, ensuring seamless deployment, scalability, and reliability for enterprise-grade solutions"
+                ]} 
+              />
               
-              <WorkExperience company="Paraiso Creativo - Consulting Firm" companyUrl="https://web.archive.org/web/20170914185910/http://paraisocreativo.com/" role="Android Software Engineer" period="Oct 2013 - Sep 2015" location="Venezuela" icon={<Palmtree className="h-5 w-5 text-primary" />} description={["Developed and launched secure Android applications, integrating geolocation and payment systems, enhancing user engagement by 10% and operational efficiency", "Optimized application security and performance, incorporating secure API integrations and encryption protocols, leading to a 40% increase in user satisfaction", "Collaborated with cross-functional teams, implementing best practices in secure software development, improving app reliability and reducing errors by 20%"]} isLast />
+              <WorkExperience 
+                company="Paraiso Creativo - Consulting Firm" 
+                companyUrl="https://web.archive.org/web/20170914185910/http://paraisocreativo.com/" 
+                role="Android Software Engineer" 
+                period="Oct 2013 - Sep 2015" 
+                location="Venezuela" 
+                icon={<Palmtree className="h-5 w-5 text-primary" />} 
+                description={[
+                  "Developed and launched secure Android applications, integrating geolocation and payment systems, enhancing user engagement by 10% and operational efficiency", 
+                  "Optimized application security and performance, incorporating secure API integrations and encryption protocols, leading to a 40% increase in user satisfaction", 
+                  "Collaborated with cross-functional teams, implementing best practices in secure software development, improving app reliability and reducing errors by 20%"
+                ]} 
+                isLast 
+              />
             </div>
           </div>
           
@@ -139,46 +230,66 @@ const ExperienceSection = () => {
             <h3 className="text-2xl font-semibold mb-8">Technical Skills</h3>
             
             <div className="space-y-6">
-              <SkillCategory title="AWS Cloud & DevOps" icon={<Server className="h-5 w-5 text-primary" />} skills={[
-                "EC2", "EKS", "Lambda", "Batch", "CloudSearch", "KMS", "SNS", "SQS", "QLDB", "Pinpoint", 
-                "DynamoDB", "RDS", "CloudShell", "X-Ray", "API Gateway", "SageMaker", "Control Tower", 
-                "CloudTrail", "CloudWatch", "CloudFormation", "VPC", "ELB", "VPN", "Route 53", "Macie", 
-                "Inspector", "Security Lake", "GuardDuty", "Detective", "Cognito", "WAF", "Secrets Manager", 
-                "Security Hub", "Shield", "CloudHSM", "IAM Identity Center", "Audit Manager", "EBS", "S3", 
-                "Glacier", "Docker", "Kubernetes", "Registry", "Jenkins", "JumpCloud", "Prometheus", 
-                "Terraform", "Grafana", "Argo CD", "SSH", "MSK", "Fargate", "CodeBuild", "CodePipeline", 
-                "App Runner"
-              ]} />
+              <SkillCategory 
+                title="AWS Cloud & DevOps" 
+                icon={<Server className="h-5 w-5 text-primary" />} 
+                skills={[
+                  "EC2", "EKS", "Lambda", "Batch", "CloudSearch", "KMS", "SNS", "SQS", "QLDB", "Pinpoint", 
+                  "DynamoDB", "RDS", "CloudShell", "X-Ray", "API Gateway", "SageMaker", "Control Tower", 
+                  "CloudTrail", "CloudWatch", "CloudFormation", "VPC", "ELB", "VPN", "Route 53", "Macie", 
+                  "Inspector", "Security Lake", "GuardDuty", "Detective", "Cognito", "WAF", "Secrets Manager", 
+                  "Security Hub", "Shield", "CloudHSM", "IAM Identity Center", "Audit Manager", "EBS", "S3", 
+                  "Glacier", "Docker", "Kubernetes", "Registry", "Jenkins", "JumpCloud", "Prometheus", 
+                  "Terraform", "Grafana", "Argo CD", "SSH", "MSK", "Fargate", "CodeBuild", "CodePipeline", 
+                  "App Runner"
+                ]} 
+              />
               
-              <SkillCategory title="Security & Compliance" icon={<Lock className="h-5 w-5 text-primary" />} skills={[
-                "Imperva", "Snyk", "Veracode", "Qualys", "Fluid Attacks", "Fortify", "Sonatype", 
-                "SonarCloud", "Okta", "Vanta", "Anchore", "Synopsys Black Duck", "Trendmicro", 
-                "OWASP", "Acunetix", "Burp Suite", "Checkmarx", "Prisma Cloud", "ISO 27001"
-              ]} />
+              <SkillCategory 
+                title="Security & Compliance" 
+                icon={<Lock className="h-5 w-5 text-primary" />} 
+                skills={[
+                  "Imperva", "Snyk", "Veracode", "Qualys", "Fluid Attacks", "Fortify", "Sonatype", 
+                  "SonarCloud", "Okta", "Vanta", "Anchore", "Synopsys Black Duck", "Trendmicro", 
+                  "OWASP", "Acunetix", "Burp Suite", "Checkmarx", "Prisma Cloud", "ISO 27001"
+                ]} 
+              />
               
-              <SkillCategory title="Development" icon={<Code className="h-5 w-5 text-primary" />} skills={[
-                "JavaScript", "TypeScript", "Java", "Python", "Rust", "Go", "C#", "PHP", "Ruby", 
-                "SQL", "Visual Basic", "Swift", "Kotlin", "HTML/CSS", "Bash", "Dart", "Node.js", 
-                "Postman", "Git", "Gitlab", "Github", "BitBucket", "VS Code", "CloudFlare", "JSON", 
-                "VIM", "Nano", "Heroku", "Selenium", "Webpack", "Firebase", "NPM", "Google Workspace", 
-                "React", "React Native", "Express.js", "Next.js", "Ionic", "Angular", "Electron", 
-                "Laravel", "Symfony", "Rails", "Vue.js", "jQuery", "NativeScript", "Django", "Flask", 
-                "Flutter", "Pytest", "Jest", "Mocha", "Jasmine", "Trello", "Slack", "Shortcut", "Jira", 
-                "BambooHR", "ClickUp", "Zeplin", "Miro", "Figma", "Kafka", "FastAPI", "Nuxt.js", "NestJS", "Hugo"
-              ]} />
+              <SkillCategory 
+                title="Development" 
+                icon={<Code className="h-5 w-5 text-primary" />} 
+                skills={[
+                  "JavaScript", "TypeScript", "Java", "Python", "Rust", "Go", "C#", "PHP", "Ruby", 
+                  "SQL", "Visual Basic", "Swift", "Kotlin", "HTML/CSS", "Bash", "Dart", "Node.js", 
+                  "Postman", "Git", "Gitlab", "Github", "BitBucket", "VS Code", "CloudFlare", "JSON", 
+                  "VIM", "Nano", "Heroku", "Selenium", "Webpack", "Firebase", "NPM", "Google Workspace", 
+                  "React", "React Native", "Express.js", "Next.js", "Ionic", "Angular", "Electron", 
+                  "Laravel", "Symfony", "Rails", "Vue.js", "jQuery", "NativeScript", "Django", "Flask", 
+                  "Flutter", "Pytest", "Jest", "Mocha", "Jasmine", "Trello", "Slack", "Shortcut", "Jira", 
+                  "BambooHR", "ClickUp", "Zeplin", "Miro", "Figma", "Kafka", "FastAPI", "Nuxt.js", "NestJS", "Hugo"
+                ]} 
+              />
               
-              <SkillCategory title="Databases" icon={<Database className="h-5 w-5 text-primary" />} skills={[
-                "MongoDB", "PostgreSQL", "MySQL", "SnowFlake", "SQL Server", "DBeaver", "Liquibase", 
-                "TiDB", "MariaDB", "Metabase", "Tableau", "Airflow", "GraphQL", "BigQuery", "Redis", 
-                "Elasticsearch", "Redshift", "Cassandra", "CouchDB"
-              ]} />
+              <SkillCategory 
+                title="Databases" 
+                icon={<Database className="h-5 w-5 text-primary" />} 
+                skills={[
+                  "MongoDB", "PostgreSQL", "MySQL", "SnowFlake", "SQL Server", "DBeaver", "Liquibase", 
+                  "TiDB", "MariaDB", "Metabase", "Tableau", "Airflow", "GraphQL", "BigQuery", "Redis", 
+                  "Elasticsearch", "Redshift", "Cassandra", "CouchDB"
+                ]} 
+              />
               
-              <SkillCategory title="Blockchain" icon={<Bitcoin className="h-5 w-5 text-primary" />} skills={[
-                "Metamask", "Remix", "Ethers.js", "web3.js", "Geth", "Ganache", "Parity", "Infura", 
-                "Ethereum", "Hyperledger Fabric", "Truffle", "Embark", "OpenZeppelin", "Solidity", 
-                "Corda", "Quorum", "Ripple", "IOTA", "Stellar", "Cardano", "Uport", "Oculus Quest", 
-                "Polkadot", "Tezos", "Avalanche", "Cosmos SDK", "Chainlink", "Solana", "Algorand", "Arbitrum"
-              ]} />
+              <SkillCategory 
+                title="Blockchain" 
+                icon={<Bitcoin className="h-5 w-5 text-primary" />} 
+                skills={[
+                  "Metamask", "Remix", "Ethers.js", "web3.js", "Geth", "Ganache", "Parity", "Infura", 
+                  "Ethereum", "Hyperledger Fabric", "Truffle", "Embark", "OpenZeppelin", "Solidity", 
+                  "Corda", "Quorum", "Ripple", "IOTA", "Stellar", "Cardano", "Uport", "Oculus Quest", 
+                  "Polkadot", "Tezos", "Avalanche", "Cosmos SDK", "Chainlink", "Solana", "Algorand", "Arbitrum"
+                ]} 
+              />
               
               <Card className="p-6">
                 <CardContent className="p-0">
