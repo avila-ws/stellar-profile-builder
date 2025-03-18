@@ -27,7 +27,7 @@ const HeroSection = () => {
             <Dialog>
               <DialogTrigger asChild>
                 <div className="cursor-pointer transition-transform duration-300 hover:scale-105">
-                  <Avatar className="w-40 h-40 border-4 border-primary/20 shadow-lg">
+                  <Avatar className="w-32 h-32 border-4 border-primary/20 shadow-lg">
                     <AvatarImage src="/lovable-uploads/78d2e6ac-44c0-4542-ab78-92637203a5fd.png" alt="Renzo Avila" />
                     <AvatarFallback className="text-2xl font-bold">RA</AvatarFallback>
                   </Avatar>
