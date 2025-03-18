@@ -41,7 +41,7 @@ export interface ButtonProps
   asChild?: boolean
 }
 
-// Animation properties that will be applied to all buttons
+// Define animation properties for the motion button
 const buttonAnimationProps = {
   whileTap: { scale: 0.97 },
   whileHover: { scale: 1.02 },
@@ -54,6 +54,9 @@ const buttonAnimationProps = {
 
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
   ({ className, variant, size, asChild = false, ...props }, ref) => {
+    const Comp = asChild ? Slot : "button"
+    
+    // If asChild, return a regular Slot without motion animations
     if (asChild) {
       return (
         <Slot
@@ -64,11 +67,14 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
       )
     }
     
+    // For regular buttons, use motion.button with animation props
     return (
       <motion.button
         className={cn(buttonVariants({ variant, size, className }))}
         ref={ref}
-        {...buttonAnimationProps}
+        whileTap={buttonAnimationProps.whileTap}
+        whileHover={buttonAnimationProps.whileHover}
+        transition={buttonAnimationProps.transition}
         {...props}
       />
     )
@@ -76,4 +82,4 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
 )
 Button.displayName = "Button"
 
-export { Button, buttonVariants }
+export { Button, buttonVariants, buttonAnimationProps }
