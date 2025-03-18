@@ -1,4 +1,3 @@
-
 import { Briefcase, Server, Lock, Code, Database, Bitcoin, ChevronDown, ChevronUp, Building2, Building, Home, Palmtree, Landmark } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Card, CardContent } from "@/components/ui/card";
@@ -16,6 +15,7 @@ interface WorkExperienceProps {
   description: string[];
   isLast?: boolean;
   icon?: React.ReactNode;
+  defaultExpanded?: boolean;
 }
 
 const WorkExperience = ({
@@ -26,15 +26,14 @@ const WorkExperience = ({
   location,
   description,
   isLast = false,
-  icon = <Briefcase className="h-5 w-5 text-primary" />
+  icon = <Briefcase className="h-5 w-5 text-primary" />,
+  defaultExpanded = false
 }: WorkExperienceProps) => {
-  const [isExpanded, setIsExpanded] = useState(false);
+  const [isExpanded, setIsExpanded] = useState(defaultExpanded);
   
   const toggleExpand = () => setIsExpanded(!isExpanded);
   
-  // Function to highlight key terms in descriptions
   const highlightDescription = (text: string) => {
-    // Define key terms to highlight
     const keyTerms = [
       "security", "blockchain", "DevOps", "AWS", "led", "developed", "designed", 
       "implemented", "reduced", "increased", "enhanced", "improved", "50%", "45%", 
@@ -44,7 +43,6 @@ const WorkExperience = ({
     
     let result = text;
     keyTerms.forEach(term => {
-      // Case insensitive match, but preserve original case in the replacement
       const regex = new RegExp(`(${term})`, 'gi');
       result = result.replace(regex, (match) => `<span class="font-medium text-primary">${match}</span>`);
     });
@@ -181,7 +179,8 @@ const ExperienceSection = () => {
                   "Developed automated security testing and integrated advanced code analysis, improving software protection by 45% and reducing production vulnerabilities by 25%", 
                   "Conducted security audits and proactive risk assessments, increasing threat detection capabilities by 30% and ensuring faster incident response, reducing potential attack impact by 20%", 
                   "Designed and enforced robust cloud security policies, ensuring compliance with industry standards and fortifying AWS IAM governance to mitigate unauthorized access risks"
-                ]} 
+                ]}
+                defaultExpanded={true}
               />
               
               <WorkExperience 

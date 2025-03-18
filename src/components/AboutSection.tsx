@@ -12,15 +12,17 @@ interface EducationCardProps {
     title: string;
     description: string;
   }>;
+  defaultOpen?: boolean;
 }
 
 const EducationCard = ({
   institution,
   url,
-  degrees
+  degrees,
+  defaultOpen = false
 }: EducationCardProps) => {
-  // Changed default state to true (open)
-  const [isOpen, setIsOpen] = useState(true);
+  // State now initialized with defaultOpen prop
+  const [isOpen, setIsOpen] = useState(defaultOpen);
   
   return <div className="cursor-pointer hover:bg-accent/50 rounded-md p-2 -m-2 transition-colors" onClick={() => setIsOpen(!isOpen)}>
       <h4 className="font-medium flex items-center justify-between">
@@ -77,21 +79,30 @@ const AboutSection = () => {
                 </h3>
                 
                 <div className="space-y-5">
-                  <EducationCard institution="Central University of Technology" url="https://web.archive.org/web/20110806134524/http://www.unitec.edu.ve/index5.jsp" degrees={[{
-                  title: "B.Sc. in Systems Engineering",
-                  description: "Specialized in IT-driven business optimization and strategic data management"
-                }, {
-                  title: "B.Sc. in Business Administration and Management",
-                  description: "Competent in operational efficiency and strategic administrative leadership"
-                }]} />
+                  <EducationCard 
+                    institution="Central University of Technology" 
+                    url="https://web.archive.org/web/20110806134524/http://www.unitec.edu.ve/index5.jsp" 
+                    degrees={[{
+                      title: "B.Sc. in Systems Engineering",
+                      description: "Specialized in IT-driven business optimization and strategic data management"
+                    }, {
+                      title: "B.Sc. in Business Administration and Management",
+                      description: "Competent in operational efficiency and strategic administrative leadership"
+                    }]}
+                    defaultOpen={true}
+                  />
                   
-                  <EducationCard institution="Forensic Science and Cybersecurity Academy" url="https://ujap.edu.ve/" degrees={[{
-                  title: "Diploma in Forensic Science and Criminalistics",
-                  description: "Specialized in forensic techniques and criminal analysis"
-                }, {
-                  title: "Diploma in Forensic Computing and Cybercrime",
-                  description: "Trained in cybercrime investigation and forensic computing"
-                }]} />
+                  <EducationCard 
+                    institution="Forensic Science and Cybersecurity Academy" 
+                    url="https://ujap.edu.ve/" 
+                    degrees={[{
+                      title: "Diploma in Forensic Science and Criminalistics",
+                      description: "Specialized in forensic techniques and criminal analysis"
+                    }, {
+                      title: "Diploma in Forensic Computing and Cybercrime",
+                      description: "Trained in cybercrime investigation and forensic computing"
+                    }]} 
+                  />
                 </div>
               </Card>
               
