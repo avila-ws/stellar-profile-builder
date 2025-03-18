@@ -32,6 +32,26 @@ const WorkExperience = ({
   
   const toggleExpand = () => setIsExpanded(!isExpanded);
   
+  // Function to highlight key terms in descriptions
+  const highlightDescription = (text: string) => {
+    // Define key terms to highlight
+    const keyTerms = [
+      "security", "blockchain", "DevOps", "AWS", "led", "developed", "designed", 
+      "implemented", "reduced", "increased", "enhanced", "improved", "50%", "45%", 
+      "40%", "35%", "30%", "25%", "20%", "ISO 27001", "React.js", "integrated", 
+      "automated", "infrastructure", "cybersecurity", "vulnerabilities", "compliance"
+    ];
+    
+    let result = text;
+    keyTerms.forEach(term => {
+      // Case insensitive match, but preserve original case in the replacement
+      const regex = new RegExp(`(${term})`, 'gi');
+      result = result.replace(regex, (match) => `<span class="font-medium text-primary">${match}</span>`);
+    });
+    
+    return <span dangerouslySetInnerHTML={{ __html: result }} />;
+  };
+  
   return (
     <div className="relative pl-12 pb-8">
       {!isLast && <div className="absolute top-0 left-5 h-full w-px bg-border"></div>}
@@ -79,7 +99,9 @@ const WorkExperience = ({
           <AccordionContent>
             <ul className="list-disc pl-5 space-y-2 mt-2">
               {description.map((item, index) => (
-                <li key={index} className="text-muted-foreground">{item}</li>
+                <li key={index} className="text-muted-foreground">
+                  {highlightDescription(item)}
+                </li>
               ))}
             </ul>
           </AccordionContent>
