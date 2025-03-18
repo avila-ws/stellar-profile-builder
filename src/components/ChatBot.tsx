@@ -25,6 +25,12 @@ type Message = {
   timestamp: Date;
 };
 
+type QuickOption = {
+  id: string;
+  text: string;
+  keywords: string[];
+};
+
 const predefinedResponses = [
   {
     keywords: ["hello", "hi", "hey", "hola"],
@@ -56,6 +62,15 @@ const predefinedResponses = [
   }
 ];
 
+const quickOptions: QuickOption[] = [
+  { id: "experience", text: "Experiencia laboral", keywords: ["experience", "trabajo"] },
+  { id: "skills", text: "Habilidades técnicas", keywords: ["skills", "habilidades"] },
+  { id: "contact", text: "Información de contacto", keywords: ["contact", "contacto"] },
+  { id: "blockchain", text: "Proyectos blockchain", keywords: ["blockchain", "crypto"] },
+  { id: "security", text: "Experiencia en seguridad", keywords: ["security", "seguridad"] },
+  { id: "location", text: "Ubicación", keywords: ["location", "ubicación"] }
+];
+
 const ChatBot: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [messages, setMessages] = useState<Message[]>([]);
@@ -69,7 +84,7 @@ const ChatBot: React.FC = () => {
       // Add initial welcome message
       const welcomeMessage: Message = {
         id: Date.now().toString(),
-        content: "¡Hola! Soy el asistente virtual de Renzo Avila. ¿En qué puedo ayudarte? Puedes preguntarme sobre su experiencia, habilidades o cómo contactarle.",
+        content: "¡Hola! Soy el asistente virtual de Renzo Avila. ¿En qué puedo ayudarte? Puedes seleccionar una opción o escribir tu pregunta.",
         role: "assistant",
         timestamp: new Date()
       };
@@ -111,6 +126,29 @@ const ChatBot: React.FC = () => {
     }, 500);
   };
   
+  const handleQuickOption = (option: QuickOption) => {
+    const userMessage: Message = {
+      id: Date.now().toString(),
+      content: option.text,
+      role: "user",
+      timestamp: new Date()
+    };
+    
+    setMessages(prev => [...prev, userMessage]);
+    
+    // Process the selected option after a slight delay
+    setTimeout(() => {
+      const botResponse = generateResponse(option.keywords[0]);
+      const botMessage: Message = {
+        id: (Date.now() + 1).toString(),
+        content: botResponse,
+        role: "assistant",
+        timestamp: new Date()
+      };
+      setMessages(prev => [...prev, botMessage]);
+    }, 500);
+  };
+  
   const generateResponse = (userInput: string): string => {
     // Simple keyword matching
     for (const item of predefinedResponses) {
@@ -132,6 +170,10 @@ const ChatBot: React.FC = () => {
   
   const formatTime = (date: Date) => {
     return date.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+  };
+  
+  const showQuickOptions = () => {
+    return messages.length <= 2; // Only show quick options initially or after first exchange
   };
   
   return (
@@ -191,6 +233,23 @@ const ChatBot: React.FC = () => {
                       </span>
                     </div>
                   ))}
+                  
+                  {showQuickOptions() && (
+                    <div className="flex flex-wrap gap-2 mt-4">
+                      {quickOptions.map((option) => (
+                        <Button
+                          key={option.id}
+                          variant="outline"
+                          size="sm"
+                          className="text-xs"
+                          onClick={() => handleQuickOption(option)}
+                        >
+                          {option.text}
+                        </Button>
+                      ))}
+                    </div>
+                  )}
+                  
                   <div ref={messagesEndRef} />
                 </div>
               </CardContent>
