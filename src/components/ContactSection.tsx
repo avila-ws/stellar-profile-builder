@@ -6,9 +6,11 @@ import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import BookingCalendar from "@/components/BookingCalendar";
+import { useState } from "react";
 
 const ContactSection = () => {
   const { toast } = useToast();
+  const [activeTab, setActiveTab] = useState("message");
   
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -23,27 +25,16 @@ const ContactSection = () => {
   };
   
   const handleScheduleClick = () => {
-    // Create a reference to the tabs component
-    const tabsComponent = document.querySelector('[data-tabs-root]');
-    if (!tabsComponent) {
-      console.error("Tabs component not found");
-      return;
-    }
+    // Directly update the active tab state
+    setActiveTab("schedule");
     
-    // Find the schedule tab trigger
-    const scheduleTrigger = document.querySelector('[data-value="schedule"]') as HTMLElement;
-    if (scheduleTrigger) {
-      // Programmatically click the tab trigger
-      scheduleTrigger.click();
-      
-      // Scroll to contact section to make sure tab content is visible
+    // Scroll to contact section after a short delay to ensure tab switch has happened
+    setTimeout(() => {
       const contactSection = document.getElementById("contact");
       if (contactSection) {
         contactSection.scrollIntoView({ behavior: "smooth" });
       }
-    } else {
-      console.error("Schedule tab trigger not found");
-    }
+    }, 100);
   };
   
   return (
@@ -54,7 +45,7 @@ const ContactSection = () => {
           <div className="h-1 w-20 bg-primary mx-auto rounded-full"></div>
         </div>
         
-        <Tabs defaultValue="message" className="w-full" data-tabs-root>
+        <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
           <TabsList className="grid w-full max-w-md mx-auto mb-8 grid-cols-2">
             <TabsTrigger value="message">Send Message</TabsTrigger>
             <TabsTrigger value="schedule">Schedule Meeting</TabsTrigger>
