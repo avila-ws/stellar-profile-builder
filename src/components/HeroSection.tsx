@@ -3,6 +3,7 @@ import { Shield, Code, Cloud } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useEffect, useState } from "react";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { HoverCard, HoverCardContent, HoverCardTrigger } from "@/components/ui/hover-card";
 
 const HeroSection = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -33,13 +34,28 @@ const HeroSection = () => {
               isVisible ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-4"
             }`}
           >
-            <Avatar className="w-40 h-40 border-4 border-primary/20 shadow-lg">
-              <AvatarImage 
-                src="/lovable-uploads/78d2e6ac-44c0-4542-ab78-92637203a5fd.png" 
-                alt="Renzo Avila"
-              />
-              <AvatarFallback className="text-2xl font-bold">RA</AvatarFallback>
-            </Avatar>
+            <HoverCard>
+              <HoverCardTrigger asChild>
+                <div className="cursor-pointer transition-transform duration-300 hover:scale-105">
+                  <Avatar className="w-40 h-40 border-4 border-primary/20 shadow-lg">
+                    <AvatarImage 
+                      src="/lovable-uploads/78d2e6ac-44c0-4542-ab78-92637203a5fd.png" 
+                      alt="Renzo Avila"
+                    />
+                    <AvatarFallback className="text-2xl font-bold">RA</AvatarFallback>
+                  </Avatar>
+                </div>
+              </HoverCardTrigger>
+              <HoverCardContent className="w-80 p-0 border-0">
+                <div className="overflow-hidden rounded-md">
+                  <img 
+                    src="/lovable-uploads/78d2e6ac-44c0-4542-ab78-92637203a5fd.png" 
+                    alt="Renzo Avila"
+                    className="w-full h-auto object-cover transform transition-transform duration-300 scale-110"
+                  />
+                </div>
+              </HoverCardContent>
+            </HoverCard>
           </div>
           
           <h1 

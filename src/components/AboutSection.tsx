@@ -1,3 +1,4 @@
+
 import { CheckCircle, Globe, GraduationCap, Shield, Building, ChevronDown, ChevronUp } from "lucide-react";
 import { Card } from "@/components/ui/card";
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
@@ -18,7 +19,8 @@ const EducationCard = ({
   url,
   degrees
 }: EducationCardProps) => {
-  const [isOpen, setIsOpen] = useState(false);
+  // Changed default state to true (open)
+  const [isOpen, setIsOpen] = useState(true);
   
   return <div className="cursor-pointer hover:bg-accent/50 rounded-md p-2 -m-2 transition-colors" onClick={() => setIsOpen(!isOpen)}>
       <h4 className="font-medium flex items-center justify-between">
