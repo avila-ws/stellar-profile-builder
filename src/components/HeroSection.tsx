@@ -28,7 +28,7 @@ const HeroSection = () => {
               <DialogTrigger asChild>
                 <div className="cursor-pointer transition-transform duration-300 hover:scale-105">
                   <Avatar className="w-40 h-40 border-4 border-primary/20 shadow-lg">
-                    <AvatarImage src="/lovable-uploads/78d2e6ac-44c0-4542-ab78-92637203a5fd.png" alt="Renzo Avila" />
+                    <AvatarImage src="/lovable-uploads/74204ed6-b70d-42fc-962a-ad475ddd4383.png" alt="Renzo Avila" />
                     <AvatarFallback className="text-2xl font-bold">RA</AvatarFallback>
                   </Avatar>
                 </div>
@@ -40,7 +40,7 @@ const HeroSection = () => {
                   
                   {/* Image container with increased negative top margin to crop more of the top portion */}
                   <div className="overflow-hidden rounded-full">
-                    <img src="/lovable-uploads/78d2e6ac-44c0-4542-ab78-92637203a5fd.png" alt="Renzo Avila" className="w-full h-auto object-cover transform transition-transform duration-300 scale-110 border-4 border-primary/20 -mt-24" />
+                    <img src="/lovable-uploads/74204ed6-b70d-42fc-962a-ad475ddd4383.png" alt="Renzo Avila" className="w-full h-auto object-cover transform transition-transform duration-300 scale-110 border-4 border-primary/20 -mt-24" />
                   </div>
                 </div>
               </DialogContent>
