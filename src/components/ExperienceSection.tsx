@@ -1,3 +1,4 @@
+
 import { Briefcase, Server, Lock, Code, Database, Bitcoin, ChevronDown, ChevronUp, Building2, Building, Home, Palmtree, Landmark } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Card, CardContent } from "@/components/ui/card";
@@ -38,25 +39,30 @@ const WorkExperience = ({
       
       <Accordion type="single" collapsible className="mt-0 border-none">
         <AccordionItem value="description" className="border-none">
-          <h3 className="text-xl font-semibold hover:text-primary transition-colors">
-            {companyUrl ? (
-              <a 
-                href={companyUrl} 
-                target="_blank" 
-                rel="noopener noreferrer" 
-                className="hover:text-primary transition-colors"
-                onClick={(e) => e.stopPropagation()}
-              >
-                {company}
-              </a>
-            ) : company}
-          </h3>
-          <div className="flex flex-col sm:flex-row sm:items-center gap-2 mb-2 mt-1">
-            <span className="font-medium">{role}</span>
-            <span className="hidden sm:block text-muted-foreground">•</span>
-            <span className="text-muted-foreground">{period}</span>
-            <span className="hidden sm:block text-muted-foreground">•</span>
-            <span className="text-muted-foreground">{location}</span>
+          <div 
+            onClick={() => setIsExpanded(!isExpanded)} 
+            className="cursor-pointer group"
+          >
+            <h3 className="text-xl font-semibold group-hover:text-primary transition-colors">
+              {companyUrl ? (
+                <a 
+                  href={companyUrl} 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="hover:text-primary transition-colors"
+                  onClick={(e) => e.stopPropagation()}
+                >
+                  {company}
+                </a>
+              ) : company}
+            </h3>
+            <div className="flex flex-col sm:flex-row sm:items-center gap-2 mb-2 mt-1">
+              <span className="font-medium">{role}</span>
+              <span className="hidden sm:block text-muted-foreground">•</span>
+              <span className="text-muted-foreground">{period}</span>
+              <span className="hidden sm:block text-muted-foreground">•</span>
+              <span className="text-muted-foreground">{location}</span>
+            </div>
           </div>
           
           <AccordionTrigger 
@@ -234,12 +240,12 @@ const ExperienceSection = () => {
                 title="AWS Cloud & DevOps" 
                 icon={<Server className="h-5 w-5 text-primary" />} 
                 skills={[
-                  "EC2", "EKS", "Lambda", "Batch", "CloudSearch", "KMS", "SNS", "SQS", "QLDB", "Pinpoint", 
+                  "EC2", "EKS", "Lambda", "Batch", "CloudSearch", "KMS", "SNS", "SQS", "Blockchain", "QLDB", "Pinpoint", 
                   "DynamoDB", "RDS", "CloudShell", "X-Ray", "API Gateway", "SageMaker", "Control Tower", 
                   "CloudTrail", "CloudWatch", "CloudFormation", "VPC", "ELB", "VPN", "Route 53", "Macie", 
                   "Inspector", "Security Lake", "GuardDuty", "Detective", "Cognito", "WAF", "Secrets Manager", 
                   "Security Hub", "Shield", "CloudHSM", "IAM Identity Center", "Audit Manager", "EBS", "S3", 
-                  "Glacier", "Docker", "Kubernetes", "Registry", "Jenkins", "JumpCloud", "Prometheus", 
+                  "Glacier", "Docker", "Kubernetes", "Docker registry", "Jenkins", "JumpCloud", "Prometheus", 
                   "Terraform", "Grafana", "Argo CD", "SSH", "MSK", "Fargate", "CodeBuild", "CodePipeline", 
                   "App Runner"
                 ]} 
@@ -249,7 +255,7 @@ const ExperienceSection = () => {
                 title="Security & Compliance" 
                 icon={<Lock className="h-5 w-5 text-primary" />} 
                 skills={[
-                  "Imperva", "Snyk", "Veracode", "Qualys", "Fluid Attacks", "Fortify", "Sonatype", 
+                  "Imperva", "Synk", "Veracode", "Qualys", "Fluid Attacks", "Fortify", "Sonatype", 
                   "SonarCloud", "Okta", "Vanta", "Anchore", "Synopsys Black Duck", "Trendmicro", 
                   "OWASP", "Acunetix", "Burp Suite", "Checkmarx", "Prisma Cloud", "ISO 27001"
                 ]} 
@@ -261,9 +267,9 @@ const ExperienceSection = () => {
                 skills={[
                   "JavaScript", "TypeScript", "Java", "Python", "Rust", "Go", "C#", "PHP", "Ruby", 
                   "SQL", "Visual Basic", "Swift", "Kotlin", "HTML/CSS", "Bash", "Dart", "Node.js", 
-                  "Postman", "Git", "Gitlab", "Github", "BitBucket", "VS Code", "CloudFlare", "JSON", 
-                  "VIM", "Nano", "Heroku", "Selenium", "Webpack", "Firebase", "NPM", "Google Workspace", 
-                  "React", "React Native", "Express.js", "Next.js", "Ionic", "Angular", "Electron", 
+                  "Postman", "Git", "Gitlab", "Github", "BitBucket", "Visual Studio Code", "CloudFlare", "JSON", 
+                  "VIM", "Nano", "Heroku", "Selenium", "Webpack", "Firebase Crashlytics", "NPM", "Google Workspace", 
+                  "React", "React.js", "React Native", "Express.js", "Next", "Ionic", "Angular", "Electron", 
                   "Laravel", "Symfony", "Rails", "Vue.js", "jQuery", "NativeScript", "Django", "Flask", 
                   "Flutter", "Pytest", "Jest", "Mocha", "Jasmine", "Trello", "Slack", "Shortcut", "Jira", 
                   "BambooHR", "ClickUp", "Zeplin", "Miro", "Figma", "Kafka", "FastAPI", "Nuxt.js", "NestJS", "Hugo"
@@ -285,7 +291,7 @@ const ExperienceSection = () => {
                 icon={<Bitcoin className="h-5 w-5 text-primary" />} 
                 skills={[
                   "Metamask", "Remix", "Ethers.js", "web3.js", "Geth", "Ganache", "Parity", "Infura", 
-                  "Ethereum", "Hyperledger Fabric", "Truffle", "Embark", "OpenZeppelin", "Solidity", 
+                  "Ethereum", "Hyperledger Fabric", "Truffle", "Embark", "OpenZeppelin Contracts", "Solidity", 
                   "Corda", "Quorum", "Ripple", "IOTA", "Stellar", "Cardano", "Uport", "Oculus Quest", 
                   "Polkadot", "Tezos", "Avalanche", "Cosmos SDK", "Chainlink", "Solana", "Algorand", "Arbitrum"
                 ]} 
@@ -306,4 +312,3 @@ const ExperienceSection = () => {
 };
 
 export default ExperienceSection;
-
