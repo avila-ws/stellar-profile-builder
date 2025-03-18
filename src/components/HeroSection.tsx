@@ -33,8 +33,8 @@ const HeroSection = () => {
               isVisible ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-4"
             }`}
           >
-            <Avatar className="w-32 h-32 border-4 border-primary/20 shadow-lg">
-              <AvatarImage src="https://images.unsplash.com/photo-1649972904349-6e44c42644a7?auto=format&fit=crop&q=80&w=400&h=400" alt="Renzo Avila" />
+            <Avatar className="w-40 h-40 border-4 border-primary/20 shadow-lg">
+              <AvatarImage src="/lovable-uploads/5d69a563-1b84-46ce-b1c2-dbc333a60efe.png" alt="Renzo Avila" />
               <AvatarFallback className="text-2xl font-bold">RA</AvatarFallback>
             </Avatar>
           </div>
