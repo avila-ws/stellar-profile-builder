@@ -23,16 +23,26 @@ const ContactSection = () => {
   };
   
   const handleScheduleClick = () => {
-    // Directly set the tab value to "schedule" instead of trying to find and click an element
-    const scheduleTab = document.querySelector('[data-value="schedule"]') as HTMLElement;
-    if (scheduleTab) {
-      scheduleTab.click();
-    } else {
-      // Fallback - scroll to contact section
+    // Create a reference to the tabs component
+    const tabsComponent = document.querySelector('[data-tabs-root]');
+    if (!tabsComponent) {
+      console.error("Tabs component not found");
+      return;
+    }
+    
+    // Find the schedule tab trigger
+    const scheduleTrigger = document.querySelector('[data-value="schedule"]') as HTMLElement;
+    if (scheduleTrigger) {
+      // Programmatically click the tab trigger
+      scheduleTrigger.click();
+      
+      // Scroll to contact section to make sure tab content is visible
       const contactSection = document.getElementById("contact");
       if (contactSection) {
         contactSection.scrollIntoView({ behavior: "smooth" });
       }
+    } else {
+      console.error("Schedule tab trigger not found");
     }
   };
   
@@ -44,7 +54,7 @@ const ContactSection = () => {
           <div className="h-1 w-20 bg-primary mx-auto rounded-full"></div>
         </div>
         
-        <Tabs defaultValue="message" className="w-full">
+        <Tabs defaultValue="message" className="w-full" data-tabs-root>
           <TabsList className="grid w-full max-w-md mx-auto mb-8 grid-cols-2">
             <TabsTrigger value="message">Send Message</TabsTrigger>
             <TabsTrigger value="schedule">Schedule Meeting</TabsTrigger>
