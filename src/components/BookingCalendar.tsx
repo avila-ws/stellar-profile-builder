@@ -3,7 +3,7 @@ import React from "react";
 
 const BookingCalendar = () => {
   return (
-    <div className="container mx-auto px-4">
+    <div className="container mx-auto px-4 animate-fade-in">
       <h3 className="text-2xl font-semibold mb-6">Schedule a Meeting</h3>
       
       <div className="w-full bg-white rounded-lg overflow-hidden shadow-md">

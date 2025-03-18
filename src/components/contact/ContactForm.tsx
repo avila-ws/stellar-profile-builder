@@ -1,27 +1,34 @@
 
-import React from "react";
+import React, { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
+import { Loader2 } from "lucide-react";
 
 const ContactForm = () => {
   const { toast } = useToast();
+  const [isSubmitting, setIsSubmitting] = useState(false);
   
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    setIsSubmitting(true);
     
-    toast({
-      title: "Message sent!",
-      description: "Thank you for reaching out. I'll get back to you soon.",
-    });
-    
-    // Reset form
-    e.currentTarget.reset();
+    // Simulate form submission delay
+    setTimeout(() => {
+      setIsSubmitting(false);
+      toast({
+        title: "Message sent!",
+        description: "Thank you for reaching out. I'll get back to you soon.",
+      });
+      
+      // Reset form
+      e.currentTarget.reset();
+    }, 1500);
   };
 
   return (
-    <div className="animate-slide-in-bottom animation-delay-300">
+    <div className="animate-slide-in-bottom animation-delay-300 bg-card rounded-lg shadow-sm p-6 border">
       <h3 className="text-2xl font-semibold mb-6">Send me a message</h3>
       
       <form onSubmit={handleSubmit} className="space-y-6 stagger-animation">
@@ -55,8 +62,15 @@ const ContactForm = () => {
         <Button 
           type="submit" 
           className="w-full sm:w-auto opacity-0 animation-delay-500 transition-all duration-300 hover:scale-105"
+          disabled={isSubmitting}
         >
-          Send Message
+          {isSubmitting ? (
+            <>
+              <Loader2 className="mr-2 h-4 w-4 animate-spin" /> Sending...
+            </>
+          ) : (
+            'Send Message'
+          )}
         </Button>
       </form>
     </div>
