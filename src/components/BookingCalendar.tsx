@@ -4,7 +4,7 @@ import React from "react";
 const BookingCalendar = () => {
   return (
     <div className="container mx-auto px-4">
-      <h3 className="text-2xl font-semibold mb-6">Schedule a Meeting</h3>
+      <h3 className="text-2xl font-semibold mb-6 text-foreground">Schedule a Meeting</h3>
       
       <div className="w-full bg-white rounded-lg overflow-hidden shadow-md">
         {/* Google Calendar Appointment Scheduling integration */}

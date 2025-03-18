@@ -41,7 +41,7 @@ const ContactSection = () => {
     <section id="contact" className="py-20 bg-muted/50 dark:bg-muted/10">
       <div className="container max-w-7xl mx-auto px-4 sm:px-6">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">Get in Touch</h2>
+          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-foreground">Get in Touch</h2>
           <div className="h-1 w-20 bg-primary mx-auto rounded-full"></div>
         </div>
         
@@ -54,7 +54,7 @@ const ContactSection = () => {
           <TabsContent value="message">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
               <div>
-                <h3 className="text-2xl font-semibold mb-6">Contact Information</h3>
+                <h3 className="text-2xl font-semibold mb-6 text-foreground">Contact Information</h3>
                 
                 <div className="space-y-6">
                   <div className="flex items-center gap-4">
@@ -62,8 +62,8 @@ const ContactSection = () => {
                       <Mail className="h-6 w-6 text-primary" />
                     </div>
                     <div>
-                      <p className="text-sm text-muted-foreground">Email</p>
-                      <a href="mailto:renzo@avila.ws" className="font-medium hover:text-primary transition-colors">renzo@avila.ws</a>
+                      <p className="text-sm text-gray-700 dark:text-muted-foreground font-medium">Email</p>
+                      <a href="mailto:renzo@avila.ws" className="font-medium text-gray-900 dark:text-foreground hover:text-primary transition-colors">renzo@avila.ws</a>
                     </div>
                   </div>
                   
@@ -72,8 +72,8 @@ const ContactSection = () => {
                       <Phone className="h-6 w-6 text-primary" />
                     </div>
                     <div>
-                      <p className="text-sm text-muted-foreground">Phone</p>
-                      <a href="https://wa.me/443301229696?text=Hello%2C%20I%20would%20like%20to%20get%20in%20touch%20with%20you" target="_blank" rel="noopener noreferrer" className="font-medium hover:text-primary transition-colors">+44 330 122 9696</a>
+                      <p className="text-sm text-gray-700 dark:text-muted-foreground font-medium">Phone</p>
+                      <a href="https://wa.me/443301229696?text=Hello%2C%20I%20would%20like%20to%20get%20in%20touch%20with%20you" target="_blank" rel="noopener noreferrer" className="font-medium text-gray-900 dark:text-foreground hover:text-primary transition-colors">+44 330 122 9696</a>
                     </div>
                   </div>
                   
@@ -82,8 +82,8 @@ const ContactSection = () => {
                       <Calendar className="h-6 w-6 text-primary" />
                     </div>
                     <div>
-                      <p className="text-sm text-muted-foreground">Schedule a meeting</p>
-                      <Button variant="link" className="font-medium hover:text-primary transition-colors p-0 h-auto" onClick={handleScheduleClick}>
+                      <p className="text-sm text-gray-700 dark:text-muted-foreground font-medium">Schedule a meeting</p>
+                      <Button variant="link" className="font-medium text-gray-900 dark:text-foreground hover:text-primary transition-colors p-0 h-auto" onClick={handleScheduleClick}>
                         Book a time on my calendar <ChevronRight className="h-4 w-4 ml-1" />
                       </Button>
                     </div>
@@ -94,12 +94,12 @@ const ContactSection = () => {
                       <MapPin className="h-6 w-6 text-primary" />
                     </div>
                     <div>
-                      <p className="text-sm text-muted-foreground">Location</p>
-                      <a href="https://maps.app.goo.gl/QnToM6RPniyKprZD7" target="_blank" rel="noopener noreferrer" className="font-medium hover:text-primary transition-colors">Barcelona, Spain</a>
+                      <p className="text-sm text-gray-700 dark:text-muted-foreground font-medium">Location</p>
+                      <a href="https://maps.app.goo.gl/QnToM6RPniyKprZD7" target="_blank" rel="noopener noreferrer" className="font-medium text-gray-900 dark:text-foreground hover:text-primary transition-colors">Barcelona, Spain</a>
                     </div>
                   </div>
                   
-                  <h4 className="text-xl font-medium mt-8 mb-4">Connect with me</h4>
+                  <h4 className="text-xl font-medium mt-8 mb-4 text-foreground">Connect with me</h4>
                   
                   <div className="flex gap-4">
                     <a href="https://www.linkedin.com/in/blockchain-security-devops-finance-devsecops-rust-engineer/" target="_blank" rel="noopener noreferrer" className="bg-card hover:bg-accent transition-colors p-4 rounded-full border">
@@ -113,28 +113,28 @@ const ContactSection = () => {
               </div>
               
               <div>
-                <h3 className="text-2xl font-semibold mb-6">Send me a message</h3>
+                <h3 className="text-2xl font-semibold mb-6 text-foreground">Send me a message</h3>
                 
                 <form onSubmit={handleSubmit} className="space-y-6">
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                     <div className="space-y-2">
-                      <label htmlFor="name" className="text-sm font-medium">Name</label>
+                      <label htmlFor="name" className="text-sm font-medium text-gray-800 dark:text-foreground">Name</label>
                       <Input id="name" placeholder="Your name" required />
                     </div>
                     
                     <div className="space-y-2">
-                      <label htmlFor="email" className="text-sm font-medium">Email</label>
+                      <label htmlFor="email" className="text-sm font-medium text-gray-800 dark:text-foreground">Email</label>
                       <Input id="email" type="email" placeholder="Your email" required />
                     </div>
                   </div>
                   
                   <div className="space-y-2">
-                    <label htmlFor="subject" className="text-sm font-medium">Subject</label>
+                    <label htmlFor="subject" className="text-sm font-medium text-gray-800 dark:text-foreground">Subject</label>
                     <Input id="subject" placeholder="Subject" required />
                   </div>
                   
                   <div className="space-y-2">
-                    <label htmlFor="message" className="text-sm font-medium">Message</label>
+                    <label htmlFor="message" className="text-sm font-medium text-gray-800 dark:text-foreground">Message</label>
                     <Textarea 
                       id="message" 
                       placeholder="Your message" 
