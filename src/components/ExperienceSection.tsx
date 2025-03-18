@@ -276,14 +276,24 @@ const ExperienceSection = () => {
                 title="AWS Cloud & DevOps" 
                 icon={<Server className="h-5 w-5 text-primary" />} 
                 skills={[
-                  "EC2", "EKS", "Lambda", "Batch", "CloudSearch", "KMS", "SNS", "SQS", "Blockchain", "QLDB", "Pinpoint", 
-                  "DynamoDB", "RDS", "CloudShell", "X-Ray", "API Gateway", "SageMaker", "Control Tower", 
-                  "CloudTrail", "CloudWatch", "CloudFormation", "VPC", "ELB", "VPN", "Route 53", "Macie", 
-                  "Inspector", "Security Lake", "GuardDuty", "Detective", "Cognito", "WAF", "Secrets Manager", 
-                  "Security Hub", "Shield", "CloudHSM", "IAM Identity Center", "Audit Manager", "EBS", "S3", 
-                  "Glacier", "Docker", "Kubernetes", "Docker registry", "Jenkins", "JumpCloud", "Prometheus", 
-                  "Terraform", "Grafana", "Argo CD", "SSH", "MSK", "Fargate", "CodeBuild", "CodePipeline", 
-                  "App Runner"
+                  // Top 8 most relevant for DevSecOps (shown first)
+                  "Security Hub", "GuardDuty", "IAM Identity Center", "Kubernetes", "Terraform", "Jenkins", "CloudWatch", "Docker",
+                  // Security & Compliance
+                  "WAF", "Shield", "Macie", "Inspector", "Security Lake", "Detective", "CloudHSM", "Secrets Manager", "Audit Manager", "KMS",
+                  // CI/CD & Infrastructure
+                  "EKS", "CodeBuild", "CodePipeline", "Argo CD", "Docker registry", "Prometheus", "Grafana", "JumpCloud",
+                  // Compute & Serverless
+                  "EC2", "Lambda", "Fargate", "EBS", "App Runner", "Batch",
+                  // Storage & Database
+                  "S3", "Glacier", "RDS", "DynamoDB", "MSK", "QLDB",
+                  // Networking & API
+                  "VPC", "ELB", "VPN", "Route 53", "API Gateway", "CloudSearch",
+                  // Messaging & Integration
+                  "SNS", "SQS", "Pinpoint",
+                  // Monitoring & Management
+                  "CloudTrail", "CloudFormation", "Control Tower", "CloudShell", "X-Ray", "SSH",
+                  // Additional Services
+                  "Blockchain", "SageMaker", "Cognito"
                 ]} 
               />
               
@@ -291,9 +301,14 @@ const ExperienceSection = () => {
                 title="Security & Compliance" 
                 icon={<Lock className="h-5 w-5 text-primary" />} 
                 skills={[
-                  "Imperva", "Synk", "Veracode", "Qualys", "Fluid Attacks", "Fortify", "Sonatype", 
-                  "SonarCloud", "Okta", "Vanta", "Anchore", "Synopsys Black Duck", "Trendmicro", 
-                  "OWASP", "Acunetix", "Burp Suite", "Checkmarx", "Prisma Cloud", "ISO 27001"
+                  // Top 8 Security Tools (shown first)
+                  "OWASP", "Veracode", "Prisma Cloud", "Snyk", "Qualys", "Okta", "Burp Suite", "ISO 27001",
+                  // SAST & DAST Tools
+                  "Checkmarx", "Fortify", "Acunetix", "SonarCloud",
+                  // Container & Supply Chain Security
+                  "Anchore", "Synopsys Black Duck", "Sonatype",
+                  // WAF & Runtime Protection
+                  "Imperva", "Trendmicro", "Fluid Attacks", "Vanta"
                 ]} 
               />
               
@@ -301,14 +316,24 @@ const ExperienceSection = () => {
                 title="Development" 
                 icon={<Code className="h-5 w-5 text-primary" />} 
                 skills={[
-                  "JavaScript", "TypeScript", "Java", "Python", "Rust", "Go", "C#", "PHP", "Ruby", 
-                  "SQL", "Visual Basic", "Swift", "Kotlin", "HTML/CSS", "Bash", "Dart", "Node.js", 
-                  "Postman", "Git", "Gitlab", "Github", "BitBucket", "Visual Studio Code", "CloudFlare", "JSON", 
-                  "VIM", "Nano", "Heroku", "Selenium", "Webpack", "Firebase Crashlytics", "NPM", "Google Workspace", 
-                  "React", "React.js", "React Native", "Express.js", "Next", "Ionic", "Angular", "Electron", 
-                  "Laravel", "Symfony", "Rails", "Vue.js", "jQuery", "NativeScript", "Django", "Flask", 
-                  "Flutter", "Pytest", "Jest", "Mocha", "Jasmine", "Trello", "Slack", "Shortcut", "Jira", 
-                  "BambooHR", "ClickUp", "Zeplin", "Miro", "Figma", "Kafka", "FastAPI", "Nuxt.js", "NestJS", "Hugo"
+                  // Top 8 Core Tools (shown first)
+                  "Python", "Go", "TypeScript", "Node.js", "Git", "Visual Studio Code", "Django", "FastAPI",
+                  // Programming Languages
+                  "JavaScript", "Java", "Rust", "C#", "PHP", "Ruby", "SQL", "Visual Basic", "Swift", "Kotlin", "HTML/CSS", "Bash", "Dart",
+                  // Version Control & Cloud
+                  "GitLab", "GitHub", "BitBucket", "Heroku", "CloudFlare",
+                  // Development Tools
+                  "JSON", "VIM", "Nano", "Webpack", "NPM", "Firebase Crashlytics", "Google Workspace",
+                  // Testing & API
+                  "Postman", "Pytest", "Jest", "Mocha", "Jasmine", "Selenium",
+                  // Backend Frameworks
+                  "Express.js", "Flask", "Laravel", "Symfony", "Rails", "NestJS",
+                  // Frontend & Mobile
+                  "React", "React.js", "React Native", "Next", "Vue.js", "Nuxt.js", "Angular", "Ionic", "Electron", "Flutter", "NativeScript", "jQuery",
+                  // Project Management & Design
+                  "Jira", "Trello", "Slack", "Shortcut", "BambooHR", "ClickUp", "Zeplin", "Miro", "Figma",
+                  // Additional Tools
+                  "Kafka", "Hugo"
                 ]} 
               />
               
@@ -316,9 +341,14 @@ const ExperienceSection = () => {
                 title="Databases" 
                 icon={<Database className="h-5 w-5 text-primary" />} 
                 skills={[
-                  "MongoDB", "PostgreSQL", "MySQL", "SnowFlake", "SQL Server", "DBeaver", "Liquibase", 
-                  "TiDB", "MariaDB", "Metabase", "Tableau", "Airflow", "GraphQL", "BigQuery", "Redis", 
-                  "Elasticsearch", "Redshift", "Cassandra", "CouchDB"
+                  // Top 8 Database Technologies (shown first)
+                  "PostgreSQL", "MongoDB", "Redis", "MySQL", "Elasticsearch", "GraphQL", "BigQuery", "DBeaver",
+                  // SQL Databases
+                  "SQL Server", "MariaDB", "TiDB", "SnowFlake", "Redshift",
+                  // NoSQL & Cache
+                  "Cassandra", "CouchDB",
+                  // Data Tools & Analytics
+                  "Metabase", "Tableau", "Airflow", "Liquibase"
                 ]} 
               />
               
@@ -326,10 +356,16 @@ const ExperienceSection = () => {
                 title="Blockchain" 
                 icon={<Bitcoin className="h-5 w-5 text-primary" />} 
                 skills={[
-                  "Metamask", "Remix", "Ethers.js", "web3.js", "Geth", "Ganache", "Parity", "Infura", 
-                  "Ethereum", "Hyperledger Fabric", "Truffle", "Embark", "OpenZeppelin Contracts", "Solidity", 
-                  "Corda", "Quorum", "Ripple", "IOTA", "Stellar", "Cardano", "Uport", "Oculus Quest", 
-                  "Polkadot", "Tezos", "Avalanche", "Cosmos SDK", "Chainlink", "Solana", "Algorand", "Arbitrum"
+                  // Top 8 Core Blockchain Tools (shown first)
+                  "Ethereum", "Solidity", "web3.js", "Metamask", "Truffle", "OpenZeppelin Contracts", "Chainlink", "Solana",
+                  // Development Tools
+                  "Ethers.js", "Remix", "Ganache", "Geth", "Parity", "Infura", "Embark",
+                  // Enterprise Blockchain
+                  "Hyperledger Fabric", "Corda", "Quorum",
+                  // Layer 1 Blockchains
+                  "Polkadot", "Cardano", "Avalanche", "Algorand", "Tezos", "Stellar", "Ripple", "IOTA",
+                  // Layer 2 & Infrastructure
+                  "Arbitrum", "Cosmos SDK", "Uport", "Oculus Quest"
                 ]} 
               />
               
