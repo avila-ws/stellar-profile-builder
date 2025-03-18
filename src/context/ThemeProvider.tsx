@@ -18,44 +18,18 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
     }
     return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
   });
-  
-  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
-    // Asegúrate de que el componente esté montado para evitar hidratación incorrecta
-    setMounted(true);
-  }, []);
-
-  useEffect(() => {
-    if (!mounted) return;
-    
     const root = window.document.documentElement;
-    
-    // Añadir una clase de transición para hacer el cambio más suave
-    root.classList.add("transition-colors");
-    root.style.setProperty("transition-duration", "500ms");
     
     root.classList.remove("light", "dark");
     root.classList.add(theme);
     localStorage.setItem("theme", theme);
-    
-    // Remover la clase de transición después de un tiempo para evitar problemas con otras transiciones
-    const timer = setTimeout(() => {
-      root.classList.remove("transition-colors");
-      root.style.removeProperty("transition-duration");
-    }, 500);
-    
-    return () => clearTimeout(timer);
-  }, [theme, mounted]);
+  }, [theme]);
 
   const toggleTheme = () => {
     setTheme((prevTheme) => (prevTheme === "light" ? "dark" : "light"));
   };
-
-  // Renderizar null en el servidor o durante la hidratación
-  if (!mounted) {
-    return <>{children}</>;
-  }
 
   return (
     <ThemeContext.Provider value={{ theme, toggleTheme }}>
