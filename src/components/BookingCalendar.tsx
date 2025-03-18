@@ -12,7 +12,7 @@ const BookingCalendar = () => {
           src="https://calendar.google.com/calendar/appointments/schedules/AcZssZ0RKCJXNFIQLYjZhar5z2JTUIK5ap37_6yYwdKoWJtmqjnv4wukx8T-JIMIRGTGqiaORDc2LY3J?gv=true" 
           style={{ border: 0 }} 
           width="100%" 
-          height="650" 
+          height="1050" 
           frameBorder="0"
           title="Google Calendar Appointment Scheduling"
           className="bg-white"
