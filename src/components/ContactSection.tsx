@@ -22,6 +22,14 @@ const ContactSection = () => {
     e.currentTarget.reset();
   };
   
+  const handleScheduleClick = () => {
+    // Find the schedule tab trigger and programmatically click it
+    const scheduleTab = document.querySelector('[data-value="schedule"]') as HTMLElement;
+    if (scheduleTab) {
+      scheduleTab.click();
+    }
+  };
+  
   return (
     <section id="contact" className="py-20 bg-muted/50 dark:bg-muted/10">
       <div className="container max-w-7xl mx-auto px-4 sm:px-6">
@@ -68,7 +76,7 @@ const ContactSection = () => {
                     </div>
                     <div>
                       <p className="text-sm text-muted-foreground">Schedule a meeting</p>
-                      <Button variant="link" className="font-medium hover:text-primary transition-colors p-0 h-auto" onClick={() => document.querySelector('[data-value="schedule"]')?.click()}>
+                      <Button variant="link" className="font-medium hover:text-primary transition-colors p-0 h-auto" onClick={handleScheduleClick}>
                         Book a time on my calendar <ChevronRight className="h-4 w-4 ml-1" />
                       </Button>
                     </div>
