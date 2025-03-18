@@ -3,6 +3,7 @@ import { Card } from "@/components/ui/card";
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
+
 interface EducationCardProps {
   institution: string;
   url: string;
@@ -11,12 +12,14 @@ interface EducationCardProps {
     description: string;
   }>;
 }
+
 const EducationCard = ({
   institution,
   url,
   degrees
 }: EducationCardProps) => {
   const [isOpen, setIsOpen] = useState(false);
+  
   return <div className="cursor-pointer hover:bg-accent/50 rounded-md p-2 -m-2 transition-colors" onClick={() => setIsOpen(!isOpen)}>
       <h4 className="font-medium flex items-center justify-between">
         <a href={url} target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors" onClick={e => e.stopPropagation()}>
@@ -30,9 +33,10 @@ const EducationCard = ({
       
       <Collapsible open={isOpen} onOpenChange={setIsOpen}>
         <CollapsibleContent>
-          <ul className="list-disc pl-5 space-y-1 mt-1 text-muted-foreground">
+          <ul className="list-disc pl-5 space-y-1 mt-1">
             {degrees.map((degree, index) => <li key={index}>
-                <span className="font-medium">{degree.title}</span> - {degree.description}
+                <span className="font-semibold text-primary">{degree.title}</span>{" "}
+                <span className="text-muted-foreground">- {degree.description}</span>
               </li>)}
           </ul>
         </CollapsibleContent>
@@ -43,6 +47,7 @@ const EducationCard = ({
         </div>}
     </div>;
 };
+
 const AboutSection = () => {
   const [languagesOpen, setLanguagesOpen] = useState(false);
   return <section id="about" className="py-20 bg-muted/50 dark:bg-muted/10">
@@ -195,4 +200,5 @@ const AboutSection = () => {
       </div>
     </section>;
 };
+
 export default AboutSection;
