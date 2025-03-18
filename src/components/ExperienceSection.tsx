@@ -206,7 +206,8 @@ const ExperienceSection = () => {
                   "Directed key blockchain projects, managing infrastructure across multiple blockchain protocols, resulting in a 60% increase in transaction throughput and a 40% decrease in operational costs", 
                   "Led cross-functional teams to integrate advanced security into financial solutions, enhancing operational efficiency by 35% and improving quality metrics by 30%", 
                   "Automated security processes within CI/CD pipelines, embedding compliance enforcement, vulnerability scanning, and security gates into the development lifecycle"
-                ]} 
+                ]}
+                defaultExpanded={true}
               />
               
               <WorkExperience 
