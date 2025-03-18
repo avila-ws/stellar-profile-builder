@@ -36,14 +36,16 @@ const ContactSection = () => {
       // Add staggered animation for form inputs
       const inputs = formRef.current.querySelectorAll('input, textarea');
       inputs.forEach((input, index) => {
-        input.style.opacity = '0';
-        input.style.transform = 'translateY(10px)';
-        input.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
-        input.style.transitionDelay = `${index * 0.1}s`;
+        // Type assertion to HTMLElement to safely access style properties
+        const inputElement = input as HTMLElement;
+        inputElement.style.opacity = '0';
+        inputElement.style.transform = 'translateY(10px)';
+        inputElement.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+        inputElement.style.transitionDelay = `${index * 0.1}s`;
         
         setTimeout(() => {
-          input.style.opacity = '1';
-          input.style.transform = 'translateY(0)';
+          inputElement.style.opacity = '1';
+          inputElement.style.transform = 'translateY(0)';
         }, 300 + index * 100);
       });
     }
