@@ -1,4 +1,3 @@
-
 import { Briefcase, Server, Lock, Code, Database, Bitcoin, ChevronDown, ChevronUp, Building2, Building, Home, Palmtree, Landmark } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Card, CardContent } from "@/components/ui/card";
@@ -39,11 +38,8 @@ const WorkExperience = ({
       
       <Accordion type="single" collapsible className="mt-0 border-none">
         <AccordionItem value="description" className="border-none">
-          <div 
-            onClick={() => setIsExpanded(!isExpanded)} 
-            className="cursor-pointer group"
-          >
-            <h3 className="text-xl font-semibold group-hover:text-primary transition-colors">
+          <div className="cursor-pointer group" onClick={() => setIsExpanded(!isExpanded)}>
+            <h3 className="text-xl font-semibold flex items-center">
               {companyUrl ? (
                 <a 
                   href={companyUrl} 
@@ -54,7 +50,9 @@ const WorkExperience = ({
                 >
                   {company}
                 </a>
-              ) : company}
+              ) : (
+                <span>{company}</span>
+              )}
             </h3>
             <div className="flex flex-col sm:flex-row sm:items-center gap-2 mb-2 mt-1">
               <span className="font-medium">{role}</span>
