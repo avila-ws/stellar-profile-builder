@@ -32,7 +32,7 @@ const HeroSection = () => {
               <DialogContent className="p-0 border-0 bg-transparent shadow-none max-w-3xl w-full flex items-center justify-center">
                 <div className="relative w-full max-w-xl mx-auto">
                   {/* Black vignette overlay effect */}
-                  <div className="absolute inset-0 shadow-[inset_0_0_100px_40px_rgba(0,0,0,0.7)] z-10 rounded-full"></div>
+                  <div className="absolute inset-0 shadow-[inset_0_0_100px_40px_rgba(0,0,0,0)] z-10 rounded-full"></div>
                   
                   {/* Image container with negative top margin to crop the top portion */}
                   <div className="overflow-hidden rounded-full">
