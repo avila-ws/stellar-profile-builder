@@ -1,39 +1,28 @@
-
 import { CheckCircle, Globe, GraduationCap, Shield, Building, ChevronDown, ChevronUp } from "lucide-react";
 import { Card } from "@/components/ui/card";
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
-
 interface EducationCardProps {
   institution: string;
   url: string;
-  degrees: Array<{title: string, description: string}>;
+  degrees: Array<{
+    title: string;
+    description: string;
+  }>;
 }
-
-const EducationCard = ({ institution, url, degrees }: EducationCardProps) => {
+const EducationCard = ({
+  institution,
+  url,
+  degrees
+}: EducationCardProps) => {
   const [isOpen, setIsOpen] = useState(false);
-  
-  return (
-    <div 
-      className="cursor-pointer hover:bg-accent/50 rounded-md p-2 -m-2 transition-colors"
-      onClick={() => setIsOpen(!isOpen)}
-    >
+  return <div className="cursor-pointer hover:bg-accent/50 rounded-md p-2 -m-2 transition-colors" onClick={() => setIsOpen(!isOpen)}>
       <h4 className="font-medium flex items-center justify-between">
-        <a 
-          href={url} 
-          target="_blank" 
-          rel="noopener noreferrer" 
-          className="hover:text-primary transition-colors"
-          onClick={(e) => e.stopPropagation()}
-        >
+        <a href={url} target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors" onClick={e => e.stopPropagation()}>
           {institution}
         </a>
-        <Button 
-          variant="ghost" 
-          size="sm" 
-          className="p-0 h-8 w-8 pointer-events-none"
-        >
+        <Button variant="ghost" size="sm" className="p-0 h-8 w-8 pointer-events-none">
           {isOpen ? <ChevronUp className="h-4 w-4" /> : <ChevronDown className="h-4 w-4" />}
           <span className="sr-only">Toggle</span>
         </Button>
@@ -42,29 +31,21 @@ const EducationCard = ({ institution, url, degrees }: EducationCardProps) => {
       <Collapsible open={isOpen} onOpenChange={setIsOpen}>
         <CollapsibleContent>
           <ul className="list-disc pl-5 space-y-1 mt-1 text-muted-foreground">
-            {degrees.map((degree, index) => (
-              <li key={index}>
+            {degrees.map((degree, index) => <li key={index}>
                 <span className="font-medium">{degree.title}</span> - {degree.description}
-              </li>
-            ))}
+              </li>)}
           </ul>
         </CollapsibleContent>
       </Collapsible>
       
-      {!isOpen && (
-        <div className="mt-1 text-muted-foreground text-sm">
+      {!isOpen && <div className="mt-1 text-muted-foreground text-sm">
           Click to see details about {degrees.length} degree{degrees.length > 1 ? 's' : ''}
-        </div>
-      )}
-    </div>
-  );
+        </div>}
+    </div>;
 };
-
 const AboutSection = () => {
   const [languagesOpen, setLanguagesOpen] = useState(false);
-  
-  return (
-    <section id="about" className="py-20 bg-muted/50 dark:bg-muted/10">
+  return <section id="about" className="py-20 bg-muted/50 dark:bg-muted/10">
       <div className="container max-w-7xl mx-auto px-4 sm:px-6">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">About Me</h2>
@@ -89,42 +70,25 @@ const AboutSection = () => {
                 </h3>
                 
                 <div className="space-y-5">
-                  <EducationCard 
-                    institution="Central University of Technology"
-                    url="https://web.archive.org/web/20110806134524/http://www.unitec.edu.ve/index5.jsp"
-                    degrees={[
-                      {
-                        title: "B.Sc. in Systems Engineering",
-                        description: "Specialized in IT-driven business optimization and strategic data management"
-                      },
-                      {
-                        title: "B.Sc. in Business Administration and Management", 
-                        description: "Competent in operational efficiency and strategic administrative leadership"
-                      }
-                    ]}
-                  />
+                  <EducationCard institution="Central University of Technology" url="https://web.archive.org/web/20110806134524/http://www.unitec.edu.ve/index5.jsp" degrees={[{
+                  title: "B.Sc. in Systems Engineering",
+                  description: "Specialized in IT-driven business optimization and strategic data management"
+                }, {
+                  title: "B.Sc. in Business Administration and Management",
+                  description: "Competent in operational efficiency and strategic administrative leadership"
+                }]} />
                   
-                  <EducationCard 
-                    institution="Forensic Science and Cybersecurity Academy"
-                    url="https://ujap.edu.ve/"
-                    degrees={[
-                      {
-                        title: "Diploma in Forensic Science and Criminalistics",
-                        description: "Specialized in forensic techniques and criminal analysis"
-                      },
-                      {
-                        title: "Diploma in Forensic Computing and Cybercrime", 
-                        description: "Trained in cybercrime investigation and forensic computing"
-                      }
-                    ]}
-                  />
+                  <EducationCard institution="Forensic Science and Cybersecurity Academy" url="https://ujap.edu.ve/" degrees={[{
+                  title: "Diploma in Forensic Science and Criminalistics",
+                  description: "Specialized in forensic techniques and criminal analysis"
+                }, {
+                  title: "Diploma in Forensic Computing and Cybercrime",
+                  description: "Trained in cybercrime investigation and forensic computing"
+                }]} />
                 </div>
               </Card>
               
-              <Card 
-                className="p-6 cursor-pointer hover:shadow-md transition-shadow duration-300"
-                onClick={() => setLanguagesOpen(!languagesOpen)}
-              >
+              <Card className="p-6 cursor-pointer hover:shadow-md transition-shadow duration-300" onClick={() => setLanguagesOpen(!languagesOpen)}>
                 <Collapsible open={languagesOpen} onOpenChange={setLanguagesOpen}>
                   <div className="flex items-center justify-between">
                     <h3 className="text-xl font-semibold flex items-center">
@@ -229,8 +193,6 @@ const AboutSection = () => {
           </div>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default AboutSection;
