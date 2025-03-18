@@ -3,7 +3,8 @@ import { Shield, Code, Cloud } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useEffect, useState } from "react";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
+import { Dialog, DialogContent, DialogTrigger, DialogTitle } from "@/components/ui/dialog";
+import { AspectRatio } from "@/components/ui/aspect-ratio";
 
 const HeroSection = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -34,13 +35,14 @@ const HeroSection = () => {
                 </div>
               </DialogTrigger>
               <DialogContent className="p-0 border-0 bg-transparent shadow-none max-w-3xl w-full flex items-center justify-center">
-                <div className="relative w-full max-w-xl mx-auto">
-                  {/* Black vignette overlay effect */}
-                  <div className="absolute inset-0 shadow-[inset_0_0_100px_40px_rgba(0,0,0,0.5)] z-10 rounded-full"></div>
-                  
-                  {/* Image container with increased negative top margin to crop more of the top portion */}
-                  <div className="overflow-hidden rounded-full">
-                    <img src="/lovable-uploads/74204ed6-b70d-42fc-962a-ad475ddd4383.png" alt="Renzo Avila" className="w-full h-auto object-cover transform transition-transform duration-300 scale-110 border-4 border-primary/20 -mt-24" />
+                <DialogTitle className="sr-only">Renzo Avila Profile Photo</DialogTitle>
+                <div className="relative w-full max-w-md mx-auto">
+                  <div className="aspect-square overflow-hidden rounded-full border-4 border-primary/20 shadow-xl">
+                    <img 
+                      src="/lovable-uploads/74204ed6-b70d-42fc-962a-ad475ddd4383.png" 
+                      alt="Renzo Avila" 
+                      className="w-full h-full object-cover"
+                    />
                   </div>
                 </div>
               </DialogContent>
