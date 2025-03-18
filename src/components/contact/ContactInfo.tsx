@@ -13,47 +13,63 @@ const ContactInfo = ({ onScheduleClick }: ContactInfoProps) => {
       <h3 className="text-2xl font-semibold mb-6">Contact Information</h3>
       
       <div className="space-y-6">
-        <div className="flex items-center gap-4 group">
+        <a 
+          href="mailto:renzo@avila.ws" 
+          className="flex items-center gap-4 group cursor-pointer hover:bg-primary/5 p-2 rounded-md transition-all duration-300"
+        >
           <div className="bg-primary/10 p-3 rounded-full transition-all duration-300 group-hover:bg-primary group-hover:text-white">
             <Mail className="h-6 w-6 text-primary group-hover:text-white" />
           </div>
           <div>
             <p className="text-sm text-muted-foreground">Email</p>
-            <a href="mailto:renzo@avila.ws" className="font-medium hover:text-primary transition-colors">renzo@avila.ws</a>
+            <span className="font-medium hover:text-primary transition-colors">renzo@avila.ws</span>
           </div>
-        </div>
+        </a>
         
-        <div className="flex items-center gap-4 group">
+        <a 
+          href="https://wa.me/443301229696?text=Hello%2C%20I%20would%20like%20to%20get%20in%20touch%20with%20you" 
+          target="_blank" 
+          rel="noopener noreferrer"
+          className="flex items-center gap-4 group cursor-pointer hover:bg-primary/5 p-2 rounded-md transition-all duration-300"
+        >
           <div className="bg-primary/10 p-3 rounded-full transition-all duration-300 group-hover:bg-primary group-hover:text-white">
             <Phone className="h-6 w-6 text-primary group-hover:text-white" />
           </div>
           <div>
             <p className="text-sm text-muted-foreground">Phone</p>
-            <a href="https://wa.me/443301229696?text=Hello%2C%20I%20would%20like%20to%20get%20in%20touch%20with%20you" target="_blank" rel="noopener noreferrer" className="font-medium hover:text-primary transition-colors">+44 330 122 9696</a>
+            <span className="font-medium hover:text-primary transition-colors">+44 330 122 9696</span>
           </div>
-        </div>
+        </a>
         
-        <div className="flex items-center gap-4 group">
+        <div 
+          onClick={onScheduleClick}
+          className="flex items-center gap-4 group cursor-pointer hover:bg-primary/5 p-2 rounded-md transition-all duration-300"
+        >
           <div className="bg-primary/10 p-3 rounded-full transition-all duration-300 group-hover:bg-primary group-hover:text-white">
             <Calendar className="h-6 w-6 text-primary group-hover:text-white" />
           </div>
           <div>
             <p className="text-sm text-muted-foreground">Schedule a meeting</p>
-            <Button variant="link" className="font-medium hover:text-primary transition-colors p-0 h-auto" onClick={onScheduleClick}>
+            <span className="font-medium hover:text-primary transition-colors flex items-center">
               Book a time on my calendar <ChevronRight className="h-4 w-4 ml-1" />
-            </Button>
+            </span>
           </div>
         </div>
         
-        <div className="flex items-center gap-4 group">
+        <a 
+          href="https://maps.app.goo.gl/QnToM6RPniyKprZD7" 
+          target="_blank" 
+          rel="noopener noreferrer"
+          className="flex items-center gap-4 group cursor-pointer hover:bg-primary/5 p-2 rounded-md transition-all duration-300"
+        >
           <div className="bg-primary/10 p-3 rounded-full transition-all duration-300 group-hover:bg-primary group-hover:text-white">
             <MapPin className="h-6 w-6 text-primary group-hover:text-white" />
           </div>
           <div>
             <p className="text-sm text-muted-foreground">Location</p>
-            <a href="https://maps.app.goo.gl/QnToM6RPniyKprZD7" target="_blank" rel="noopener noreferrer" className="font-medium hover:text-primary transition-colors">Barcelona, Spain</a>
+            <span className="font-medium hover:text-primary transition-colors">Barcelona, Spain</span>
           </div>
-        </div>
+        </a>
         
         <h4 className="text-xl font-medium mt-8 mb-4">Connect with me</h4>
         
