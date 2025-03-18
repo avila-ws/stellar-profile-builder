@@ -1,9 +1,11 @@
+
 import { Briefcase, Server, Lock, Code, Database, Bitcoin, ChevronDown, ChevronUp, Building2, Building, Home, Palmtree, Landmark } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Card, CardContent } from "@/components/ui/card";
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 
 interface WorkExperienceProps {
   company: string;
@@ -26,6 +28,8 @@ const WorkExperience = ({
   isLast = false,
   icon = <Briefcase className="h-5 w-5 text-primary" />
 }: WorkExperienceProps) => {
+  const [isExpanded, setIsExpanded] = useState(false);
+  
   return <div className="relative pl-12 pb-8">
       {!isLast && <div className="absolute top-0 left-5 h-full w-px bg-border"></div>}
       <div className="absolute top-1 left-0 h-10 w-10 rounded-full bg-primary/10 flex items-center justify-center">
@@ -43,9 +47,19 @@ const WorkExperience = ({
         <span className="hidden sm:block text-muted-foreground">•</span>
         <span className="text-muted-foreground">{location}</span>
       </div>
-      <ul className="list-disc pl-5 space-y-2 mt-3">
-        {description.map((item, index) => <li key={index} className="text-muted-foreground">{item}</li>)}
-      </ul>
+      
+      <Accordion type="single" collapsible className="mt-3 border-none">
+        <AccordionItem value="description" className="border-none">
+          <AccordionTrigger className="py-1 text-sm text-primary hover:no-underline">
+            {isExpanded ? "Hide details" : "View details"}
+          </AccordionTrigger>
+          <AccordionContent>
+            <ul className="list-disc pl-5 space-y-2 mt-2">
+              {description.map((item, index) => <li key={index} className="text-muted-foreground">{item}</li>)}
+            </ul>
+          </AccordionContent>
+        </AccordionItem>
+      </Accordion>
     </div>;
 };
 
@@ -62,19 +76,21 @@ const SkillCategory = ({
 }: SkillCategoryProps) => {
   const [isOpen, setIsOpen] = useState(false);
   
-  return <Card className="p-6 hover:shadow-md transition-shadow duration-300">
+  return (
+    <Card 
+      className="p-6 hover:shadow-md transition-shadow duration-300 cursor-pointer" 
+      onClick={() => setIsOpen(!isOpen)}
+    >
       <Collapsible open={isOpen} onOpenChange={setIsOpen} className="space-y-2">
         <div className="flex items-center justify-between">
           <h4 className="font-semibold text-lg flex items-center">
             {icon}
             <span className="ml-2">{title}</span>
           </h4>
-          <CollapsibleTrigger asChild>
-            <Button variant="ghost" size="sm" className="p-0 h-8 w-8">
-              {isOpen ? <ChevronUp className="h-4 w-4" /> : <ChevronDown className="h-4 w-4" />}
-              <span className="sr-only">Toggle</span>
-            </Button>
-          </CollapsibleTrigger>
+          <Button variant="ghost" size="sm" className="p-0 h-8 w-8 pointer-events-none">
+            {isOpen ? <ChevronUp className="h-4 w-4" /> : <ChevronDown className="h-4 w-4" />}
+            <span className="sr-only">Toggle</span>
+          </Button>
         </div>
         
         <CollapsibleContent className="space-y-2">
@@ -88,7 +104,8 @@ const SkillCategory = ({
             {skills.length > 8 && <span className="bg-secondary text-secondary-foreground px-2 py-1 rounded text-sm font-medium">+{skills.length - 8} more</span>}
           </div>}
       </Collapsible>
-    </Card>;
+    </Card>
+  );
 };
 
 const ExperienceSection = () => {
@@ -122,15 +139,46 @@ const ExperienceSection = () => {
             <h3 className="text-2xl font-semibold mb-8">Technical Skills</h3>
             
             <div className="space-y-6">
-              <SkillCategory title="AWS Cloud & DevOps" icon={<Server className="h-5 w-5 text-primary" />} skills={["EC2", "EKS", "Lambda", "Batch", "CloudSearch", "KMS", "SNS", "SQS", "QLDB", "Pinpoint", "DynamoDB", "RDS", "CloudShell", "X-Ray", "API Gateway", "SageMaker", "Control Tower", "CloudTrail", "CloudWatch", "CloudFormation", "VPC", "ELB", "VPN", "Route 53", "Macie", "Inspector", "Security Lake", "GuardDuty", "Detective", "Cognito", "WAF", "Secrets Manager", "Security Hub", "Shield", "CloudHSM", "IAM Identity Center", "Audit Manager", "EBS", "S3", "Glacier", "Docker", "Kubernetes", "Registry", "Jenkins", "JumpCloud", "Prometheus", "Terraform", "Grafana", "Argo CD", "SSH", "MSK", "Fargate", "CodeBuild", "CodePipeline", "App Runner"]} />
+              <SkillCategory title="AWS Cloud & DevOps" icon={<Server className="h-5 w-5 text-primary" />} skills={[
+                "EC2", "EKS", "Lambda", "Batch", "CloudSearch", "KMS", "SNS", "SQS", "QLDB", "Pinpoint", 
+                "DynamoDB", "RDS", "CloudShell", "X-Ray", "API Gateway", "SageMaker", "Control Tower", 
+                "CloudTrail", "CloudWatch", "CloudFormation", "VPC", "ELB", "VPN", "Route 53", "Macie", 
+                "Inspector", "Security Lake", "GuardDuty", "Detective", "Cognito", "WAF", "Secrets Manager", 
+                "Security Hub", "Shield", "CloudHSM", "IAM Identity Center", "Audit Manager", "EBS", "S3", 
+                "Glacier", "Docker", "Kubernetes", "Registry", "Jenkins", "JumpCloud", "Prometheus", 
+                "Terraform", "Grafana", "Argo CD", "SSH", "MSK", "Fargate", "CodeBuild", "CodePipeline", 
+                "App Runner"
+              ]} />
               
-              <SkillCategory title="Security & Compliance" icon={<Lock className="h-5 w-5 text-primary" />} skills={["Imperva", "Snyk", "Veracode", "Qualys", "Fluid Attacks", "Fortify", "Sonatype", "SonarCloud", "Okta", "Vanta", "Anchore", "Synopsys Black Duck", "Trendmicro", "OWASP", "Acunetix", "Burp Suite", "Checkmarx", "Prisma Cloud", "ISO 27001"]} />
+              <SkillCategory title="Security & Compliance" icon={<Lock className="h-5 w-5 text-primary" />} skills={[
+                "Imperva", "Snyk", "Veracode", "Qualys", "Fluid Attacks", "Fortify", "Sonatype", 
+                "SonarCloud", "Okta", "Vanta", "Anchore", "Synopsys Black Duck", "Trendmicro", 
+                "OWASP", "Acunetix", "Burp Suite", "Checkmarx", "Prisma Cloud", "ISO 27001"
+              ]} />
               
-              <SkillCategory title="Development" icon={<Code className="h-5 w-5 text-primary" />} skills={["JavaScript", "TypeScript", "Java", "Python", "Rust", "Go", "C#", "PHP", "Ruby", "SQL", "Visual Basic", "Swift", "Kotlin", "HTML/CSS", "Bash", "Dart", "Node.js", "Postman", "Git", "Gitlab", "Github", "BitBucket", "VS Code", "CloudFlare", "JSON", "VIM", "Nano", "Heroku", "Selenium", "Webpack", "Firebase", "NPM", "Google Workspace", "React", "React Native", "Express.js", "Next.js", "Ionic", "Angular", "Electron", "Laravel", "Symfony", "Rails", "Vue.js", "jQuery", "NativeScript", "Django", "Flask", "Flutter", "Pytest", "Jest", "Mocha", "Jasmine", "Trello", "Slack", "Shortcut", "Jira", "BambooHR", "ClickUp", "Zeplin", "Miro", "Figma", "Kafka", "FastAPI", "Nuxt.js", "NestJS", "Hugo"]} />
+              <SkillCategory title="Development" icon={<Code className="h-5 w-5 text-primary" />} skills={[
+                "JavaScript", "TypeScript", "Java", "Python", "Rust", "Go", "C#", "PHP", "Ruby", 
+                "SQL", "Visual Basic", "Swift", "Kotlin", "HTML/CSS", "Bash", "Dart", "Node.js", 
+                "Postman", "Git", "Gitlab", "Github", "BitBucket", "VS Code", "CloudFlare", "JSON", 
+                "VIM", "Nano", "Heroku", "Selenium", "Webpack", "Firebase", "NPM", "Google Workspace", 
+                "React", "React Native", "Express.js", "Next.js", "Ionic", "Angular", "Electron", 
+                "Laravel", "Symfony", "Rails", "Vue.js", "jQuery", "NativeScript", "Django", "Flask", 
+                "Flutter", "Pytest", "Jest", "Mocha", "Jasmine", "Trello", "Slack", "Shortcut", "Jira", 
+                "BambooHR", "ClickUp", "Zeplin", "Miro", "Figma", "Kafka", "FastAPI", "Nuxt.js", "NestJS", "Hugo"
+              ]} />
               
-              <SkillCategory title="Databases" icon={<Database className="h-5 w-5 text-primary" />} skills={["MongoDB", "PostgreSQL", "MySQL", "SnowFlake", "SQL Server", "DBeaver", "Liquibase", "TiDB", "MariaDB", "Metabase", "Tableau", "Airflow", "GraphQL", "BigQuery", "Redis", "Elasticsearch", "Redshift", "Cassandra", "CouchDB"]} />
+              <SkillCategory title="Databases" icon={<Database className="h-5 w-5 text-primary" />} skills={[
+                "MongoDB", "PostgreSQL", "MySQL", "SnowFlake", "SQL Server", "DBeaver", "Liquibase", 
+                "TiDB", "MariaDB", "Metabase", "Tableau", "Airflow", "GraphQL", "BigQuery", "Redis", 
+                "Elasticsearch", "Redshift", "Cassandra", "CouchDB"
+              ]} />
               
-              <SkillCategory title="Blockchain" icon={<Bitcoin className="h-5 w-5 text-primary" />} skills={["Metamask", "Remix", "Ethers.js", "web3.js", "Geth", "Ganache", "Parity", "Infura", "Ethereum", "Hyperledger Fabric", "Truffle", "Embark", "OpenZeppelin", "Solidity", "Corda", "Quorum", "Ripple", "IOTA", "Stellar", "Cardano", "Uport", "Oculus Quest", "Polkadot", "Tezos", "Avalanche", "Cosmos SDK", "Chainlink", "Solana", "Algorand", "Arbitrum"]} />
+              <SkillCategory title="Blockchain" icon={<Bitcoin className="h-5 w-5 text-primary" />} skills={[
+                "Metamask", "Remix", "Ethers.js", "web3.js", "Geth", "Ganache", "Parity", "Infura", 
+                "Ethereum", "Hyperledger Fabric", "Truffle", "Embark", "OpenZeppelin", "Solidity", 
+                "Corda", "Quorum", "Ripple", "IOTA", "Stellar", "Cardano", "Uport", "Oculus Quest", 
+                "Polkadot", "Tezos", "Avalanche", "Cosmos SDK", "Chainlink", "Solana", "Algorand", "Arbitrum"
+              ]} />
               
               <Card className="p-6">
                 <CardContent className="p-0">
