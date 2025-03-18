@@ -2,6 +2,7 @@
 import { Shield, Code, Cloud } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useEffect, useState } from "react";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 
 const HeroSection = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -27,8 +28,19 @@ const HeroSection = () => {
             DevSecOps Engineer
           </div>
           
+          <div 
+            className={`mb-6 transition-all duration-700 delay-150 ${
+              isVisible ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-4"
+            }`}
+          >
+            <Avatar className="w-32 h-32 border-4 border-primary/20 shadow-lg">
+              <AvatarImage src="https://images.unsplash.com/photo-1649972904349-6e44c42644a7?auto=format&fit=crop&q=80&w=400&h=400" alt="Renzo Avila" />
+              <AvatarFallback className="text-2xl font-bold">RA</AvatarFallback>
+            </Avatar>
+          </div>
+          
           <h1 
-            className={`text-4xl md:text-6xl font-bold tracking-tight mb-6 transition-all duration-700 delay-150 ${
+            className={`text-4xl md:text-6xl font-bold tracking-tight mb-6 transition-all duration-700 delay-200 ${
               isVisible ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-4"
             }`}
           >
