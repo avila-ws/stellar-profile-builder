@@ -22,11 +22,6 @@ const ContactSection = () => {
     e.currentTarget.reset();
   };
   
-  const handleTabChange = (value: string) => {
-    // No need to use DOM manipulation, the Tabs component handles this
-    console.log("Tab changed to:", value);
-  };
-  
   return (
     <section id="contact" className="py-20 bg-muted/50 dark:bg-muted/10">
       <div className="container max-w-7xl mx-auto px-4 sm:px-6">
@@ -35,7 +30,7 @@ const ContactSection = () => {
           <div className="h-1 w-20 bg-primary mx-auto rounded-full"></div>
         </div>
         
-        <Tabs defaultValue="message" className="w-full" onValueChange={handleTabChange}>
+        <Tabs defaultValue="message" className="w-full">
           <TabsList className="grid w-full max-w-md mx-auto mb-8 grid-cols-2">
             <TabsTrigger value="message">Send Message</TabsTrigger>
             <TabsTrigger value="schedule">Schedule Meeting</TabsTrigger>
@@ -73,15 +68,7 @@ const ContactSection = () => {
                     </div>
                     <div>
                       <p className="text-sm text-muted-foreground">Schedule a meeting</p>
-                      <Button 
-                        variant="link" 
-                        className="font-medium hover:text-primary transition-colors p-0 h-auto" 
-                        onClick={() => {
-                          // Find the schedule tab trigger element and trigger it
-                          const scheduleTab = document.querySelector('[data-value="schedule"]') as HTMLButtonElement;
-                          if (scheduleTab) scheduleTab.click();
-                        }}
-                      >
+                      <Button variant="link" className="font-medium hover:text-primary transition-colors p-0 h-auto" onClick={() => document.querySelector('[data-value="schedule"]')?.click()}>
                         Book a time on my calendar <ChevronRight className="h-4 w-4 ml-1" />
                       </Button>
                     </div>
