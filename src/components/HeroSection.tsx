@@ -3,7 +3,7 @@ import { Shield, Code, Cloud } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useEffect, useState } from "react";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { HoverCard, HoverCardContent, HoverCardTrigger } from "@/components/ui/hover-card";
+import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
 
 const HeroSection = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -34,8 +34,8 @@ const HeroSection = () => {
               isVisible ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-4"
             }`}
           >
-            <HoverCard>
-              <HoverCardTrigger asChild>
+            <Dialog>
+              <DialogTrigger asChild>
                 <div className="cursor-pointer transition-transform duration-300 hover:scale-105">
                   <Avatar className="w-40 h-40 border-4 border-primary/20 shadow-lg">
                     <AvatarImage 
@@ -45,17 +45,17 @@ const HeroSection = () => {
                     <AvatarFallback className="text-2xl font-bold">RA</AvatarFallback>
                   </Avatar>
                 </div>
-              </HoverCardTrigger>
-              <HoverCardContent className="w-80 p-0 border-0">
-                <div className="overflow-hidden rounded-md">
+              </DialogTrigger>
+              <DialogContent className="p-0 border-0 bg-transparent shadow-none max-w-3xl">
+                <div className="overflow-hidden rounded-lg">
                   <img 
                     src="/lovable-uploads/78d2e6ac-44c0-4542-ab78-92637203a5fd.png" 
                     alt="Renzo Avila"
-                    className="w-full h-auto object-cover transform transition-transform duration-300 scale-110"
+                    className="w-full h-auto object-cover rounded-lg transform transition-transform duration-300 scale-110 border-4 border-primary/20"
                   />
                 </div>
-              </HoverCardContent>
-            </HoverCard>
+              </DialogContent>
+            </Dialog>
           </div>
           
           <h1 
