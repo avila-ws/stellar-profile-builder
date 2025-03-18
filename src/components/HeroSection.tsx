@@ -46,13 +46,19 @@ const HeroSection = () => {
                   </Avatar>
                 </div>
               </DialogTrigger>
-              <DialogContent className="p-0 border-0 bg-transparent shadow-none max-w-3xl">
-                <div className="overflow-hidden rounded-lg">
-                  <img 
-                    src="/lovable-uploads/78d2e6ac-44c0-4542-ab78-92637203a5fd.png" 
-                    alt="Renzo Avila"
-                    className="w-full h-auto object-cover rounded-lg transform transition-transform duration-300 scale-110 border-4 border-primary/20"
-                  />
+              <DialogContent className="p-0 border-0 bg-transparent shadow-none max-w-3xl w-full flex items-center justify-center">
+                <div className="relative w-full max-w-xl mx-auto">
+                  {/* Black vignette overlay effect */}
+                  <div className="absolute inset-0 rounded-lg shadow-[inset_0_0_100px_40px_rgba(0,0,0,0.7)] z-10"></div>
+                  
+                  {/* Image container with negative top margin to crop the top portion */}
+                  <div className="overflow-hidden rounded-lg">
+                    <img 
+                      src="/lovable-uploads/78d2e6ac-44c0-4542-ab78-92637203a5fd.png" 
+                      alt="Renzo Avila"
+                      className="w-full h-auto object-cover rounded-lg transform transition-transform duration-300 scale-110 border-4 border-primary/20 -mt-10"
+                    />
+                  </div>
                 </div>
               </DialogContent>
             </Dialog>
