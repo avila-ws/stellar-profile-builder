@@ -1,0 +1,179 @@
+
+/* Animation keyframes */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideInFromBottom {
+  from { 
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to { 
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInFromTop {
+  from { 
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to { 
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scaleIn {
+  from { 
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to { 
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Iridescent glow effect that mimics sunlight reflecting off a polished surface */
+@keyframes iridescent-glow {
+  0% {
+    text-shadow: 0 0 2px rgba(var(--primary-rgb), 0);
+    color: hsl(var(--primary));
+  }
+  20% {
+    text-shadow: 0 0 8px rgba(var(--primary-rgb), 0.6);
+    color: #0EA5E9; /* Ocean Blue */
+  }
+  40% {
+    text-shadow: 0 0 5px rgba(var(--primary-rgb), 0.4);
+    color: #33C3F0; /* Sky Blue */
+  }
+  60% {
+    text-shadow: 0 0 8px rgba(var(--primary-rgb), 0.6);
+    color: #1EAEDB; /* Bright Blue */
+  }
+  80% {
+    text-shadow: 0 0 5px rgba(var(--primary-rgb), 0.4);
+    color: hsl(var(--primary));
+  }
+  100% {
+    text-shadow: 0 0 2px rgba(var(--primary-rgb), 0);
+    color: hsl(var(--primary));
+  }
+}
+
+/* Flowing gradient animation for buttons */
+@keyframes gradient-flow {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+/* Animation utility classes */
+.bg-gradient-animated {
+  background: linear-gradient(270deg, #0EA5E9, #1EAEDB, #33C3F0, #0060c0);
+  background-size: 300% 300%;
+  animation: gradient-flow 6s ease infinite;
+}
+
+.fade-in {
+  animation: fadeIn 0.5s ease-out;
+}
+
+.slide-in-bottom {
+  animation: slideInFromBottom 0.5s ease-out;
+}
+
+.slide-in-top {
+  animation: slideInFromTop 0.5s ease-out;
+}
+
+.scale-in {
+  animation: scaleIn 0.5s ease-out;
+}
+
+.animate-subtle-glow {
+  animation: subtleGlow 1.2s ease-in-out infinite;
+}
+
+.animate-iridescent-glow {
+  animation: iridescent-glow 0.7s ease-in-out;
+}
+
+.pulse-animation {
+  animation: pulse 2s infinite;
+}
+
+.float-animation {
+  animation: float 3s ease-in-out infinite;
+}
+
+/* Staggered animations for list items */
+.stagger-animation > *:nth-child(1) { animation-delay: 0.1s; }
+.stagger-animation > *:nth-child(2) { animation-delay: 0.2s; }
+.stagger-animation > *:nth-child(3) { animation-delay: 0.3s; }
+.stagger-animation > *:nth-child(4) { animation-delay: 0.4s; }
+.stagger-animation > *:nth-child(5) { animation-delay: 0.5s; }
+.stagger-animation > *:nth-child(6) { animation-delay: 0.6s; }
+.stagger-animation > *:nth-child(7) { animation-delay: 0.7s; }
+.stagger-animation > *:nth-child(8) { animation-delay: 0.8s; }
+.stagger-animation > *:nth-child(9) { animation-delay: 0.9s; }
+.stagger-animation > *:nth-child(10) { animation-delay: 1s; }
+
+/* Animate underlines for links */
+.animated-underline {
+  position: relative;
+  text-decoration: none;
+}
+
+.animated-underline::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  bottom: -2px;
+  left: 0;
+  @apply bg-primary;
+  transform: scaleX(0);
+  transform-origin: bottom right;
+  transition: transform 0.3s ease-out;
+}
+
+.animated-underline:hover::after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
