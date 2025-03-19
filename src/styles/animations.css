@@ -66,7 +66,7 @@
   }
 }
 
-/* Flowing gradient animation for buttons with more random color points and darker tones */
+/* Flowing gradient animation for buttons with more random color points and smoother, lighter tones */
 @keyframes gradient-flow {
   0% {
     background-position: 0% 50%;
