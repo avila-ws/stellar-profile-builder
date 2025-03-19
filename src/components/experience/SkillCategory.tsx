@@ -1,0 +1,60 @@
+
+import { useState } from "react";
+import { ChevronDown, ChevronUp } from "lucide-react";
+import { Card } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
+
+interface SkillCategoryProps {
+  title: string;
+  skills: string[];
+  icon: React.ReactNode;
+}
+
+const SkillCategory = ({
+  title,
+  skills,
+  icon
+}: SkillCategoryProps) => {
+  const [isOpen, setIsOpen] = useState(false);
+  
+  return (
+    <Card 
+      className="p-6 hover:shadow-md transition-shadow duration-300 cursor-pointer" 
+      onClick={() => setIsOpen(!isOpen)}
+    >
+      <Collapsible open={isOpen} onOpenChange={setIsOpen} className="space-y-2">
+        <div className="flex items-center justify-between">
+          <h4 className="font-semibold text-lg flex items-center">
+            {icon}
+            <span className="ml-2">{title}</span>
+          </h4>
+          <Button variant="ghost" size="sm" className="p-0 h-8 w-8 pointer-events-none">
+            {isOpen ? <ChevronUp className="h-4 w-4" /> : <ChevronDown className="h-4 w-4" />}
+            <span className="sr-only">Toggle</span>
+          </Button>
+        </div>
+        
+        <CollapsibleContent className="space-y-2">
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-2 pt-2">
+            {skills.map(skill => <span key={skill} className="bg-primary/10 text-primary px-2 py-1 rounded text-sm">{skill}</span>)}
+          </div>
+        </CollapsibleContent>
+        
+        {!isOpen && <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-2 pt-2">
+            {skills.slice(0, 8).map(skill => <span key={skill} className="bg-primary/10 text-primary px-2 py-1 rounded text-sm">{skill}</span>)}
+            {skills.length > 8 && (
+              <Button 
+                variant="gradient" 
+                className="text-sm px-2 py-1 h-auto min-h-0 font-medium"
+              >
+                +{skills.length - 8} more
+              </Button>
+            )}
+          </div>}
+      </Collapsible>
+    </Card>
+  );
+};
+
+export default SkillCategory;
