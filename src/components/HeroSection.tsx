@@ -1,4 +1,3 @@
-
 import { Shield, Code, Cloud } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useEffect, useState } from "react";
@@ -27,21 +26,20 @@ const HeroSection = () => {
       // Start the highlighting sequence
       const interval = setInterval(() => {
         setHighlightIndex(prev => {
-          // Rotate through the 4 contact links (0-3) and then return to -1 (no highlight)
-          // Adding a quick flash effect between the last and first items
+          // Create a quick iridescent effect that cycles through links rapidly
           if (prev === 3) {
-            // Quick transition to no highlight and then to the first item
+            // Very quick transition to no highlight and then to the first item
             setTimeout(() => {
               setHighlightIndex(0);
-            }, 300); // Short delay before moving to the first item
+            }, 150); // Ultra short delay before moving to the first item (reduced from 300ms)
             return -1; // Brief moment with no highlight
           }
           return prev >= 3 ? -1 : prev + 1;
         });
-      }, 1500); // Faster highlight change (reduced from 2000ms to 1500ms)
+      }, 800); // Much faster highlight change (reduced from 1500ms to 800ms)
       
       return () => clearInterval(interval);
-    }, 3000); // Start after 3 seconds
+    }, 2000); // Start a bit earlier (reduced from 3000ms to 2000ms)
     
     return () => {
       clearTimeout(timer);
@@ -92,7 +90,7 @@ const HeroSection = () => {
               target="_blank" 
               rel="noopener noreferrer" 
               className={`inline-flex items-center text-sm hover:text-primary transition-colors hover:scale-105 hover:font-medium contact-link relative
-                ${highlightIndex === 0 ? 'text-primary animate-subtle-glow' : 'text-muted-foreground'}`}
+                ${highlightIndex === 0 ? 'text-primary animate-iridescent-glow' : 'text-muted-foreground'}`}
             >
               <span className="relative after:content-[''] after:absolute after:w-full after:scale-x-0 after:h-0.5 after:bottom-0 after:left-0 after:bg-primary after:origin-bottom-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-bottom-left">Barcelona, Spain</span>
             </a>
@@ -102,7 +100,7 @@ const HeroSection = () => {
               target="_blank" 
               rel="noopener noreferrer" 
               className={`inline-flex items-center text-sm hover:text-primary transition-colors hover:scale-105 hover:font-medium contact-link relative
-                ${highlightIndex === 1 ? 'text-primary animate-subtle-glow' : 'text-muted-foreground'}`}
+                ${highlightIndex === 1 ? 'text-primary animate-iridescent-glow' : 'text-muted-foreground'}`}
             >
               <span className="relative after:content-[''] after:absolute after:w-full after:scale-x-0 after:h-0.5 after:bottom-0 after:left-0 after:bg-primary after:origin-bottom-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-bottom-left">LinkedIn</span>
             </a>
@@ -112,7 +110,7 @@ const HeroSection = () => {
               target="_blank" 
               rel="noopener noreferrer" 
               className={`inline-flex items-center text-sm hover:text-primary transition-colors hover:scale-105 hover:font-medium contact-link relative
-                ${highlightIndex === 2 ? 'text-primary animate-subtle-glow' : 'text-muted-foreground'}`}
+                ${highlightIndex === 2 ? 'text-primary animate-iridescent-glow' : 'text-muted-foreground'}`}
             >
               <span className="relative after:content-[''] after:absolute after:w-full after:scale-x-0 after:h-0.5 after:bottom-0 after:left-0 after:bg-primary after:origin-bottom-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-bottom-left">+44 330 122 9696</span>
             </a>
@@ -122,7 +120,7 @@ const HeroSection = () => {
               target="_blank" 
               rel="noopener noreferrer" 
               className={`inline-flex items-center text-sm hover:text-primary transition-colors hover:scale-105 hover:font-medium contact-link relative
-                ${highlightIndex === 3 ? 'text-primary animate-subtle-glow' : 'text-muted-foreground'}`}
+                ${highlightIndex === 3 ? 'text-primary animate-iridescent-glow' : 'text-muted-foreground'}`}
             >
               <span className="relative after:content-[''] after:absolute after:w-full after:scale-x-0 after:h-0.5 after:bottom-0 after:left-0 after:bg-primary after:origin-bottom-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-bottom-left">RENZO@AVILA.WS</span>
             </a>
