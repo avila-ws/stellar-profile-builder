@@ -62,7 +62,7 @@ const SkillCategory = ({
                   setIsOpen(true);
                 }}
               >
-                +{skills.length - previewCount} more
+                <span className="lava-content">+{skills.length - previewCount} more</span>
               </Button>
             )}
           </div>}

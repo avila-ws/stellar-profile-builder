@@ -2,7 +2,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
 @import './styles/colors.css';
 @import './styles/animations.css';
-@import './styles/effects.css';
+
 
 @tailwind base;
 @tailwind components;
@@ -59,38 +59,121 @@
   @apply hover:scale-105;
 }
 
-/* Estilos SOLO para los botones +XX more */
+/* Estilos para los botones con efecto lava lamp */
 button[class*="gradient"] {
-  transition: all 300ms !important;
-  background: linear-gradient(90deg, rgba(0, 128, 255, 0.7) 0%, rgba(32, 200, 216, 0.7) 100%) !important;
-  color: white !important;
-  border-radius: 4px !important;
-  background-size: 300% 300% !important;
-  animation: lava-lamp 4s ease infinite !important;
+  position: relative;
+  overflow: hidden;
+  color: rgba(255, 255, 255, 0.95) !important;
+  background: rgb(0, 40, 100) !important;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.3);
+  border: none !important;
+  transition: all 0.3s ease !important;
 }
 
 button[class*="gradient"]:hover {
-  background: linear-gradient(90deg, rgba(0, 96, 221, 0.7) 0%, rgba(24, 160, 176, 0.7) 100%) !important;
+  opacity: 1 !important;
+  background: rgb(0, 70, 165) !important;
+  transform: translateY(-1px);
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15) !important;
 }
 
-/* Borde con gradiente para la imagen de perfil */
+button[class*="gradient"]::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    45deg,
+    rgba(0, 40, 100, 0.05),
+    rgba(80, 180, 210, 0.4) 25%,
+    rgba(0, 40, 100, 0.05) 50%,
+    rgba(40, 120, 220, 0.4) 75%,
+    rgba(0, 40, 100, 0.05)
+  );
+  background-size: 400% 400%;
+  animation: lavaMove1 14s ease-in-out infinite;
+  z-index: 0 !important;
+  filter: blur(4px);
+  opacity: 0.7;
+  pointer-events: none;
+}
+
+button[class*="gradient"]::after {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    -45deg,
+    rgba(0, 40, 100, 0.05),
+    rgba(40, 130, 210, 0.35) 25%,
+    rgba(0, 40, 100, 0.05) 50%,
+    rgba(100, 180, 230, 0.35) 75%,
+    rgba(0, 40, 100, 0.05)
+  );
+  background-size: 400% 400%;
+  animation: lavaMove2 18s ease-in-out infinite;
+  z-index: 0 !important;
+  filter: blur(5px);
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+button[class*="gradient"] > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* Borde con efecto lava lamp para la imagen de perfil */
 .profile-gradient-border {
   border: none !important;
-  position: relative !important;
+  position: absolute !important;
   z-index: 0 !important;
-  transition: all 3000ms !important;
+  width: 100% !important;
+  height: 100% !important;
+  transition: all 300ms !important;
 }
 
 .profile-gradient-border::before {
-  content: '' !important;
+  content: "" !important;
   position: absolute !important;
-  z-index: -1 !important;
-  inset: -4px !important;
+  inset: -12px !important;
   border-radius: 50% !important;
-  background: linear-gradient(90deg, rgba(0, 128, 255, 0.8) 0%, rgba(32, 200, 216, 0.8) 100%) !important;
-  transition: all 3000ms !important;
+  background: linear-gradient(
+    45deg,
+    rgba(0, 40, 100, 0.2),
+    rgba(80, 180, 210, 0.6) 25%,
+    rgba(0, 40, 100, 0.2) 50%,
+    rgba(40, 120, 220, 0.6) 75%,
+    rgba(0, 40, 100, 0.2)
+  ) !important;
+  background-size: 400% 400% !important;
+  animation: lavaMove1 14s ease-in-out infinite !important;
+  z-index: -1 !important;
+  filter: blur(4px) !important;
+  opacity: 0.8 !important;
 }
 
-.profile-gradient-border:hover::before {
-  background: linear-gradient(90deg, rgba(0, 96, 221, 0.9) 0%, rgba(24, 160, 176, 0.9) 100%) !important;
+.profile-gradient-border::after {
+  content: "" !important;
+  position: absolute !important;
+  inset: -12px !important;
+  border-radius: 50% !important;
+  background: linear-gradient(
+    -45deg,
+    rgba(0, 40, 100, 0.2),
+    rgba(40, 130, 210, 0.5) 25%,
+    rgba(0, 40, 100, 0.2) 50%,
+    rgba(100, 180, 230, 0.5) 75%,
+    rgba(0, 40, 100, 0.2)
+  ) !important;
+  background-size: 400% 400% !important;
+  animation: lavaMove2 18s ease-in-out infinite !important;
+  z-index: -1 !important;
+  filter: blur(5px) !important;
+  opacity: 0.7 !important;
 }
