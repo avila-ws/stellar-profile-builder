@@ -66,10 +66,10 @@
   }
 }
 
-/* Enhanced lava lamp effect animation with more dramatic movement */
+/* Lava lamp effect animation - smooth gradient movement for buttons */
 @keyframes lava-lamp {
   0% {
-    background-position: 0% 0%;
+    background-position: 0% 50%;
   }
   25% {
     background-position: 50% 100%;
@@ -81,7 +81,7 @@
     background-position: 50% 0%;
   }
   100% {
-    background-position: 0% 0%;
+    background-position: 0% 50%;
   }
 }
 

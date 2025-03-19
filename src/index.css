@@ -61,26 +61,15 @@
 /* Estilos SOLO para los botones +XX more */
 button[class*="gradient"] {
   transition: all 300ms !important;
-  background: linear-gradient(90deg, 
-    rgba(0, 128, 255, 0.9) 0%, 
-    rgba(32, 200, 216, 0.9) 33%, 
-    rgba(0, 96, 221, 0.9) 66%, 
-    rgba(24, 160, 176, 0.9) 100%) !important;
+  background: linear-gradient(90deg, rgba(0, 128, 255, 0.7) 0%, rgba(32, 200, 216, 0.7) 100%) !important;
   color: white !important;
   border-radius: 4px !important;
-  background-size: 400% 400% !important;
-  animation: lava-lamp 3s ease-in-out infinite !important;
-  transform: translateZ(0) !important; /* Force hardware acceleration */
-  will-change: background-position !important; /* Hint to browser for optimization */
+  background-size: 300% 300% !important;
+  animation: lava-lamp 4s ease infinite !important;
 }
 
 button[class*="gradient"]:hover {
-  background: linear-gradient(90deg, 
-    rgba(0, 96, 221, 0.95) 0%, 
-    rgba(24, 160, 176, 0.95) 33%,
-    rgba(0, 128, 255, 0.95) 66%, 
-    rgba(32, 200, 216, a0.95) 100%) !important;
-  animation: lava-lamp 1.5s ease-in-out infinite !important;
+  background: linear-gradient(90deg, rgba(0, 96, 221, 0.7) 0%, rgba(24, 160, 176, 0.7) 100%) !important;
 }
 
 /* Borde con gradiente para la imagen de perfil */

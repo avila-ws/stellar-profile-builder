@@ -47,10 +47,6 @@ const SkillCategory = ({
               <Button 
                 variant="gradient" 
                 className="text-sm px-2 py-1 h-auto min-h-0 font-medium"
-                onClick={(e) => {
-                  e.stopPropagation();
-                  setIsOpen(true);
-                }}
               >
                 +{skills.length - 8} more
               </Button>
