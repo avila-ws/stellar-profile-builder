@@ -197,7 +197,7 @@
 }
 
 .animate-subtle-glow {
-  animation: subtleGlow 2s ease-in-out infinite;
+  animation: subtleGlow 1.2s ease-in-out infinite; /* Faster animation (changed from 2s to 1.2s) */
 }
 
 /* Staggered animations for list items */

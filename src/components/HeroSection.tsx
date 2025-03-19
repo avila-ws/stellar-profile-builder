@@ -28,9 +28,17 @@ const HeroSection = () => {
       const interval = setInterval(() => {
         setHighlightIndex(prev => {
           // Rotate through the 4 contact links (0-3) and then return to -1 (no highlight)
+          // Adding a quick flash effect between the last and first items
+          if (prev === 3) {
+            // Quick transition to no highlight and then to the first item
+            setTimeout(() => {
+              setHighlightIndex(0);
+            }, 300); // Short delay before moving to the first item
+            return -1; // Brief moment with no highlight
+          }
           return prev >= 3 ? -1 : prev + 1;
         });
-      }, 2000); // Change the highlight every 2 seconds
+      }, 1500); // Faster highlight change (reduced from 2000ms to 1500ms)
       
       return () => clearInterval(interval);
     }, 3000); // Start after 3 seconds
