@@ -1,4 +1,3 @@
-
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
 @import './styles/colors.css';
 @import './styles/animations/index.css';
@@ -127,7 +126,7 @@ button[class*="gradient"] > * {
   z-index: 1;
 }
 
-/* Efecto de gradiente fluido para el borde del perfil - con secciones transparentes */
+/* Efecto de gradiente fluido para el borde del perfil - movimiento orgánico y aleatorio */
 .profile-gradient-border {
   border: none !important;
   position: absolute !important;
@@ -159,7 +158,7 @@ button[class*="gradient"] > * {
       rgba(0, 40, 100, 0) 65%
     ) !important;
   background-size: 300% 300% !important;
-  animation: lavaFlow1 18s ease-in-out infinite alternate, sectionFade 15s ease-in-out infinite !important;
+  animation: lavaFlow1 18s ease-in-out infinite alternate !important;
   z-index: -1 !important;
   filter: blur(6px) !important;
   opacity: 0.9 !important;
@@ -187,7 +186,7 @@ button[class*="gradient"] > * {
       rgba(0, 40, 100, 0) 65%
     ) !important;
   background-size: 300% 300% !important;
-  animation: lavaFlow2 24s ease-in-out infinite reverse, sectionFade 20s ease-in-out infinite reverse !important; 
+  animation: lavaFlow2 24s ease-in-out infinite reverse !important; 
   z-index: -1 !important;
   filter: blur(7px) !important;
   opacity: 0.85 !important;
