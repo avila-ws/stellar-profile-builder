@@ -4,12 +4,12 @@ import { useIsMobile } from "@/hooks/use-mobile";
 
 const BookingCalendar = () => {
   const isMobile = useIsMobile();
-  const [iframeHeight, setIframeHeight] = useState(isMobile ? 1900 : 1050);
+  const [iframeHeight, setIframeHeight] = useState(isMobile ? 1700 : 1050);
   const iframeRef = useRef<HTMLIFrameElement>(null);
 
   useEffect(() => {
     // Update height based on device type
-    setIframeHeight(isMobile ? 1900 : 1050);
+    setIframeHeight(isMobile ? 1700 : 1050);
     
     // Add message event listener to receive height from iframe content
     const handleMessage = (event: MessageEvent) => {
@@ -17,7 +17,7 @@ const BookingCalendar = () => {
       if (event.origin.includes('calendar.google.com') && 
           event.data && typeof event.data === 'number') {
         // Add padding to the height
-        const padding = isMobile ? 300 : 50;
+        const padding = isMobile ? 250 : 50;
         setIframeHeight(event.data + padding);
       }
     };
@@ -29,7 +29,7 @@ const BookingCalendar = () => {
       // Force a height update after a slight delay
       setTimeout(() => {
         if (isMobile) {
-          setIframeHeight(prev => prev === 1900 ? 1901 : 1900); // Trigger a re-render
+          setIframeHeight(prev => prev === 1700 ? 1701 : 1700); // Trigger a re-render
         }
       }, 300);
     };
@@ -53,7 +53,7 @@ const BookingCalendar = () => {
           style={{ 
             border: 0, 
             height: `${iframeHeight}px`, 
-            minHeight: isMobile ? "1900px" : "1000px",
+            minHeight: isMobile ? "1700px" : "1000px",
             width: "100%"
           }} 
           width="100%" 
