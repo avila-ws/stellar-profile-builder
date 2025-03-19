@@ -66,28 +66,26 @@
   }
 }
 
-/* Flowing gradient animation for buttons with more random color points and smoother, lighter tones */
-@keyframes gradient-flow {
+/* Lava lamp effect animation - smooth gradient movement for buttons */
+@keyframes lava-lamp {
   0% {
     background-position: 0% 50%;
   }
-  20% {
-    background-position: 30% 80%;
+  25% {
+    background-position: 50% 100%;
   }
-  40% {
-    background-position: 60% 30%;
+  50% {
+    background-position: 100% 50%;
   }
-  60% {
-    background-position: 80% 70%;
-  }
-  80% {
-    background-position: 45% 10%;
+  75% {
+    background-position: 50% 0%;
   }
   100% {
     background-position: 0% 50%;
   }
 }
 
+/* Pulse animation */
 @keyframes pulse {
   0% {
     transform: scale(1);
@@ -114,9 +112,9 @@
 
 /* Animation utility classes */
 .bg-gradient-animated {
-  background: linear-gradient(270deg, #0E4E7A, #1A5A8C, #0A3A5E, #1E6090, #083152, #07294A);
-  background-size: 300% 300%;
-  animation: gradient-flow 6s ease infinite;
+  background: linear-gradient(135deg, #0E4E7A, #1A5A8C, #0A3A5E, #1E6090, #083152, #07294A);
+  background-size: 400% 400%;
+  animation: lava-lamp 6s ease infinite;
 }
 
 .fade-in {
