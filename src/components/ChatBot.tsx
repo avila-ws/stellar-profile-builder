@@ -159,7 +159,6 @@ const ChatBot: React.FC = () => {
   
   useEffect(() => {
     if (isOpen && messages.length === 0) {
-      // Add initial welcome message
       const welcomeMessage: Message = {
         id: Date.now().toString(),
         content: `<div class="space-y-2">
@@ -202,7 +201,6 @@ const ChatBot: React.FC = () => {
     setMessages(prev => [...prev, userMessage]);
     setInput("");
     
-    // Process user input and generate response after a slight delay
     setTimeout(() => {
       const botResponse = generateResponse(input.trim().toLowerCase(), true);
       const botMessage: Message = {
@@ -216,7 +214,6 @@ const ChatBot: React.FC = () => {
     }, 500);
   };
   
-  // Add window.quickOptionClick for the HTML buttons
   useEffect(() => {
     (window as any).quickOptionClick = (optionId: string) => {
       const option = quickOptions.find(opt => opt.id === optionId);
@@ -243,7 +240,6 @@ const ChatBot: React.FC = () => {
     
     setMessages(prev => [...prev, userMessage]);
     
-    // Process the selected option after a slight delay
     setTimeout(() => {
       const botResponse = generateResponse(option.keywords[0], true);
       const botMessage: Message = {
@@ -258,7 +254,6 @@ const ChatBot: React.FC = () => {
   };
   
   const generateResponse = (userInput: string, showOptions: boolean = false): string => {
-    // Simple keyword matching
     for (const item of predefinedResponses) {
       if (item.keywords.some(keyword => userInput.includes(keyword))) {
         let finalResponse = item.response;
@@ -281,7 +276,6 @@ const ChatBot: React.FC = () => {
       }
     }
     
-    // Default fallback response with all options
     let fallbackResponse = `<div class="space-y-2">
       <p>🤔 I'm not sure how to help with that specific query.</p>
       <p>You can ask me about:</p>
@@ -324,22 +318,21 @@ const ChatBot: React.FC = () => {
   };
   
   const showQuickOptions = () => {
-    return messages.length <= 2; // Only show initial quick options before first exchange
+    return messages.length <= 2;
   };
   
-  // Add a button to show all available topics
   const showAllTopics = () => {
     const allTopicsMessage: Message = {
       id: Date.now().toString(),
       content: `<div class="space-y-3">
         <p>📁 <strong>All available topics:</strong></p>
         <div class="grid grid-cols-2 gap-2">
-          <button class="text-left px-3 py-2 bg-muted rounded-md hover:bg-muted/80 transition-colors" onclick="window.quickOptionClick('experience')">💼 Work Experience</button>
-          <button class="text-left px-3 py-2 bg-muted rounded-md hover:bg-muted/80 transition-colors" onclick="window.quickOptionClick('skills')">🛠️ Technical Skills</button>
-          <button class="text-left px-3 py-2 bg-muted rounded-md hover:bg-muted/80 transition-colors" onclick="window.quickOptionClick('contact')">📱 Contact Information</button>
-          <button class="text-left px-3 py-2 bg-muted rounded-md hover:bg-muted/80 transition-colors" onclick="window.quickOptionClick('blockchain')">⛓️ Blockchain Projects</button>
-          <button class="text-left px-3 py-2 bg-muted rounded-md hover:bg-muted/80 transition-colors" onclick="window.quickOptionClick('security')">🔒 Security Experience</button>
-          <button class="text-left px-3 py-2 bg-muted rounded-md hover:bg-muted/80 transition-colors" onclick="window.quickOptionClick('location')">📍 Location</button>
+          <button class="text-left px-3 py-2 bg-primary/10 text-primary rounded-md hover:bg-primary/20 transition-colors flex items-center" onclick="window.quickOptionClick('experience')">💼 <span class="ml-2">Work Experience</span></button>
+          <button class="text-left px-3 py-2 bg-primary/10 text-primary rounded-md hover:bg-primary/20 transition-colors flex items-center" onclick="window.quickOptionClick('skills')">🛠️ <span class="ml-2">Technical Skills</span></button>
+          <button class="text-left px-3 py-2 bg-primary/10 text-primary rounded-md hover:bg-primary/20 transition-colors flex items-center" onclick="window.quickOptionClick('contact')">📱 <span class="ml-2">Contact Information</span></button>
+          <button class="text-left px-3 py-2 bg-primary/10 text-primary rounded-md hover:bg-primary/20 transition-colors flex items-center" onclick="window.quickOptionClick('blockchain')">⛓️ <span class="ml-2">Blockchain Projects</span></button>
+          <button class="text-left px-3 py-2 bg-primary/10 text-primary rounded-md hover:bg-primary/20 transition-colors flex items-center" onclick="window.quickOptionClick('security')">🔒 <span class="ml-2">Security Experience</span></button>
+          <button class="text-left px-3 py-2 bg-primary/10 text-primary rounded-md hover:bg-primary/20 transition-colors flex items-center" onclick="window.quickOptionClick('location')">📍 <span class="ml-2">Location</span></button>
         </div>
       </div>`,
       role: "assistant",
