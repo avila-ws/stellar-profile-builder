@@ -34,41 +34,41 @@ type QuickOption = {
 const predefinedResponses = [
   {
     keywords: ["hello", "hi", "hey", "hola"],
-    response: "¡Hola! Soy el asistente virtual de Renzo Avila. ¿En qué puedo ayudarte? Puedes preguntarme sobre su experiencia, habilidades o cómo contactarle."
+    response: "Hi! I'm Renzo Avila's virtual assistant. How can I help you? You can ask me about his experience, skills, or how to contact him."
   },
   {
     keywords: ["experience", "work", "job", "experiencia", "trabajo"],
-    response: "Renzo tiene más de 6 años de experiencia como DevSecOps Engineer, integrando seguridad en pipelines CI/CD y gestionando infraestructuras cloud cumpliendo con ISO 27001. Ha liderado más de 20 proyectos blockchain en América Latina, el Caribe y Europa."
+    response: "Renzo has over 6 years of experience as a DevSecOps Engineer, integrating security into CI/CD pipelines and managing cloud infrastructures compliant with ISO 27001. He has led more than 20 blockchain projects across Latin America, the Caribbean, and Europe."
   },
   {
     keywords: ["skills", "habilidades", "tecnologías", "technologies"],
-    response: "Las principales habilidades de Renzo incluyen AWS, Seguridad (ISO 27001, OWASP), Blockchain, CI/CD, Terraform, Kubernetes, Docker, y lenguajes como Python, Rust, JavaScript y TypeScript."
+    response: "Renzo's core skills include AWS, Security (ISO 27001, OWASP), Blockchain, CI/CD, Terraform, Kubernetes, Docker, and languages like Python, Rust, JavaScript, and TypeScript."
   },
   {
     keywords: ["contact", "contacto", "email", "phone", "teléfono"],
-    response: "Puedes contactar a Renzo por email en RENZO@AVILA.WS, por teléfono al +44 330 122 9696, o agendar una reunión usando el formulario de contacto en esta web."
+    response: "You can contact Renzo via email at RENZO@AVILA.WS, by phone at +44 330 122 9696, or schedule a meeting using the contact form on this website."
   },
   {
     keywords: ["blockchain", "crypto", "bitcoin", "ethereum"],
-    response: "Renzo ha liderado más de 20 proyectos blockchain, mejorando la seguridad y eficiencia para aplicaciones financieras y empresariales en América Latina, el Caribe y Europa. Tiene experiencia en diversas plataformas blockchain."
+    response: "Renzo has led over 20 blockchain projects, improving security and efficiency for financial and enterprise applications across Latin America, the Caribbean, and Europe. He has experience with various blockchain platforms."
   },
   {
     keywords: ["security", "seguridad", "iso", "devsecops"],
-    response: "Renzo ha coordinado certificaciones ISO 27001, reduciendo incidentes de seguridad en un 50% y ha desarrollado pruebas de seguridad automatizadas, mejorando la protección del software en un 45%."
+    response: "Renzo has coordinated ISO 27001 certifications, reducing security incidents by 50% and has developed automated security testing, improving software protection by 45%."
   },
   {
     keywords: ["location", "ubicación", "where", "dónde"],
-    response: "Renzo está ubicado en Barcelona, España."
+    response: "Renzo is located in Barcelona, Spain."
   }
 ];
 
 const quickOptions: QuickOption[] = [
-  { id: "experience", text: "Experiencia laboral", keywords: ["experience", "trabajo"] },
-  { id: "skills", text: "Habilidades técnicas", keywords: ["skills", "habilidades"] },
-  { id: "contact", text: "Información de contacto", keywords: ["contact", "contacto"] },
-  { id: "blockchain", text: "Proyectos blockchain", keywords: ["blockchain", "crypto"] },
-  { id: "security", text: "Experiencia en seguridad", keywords: ["security", "seguridad"] },
-  { id: "location", text: "Ubicación", keywords: ["location", "ubicación"] }
+  { id: "experience", text: "Work Experience", keywords: ["experience", "work"] },
+  { id: "skills", text: "Technical Skills", keywords: ["skills", "technologies"] },
+  { id: "contact", text: "Contact Information", keywords: ["contact", "email"] },
+  { id: "blockchain", text: "Blockchain Projects", keywords: ["blockchain", "crypto"] },
+  { id: "security", text: "Security Experience", keywords: ["security", "devsecops"] },
+  { id: "location", text: "Location", keywords: ["location", "where"] }
 ];
 
 const ChatBot: React.FC = () => {
@@ -84,7 +84,7 @@ const ChatBot: React.FC = () => {
       // Add initial welcome message
       const welcomeMessage: Message = {
         id: Date.now().toString(),
-        content: "¡Hola! Soy el asistente virtual de Renzo Avila. ¿En qué puedo ayudarte? Puedes seleccionar una opción o escribir tu pregunta.",
+        content: "Hi! I'm Renzo Avila's virtual assistant. How can I help you? You can select an option or type your question.",
         role: "assistant",
         timestamp: new Date()
       };
@@ -158,7 +158,7 @@ const ChatBot: React.FC = () => {
     }
     
     // Default fallback response
-    return "Lo siento, no puedo responder a eso en este momento. ¿Puedes intentar con otra pregunta sobre la experiencia, habilidades o contacto de Renzo?";
+    return "I'm sorry, I can't answer that at the moment. Could you try asking another question about Renzo's experience, skills, or contact information?";
   };
   
   const handleKeyDown = (e: React.KeyboardEvent) => {
@@ -189,7 +189,7 @@ const ChatBot: React.FC = () => {
         <Card className="w-80 md:w-96 shadow-xl border-primary/20">
           <Collapsible open={isExpanded} onOpenChange={setIsExpanded}>
             <CardHeader className="p-3 border-b flex flex-row items-center justify-between space-y-0">
-              <CardTitle className="text-base font-medium">Asistente Virtual</CardTitle>
+              <CardTitle className="text-base font-medium">Virtual Assistant</CardTitle>
               <div className="flex items-center space-x-1">
                 <CollapsibleTrigger asChild>
                   <Button variant="ghost" size="icon" className="h-8 w-8">
