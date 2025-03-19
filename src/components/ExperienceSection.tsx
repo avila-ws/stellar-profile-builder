@@ -1,4 +1,3 @@
-
 import { Briefcase, Server, Lock, Code, Database, Bitcoin, ChevronDown, ChevronUp, Building2, Building, Home, Palmtree, Landmark } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Card, CardContent } from "@/components/ui/card";
@@ -160,14 +159,12 @@ const SkillCategory = ({
         {!isOpen && <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-2 pt-2">
             {skills.slice(0, 8).map(skill => <span key={skill} className="bg-primary/10 text-primary px-2 py-1 rounded text-sm">{skill}</span>)}
             {skills.length > 8 && (
-              <span 
-                className="bg-secondary text-secondary-foreground px-2 py-1 rounded text-sm font-medium relative overflow-hidden group"
-                onMouseEnter={(e) => e.currentTarget.classList.add("animate-iridescent-glow")}
-                onAnimationEnd={(e) => e.currentTarget.classList.remove("animate-iridescent-glow")}
+              <Button 
+                variant="gradient" 
+                className="text-sm font-medium rounded-md shadow-sm"
               >
-                <span className="relative z-10 inline-block pulse-animation">+{skills.length - 8} more</span>
-                <span className="absolute inset-0 bg-secondary group-hover:bg-secondary/90 transition-colors duration-300"></span>
-              </span>
+                +{skills.length - 8} more
+              </Button>
             )}
           </div>}
       </Collapsible>

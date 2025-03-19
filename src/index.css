@@ -196,6 +196,25 @@
   }
 }
 
+/* Flowing gradient animation for buttons */
+@keyframes gradient-flow {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.bg-gradient-animated {
+  background: linear-gradient(270deg, #0EA5E9, #1EAEDB, #33C3F0, #0060c0);
+  background-size: 300% 300%;
+  animation: gradient-flow 3s ease infinite;
+}
+
 .fade-in {
   animation: fadeIn 0.5s ease-out;
 }
