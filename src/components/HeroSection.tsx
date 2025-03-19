@@ -60,10 +60,13 @@ const HeroSection = () => {
             <Dialog>
               <DialogTrigger asChild>
                 <div className="cursor-pointer transition-all duration-300 hover:scale-105">
-                  <Avatar className={`w-40 h-40 border-4 border-primary/20 shadow-lg transition-all duration-300 ${animateAvatar ? "border-primary/50" : ""}`}>
-                    <AvatarImage src="/lovable-uploads/74204ed6-b70d-42fc-962a-ad475ddd4383.png" alt="Renzo Avila" />
-                    <AvatarFallback className="text-2xl font-bold">RA</AvatarFallback>
-                  </Avatar>
+                  <div className="relative w-40 h-40">
+                    <div className="absolute inset-0 avatar-lava-border"></div>
+                    <Avatar className={`w-40 h-40 shadow-lg transition-all duration-300 rounded-full overflow-hidden relative z-10 ${animateAvatar ? "opacity-100" : "opacity-90"}`}>
+                      <AvatarImage src="/lovable-uploads/74204ed6-b70d-42fc-962a-ad475ddd4383.png" alt="Renzo Avila" />
+                      <AvatarFallback className="text-2xl font-bold">RA</AvatarFallback>
+                    </Avatar>
+                  </div>
                 </div>
               </DialogTrigger>
               <DialogContent className="p-0 border-0 bg-transparent shadow-none max-w-md w-auto flex items-center justify-center">

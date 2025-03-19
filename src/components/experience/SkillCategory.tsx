@@ -1,5 +1,5 @@
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { ChevronDown, ChevronUp } from "lucide-react";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -45,10 +45,10 @@ const SkillCategory = ({
             {skills.slice(0, 8).map(skill => <span key={skill} className="bg-primary/10 text-primary px-2 py-1 rounded text-sm">{skill}</span>)}
             {skills.length > 8 && (
               <Button 
-                variant="gradient" 
-                className="text-sm px-2 py-1 h-auto min-h-0 font-medium"
+                variant="ghost" 
+                className="text-sm px-2 py-1 h-auto min-h-0 font-medium lava-effect lava-effect-button relative overflow-hidden"
               >
-                +{skills.length - 8} more
+                <span className="lava-content">+{skills.length - 8} more</span>
               </Button>
             )}
           </div>}

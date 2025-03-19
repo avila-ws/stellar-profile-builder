@@ -1,0 +1,161 @@
+/* Efectos visuales para la UI */
+
+/* Lava Lamp Effect - Estilo reutilizable para cualquier elemento */
+.lava-effect {
+  position: relative;
+  overflow: hidden;
+  /* No incluimos color de fondo o texto por defecto para hacerlo más versátil */
+}
+
+/* Versión para botones con colores específicos */
+.lava-effect-button {
+  color: rgba(255, 255, 255, 0.95) !important;
+  background: rgb(0, 40, 100) !important;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.3);
+  border: none !important;
+  transition: all 0.3s ease !important;
+}
+
+/* Override hover effects para botones */
+.lava-effect-button:hover {
+  opacity: 1 !important;
+  background: rgb(0, 70, 165) !important;
+  transform: translateY(-1px);
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15) !important;
+}
+
+/* Primera capa del efecto lava */
+.lava-effect::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    45deg,
+    rgba(0, 40, 100, 0.05),
+    rgba(80, 180, 210, 0.4) 25%,
+    rgba(0, 40, 100, 0.05) 50%,
+    rgba(40, 120, 220, 0.4) 75%,
+    rgba(0, 40, 100, 0.05)
+  );
+  background-size: 400% 400%;
+  animation: lavaMove1 14s ease-in-out infinite;
+  z-index: 0 !important;
+  filter: blur(10px);
+  opacity: 0.6;
+  pointer-events: none; /* Asegura que no interfiera con clicks */
+}
+
+/* Segunda capa del efecto lava */
+.lava-effect::after {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    -45deg,
+    rgba(0, 40, 100, 0.05),
+    rgba(40, 130, 210, 0.35) 25%,
+    rgba(0, 40, 100, 0.05) 50%,
+    rgba(100, 180, 230, 0.35) 75%,
+    rgba(0, 40, 100, 0.05)
+  );
+  background-size: 400% 400%;
+  animation: lavaMove2 18s ease-in-out infinite;
+  z-index: 0 !important;
+  filter: blur(12px);
+  opacity: 0.55;
+  pointer-events: none; /* Asegura que no interfiera con clicks */
+}
+
+/* Animación para la primera capa */
+@keyframes lavaMove1 {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Animación para la segunda capa */
+@keyframes lavaMove2 {
+  0% {
+    background-position: 100% 50%;
+  }
+  50% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 100% 50%;
+  }
+}
+
+/* Clase para cualquier contenido que esté encima del efecto lava */
+.lava-content {
+  position: relative;
+  z-index: 1;
+}
+
+/* Efecto lava lamp para el borde de la foto de perfil */
+.avatar-lava-border {
+  position: relative;
+  border-radius: 50% !important;
+  width: 100%;
+  height: 100%;
+  padding: 5px;
+  z-index: 0;
+}
+
+.avatar-lava-border::before {
+  content: "";
+  position: absolute;
+  top: -8px;
+  left: -8px;
+  right: -8px;
+  bottom: -8px;
+  border-radius: 50%;
+  background: linear-gradient(
+    45deg,
+    rgba(0, 40, 100, 0.1),
+    rgba(80, 180, 210, 0.5) 25%,
+    rgba(0, 40, 100, 0.1) 50%,
+    rgba(40, 120, 220, 0.5) 75%,
+    rgba(0, 40, 100, 0.1)
+  );
+  background-size: 400% 400%;
+  animation: lavaMove1 14s ease-in-out infinite;
+  z-index: -1;
+  filter: blur(4px);
+  opacity: 0.7;
+}
+
+.avatar-lava-border::after {
+  content: "";
+  position: absolute;
+  top: -8px;
+  left: -8px;
+  right: -8px;
+  bottom: -8px;
+  border-radius: 50%;
+  background: linear-gradient(
+    -45deg,
+    rgba(0, 40, 100, 0.1),
+    rgba(40, 130, 210, 0.4) 25%,
+    rgba(0, 40, 100, 0.1) 50%,
+    rgba(100, 180, 230, 0.4) 75%,
+    rgba(0, 40, 100, 0.1)
+  );
+  background-size: 400% 400%;
+  animation: lavaMove2 18s ease-in-out infinite;
+  z-index: -2;
+  filter: blur(5px);
+  opacity: 0.6;
+}
