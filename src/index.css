@@ -1,3 +1,4 @@
+
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
 @import './styles/colors.css';
 @import './styles/animations.css';
@@ -59,10 +60,12 @@
 
 /* Estilos SOLO para los botones +XX more */
 button[class*="gradient"] {
-  transition: all 3000ms !important;
+  transition: all 300ms !important;
   background: linear-gradient(90deg, rgba(0, 128, 255, 0.7) 0%, rgba(32, 200, 216, 0.7) 100%) !important;
   color: white !important;
   border-radius: 4px !important;
+  background-size: 300% 300% !important;
+  animation: lava-lamp 4s ease infinite !important;
 }
 
 button[class*="gradient"]:hover {
@@ -90,4 +93,3 @@ button[class*="gradient"]:hover {
 .profile-gradient-border:hover::before {
   background: linear-gradient(90deg, rgba(0, 96, 221, 0.9) 0%, rgba(24, 160, 176, 0.9) 100%) !important;
 }
-
