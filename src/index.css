@@ -1,4 +1,3 @@
-
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
 @import './styles/colors.css';
 @import './styles/animations.css';
@@ -128,7 +127,7 @@ button[class*="gradient"] > * {
   z-index: 1;
 }
 
-/* Borde con efecto lava lamp para la imagen de perfil - enhanced effect, thinner border */
+/* Borde con efecto lava lamp mejorado - más fluido con desvanecimiento a los extremos */
 .profile-gradient-border {
   border: none !important;
   position: absolute !important;
@@ -141,39 +140,53 @@ button[class*="gradient"] > * {
 .profile-gradient-border::before {
   content: "" !important;
   position: absolute !important;
-  inset: -6px !important; /* Reduced from -12px for thinner border */
+  inset: -5px !important;
   border-radius: 50% !important;
-  background: linear-gradient(
+  background: radial-gradient(
+    circle at center,
+    rgba(0, 40, 100, 0) 10%,
+    rgba(80, 180, 210, 0.85) 40%,
+    rgba(40, 120, 220, 0.7) 60%,
+    rgba(0, 40, 100, 0) 90%
+  ), 
+  linear-gradient(
     45deg,
-    rgba(0, 40, 100, 0.2),
-    rgba(80, 180, 210, 0.7) 25%, /* Increased opacity from 0.6 to 0.7 */
-    rgba(0, 40, 100, 0.2) 50%,
-    rgba(40, 120, 220, 0.7) 75%, /* Increased opacity from 0.6 to 0.7 */
-    rgba(0, 40, 100, 0.2)
+    rgba(0, 40, 100, 0),
+    rgba(80, 180, 210, 0.8) 25%,
+    rgba(0, 40, 100, 0.1) 50%,
+    rgba(40, 120, 220, 0.8) 75%,
+    rgba(0, 40, 100, 0)
   ) !important;
-  background-size: 500% 500% !important; /* Increased from 400% for more dramatic movement */
-  animation: lavaMove1 10s ease-in-out infinite !important; /* Faster animation (14s to 10s) */
+  background-size: 200% 200%, 600% 600% !important;
+  animation: lavaMove1 8s ease-in-out infinite, lavaMove2 12s ease-in-out infinite !important;
   z-index: -1 !important;
-  filter: blur(4px) !important;
-  opacity: 0.9 !important; /* Increased from 0.8 for more vibrant effect */
+  filter: blur(6px) !important;
+  opacity: 0.9 !important;
 }
 
 .profile-gradient-border::after {
   content: "" !important;
   position: absolute !important;
-  inset: -6px !important; /* Reduced from -12px for thinner border */
+  inset: -5px !important;
   border-radius: 50% !important;
-  background: linear-gradient(
+  background: radial-gradient(
+    circle at center,
+    rgba(0, 40, 100, 0) 20%,
+    rgba(40, 130, 210, 0.6) 50%,
+    rgba(100, 180, 230, 0.4) 70%,
+    rgba(0, 40, 100, 0) 90%
+  ),
+  linear-gradient(
     -45deg,
-    rgba(0, 40, 100, 0.2),
-    rgba(40, 130, 210, 0.6) 25%, /* Increased opacity from 0.5 to 0.6 */
-    rgba(0, 40, 100, 0.2) 50%,
-    rgba(100, 180, 230, 0.6) 75%, /* Increased opacity from 0.5 to 0.6 */
-    rgba(0, 40, 100, 0.2)
+    rgba(0, 40, 100, 0),
+    rgba(40, 130, 210, 0.7) 25%,
+    rgba(0, 40, 100, 0.1) 50%,
+    rgba(100, 180, 230, 0.7) 75%,
+    rgba(0, 40, 100, 0)
   ) !important;
-  background-size: 500% 500% !important; /* Increased from 400% for more dramatic movement */
-  animation: lavaMove2 12s ease-in-out infinite !important; /* Faster animation (18s to 12s) */
+  background-size: 200% 200%, 600% 600% !important;
+  animation: lavaMove2 10s ease-in-out infinite, lavaMove1 14s ease-in-out infinite !important;
   z-index: -1 !important;
-  filter: blur(5px) !important;
-  opacity: 0.8 !important; /* Increased from 0.7 for more vibrant effect */
+  filter: blur(7px) !important;
+  opacity: 0.8 !important;
 }
