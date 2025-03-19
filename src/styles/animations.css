@@ -1,4 +1,3 @@
-
 /* Animation keyframes */
 @keyframes fadeIn {
   from { opacity: 0; }
@@ -66,40 +65,50 @@
   }
 }
 
-/* Lava lamp effect animations for gradient buttons - modified for Siri-like pulsation */
-@keyframes lavaMove1 {
+/* Lava lamp effect animations - suave y fluido */
+@keyframes lavaFlow1 {
   0% {
-    transform: scale(0.97);
+    background-position: 0% 0%;
+    filter: blur(4px);
     opacity: 0.7;
-    background-position: 0% 50%;
   }
-  50% {
-    transform: scale(1.03);
-    opacity: 1;
+  33% {
     background-position: 100% 50%;
+    filter: blur(6px);
+    opacity: 0.9;
+  }
+  66% {
+    background-position: 50% 100%;
+    filter: blur(5px);
+    opacity: 0.8;
   }
   100% {
-    transform: scale(0.97);
+    background-position: 0% 0%;
+    filter: blur(4px);
     opacity: 0.7;
-    background-position: 0% 50%;
   }
 }
 
-@keyframes lavaMove2 {
+@keyframes lavaFlow2 {
   0% {
-    transform: scale(0.98);
-    opacity: 0.8;
-    background-position: 100% 50%;
+    background-position: 100% 100%;
+    filter: blur(5px);
+    opacity: 0.6;
   }
-  50% {
-    transform: scale(1.02);
-    opacity: 0.9;
+  33% {
     background-position: 0% 50%;
+    filter: blur(7px);
+    opacity: 0.85;
+  }
+  66% {
+    background-position: 50% 0%;
+    filter: blur(6px);
+    opacity: 0.75;
   }
   100% {
-    transform: scale(0.98);
-    opacity: 0.8;
-    background-position: 100% 50%;
+    background-position: 100% 100%;
+    filter: blur(5px);
+    opacity: 0.6;
   }
 }
 
@@ -132,7 +141,7 @@
 .bg-gradient-animated {
   background: linear-gradient(135deg, #0E4E7A, #1A5A8C, #0A3A5E, #1E6090, #083152, #07294A);
   background-size: 400% 400%;
-  animation: lavaMove1 14s ease-in-out infinite;
+  animation: lavaFlow1 14s ease-in-out infinite;
 }
 
 .fade-in {
