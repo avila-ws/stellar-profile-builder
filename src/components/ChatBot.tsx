@@ -1,4 +1,3 @@
-
 import React, { useState, useRef, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
@@ -23,52 +22,130 @@ type Message = {
   content: string;
   role: "user" | "assistant";
   timestamp: Date;
+  isHtml?: boolean;
 };
 
 type QuickOption = {
   id: string;
   text: string;
   keywords: string[];
+  emoji: string;
 };
 
 const predefinedResponses = [
   {
     keywords: ["hello", "hi", "hey", "hola"],
-    response: "Hi! I'm Renzo Avila's virtual assistant. How can I help you? You can ask me about his experience, skills, or how to contact him."
+    response: `<div class="space-y-2">
+      <p>👋 Hi there! I'm Renzo Avila's virtual assistant.</p>
+      <p>I can help you learn more about:</p>
+      <ul class="list-disc pl-4 space-y-1">
+        <li>💼 His professional experience</li>
+        <li>🛠️ Technical skills</li>
+        <li>📱 Contact information</li>
+      </ul>
+      <p>What would you like to know?</p>
+    </div>`
   },
   {
     keywords: ["experience", "work", "job", "experiencia", "trabajo"],
-    response: "Renzo has over 6 years of experience as a DevSecOps Engineer, integrating security into CI/CD pipelines and managing cloud infrastructures compliant with ISO 27001. He has led more than 20 blockchain projects across Latin America, the Caribbean, and Europe."
+    response: `<div class="space-y-3">
+      <p>🚀 <strong>DevSecOps Leadership</strong></p>
+      <ul class="list-disc pl-4 space-y-2">
+        <li>6+ years as DevSecOps Engineer</li>
+        <li>Expert in CI/CD security integration</li>
+        <li>ISO 27001 compliant cloud infrastructure management</li>
+      </ul>
+      <p>🌎 <strong>Global Impact</strong></p>
+      <ul class="list-disc pl-4">
+        <li>Led 20+ blockchain projects across:</li>
+        <li class="ml-4">• Latin America</li>
+        <li class="ml-4">• Caribbean</li>
+        <li class="ml-4">• Europe</li>
+      </ul>
+    </div>`
   },
   {
     keywords: ["skills", "habilidades", "tecnologías", "technologies"],
-    response: "Renzo's core skills include AWS, Security (ISO 27001, OWASP), Blockchain, CI/CD, Terraform, Kubernetes, Docker, and languages like Python, Rust, JavaScript, and TypeScript."
+    response: `<div class="space-y-3">
+      <p>🛠️ <strong>Core Technical Skills:</strong></p>
+      <div class="grid grid-cols-2 gap-2">
+        <div>
+          <p class="font-medium">☁️ Cloud & Infrastructure</p>
+          <ul class="list-disc pl-4">
+            <li>AWS</li>
+            <li>Terraform</li>
+            <li>Kubernetes</li>
+            <li>Docker</li>
+          </ul>
+        </div>
+        <div>
+          <p class="font-medium">🔒 Security</p>
+          <ul class="list-disc pl-4">
+            <li>ISO 27001</li>
+            <li>OWASP</li>
+            <li>DevSecOps</li>
+          </ul>
+        </div>
+      </div>
+      <div>
+        <p class="font-medium">💻 Programming Languages</p>
+        <p class="pl-4">Python • Rust • JavaScript • TypeScript</p>
+      </div>
+    </div>`
   },
   {
     keywords: ["contact", "contacto", "email", "phone", "teléfono"],
-    response: "You can contact Renzo via email at RENZO@AVILA.WS, by phone at +44 330 122 9696, or schedule a meeting using the contact form on this website."
+    response: `<div class="space-y-3">
+      <p>📫 <strong>Get in touch with Renzo:</strong></p>
+      <ul class="space-y-2">
+        <li>✉️ <strong>Email:</strong> RENZO@AVILA.WS</li>
+        <li>📱 <strong>Phone:</strong> +44 330 122 9696</li>
+        <li>🤝 <strong>Meeting:</strong> Use the contact form on this website</li>
+      </ul>
+    </div>`
   },
   {
     keywords: ["blockchain", "crypto", "bitcoin", "ethereum"],
-    response: "Renzo has led over 20 blockchain projects, improving security and efficiency for financial and enterprise applications across Latin America, the Caribbean, and Europe. He has experience with various blockchain platforms."
+    response: `<div class="space-y-3">
+      <p>⛓️ <strong>Blockchain Expertise</strong></p>
+      <ul class="list-disc pl-4 space-y-2">
+        <li>Led 20+ blockchain projects</li>
+        <li>Enhanced security & efficiency for:</li>
+        <ul class="pl-4">
+          <li>• Financial applications</li>
+          <li>• Enterprise solutions</li>
+        </ul>
+      </ul>
+      <p>🌐 <strong>Global Reach:</strong> Latin America, Caribbean, and Europe</p>
+    </div>`
   },
   {
     keywords: ["security", "seguridad", "iso", "devsecops"],
-    response: "Renzo has coordinated ISO 27001 certifications, reducing security incidents by 50% and has developed automated security testing, improving software protection by 45%."
+    response: `<div class="space-y-3">
+      <p>🔒 <strong>Security Achievements:</strong></p>
+      <ul class="list-disc pl-4 space-y-2">
+        <li>ISO 27001 certification coordination</li>
+        <li>50% reduction in security incidents</li>
+        <li>45% improvement in software protection through automated security testing</li>
+      </ul>
+    </div>`
   },
   {
     keywords: ["location", "ubicación", "where", "dónde"],
-    response: "Renzo is located in Barcelona, Spain."
+    response: `<div class="space-y-2">
+      <p>📍 <strong>Location:</strong></p>
+      <p>Based in the beautiful city of Barcelona, Spain 🇪🇸</p>
+    </div>`
   }
 ];
 
 const quickOptions: QuickOption[] = [
-  { id: "experience", text: "Work Experience", keywords: ["experience", "work"] },
-  { id: "skills", text: "Technical Skills", keywords: ["skills", "technologies"] },
-  { id: "contact", text: "Contact Information", keywords: ["contact", "email"] },
-  { id: "blockchain", text: "Blockchain Projects", keywords: ["blockchain", "crypto"] },
-  { id: "security", text: "Security Experience", keywords: ["security", "devsecops"] },
-  { id: "location", text: "Location", keywords: ["location", "where"] }
+  { id: "experience", text: "Work Experience", emoji: "💼", keywords: ["experience", "work"] },
+  { id: "skills", text: "Technical Skills", emoji: "🛠️", keywords: ["skills", "technologies"] },
+  { id: "contact", text: "Contact Information", emoji: "📱", keywords: ["contact", "email"] },
+  { id: "blockchain", text: "Blockchain Projects", emoji: "⛓️", keywords: ["blockchain", "crypto"] },
+  { id: "security", text: "Security Experience", emoji: "🔒", keywords: ["security", "devsecops"] },
+  { id: "location", text: "Location", emoji: "📍", keywords: ["location", "where"] }
 ];
 
 const ChatBot: React.FC = () => {
@@ -76,6 +153,7 @@ const ChatBot: React.FC = () => {
   const [messages, setMessages] = useState<Message[]>([]);
   const [input, setInput] = useState("");
   const [isExpanded, setIsExpanded] = useState(true);
+  const [hasInteracted, setHasInteracted] = useState(false);
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const { toast } = useToast();
   
@@ -84,7 +162,15 @@ const ChatBot: React.FC = () => {
       // Add initial welcome message
       const welcomeMessage: Message = {
         id: Date.now().toString(),
-        content: "Hi! I'm Renzo Avila's virtual assistant. How can I help you? You can select an option or type your question.",
+        content: `<div class="space-y-2">
+        <p>👋 Hi there! I'm Renzo Avila's virtual assistant.</p>
+        <p>I can help you learn more about Renzo's profile. Feel free to:</p>
+        <ul class="list-disc pl-4 space-y-1">
+          <li>Select one of the quick options below</li>
+          <li>Or type your question in the chat</li>
+        </ul>
+      </div>`,
+      isHtml: true,
         role: "assistant",
         timestamp: new Date()
       };
@@ -101,6 +187,9 @@ const ChatBot: React.FC = () => {
   };
   
   const handleSend = () => {
+    if (!hasInteracted) {
+      setHasInteracted(true);
+    }
     if (input.trim() === "") return;
     
     const userMessage: Message = {
@@ -115,18 +204,36 @@ const ChatBot: React.FC = () => {
     
     // Process user input and generate response after a slight delay
     setTimeout(() => {
-      const botResponse = generateResponse(input.trim().toLowerCase());
+      const botResponse = generateResponse(input.trim().toLowerCase(), true);
       const botMessage: Message = {
         id: (Date.now() + 1).toString(),
         content: botResponse,
         role: "assistant",
-        timestamp: new Date()
+        timestamp: new Date(),
+        isHtml: true
       };
       setMessages(prev => [...prev, botMessage]);
     }, 500);
   };
   
+  // Add window.quickOptionClick for the HTML buttons
+  useEffect(() => {
+    (window as any).quickOptionClick = (optionId: string) => {
+      const option = quickOptions.find(opt => opt.id === optionId);
+      if (option) {
+        handleQuickOption(option);
+      }
+    };
+
+    return () => {
+      delete (window as any).quickOptionClick;
+    };
+  }, []);
+
   const handleQuickOption = (option: QuickOption) => {
+    if (!hasInteracted) {
+      setHasInteracted(true);
+    }
     const userMessage: Message = {
       id: Date.now().toString(),
       content: option.text,
@@ -138,27 +245,71 @@ const ChatBot: React.FC = () => {
     
     // Process the selected option after a slight delay
     setTimeout(() => {
-      const botResponse = generateResponse(option.keywords[0]);
+      const botResponse = generateResponse(option.keywords[0], true);
       const botMessage: Message = {
         id: (Date.now() + 1).toString(),
         content: botResponse,
         role: "assistant",
-        timestamp: new Date()
+        timestamp: new Date(),
+        isHtml: true
       };
       setMessages(prev => [...prev, botMessage]);
     }, 500);
   };
   
-  const generateResponse = (userInput: string): string => {
+  const generateResponse = (userInput: string, showOptions: boolean = false): string => {
     // Simple keyword matching
     for (const item of predefinedResponses) {
       if (item.keywords.some(keyword => userInput.includes(keyword))) {
-        return item.response;
+        let finalResponse = item.response;
+        if (showOptions) {
+          finalResponse = finalResponse.replace('</div>', `
+            <div class="mt-4 border-t pt-3">
+              <p class="text-sm font-medium">Would you like to know more about:</p>
+              <div class="flex flex-wrap gap-2 mt-2">
+                <button class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 border border-input bg-background hover:bg-accent hover:text-accent-foreground h-8 px-3 text-xs" onclick="window.quickOptionClick('experience')">💼 Experience</button>
+                <button class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 border border-input bg-background hover:bg-accent hover:text-accent-foreground h-8 px-3 text-xs" onclick="window.quickOptionClick('skills')">🛠️ Skills</button>
+                <button class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 border border-input bg-background hover:bg-accent hover:text-accent-foreground h-8 px-3 text-xs" onclick="window.quickOptionClick('contact')">📱 Contact</button>
+                <button class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 border border-input bg-background hover:bg-accent hover:text-accent-foreground h-8 px-3 text-xs" onclick="window.quickOptionClick('blockchain')">⛓️ Blockchain</button>
+                <button class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 border border-input bg-background hover:bg-accent hover:text-accent-foreground h-8 px-3 text-xs" onclick="window.quickOptionClick('security')">🔒 Security</button>
+                <button class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 border border-input bg-background hover:bg-accent hover:text-accent-foreground h-8 px-3 text-xs" onclick="window.quickOptionClick('location')">📍 Location</button>
+              </div>
+            </div>
+          </div>`);
+        }
+        return finalResponse;
       }
     }
     
-    // Default fallback response
-    return "I'm sorry, I can't answer that at the moment. Could you try asking another question about Renzo's experience, skills, or contact information?";
+    // Default fallback response with all options
+    let fallbackResponse = `<div class="space-y-2">
+      <p>🤔 I'm not sure how to help with that specific query.</p>
+      <p>You can ask me about:</p>
+      <ul class="list-disc pl-4 space-y-1">
+        <li>💼 Professional experience</li>
+        <li>🛠️ Technical skills</li>
+        <li>📱 Contact information</li>
+        <li>⛓️ Blockchain projects</li>
+        <li>🔒 Security expertise</li>
+        <li>📍 Location</li>
+      </ul>
+      <p class="mt-3 text-sm">Feel free to select a topic or ask any other question!</p>
+    </div>`;
+    
+    if (showOptions) {
+      fallbackResponse = fallbackResponse.replace('</div>', `
+        <div class="mt-4 border-t pt-3">
+          <p class="text-sm font-medium">Quick options:</p>
+          <div class="flex flex-wrap gap-2 mt-2">
+            <button class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 border border-input bg-background hover:bg-accent hover:text-accent-foreground h-8 px-3 text-xs" onclick="window.quickOptionClick('experience')">💼 Experience</button>
+            <button class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 border border-input bg-background hover:bg-accent hover:text-accent-foreground h-8 px-3 text-xs" onclick="window.quickOptionClick('skills')">🛠️ Skills</button>
+            <button class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 border border-input bg-background hover:bg-accent hover:text-accent-foreground h-8 px-3 text-xs" onclick="window.quickOptionClick('blockchain')">⛓️ Blockchain</button>
+          </div>
+        </div>
+      </div>`);
+    }
+    
+    return fallbackResponse;
   };
   
   const handleKeyDown = (e: React.KeyboardEvent) => {
@@ -173,7 +324,29 @@ const ChatBot: React.FC = () => {
   };
   
   const showQuickOptions = () => {
-    return messages.length <= 2; // Only show quick options initially or after first exchange
+    return messages.length <= 2; // Only show initial quick options before first exchange
+  };
+  
+  // Add a button to show all available topics
+  const showAllTopics = () => {
+    const allTopicsMessage: Message = {
+      id: Date.now().toString(),
+      content: `<div class="space-y-3">
+        <p>📁 <strong>All available topics:</strong></p>
+        <div class="grid grid-cols-2 gap-2">
+          <button class="text-left px-3 py-2 bg-muted rounded-md hover:bg-muted/80 transition-colors" onclick="window.quickOptionClick('experience')">💼 Work Experience</button>
+          <button class="text-left px-3 py-2 bg-muted rounded-md hover:bg-muted/80 transition-colors" onclick="window.quickOptionClick('skills')">🛠️ Technical Skills</button>
+          <button class="text-left px-3 py-2 bg-muted rounded-md hover:bg-muted/80 transition-colors" onclick="window.quickOptionClick('contact')">📱 Contact Information</button>
+          <button class="text-left px-3 py-2 bg-muted rounded-md hover:bg-muted/80 transition-colors" onclick="window.quickOptionClick('blockchain')">⛓️ Blockchain Projects</button>
+          <button class="text-left px-3 py-2 bg-muted rounded-md hover:bg-muted/80 transition-colors" onclick="window.quickOptionClick('security')">🔒 Security Experience</button>
+          <button class="text-left px-3 py-2 bg-muted rounded-md hover:bg-muted/80 transition-colors" onclick="window.quickOptionClick('location')">📍 Location</button>
+        </div>
+      </div>`,
+      role: "assistant",
+      timestamp: new Date(),
+      isHtml: true
+    };
+    setMessages(prev => [...prev, allTopicsMessage]);
   };
   
   return (
@@ -181,9 +354,10 @@ const ChatBot: React.FC = () => {
       {!isOpen ? (
         <Button 
           onClick={() => setIsOpen(true)}
-          className="h-14 w-14 rounded-full shadow-lg hover:shadow-xl transition-all duration-300"
+          className="h-14 w-14 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 relative group"
         >
-          <MessageCircle className="h-6 w-6" />
+          <div className="absolute inset-0 rounded-full bg-primary/20 group-hover:bg-primary/0 animate-ping" />
+          <MessageCircle className="h-6 w-6 group-hover:scale-110 transition-transform duration-300" />
         </Button>
       ) : (
         <Card className="w-80 md:w-96 shadow-xl border-primary/20">
@@ -211,7 +385,7 @@ const ChatBot: React.FC = () => {
             
             <CollapsibleContent>
               <CardContent className="p-0">
-                <div className="h-80 overflow-y-auto p-3 space-y-4">
+                <div className={`${hasInteracted ? 'h-[70vh] max-h-[400px] sm:max-h-[600px] md:max-h-[700px] lg:max-h-[1000px]' : 'h-80'} overflow-y-auto p-3 space-y-4 transition-all duration-300`}>
                   {messages.map((message) => (
                     <div
                       key={message.id}
@@ -221,20 +395,27 @@ const ChatBot: React.FC = () => {
                       })}
                     >
                       <div
-                        className={cn("max-w-[85%] rounded-2xl px-3 py-2 text-sm", {
+                        className={cn("max-w-[85%] rounded-2xl px-4 py-3", {
                           "bg-primary text-primary-foreground": message.role === "user",
                           "bg-muted": message.role === "assistant"
                         })}
                       >
-                        {message.content}
+                        {message.isHtml ? (
+                          <div 
+                            className="prose prose-sm dark:prose-invert max-w-none [&_ul]:mb-0 [&_p]:mb-0 [&_div]:last:mb-0"
+                            dangerouslySetInnerHTML={{ __html: message.content }} 
+                          />
+                        ) : (
+                          <p className="text-sm">{message.content}</p>
+                        )}
                       </div>
-                      <span className="text-xs text-muted-foreground mt-1">
+                      <span className="text-xs text-muted-foreground mt-1 px-1">
                         {formatTime(message.timestamp)}
                       </span>
                     </div>
                   ))}
                   
-                  {showQuickOptions() && (
+                  {showQuickOptions() && !hasInteracted && (
                     <div className="flex flex-wrap gap-2 mt-4">
                       {quickOptions.map((option) => (
                         <Button
@@ -244,7 +425,7 @@ const ChatBot: React.FC = () => {
                           className="text-xs"
                           onClick={() => handleQuickOption(option)}
                         >
-                          {option.text}
+                          {option.emoji} {option.text}
                         </Button>
                       ))}
                     </div>
@@ -254,10 +435,10 @@ const ChatBot: React.FC = () => {
                 </div>
               </CardContent>
               
-              <CardFooter className="p-3 pt-0">
+              <CardFooter className="p-3 pt-0 flex flex-col">
                 <div className="flex w-full items-center space-x-2">
                   <Textarea
-                    placeholder="Escribe un mensaje..."
+                    placeholder="Type a message..."
                     className="min-h-10 flex-1 resize-none"
                     value={input}
                     onChange={(e) => setInput(e.target.value)}
@@ -271,6 +452,18 @@ const ChatBot: React.FC = () => {
                     <Send className="h-4 w-4" />
                   </Button>
                 </div>
+                {hasInteracted && (
+                  <div className="w-full flex justify-start mt-2">
+                    <Button 
+                      variant="outline" 
+                      size="sm" 
+                      className="text-xs" 
+                      onClick={showAllTopics}
+                    >
+                      Show all topics
+                    </Button>
+                  </div>
+                )}
               </CardFooter>
             </CollapsibleContent>
           </Collapsible>
