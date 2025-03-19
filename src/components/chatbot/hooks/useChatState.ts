@@ -81,17 +81,8 @@ export const useChatState = () => {
         setSelectedModel("none");
         localStorage.setItem("selected_model", "none");
         
-        setTimeout(() => {
-          const botResponse = generateResponse(input.trim().toLowerCase(), predefinedResponses);
-          const botMessage: Message = {
-            id: (Date.now() + 1).toString(),
-            content: botResponse,
-            role: "assistant",
-            timestamp: new Date()
-          };
-          setMessages(prev => [...prev, botMessage]);
-        }, 500);
-        
+        // Fall back to predefined responses
+        useDefaultResponse(input.trim());
         return;
       }
       
@@ -101,7 +92,23 @@ export const useChatState = () => {
         if (selectedModel === "openai") {
           response = await callOpenAI(input.trim(), apiKey, messages);
         } else {
-          response = await callClaude(input.trim(), apiKey, messages);
+          // If Claude API is selected but we don't have a backend endpoint yet
+          // Fall back to predefined responses temporarily
+          try {
+            response = await callClaude(input.trim(), apiKey, messages);
+          } catch (claudeError) {
+            console.error('Claude API error, falling back to predefined responses:', claudeError);
+            toast({
+              title: "Error con Claude",
+              description: "No se pudo conectar a la API de Claude. Usando respuestas predefinidas por ahora.",
+              variant: "destructive"
+            });
+            
+            // Fall back to predefined responses
+            useDefaultResponse(input.trim());
+            setIsLoading(false);
+            return;
+          }
         }
         
         const botMessage: Message = {
@@ -129,17 +136,22 @@ export const useChatState = () => {
         setIsLoading(false);
       }
     } else {
-      setTimeout(() => {
-        const botResponse = generateResponse(input.trim().toLowerCase(), predefinedResponses);
-        const botMessage: Message = {
-          id: (Date.now() + 1).toString(),
-          content: botResponse,
-          role: "assistant",
-          timestamp: new Date()
-        };
-        setMessages(prev => [...prev, botMessage]);
-      }, 500);
+      useDefaultResponse(input.trim());
     }
+  };
+
+  // Helper function to use predefined responses
+  const useDefaultResponse = (inputText: string) => {
+    setTimeout(() => {
+      const botResponse = generateResponse(inputText.toLowerCase(), predefinedResponses);
+      const botMessage: Message = {
+        id: (Date.now() + 1).toString(),
+        content: botResponse,
+        role: "assistant",
+        timestamp: new Date()
+      };
+      setMessages(prev => [...prev, botMessage]);
+    }, 500);
   };
 
   const handleQuickOption = (option: QuickOption) => {

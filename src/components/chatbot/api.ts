@@ -46,11 +46,10 @@ export const callOpenAI = async (userInput: string, apiKey: string, messages: Me
 
 export const callClaude = async (userInput: string, apiKey: string, messages: Message[]): Promise<string> => {
   try {
-    let systemMessage = systemPrompt;
-    
-    const recentMessages = messages.slice(-6);
+    // Prepare the conversation history
     let conversation = "";
     
+    const recentMessages = messages.slice(-6);
     recentMessages.forEach(msg => {
       if (msg.role === "user") {
         conversation += `Human: ${msg.content}\n\n`;
@@ -59,38 +58,48 @@ export const callClaude = async (userInput: string, apiKey: string, messages: Me
       }
     });
     
+    // Add the current user message
     conversation += `Human: ${userInput}\n\nAssistant: `;
     
-    const corsProxy = "https://cors-anywhere.herokuapp.com/";
-    const anthropicApiUrl = "https://api.anthropic.com/v1/messages";
+    // Direct API call to Claude - This will now be handled client-side
+    // Create payload according to Claude API specs
+    const payload = {
+      model: 'claude-3-haiku-20240307',
+      messages: [
+        {
+          role: 'system',
+          content: systemPrompt
+        },
+        {
+          role: 'user',
+          content: userInput
+        }
+      ],
+      max_tokens: 500,
+      temperature: 0.7
+    };
     
-    const response = await fetch(corsProxy + anthropicApiUrl, {
+    // Make request to a dedicated backend endpoint that will forward to Claude
+    // This avoids CORS issues by having the server make the request
+    const response = await fetch('/api/claude', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        'x-api-key': apiKey,
-        'anthropic-version': '2023-06-01'
       },
       body: JSON.stringify({
-        model: 'claude-3-haiku-20240307',
-        system: systemMessage,
-        messages: [
-          {
-            role: "user",
-            content: conversation
-          }
-        ],
-        max_tokens: 500,
-        temperature: 0.7
+        apiKey,
+        payload
       })
     });
     
     if (!response.ok) {
+      const errorText = await response.text();
+      console.error('Claude API error:', errorText);
       throw new Error(`Error: ${response.status}`);
     }
     
     const data = await response.json();
-    return data.content[0].text;
+    return data.content;
   } catch (error) {
     console.error('Error calling Claude:', error);
     throw error;
@@ -99,7 +108,7 @@ export const callClaude = async (userInput: string, apiKey: string, messages: Me
 
 export const generateResponse = (userInput: string, predefinedResponses: any[]): string => {
   for (const item of predefinedResponses) {
-    if (item.keywords.some((keyword: string) => userInput.includes(keyword))) {
+    if (item.keywords.some((keyword: string) => userInput.toLowerCase().includes(keyword.toLowerCase()))) {
       return item.response;
     }
   }

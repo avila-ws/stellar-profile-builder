@@ -1,5 +1,5 @@
 
-import React from "react";
+import React, { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Collapsible, CollapsibleContent } from "@/components/ui/collapsible";
@@ -9,6 +9,7 @@ import ChatHeader from "./chatbot/components/ChatHeader";
 import ChatMessages from "./chatbot/components/ChatMessages";
 import ChatInput from "./chatbot/components/ChatInput";
 import SettingsDialog from "./chatbot/components/SettingsDialog";
+import ErrorAlert from "./chatbot/components/ErrorAlert";
 import { quickOptions } from "./chatbot/data";
 
 const ChatBot: React.FC = () => {
@@ -35,10 +36,18 @@ const ChatBot: React.FC = () => {
     handleQuickOption
   } = useChatState();
   
+  const [error, setError] = useState<{title: string, message: string} | null>(null);
+  
   const handleKeyDown = (e: React.KeyboardEvent) => {
     if (e.key === "Enter" && !e.shiftKey) {
       e.preventDefault();
-      handleSend();
+      handleSend().catch(err => {
+        setError({
+          title: "Error en el envío",
+          message: "No se pudo procesar tu mensaje. Por favor, intenta de nuevo."
+        });
+        console.error("Send error:", err);
+      });
     }
   };
   
@@ -67,6 +76,16 @@ const ChatBot: React.FC = () => {
             />
             
             <CollapsibleContent>
+              {error && (
+                <div className="px-4 pt-2">
+                  <ErrorAlert 
+                    title={error.title} 
+                    description={error.message} 
+                    onClose={() => setError(null)}
+                  />
+                </div>
+              )}
+              
               <ChatMessages 
                 messages={messages}
                 quickOptions={quickOptions}
