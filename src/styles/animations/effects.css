@@ -1,0 +1,37 @@
+
+/* Iridescent glow effect that mimics sunlight reflecting off a polished surface */
+@keyframes iridescent-glow {
+  0% {
+    text-shadow: 0 0 2px rgba(var(--primary-rgb), 0);
+    color: hsl(var(--primary));
+  }
+  20% {
+    text-shadow: 0 0 8px rgba(var(--primary-rgb), 0.6);
+    color: #0EA5E9; /* Ocean Blue */
+  }
+  40% {
+    text-shadow: 0 0 5px rgba(var(--primary-rgb), 0.4);
+    color: #33C3F0; /* Sky Blue */
+  }
+  60% {
+    text-shadow: 0 0 8px rgba(var(--primary-rgb), 0.6);
+    color: #1EAEDB; /* Bright Blue */
+  }
+  80% {
+    text-shadow: 0 0 5px rgba(var(--primary-rgb), 0.4);
+    color: hsl(var(--primary));
+  }
+  100% {
+    text-shadow: 0 0 2px rgba(var(--primary-rgb), 0);
+    color: hsl(var(--primary));
+  }
+}
+
+/* Animation utility classes */
+.animate-iridescent-glow {
+  animation: iridescent-glow 0.7s ease-in-out;
+}
+
+.animate-subtle-glow {
+  animation: subtleGlow 1.2s ease-in-out infinite;
+}

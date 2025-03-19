@@ -1,0 +1,7 @@
+
+/* Main animations index file that imports all animation modules */
+@import './keyframes.css';
+@import './transitions.css';
+@import './effects.css';
+@import './utilities.css';
+@import './lava.css';
