@@ -4,25 +4,42 @@ import { useIsMobile } from "@/hooks/use-mobile";
 
 const BookingCalendar = () => {
   const isMobile = useIsMobile();
-  const [iframeHeight, setIframeHeight] = useState(isMobile ? 600 : 1050);
+  const [iframeHeight, setIframeHeight] = useState(isMobile ? 800 : 1050);
   const iframeRef = useRef<HTMLIFrameElement>(null);
 
   useEffect(() => {
-    // Update height when mobile status changes
-    setIframeHeight(isMobile ? 600 : 1050);
+    // Update height based on device type
+    setIframeHeight(isMobile ? 800 : 1050);
     
     // Add message event listener to receive height from iframe content
     const handleMessage = (event: MessageEvent) => {
       // Ensure the message is from Google Calendar
       if (event.origin.includes('calendar.google.com') && 
           event.data && typeof event.data === 'number') {
-        // Add some padding to the height
-        setIframeHeight(event.data + 50);
+        // Add padding to the height
+        const padding = isMobile ? 100 : 50;
+        setIframeHeight(event.data + padding);
       }
     };
 
     window.addEventListener('message', handleMessage);
-    return () => window.removeEventListener('message', handleMessage);
+    
+    // Ensure the iframe is visible when switching tabs
+    const resizeIframe = () => {
+      // Force a height update after a slight delay
+      setTimeout(() => {
+        if (isMobile) {
+          setIframeHeight(prev => prev === 800 ? 801 : 800); // Trigger a re-render
+        }
+      }, 300);
+    };
+    
+    window.addEventListener('resize', resizeIframe);
+    
+    return () => {
+      window.removeEventListener('message', handleMessage);
+      window.removeEventListener('resize', resizeIframe);
+    };
   }, [isMobile]);
 
   return (
@@ -30,11 +47,15 @@ const BookingCalendar = () => {
       <h3 className="text-2xl font-semibold mb-6">Schedule a Meeting</h3>
       
       <div className="w-full bg-white rounded-lg overflow-hidden shadow-md">
-        {/* Google Calendar Appointment Scheduling integration with dynamic height */}
         <iframe 
           ref={iframeRef}
           src="https://calendar.google.com/calendar/appointments/schedules/AcZssZ0RKCJXNFIQLYjZhar5z2JTUIK5ap37_6yYwdKoWJtmqjnv4wukx8T-JIMIRGTGqiaORDc2LY3J?gv=true" 
-          style={{ border: 0, height: `${iframeHeight}px`, minHeight: isMobile ? "500px" : "800px" }} 
+          style={{ 
+            border: 0, 
+            height: `${iframeHeight}px`, 
+            minHeight: isMobile ? "800px" : "1000px",
+            width: "100%"
+          }} 
           width="100%" 
           frameBorder="0"
           title="Google Calendar Appointment Scheduling"
