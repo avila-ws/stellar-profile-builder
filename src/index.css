@@ -18,6 +18,7 @@
 
     --primary: 210 100% 35%;
     --primary-foreground: 210 40% 98%;
+    --primary-rgb: 0, 96, 192; /* RGB value of the primary color */
 
     --secondary: 180 70% 45%;
     --secondary-foreground: 222.2 47.4% 11.2%;
@@ -59,6 +60,7 @@
 
     --primary: 210 100% 50%;
     --primary-foreground: 222.2 47.4% 11.2%;
+    --primary-rgb: 0, 112, 224; /* RGB value of the primary color in dark mode */
 
     --secondary: 180 70% 40%;
     --secondary-foreground: 210 40% 98%;
@@ -166,6 +168,18 @@
   }
 }
 
+@keyframes subtleGlow {
+  0% {
+    text-shadow: 0 0 2px rgba(var(--primary-rgb), 0);
+  }
+  50% {
+    text-shadow: 0 0 5px rgba(var(--primary-rgb), 0.3);
+  }
+  100% {
+    text-shadow: 0 0 2px rgba(var(--primary-rgb), 0);
+  }
+}
+
 .fade-in {
   animation: fadeIn 0.5s ease-out;
 }
@@ -180,6 +194,10 @@
 
 .scale-in {
   animation: scaleIn 0.5s ease-out;
+}
+
+.animate-subtle-glow {
+  animation: subtleGlow 2s ease-in-out infinite;
 }
 
 /* Staggered animations for list items */
