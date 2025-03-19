@@ -98,7 +98,7 @@ const predefinedResponses = [
     response: `<div class="space-y-3">
       <p>📫 <strong>Get in touch with Renzo:</strong></p>
       <ul class="space-y-2">
-        <li>✉️ <strong>Email:</strong> RENZO@AVILA.WS</li>
+        <li>✉️ <strong>Email:</strong> renzo@avila.ws</li>
         <li>📱 <strong>Phone:</strong> +44 330 122 9696</li>
         <li>🤝 <strong>Meeting:</strong> Use the contact form on this website</li>
       </ul>

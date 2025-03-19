@@ -124,7 +124,7 @@ const HeroSection = () => {
               className={`inline-flex items-center text-sm hover:text-primary transition-colors hover:scale-105 hover:font-medium contact-link relative
                 ${highlightIndex === 3 ? 'text-primary animate-subtle-glow' : 'text-muted-foreground'}`}
             >
-              <span className="relative after:content-[''] after:absolute after:w-full after:scale-x-0 after:h-0.5 after:bottom-0 after:left-0 after:bg-primary after:origin-bottom-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-bottom-left">RENZO@AVILA.WS</span>
+              <span className="relative after:content-[''] after:absolute after:w-full after:scale-x-0 after:h-0.5 after:bottom-0 after:left-0 after:bg-primary after:origin-bottom-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-bottom-left">renzo@avila.ws</span>
             </a>
           </div>
           
