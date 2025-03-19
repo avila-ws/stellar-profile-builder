@@ -120,7 +120,7 @@
 .bg-gradient-animated {
   background: linear-gradient(135deg, #0E4E7A, #1A5A8C, #0A3A5E, #1E6090, #083152, #07294A);
   background-size: 400% 400%;
-  animation: lava-lamp 6s ease infinite;
+  animation: lavaMove1 14s ease-in-out infinite;
 }
 
 .fade-in {
