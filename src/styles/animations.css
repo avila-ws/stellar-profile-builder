@@ -88,6 +88,30 @@
   }
 }
 
+/* Nueva animación para el fondo de los botones con efecto de movimiento */
+@keyframes button-gradient-move {
+  0% {
+    background-position: 0% 50%;
+    transform: translateX(0) translateY(0);
+  }
+  25% {
+    background-position: 30% 80%;
+    transform: translateX(2px) translateY(-1px);
+  }
+  50% {
+    background-position: 60% 30%;
+    transform: translateX(-1px) translateY(2px);
+  }
+  75% {
+    background-position: 80% 70%;
+    transform: translateX(-2px) translateY(-1px);
+  }
+  100% {
+    background-position: 0% 50%;
+    transform: translateX(0) translateY(0);
+  }
+}
+
 @keyframes pulse {
   0% {
     transform: scale(1);
@@ -116,7 +140,7 @@
 .bg-gradient-animated {
   background: linear-gradient(270deg, #0E4E7A, #1A5A8C, #0A3A5E, #1E6090, #083152, #07294A);
   background-size: 300% 300%;
-  animation: gradient-flow 6s ease infinite;
+  animation: button-gradient-move 6s ease infinite;
 }
 
 .fade-in {
@@ -186,3 +210,4 @@
   transform: scaleX(1);
   transform-origin: bottom left;
 }
+
