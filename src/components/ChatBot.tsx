@@ -1,4 +1,3 @@
-
 import React, { useState, useRef, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
@@ -49,7 +48,6 @@ type QuickOption = {
   keywords: string[];
 };
 
-// Información del perfil para el prompt del sistema
 const systemPrompt = `
 Eres un asistente virtual para el portfolio web de Renzo Avila. Responde preguntas ÚNICAMENTE sobre la siguiente información:
 
@@ -68,7 +66,7 @@ Responde en el mismo idioma en que te pregunten.
 const predefinedResponses = [
   {
     keywords: ["hello", "hi", "hey", "hola"],
-    response: "¡Hola! Soy el asistente virtual de Renzo Avila. ¿En qué puedo ayudarte? Puedes preguntarme sobre su experiencia, habilidades o cómo contactarle."
+    response: "¡Hola! Soy el asistente virtual de Renzo Avila. ¿En qué puedo ayudarte? Puedes seleccionar una opción o escribir tu pregunta."
   },
   {
     keywords: ["experience", "work", "job", "experiencia", "trabajo"],
@@ -126,7 +124,6 @@ const ChatBot: React.FC = () => {
   
   useEffect(() => {
     if (isOpen && messages.length === 0) {
-      // Add initial welcome message
       const welcomeMessage: Message = {
         id: Date.now().toString(),
         content: "¡Hola! Soy el asistente virtual de Renzo Avila. ¿En qué puedo ayudarte? Puedes seleccionar una opción o escribir tu pregunta.",
@@ -181,7 +178,6 @@ const ChatBot: React.FC = () => {
     setMessages(prev => [...prev, userMessage]);
     setInput("");
     
-    // Si estamos usando IA y tenemos la API key correspondiente
     if (selectedModel !== "none") {
       const apiKey = selectedModel === "openai" ? openaiApiKey : claudeApiKey;
       if (!apiKey) {
@@ -193,7 +189,6 @@ const ChatBot: React.FC = () => {
         setSelectedModel("none");
         localStorage.setItem("selected_model", "none");
         
-        // Usar respuesta predefinida como fallback
         setTimeout(() => {
           const botResponse = generateResponse(input.trim().toLowerCase());
           const botMessage: Message = {
@@ -242,7 +237,6 @@ const ChatBot: React.FC = () => {
         setIsLoading(false);
       }
     } else {
-      // Usamos respuestas predefinidas
       setTimeout(() => {
         const botResponse = generateResponse(input.trim().toLowerCase());
         const botMessage: Message = {
@@ -258,12 +252,10 @@ const ChatBot: React.FC = () => {
   
   const callOpenAI = async (userInput: string, apiKey: string): Promise<string> => {
     try {
-      // Creamos la lista de mensajes incluyendo el prompt de sistema
       const messageHistory: Array<{role: string, content: string}> = [
         { role: "system", content: systemPrompt }
       ];
       
-      // Añadimos los últimos 6 mensajes de la conversación para contexto
       const recentMessages = messages.slice(-6);
       recentMessages.forEach(msg => {
         messageHistory.push({
@@ -272,7 +264,6 @@ const ChatBot: React.FC = () => {
         });
       });
       
-      // Añadimos el mensaje actual
       messageHistory.push({ role: "user", content: userInput });
       
       const response = await fetch('https://api.openai.com/v1/chat/completions', {
@@ -303,10 +294,8 @@ const ChatBot: React.FC = () => {
 
   const callClaude = async (userInput: string, apiKey: string): Promise<string> => {
     try {
-      // Preparamos el mensaje de sistema y la conversación reciente
       let systemMessage = systemPrompt;
       
-      // Extraemos los últimos 6 mensajes para contexto
       const recentMessages = messages.slice(-6);
       let conversation = "";
       
@@ -318,10 +307,12 @@ const ChatBot: React.FC = () => {
         }
       });
       
-      // Añadimos el mensaje actual
       conversation += `Human: ${userInput}\n\nAssistant: `;
       
-      const response = await fetch('https://api.anthropic.com/v1/messages', {
+      const corsProxy = "https://cors-anywhere.herokuapp.com/";
+      const anthropicApiUrl = "https://api.anthropic.com/v1/messages";
+      
+      const response = await fetch(corsProxy + anthropicApiUrl, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -364,7 +355,6 @@ const ChatBot: React.FC = () => {
     
     setMessages(prev => [...prev, userMessage]);
     
-    // Process the selected option after a slight delay
     setTimeout(() => {
       const botResponse = generateResponse(option.keywords[0]);
       const botMessage: Message = {
@@ -378,14 +368,12 @@ const ChatBot: React.FC = () => {
   };
   
   const generateResponse = (userInput: string): string => {
-    // Simple keyword matching
     for (const item of predefinedResponses) {
       if (item.keywords.some(keyword => userInput.includes(keyword))) {
         return item.response;
       }
     }
     
-    // Default fallback response
     return "Lo siento, no puedo responder a eso en este momento. ¿Puedes intentar con otra pregunta sobre la experiencia, habilidades o contacto de Renzo?";
   };
   
@@ -401,7 +389,7 @@ const ChatBot: React.FC = () => {
   };
   
   const showQuickOptions = () => {
-    return messages.length <= 2; // Only show quick options initially or after first exchange
+    return messages.length <= 2;
   };
   
   return (
@@ -522,7 +510,6 @@ const ChatBot: React.FC = () => {
         </Card>
       )}
 
-      {/* Modal para configurar API Keys */}
       <Dialog open={apiKeyDialogOpen} onOpenChange={setApiKeyDialogOpen}>
         <DialogContent className="sm:max-w-md">
           <DialogHeader>
