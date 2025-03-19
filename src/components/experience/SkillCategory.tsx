@@ -4,6 +4,7 @@ import { ChevronDown, ChevronUp } from "lucide-react";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
+import { useIsMobile } from "@/hooks/use-mobile";
 
 interface SkillCategoryProps {
   title: string;
@@ -16,7 +17,16 @@ const SkillCategory = ({
   skills,
   icon
 }: SkillCategoryProps) => {
+  const isMobile = useIsMobile();
   const [isOpen, setIsOpen] = useState(false);
+  
+  // Reset open state when device type changes
+  useEffect(() => {
+    setIsOpen(false);
+  }, [isMobile]);
+  
+  // Determine how many skills to show when collapsed based on device
+  const previewCount = isMobile ? 4 : 8;
   
   return (
     <Card 
@@ -42,13 +52,17 @@ const SkillCategory = ({
         </CollapsibleContent>
         
         {!isOpen && <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-2 pt-2">
-            {skills.slice(0, 8).map(skill => <span key={skill} className="bg-primary/10 text-primary px-2 py-1 rounded text-sm">{skill}</span>)}
-            {skills.length > 8 && (
+            {skills.slice(0, previewCount).map(skill => <span key={skill} className="bg-primary/10 text-primary px-2 py-1 rounded text-sm">{skill}</span>)}
+            {skills.length > previewCount && (
               <Button 
                 variant="ghost" 
-                className="text-sm px-2 py-1 h-auto min-h-0 font-medium lava-effect lava-effect-button relative overflow-hidden"
+                className="text-sm px-2 py-1 h-auto min-h-0 font-medium gradient relative overflow-hidden"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  setIsOpen(true);
+                }}
               >
-                <span className="lava-content">+{skills.length - 8} more</span>
+                +{skills.length - previewCount} more
               </Button>
             )}
           </div>}

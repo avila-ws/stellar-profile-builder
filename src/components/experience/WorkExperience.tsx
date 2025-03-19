@@ -1,7 +1,7 @@
-
 import { Briefcase } from "lucide-react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
+import { useIsMobile } from "@/hooks/use-mobile";
 
 interface WorkExperienceProps {
   company: string;
@@ -26,7 +26,12 @@ const WorkExperience = ({
   icon = <Briefcase className="h-5 w-5 text-primary" />,
   defaultExpanded = false
 }: WorkExperienceProps) => {
-  const [isExpanded, setIsExpanded] = useState(defaultExpanded);
+  const isMobile = useIsMobile();
+  const [isExpanded, setIsExpanded] = useState(defaultExpanded && !isMobile);
+  
+  useEffect(() => {
+    setIsExpanded(defaultExpanded && !isMobile);
+  }, [isMobile, defaultExpanded]);
   
   const toggleExpand = () => setIsExpanded(!isExpanded);
   

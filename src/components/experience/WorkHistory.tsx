@@ -1,8 +1,11 @@
 
 import { Building2, Building, Home, Palmtree, Landmark, Server } from "lucide-react";
 import WorkExperience from "./WorkExperience";
+import { useIsMobile } from "@/hooks/use-mobile";
 
 const WorkHistory = () => {
+  const isMobile = useIsMobile();
+  
   return (
     <div>
       <h3 className="text-2xl font-semibold mb-8">Work History</h3>
@@ -21,7 +24,7 @@ const WorkHistory = () => {
             "Conducted security audits and proactive risk assessments, increasing threat detection capabilities by 30% and ensuring faster incident response, reducing potential attack impact by 20%", 
             "Designed and enforced robust cloud security policies, ensuring compliance with industry standards and fortifying AWS IAM governance to mitigate unauthorized access risks"
           ]}
-          defaultExpanded={true}
+          defaultExpanded={!isMobile}
         />
         
         <WorkExperience 
@@ -37,7 +40,7 @@ const WorkHistory = () => {
             "Led cross-functional teams to integrate advanced security into financial solutions, enhancing operational efficiency by 35% and improving quality metrics by 30%", 
             "Automated security processes within CI/CD pipelines, embedding compliance enforcement, vulnerability scanning, and security gates into the development lifecycle"
           ]}
-          defaultExpanded={true}
+          defaultExpanded={!isMobile}
         />
         
         <WorkExperience 

@@ -1,9 +1,9 @@
-
 import { CheckCircle, Globe, GraduationCap, Shield, Building, ChevronDown, ChevronUp } from "lucide-react";
 import { Card } from "@/components/ui/card";
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
+import { useIsMobile } from "@/hooks/use-mobile";
 
 interface EducationCardProps {
   institution: string;
@@ -21,8 +21,12 @@ const EducationCard = ({
   degrees,
   defaultOpen = false
 }: EducationCardProps) => {
-  // State now initialized with defaultOpen prop
-  const [isOpen, setIsOpen] = useState(defaultOpen);
+  const isMobile = useIsMobile();
+  const [isOpen, setIsOpen] = useState(defaultOpen && !isMobile);
+  
+  useEffect(() => {
+    setIsOpen(defaultOpen && !isMobile);
+  }, [isMobile, defaultOpen]);
   
   return <div className="cursor-pointer hover:bg-accent/50 rounded-md p-2 -m-2 transition-colors" onClick={() => setIsOpen(!isOpen)}>
       <h4 className="font-medium flex items-center justify-between">
@@ -53,7 +57,13 @@ const EducationCard = ({
 };
 
 const AboutSection = () => {
+  const isMobile = useIsMobile();
   const [languagesOpen, setLanguagesOpen] = useState(false);
+  
+  useEffect(() => {
+    setLanguagesOpen(!isMobile);
+  }, [isMobile]);
+  
   return <section id="about" className="py-20 bg-muted/50 dark:bg-muted/10">
       <div className="container max-w-7xl mx-auto px-4 sm:px-6">
         <div className="text-center mb-16">
