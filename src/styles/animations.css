@@ -66,27 +66,39 @@
   }
 }
 
-/* Lava lamp effect animations for gradient buttons */
+/* Lava lamp effect animations for gradient buttons - modified for Siri-like pulsation */
 @keyframes lavaMove1 {
   0% {
+    transform: scale(0.97);
+    opacity: 0.7;
     background-position: 0% 50%;
   }
   50% {
+    transform: scale(1.03);
+    opacity: 1;
     background-position: 100% 50%;
   }
   100% {
+    transform: scale(0.97);
+    opacity: 0.7;
     background-position: 0% 50%;
   }
 }
 
 @keyframes lavaMove2 {
   0% {
+    transform: scale(0.98);
+    opacity: 0.8;
     background-position: 100% 50%;
   }
   50% {
+    transform: scale(1.02);
+    opacity: 0.9;
     background-position: 0% 50%;
   }
   100% {
+    transform: scale(0.98);
+    opacity: 0.8;
     background-position: 100% 50%;
   }
 }
