@@ -128,7 +128,7 @@ button[class*="gradient"] > * {
   z-index: 1;
 }
 
-/* Borde con efecto lava lamp para la imagen de perfil */
+/* Borde con efecto lava lamp para la imagen de perfil - enhanced effect, thinner border */
 .profile-gradient-border {
   border: none !important;
   position: absolute !important;
@@ -141,39 +141,39 @@ button[class*="gradient"] > * {
 .profile-gradient-border::before {
   content: "" !important;
   position: absolute !important;
-  inset: -12px !important;
+  inset: -6px !important; /* Reduced from -12px for thinner border */
   border-radius: 50% !important;
   background: linear-gradient(
     45deg,
     rgba(0, 40, 100, 0.2),
-    rgba(80, 180, 210, 0.6) 25%,
+    rgba(80, 180, 210, 0.7) 25%, /* Increased opacity from 0.6 to 0.7 */
     rgba(0, 40, 100, 0.2) 50%,
-    rgba(40, 120, 220, 0.6) 75%,
+    rgba(40, 120, 220, 0.7) 75%, /* Increased opacity from 0.6 to 0.7 */
     rgba(0, 40, 100, 0.2)
   ) !important;
-  background-size: 400% 400% !important;
-  animation: lavaMove1 14s ease-in-out infinite !important;
+  background-size: 500% 500% !important; /* Increased from 400% for more dramatic movement */
+  animation: lavaMove1 10s ease-in-out infinite !important; /* Faster animation (14s to 10s) */
   z-index: -1 !important;
   filter: blur(4px) !important;
-  opacity: 0.8 !important;
+  opacity: 0.9 !important; /* Increased from 0.8 for more vibrant effect */
 }
 
 .profile-gradient-border::after {
   content: "" !important;
   position: absolute !important;
-  inset: -12px !important;
+  inset: -6px !important; /* Reduced from -12px for thinner border */
   border-radius: 50% !important;
   background: linear-gradient(
     -45deg,
     rgba(0, 40, 100, 0.2),
-    rgba(40, 130, 210, 0.5) 25%,
+    rgba(40, 130, 210, 0.6) 25%, /* Increased opacity from 0.5 to 0.6 */
     rgba(0, 40, 100, 0.2) 50%,
-    rgba(100, 180, 230, 0.5) 75%,
+    rgba(100, 180, 230, 0.6) 75%, /* Increased opacity from 0.5 to 0.6 */
     rgba(0, 40, 100, 0.2)
   ) !important;
-  background-size: 400% 400% !important;
-  animation: lavaMove2 18s ease-in-out infinite !important;
+  background-size: 500% 500% !important; /* Increased from 400% for more dramatic movement */
+  animation: lavaMove2 12s ease-in-out infinite !important; /* Faster animation (18s to 12s) */
   z-index: -1 !important;
   filter: blur(5px) !important;
-  opacity: 0.7 !important;
+  opacity: 0.8 !important; /* Increased from 0.7 for more vibrant effect */
 }
