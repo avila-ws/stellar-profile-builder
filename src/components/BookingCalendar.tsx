@@ -53,7 +53,7 @@ const BookingCalendar = () => {
           style={{ 
             border: 0, 
             height: `${iframeHeight}px`, 
-            minHeight: isMobile ? "1785px" : "1000px",
+            minHeight: isMobile ? "1785px" : "1050px",
             width: "100%"
           }} 
           width="100%" 
