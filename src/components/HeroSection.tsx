@@ -1,3 +1,4 @@
+
 import { Shield, Code, Cloud } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useEffect, useState } from "react";
@@ -58,7 +59,7 @@ const HeroSection = () => {
           <div className={`mb-6 transition-all duration-700 delay-150 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-4"}`}>
             <Dialog>
               <DialogTrigger asChild>
-                <div className={`cursor-pointer transition-all duration-500 ${animateAvatar ? "float-animation" : "hover:scale-105"}`}>
+                <div className="cursor-pointer transition-all duration-300 hover:scale-105">
                   <Avatar className={`w-40 h-40 border-4 border-primary/20 shadow-lg transition-all duration-300 ${animateAvatar ? "border-primary/50" : ""}`}>
                     <AvatarImage src="/lovable-uploads/74204ed6-b70d-42fc-962a-ad475ddd4383.png" alt="Renzo Avila" />
                     <AvatarFallback className="text-2xl font-bold">RA</AvatarFallback>

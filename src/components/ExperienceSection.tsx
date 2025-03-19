@@ -161,7 +161,7 @@ const SkillCategory = ({
             {skills.length > 8 && (
               <Button 
                 variant="gradient" 
-                className="text-sm font-medium rounded-md shadow-sm"
+                className="text-sm px-2 py-1 h-auto min-h-0 font-medium"
               >
                 +{skills.length - 8} more
               </Button>
