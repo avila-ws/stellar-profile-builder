@@ -5,7 +5,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { ThemeProvider } from "./context/ThemeProvider";
 import { Suspense, lazy } from "react";
-import LoadingSpinner from "./components/ui/loading-spinner";
+import LoadingSpinner from "@/components/ui/loading-spinner";
 
 // Lazy loading de componentes
 const Index = lazy(() => import("./pages/Index"));

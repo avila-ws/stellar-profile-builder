@@ -1,6 +1,6 @@
 import { Suspense, lazy } from "react";
 import Navbar from "@/components/Navbar";
-import LoadingSpinner from "../components/ui/loading-spinner";
+import LoadingSpinner from "@/components/ui/loading-spinner";
 
 // Lazy loading de componentes
 const HeroSection = lazy(() => import("@/components/HeroSection"));
