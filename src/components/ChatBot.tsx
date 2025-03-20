@@ -178,26 +178,21 @@ const ChatBot: React.FC = () => {
   }, [isOpen, messages.length]);
   
   useEffect(() => {
-    scrollToBottom();
-  }, [messages, isExpanded]);
-  
-  const scrollToBottom = () => {
-    messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
-  };
+    // Scroll to bottom when messages change
+    if (messagesEndRef.current?.scrollIntoView) {
+      messagesEndRef.current.scrollIntoView({ behavior: "smooth" });
+    }
+  }, [messages]);
   
   const handleSend = () => {
-    if (!hasInteracted) {
-      setHasInteracted(true);
-    }
-    if (input.trim() === "") return;
-    
+    if (!input.trim()) return;
     const userMessage: Message = {
       id: Date.now().toString(),
-      content: input.trim(),
+      content: input,
       role: "user",
       timestamp: new Date()
     };
-    
+    console.log('User message:', userMessage);
     setMessages(prev => [...prev, userMessage]);
     setInput("");
     
@@ -210,6 +205,7 @@ const ChatBot: React.FC = () => {
         timestamp: new Date(),
         isHtml: true
       };
+      console.log('Bot response:', botMessage);
       setMessages(prev => [...prev, botMessage]);
     }, 500);
   };
