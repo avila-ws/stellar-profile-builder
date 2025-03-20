@@ -11,13 +11,16 @@ test('la sección de contacto se carga correctamente', async ({ page }) => {
   const contactHeading = page.getByRole('heading', { name: 'Get in Touch' });
   await expect(contactHeading).toBeVisible();
   
-  // Verificar que la sección de contacto contiene otras secciones importantes
-  // pero sin depender de elementos específicos como iframes que podrían no cargarse
-  const contactSection = page.locator('section').filter({ hasText: 'Get in Touch' });
-  const sectionContent = await contactSection.textContent();
+  // Usar un selector más específico que identifica únicamente la sección de contacto
+  // Esto evita el error de modo estricto
+  const contactSection = page.locator('#contact');
+  
+  // Verificar que la sección de contacto existe
+  await expect(contactSection).toBeVisible();
   
   // Verificar contenido básico en la sección
-  expect(sectionContent).toContain('Get in Touch');
+  const headingInContactSection = contactSection.getByRole('heading', { name: 'Get in Touch' });
+  await expect(headingInContactSection).toBeVisible();
   
   // Tomar una captura de pantalla para verificación visual
   await page.screenshot({ path: 'test-results/contact-section.png' });
