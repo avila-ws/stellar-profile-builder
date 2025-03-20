@@ -1,11 +1,10 @@
-
 import { Linkedin, Github, Mail, Calendar, MapPin } from "lucide-react";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
   
   return (
-    <footer className="py-10 bg-card border-t">
+    <footer role="contentinfo" className="py-10 bg-card border-t">
       <div className="container max-w-7xl mx-auto px-4 sm:px-6">
         <div className="flex flex-col md:flex-row justify-between items-center">
           <div className="mb-6 md:mb-0">

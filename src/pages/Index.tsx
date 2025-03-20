@@ -14,18 +14,28 @@ const Index = () => {
   return (
     <div className="min-h-screen">
       <Navbar />
-      <Suspense fallback={<LoadingSpinner />}>
-        <HeroSection />
-      </Suspense>
-      <Suspense fallback={<LoadingSpinner />}>
-        <AboutSection />
-      </Suspense>
-      <Suspense fallback={<LoadingSpinner />}>
-        <ExperienceSection />
-      </Suspense>
-      <Suspense fallback={<LoadingSpinner />}>
-        <ContactSection />
-      </Suspense>
+      <main role="main">
+        <Suspense fallback={<LoadingSpinner />}>
+          <section role="region" aria-label="hero">
+            <HeroSection />
+          </section>
+        </Suspense>
+        <Suspense fallback={<LoadingSpinner />}>
+          <section role="region" aria-label="about">
+            <AboutSection />
+          </section>
+        </Suspense>
+        <Suspense fallback={<LoadingSpinner />}>
+          <section role="region" aria-label="experience">
+            <ExperienceSection />
+          </section>
+        </Suspense>
+        <Suspense fallback={<LoadingSpinner />}>
+          <section role="region" aria-label="contact">
+            <ContactSection />
+          </section>
+        </Suspense>
+      </main>
       <Suspense fallback={<LoadingSpinner />}>
         <Footer />
       </Suspense>
