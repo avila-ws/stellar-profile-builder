@@ -1,11 +1,14 @@
 import { render, RenderOptions } from '@testing-library/react';
 import { ThemeProvider } from '@/context/ThemeProvider';
-import { ReactElement } from 'react';
+import { ReactElement, Suspense } from 'react';
+import LoadingSpinner from '@/components/ui/loading-spinner';
 
 const AllTheProviders = ({ children }: { children: React.ReactNode }) => {
   return (
     <ThemeProvider>
-      {children}
+      <Suspense fallback={<LoadingSpinner />}>
+        {children}
+      </Suspense>
     </ThemeProvider>
   );
 };

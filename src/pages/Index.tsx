@@ -16,22 +16,22 @@ const Index = () => {
       <Navbar />
       <main role="main">
         <Suspense fallback={<LoadingSpinner />}>
-          <section role="region" aria-label="hero">
+          <section role="region" aria-label="Renzo Avila">
             <HeroSection />
           </section>
         </Suspense>
         <Suspense fallback={<LoadingSpinner />}>
-          <section role="region" aria-label="about">
+          <section role="region" aria-label="About Me">
             <AboutSection />
           </section>
         </Suspense>
         <Suspense fallback={<LoadingSpinner />}>
-          <section role="region" aria-label="experience">
+          <section role="region" aria-label="Experience">
             <ExperienceSection />
           </section>
         </Suspense>
         <Suspense fallback={<LoadingSpinner />}>
-          <section role="region" aria-label="contact">
+          <section role="region" aria-label="Contact">
             <ContactSection />
           </section>
         </Suspense>
