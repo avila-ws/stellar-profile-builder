@@ -8,8 +8,8 @@ import { Suspense, lazy } from "react";
 import LoadingSpinner from "@/components/ui/loading-spinner";
 
 // Lazy loading de componentes
-const Index = lazy(() => import("./pages/Index"));
-const NotFound = lazy(() => import("./pages/NotFound"));
+const Index = lazy(() => import("@/pages/Index"));
+const NotFound = lazy(() => import("@/pages/NotFound"));
 
 const queryClient = new QueryClient();
 
