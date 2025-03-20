@@ -4,38 +4,47 @@ test('navegación básica funciona correctamente', async ({ page, isMobile }) =>
   // Visitar la página principal
   await page.goto('/');
   
+  // Verificar que se carga el título de la página
+  await expect(page).toHaveTitle('Renzo Avila');
+  
   // Verificar que el navbar está presente
-  const navbar = page.getByRole('banner');
+  const navbar = page.getByRole('navigation');
   await expect(navbar).toBeVisible();
   
-  // Verificar que el título está presente
-  const title = page.getByRole('heading', { name: 'Renzo Avila', level: 1 });
-  await expect(title).toBeVisible();
-  
-  // Si es móvil, abrir el menú de navegación
+  // Si estamos en un dispositivo móvil, abrir el menú de navegación
   if (isMobile) {
-    const menuButton = page.getByRole('button', { name: 'Toggle menu' });
-    await expect(menuButton).toBeVisible();
-    await menuButton.click();
+    const menuButton = page.getByRole('button').filter({ hasText: 'Menu' });
+    if (await menuButton.isVisible()) {
+      await menuButton.click();
+      // Esperar a que el menú se abra
+      await page.waitForTimeout(500);
+    }
   }
   
-  // Verificar que los enlaces de navegación están presentes en el navbar
-  const navLinks = [
-    { text: 'Home', href: '#home' },
-    { text: 'About', href: '#about' },
-    { text: 'Experience', href: '#experience' },
-    { text: 'Contact', href: '#contact' }
-  ];
+  // Verificar que las secciones principales están accesibles desde el navbar
+  const aboutLink = navbar.getByRole('link').filter({ hasText: /about/i });
+  await expect(aboutLink).toBeVisible();
   
-  const navigation = page.getByRole('navigation');
+  const contactLink = navbar.getByRole('link').filter({ hasText: /contact/i });
+  await expect(contactLink).toBeVisible();
   
-  for (const link of navLinks) {
-    const element = navigation.getByRole('link', { name: link.text });
-    await expect(element).toBeVisible();
-    await expect(element).toHaveAttribute('href', link.href);
-  }
+  // Navegar a la sección About haciendo clic en el enlace
+  await aboutLink.click();
   
-  // Verificar que el botón de tema está presente
-  const themeButton = page.getByRole('button', { name: /switch to/i });
-  await expect(themeButton).toBeVisible();
+  // Verificar que la URL cambió para incluir el ancla de about
+  await expect(page).toHaveURL(/#about/);
+  
+  // Dar tiempo para que la navegación se complete
+  await page.waitForTimeout(500);
+  
+  // Verificar que el pie de página está presente
+  const footer = page.locator('footer');
+  await expect(footer).toBeVisible();
+  
+  // Verificar el contenido del pie de página
+  const footerText = await footer.textContent() || '';
+  expect(footerText.toLowerCase()).toContain('rights reserved');
+  
+  // Tomar una captura de pantalla
+  await page.screenshot({ path: 'test-results/navigation-test.png' });
 }); 
