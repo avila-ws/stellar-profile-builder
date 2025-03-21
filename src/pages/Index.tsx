@@ -20,7 +20,7 @@ const Index = () => {
         canonical="/"
       />
       <Navbar />
-      <main id="main-content" role="main">
+      <main id="main-content" role="main" tabIndex={-1}>
         <Suspense fallback={<LoadingSpinner />}>
           <section role="region" aria-label="Renzo Avila">
             <HeroSection />
