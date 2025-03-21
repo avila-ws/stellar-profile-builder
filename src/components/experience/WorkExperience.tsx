@@ -40,15 +40,9 @@ const WorkExperience = ({
   };
   
   const highlightDescription = (text: string) => {
-    const keyTerms = [
-      "security", "blockchain", "DevOps", "AWS", "led", "developed", "designed", 
-      "implemented", "reduced", "increased", "enhanced", "improved", "50%", "45%", 
-      "40%", "35%", "30%", "25%", "20%", "ISO 27001", "React.js", "integrated", 
-      "automated", "infrastructure", "cybersecurity", "vulnerabilities", "compliance",
-      // Términos en español
-      "seguridad", "lideré", "desarrollé", "diseñé", "implementé", "reduje", "aumenté",
-      "mejoré", "certificación", "auditorías", "evaluaciones", "políticas", "protección"
-    ];
+    // Obtener los términos clave desde las traducciones
+    const termsFromTranslation = t('highlightTerms.technical', { returnObjects: true });
+    const keyTerms = Array.isArray(termsFromTranslation) ? termsFromTranslation : [];
     
     let result = text;
     keyTerms.forEach(term => {
