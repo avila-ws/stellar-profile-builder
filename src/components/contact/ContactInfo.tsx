@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Tooltip, TooltipTrigger, TooltipContent, TooltipProvider } from "@/components/ui/tooltip";
 import { HoverCard, HoverCardTrigger, HoverCardContent } from "@/components/ui/hover-card";
 import { useLanguage } from "@/hooks/useLanguage";
+import contactConfig from "@/config/contact";
 
 interface ContactInfoProps {
   onScheduleClick: () => void;
@@ -19,23 +20,27 @@ const ContactInfo = ({
       <h3 className="text-2xl font-semibold mb-6">{t('contact.info_title')}</h3>
       
       <div className="space-y-6 stagger-animation">
-        <a href="mailto:renzo@avila.ws" className="flex items-center gap-4 group cursor-pointer hover:bg-primary/5 p-2 rounded-md transition-all duration-300 transform hover:translate-x-1 scale-in" aria-label={t('accessibility.email_link')}>
+        <a href={`mailto:${contactConfig.email}`} className="flex items-center gap-4 group cursor-pointer hover:bg-primary/5 p-2 rounded-md transition-all duration-300 transform hover:translate-x-1 scale-in" aria-label={t('accessibility.email_link')}>
           <div className="bg-primary/10 p-3 rounded-full transition-all duration-300 group-hover:bg-primary group-hover:text-white">
             <Mail className="h-6 w-6 text-primary group-hover:text-white" />
           </div>
           <div className="flex-1">
             <p className="text-sm text-muted-foreground">{t('contact.email_label')}</p>
-            <span className="font-medium hover:text-primary transition-colors">renzo@avila.ws</span>
+            <span className="font-medium hover:text-primary transition-colors">{contactConfig.email}</span>
           </div>
         </a>
         
-        <a href="https://wa.me/443301229696?text=Hello%2C%20I%20would%20like%20to%20get%20in%20touch%20with%20you" target="_blank" rel="noopener noreferrer" className="flex items-center gap-4 group cursor-pointer hover:bg-primary/5 p-2 rounded-md transition-all duration-300 transform hover:translate-x-1 scale-in" aria-label={t('accessibility.phone_link')}>
+        <a href={`https://wa.me/${contactConfig.phone.whatsappCode}?text=${encodeURIComponent(t('contact.whatsapp_message'))}`} 
+           target="_blank" 
+           rel="noopener noreferrer" 
+           className="flex items-center gap-4 group cursor-pointer hover:bg-primary/5 p-2 rounded-md transition-all duration-300 transform hover:translate-x-1 scale-in" 
+           aria-label={t('accessibility.phone_link')}>
           <div className="bg-primary/10 p-3 rounded-full transition-all duration-300 group-hover:bg-primary group-hover:text-white">
             <Phone className="h-6 w-6 text-primary group-hover:text-white" />
           </div>
           <div className="flex-1">
             <p className="text-sm text-muted-foreground">{t('contact.phone_label')}</p>
-            <span className="font-medium hover:text-primary transition-colors">+44 330 122 9696</span>
+            <span className="font-medium hover:text-primary transition-colors">{contactConfig.phone.number}</span>
           </div>
         </a>
         
@@ -51,7 +56,7 @@ const ContactInfo = ({
           </div>
         </div>
         
-        <a href="https://maps.app.goo.gl/QnToM6RPniyKprZD7" target="_blank" rel="noopener noreferrer" className="flex items-center gap-4 group cursor-pointer hover:bg-primary/5 p-2 rounded-md transition-all duration-300 transform hover:translate-x-1 scale-in" aria-label={t('accessibility.location_link')}>
+        <a href={contactConfig.urls.location} target="_blank" rel="noopener noreferrer" className="flex items-center gap-4 group cursor-pointer hover:bg-primary/5 p-2 rounded-md transition-all duration-300 transform hover:translate-x-1 scale-in" aria-label={t('accessibility.location_link')}>
           <div className="bg-primary/10 p-3 rounded-full transition-all duration-300 group-hover:bg-primary group-hover:text-white">
             <MapPin className="h-6 w-6 text-primary group-hover:text-white" />
           </div>
@@ -67,7 +72,7 @@ const ContactInfo = ({
           <TooltipProvider>
             <Tooltip>
               <TooltipTrigger asChild>
-                <a href="https://www.linkedin.com/in/blockchain-security-devops-finance-devsecops-rust-engineer/" 
+                <a href={contactConfig.urls.linkedin} 
                    target="_blank" 
                    rel="noopener noreferrer" 
                    className="bg-card hover:bg-primary hover:text-white transition-colors p-4 rounded-full border hover:scale-110 transform transition-transform duration-300 shadow-sm hover:shadow-md"
@@ -84,7 +89,7 @@ const ContactInfo = ({
           <TooltipProvider>
             <Tooltip>
               <TooltipTrigger asChild>
-                <a href="https://github.com/" 
+                <a href={contactConfig.urls.github} 
                    target="_blank" 
                    rel="noopener noreferrer" 
                    className="bg-card hover:bg-primary hover:text-white transition-colors p-4 rounded-full border hover:scale-110 transform transition-transform duration-300 shadow-sm hover:shadow-md"

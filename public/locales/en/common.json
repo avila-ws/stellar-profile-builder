@@ -5,7 +5,8 @@
     "projects": "Projects",
     "skills": "Skills",
     "education": "Education",
-    "contact": "Contact"
+    "contact": "Contact",
+    "about": "About"
   },
   "hero": {
     "title": "DevSecOps Engineer & Cloud Security Specialist",
@@ -94,6 +95,7 @@
     "email": "Email",
     "email_label": "Email",
     "email_placeholder": "Your email",
+    "email": "renzo@avila.ws",
     "subject": "Subject",
     "subject_placeholder": "Subject",
     "message": "Message",
@@ -103,6 +105,8 @@
     "success": "Message sent!",
     "success_description": "Thank you for reaching out. I'll get back to you soon.",
     "phone_label": "Phone",
+    "phone": "+44 330 122 9696",
+    "whatsapp_message": "Hello, I would like to get in touch with you",
     "location_label": "Location",
     "location": "Barcelona, Spain",
     "schedule_label": "Schedule a meeting",
@@ -122,5 +126,9 @@
     "location_link": "View location on map",
     "linkedin_profile": "LinkedIn Profile",
     "github_profile": "GitHub Profile"
+  },
+  "footer": {
+    "copyright": "© {{year}} Renzo Avila. All rights reserved.",
+    "calendar": "Calendar"
   }
 } 

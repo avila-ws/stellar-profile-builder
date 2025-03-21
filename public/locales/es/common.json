@@ -5,7 +5,8 @@
     "projects": "Proyectos",
     "skills": "Habilidades",
     "education": "Educación",
-    "contact": "Contacto"
+    "contact": "Contacto",
+    "about": "Sobre mí"
   },
   "hero": {
     "title": "Ingeniero DevSecOps y Especialista en Seguridad en la Nube",
@@ -98,6 +99,7 @@
     "email": "Correo Electrónico",
     "email_label": "Correo",
     "email_placeholder": "Tu correo electrónico",
+    "email": "renzo@avila.ws",
     "subject": "Asunto",
     "subject_placeholder": "Asunto",
     "message": "Mensaje",
@@ -107,6 +109,8 @@
     "success": "¡Mensaje enviado!",
     "success_description": "Gracias por contactarme. Te responderé pronto.",
     "phone_label": "Teléfono",
+    "phone": "+44 330 122 9696",
+    "whatsapp_message": "Hola, me gustaría ponerme en contacto contigo",
     "location_label": "Ubicación",
     "location": "Barcelona, España",
     "schedule_label": "Programa una reunión",
@@ -126,5 +130,9 @@
     "location_link": "Ver ubicación en el mapa",
     "linkedin_profile": "Perfil de LinkedIn",
     "github_profile": "Perfil de GitHub"
+  },
+  "footer": {
+    "copyright": "© {{year}} Renzo Avila. Todos los derechos reservados.",
+    "calendar": "Calendario"
   }
 } 
