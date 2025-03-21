@@ -1,6 +1,7 @@
 import { Suspense, lazy } from "react";
 import Navbar from "@/components/Navbar";
 import LoadingSpinner from "@/components/ui/loading-spinner";
+import SEO from "@/components/SEO";
 
 // Lazy loading de componentes
 const HeroSection = lazy(() => import("@/components/HeroSection"));
@@ -13,8 +14,13 @@ const ChatBot = lazy(() => import("@/components/ChatBot"));
 const Index = () => {
   return (
     <div className="min-h-screen">
+      <SEO 
+        title="Renzo Avila - Professional Profile"
+        description="Renzo Avila's professional portfolio, showcasing experience, technical skills, and featured projects."
+        canonical="/"
+      />
       <Navbar />
-      <main role="main">
+      <main id="main-content" role="main">
         <Suspense fallback={<LoadingSpinner />}>
           <section role="region" aria-label="Renzo Avila">
             <HeroSection />
