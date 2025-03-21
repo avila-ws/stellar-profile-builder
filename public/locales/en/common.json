@@ -63,7 +63,7 @@
   },
   "education": {
     "title": "Education",
-    "click_details": "Click to see details about {{count}} degree{{count, plural, one{} other{s}}}"
+    "click_details": "Click to see details about {{count}} degree(s)"
   },
   "projects": {
     "title": "Projects",

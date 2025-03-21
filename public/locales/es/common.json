@@ -63,7 +63,7 @@
   },
   "education": {
     "title": "Educación",
-    "click_details": "Haz clic para ver detalles sobre {{count}} título{{count, plural, one{} other{s}}}"
+    "click_details": "Haz clic para ver detalles sobre {{count}} título(s)"
   },
   "projects": {
     "title": "Proyectos",
