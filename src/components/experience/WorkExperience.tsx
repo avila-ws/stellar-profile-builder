@@ -35,14 +35,19 @@ const WorkExperience = ({
     setIsExpanded(defaultExpanded && !isMobile);
   }, [isMobile, defaultExpanded]);
   
-  const toggleExpand = () => setIsExpanded(!isExpanded);
+  const toggleExpand = () => {
+    setIsExpanded(!isExpanded);
+  };
   
   const highlightDescription = (text: string) => {
     const keyTerms = [
       "security", "blockchain", "DevOps", "AWS", "led", "developed", "designed", 
       "implemented", "reduced", "increased", "enhanced", "improved", "50%", "45%", 
       "40%", "35%", "30%", "25%", "20%", "ISO 27001", "React.js", "integrated", 
-      "automated", "infrastructure", "cybersecurity", "vulnerabilities", "compliance"
+      "automated", "infrastructure", "cybersecurity", "vulnerabilities", "compliance",
+      // Términos en español
+      "seguridad", "lideré", "desarrollé", "diseñé", "implementé", "reduje", "aumenté",
+      "mejoré", "certificación", "auditorías", "evaluaciones", "políticas", "protección"
     ];
     
     let result = text;
@@ -100,14 +105,23 @@ const WorkExperience = ({
           
           <AccordionTrigger 
             className="py-1 text-sm text-primary hover:no-underline justify-start p-0"
+            onClick={toggleExpand}
           >
             {isExpanded ? t('experience.hide_details') : t('experience.show_details')}
           </AccordionTrigger>
           
           <AccordionContent>
             <ul 
-              className="list-disc pl-5 space-y-2 mt-2"
+              className="list-disc pl-5 space-y-2 cursor-pointer hover:text-primary/80 transition-colors"
+              onClick={toggleExpand}
               role="list"
+              tabIndex={0}
+              onKeyDown={(e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                  e.preventDefault();
+                  toggleExpand();
+                }
+              }}
             >
               {description.map((item, index) => (
                 <li key={index} className="text-muted-foreground">
