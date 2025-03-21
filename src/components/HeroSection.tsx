@@ -1,4 +1,3 @@
-
 import { Shield, Code, Cloud } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useEffect, useState } from "react";
@@ -84,7 +83,7 @@ const HeroSection = () => {
             Renzo Avila
           </h1>
           
-          <p className={`text-xl md:text-2xl text-muted-foreground max-w-3xl mb-4 transition-all duration-700 delay-300 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-4"}`}>
+          <p className={`text-xl md:text-2xl text-foreground/80 max-w-3xl mb-4 transition-all duration-700 delay-300 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-4"}`}>
             DevSecOps Engineer with 6 years of experience integrating security into CI/CD pipelines and managing ISO 27001-compliant cloud infrastructures.
           </p>
           
