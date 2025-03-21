@@ -1,11 +1,13 @@
-
 import React, { useEffect, useState, useRef } from "react";
 import { useIsMobile } from "@/hooks/use-mobile";
+import { useLanguage } from "@/hooks/useLanguage";
+import contactConfig from "@/config/contact";
 
 const BookingCalendar = () => {
   const isMobile = useIsMobile();
   const [iframeHeight, setIframeHeight] = useState(isMobile ? 1785 : 1050);
   const iframeRef = useRef<HTMLIFrameElement>(null);
+  const { t } = useLanguage();
 
   useEffect(() => {
     // Update height based on device type
@@ -44,12 +46,12 @@ const BookingCalendar = () => {
 
   return (
     <div className="bg-card rounded-lg shadow-sm p-6 border animate-fade-in">
-      <h3 className="text-2xl font-semibold mb-6">Schedule a Meeting</h3>
+      <h3 className="text-2xl font-semibold mb-6">{t('contact.schedule_meeting')}</h3>
       
       <div className="w-full bg-white rounded-lg overflow-hidden shadow-md">
         <iframe 
           ref={iframeRef}
-          src="https://calendar.google.com/calendar/appointments/schedules/AcZssZ0RKCJXNFIQLYjZhar5z2JTUIK5ap37_6yYwdKoWJtmqjnv4wukx8T-JIMIRGTGqiaORDc2LY3J?gv=true" 
+          src={contactConfig.urls.googleCalendar}
           style={{ 
             border: 0, 
             height: `${iframeHeight}px`, 
@@ -58,7 +60,7 @@ const BookingCalendar = () => {
           }} 
           width="100%" 
           frameBorder="0"
-          title="Google Calendar Appointment Scheduling"
+          title={t('accessibility.calendar_iframe')}
           className="bg-white transition-all duration-300"
         ></iframe>
       </div>
