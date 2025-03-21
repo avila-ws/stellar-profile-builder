@@ -30,18 +30,24 @@ test('navegación a la sección de contacto funciona correctamente', async ({ pa
   // Visitar la página principal
   await page.goto('/');
   
-  // Si estamos en un dispositivo móvil, puede que necesitemos abrir el menú
+  // Esperar a que la página se cargue completamente
+  await page.waitForLoadState('networkidle');
+  
+  // Si estamos en un dispositivo móvil, abrir el menú
   if (isMobile) {
-    const menuButton = page.locator('button').filter({ hasText: /menu/i });
+    const menuButton = page.getByRole('button').filter({ hasText: /menu/i });
     if (await menuButton.isVisible()) {
       await menuButton.click();
-      await page.waitForTimeout(500);
+      // Dar más tiempo para que el menú se abra completamente
+      await page.waitForTimeout(1000);
     }
   }
   
-  // Encontrar y hacer clic en cualquier enlace que lleve a #contact
-  // Esto es más robusto que buscar por texto específico
-  const contactLink = page.locator('a[href="#contact"]').first();
+  // Buscar el enlace de contacto de múltiples maneras
+  const contactLink = page.locator('a[href="#contact"], a:has-text("Contact")').first();
+  
+  // Esperar a que el enlace sea visible y clickeable
+  await contactLink.waitFor({ state: 'visible', timeout: 10000 });
   
   // Verificar que el enlace existe y es visible
   await expect(contactLink).toBeVisible();
@@ -51,6 +57,9 @@ test('navegación a la sección de contacto funciona correctamente', async ({ pa
   
   // Verificar que se ha navegado a la sección de contacto
   await expect(page).toHaveURL(/#contact/);
+  
+  // Esperar a que la sección de contacto sea visible
+  await page.getByRole('heading', { name: 'Get in Touch' }).waitFor({ timeout: 10000 });
   
   // Tomar una captura de pantalla para verificación visual
   await page.screenshot({ path: 'test-results/contact-navigation.png' });

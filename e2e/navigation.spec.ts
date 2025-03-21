@@ -5,7 +5,7 @@ test('navegación básica funciona correctamente', async ({ page, isMobile }) =>
   await page.goto('/');
   
   // Verificar que se carga el título de la página
-  await expect(page).toHaveTitle('Renzo Avila');
+  await expect(page).toHaveTitle('Renzo Avila - Professional Profile');
   
   // Verificar que el navbar está presente
   const navbar = page.getByRole('navigation');
