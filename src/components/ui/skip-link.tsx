@@ -1,11 +1,14 @@
 import { cn } from "@/lib/utils";
 import React from "react";
+import { useLanguage } from "@/hooks/useLanguage";
 
 interface SkipLinkProps extends React.HTMLAttributes<HTMLAnchorElement> {
   href: string;
 }
 
-export function SkipLink({ href, className, children, ...props }: SkipLinkProps) {
+export function SkipLink({ href, className, ...props }: SkipLinkProps) {
+  const { t } = useLanguage();
+  
   return (
     <a
       href={href}
@@ -15,7 +18,7 @@ export function SkipLink({ href, className, children, ...props }: SkipLinkProps)
       )}
       {...props}
     >
-      {children}
+      {t('accessibility.skip_to_content')}
     </a>
   );
 } 

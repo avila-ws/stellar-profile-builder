@@ -24,7 +24,7 @@ const App = () => (
           <Toaster />
           <Sonner />
           <BrowserRouter>
-            <SkipLink href="#main-content">Skip to main content</SkipLink>
+            <SkipLink href="#main-content" />
             <Suspense fallback={<LoadingSpinner />}>
               <Routes>
                 <Route path="/" element={<Index />} />
