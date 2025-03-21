@@ -1,7 +1,8 @@
 import { render, screen } from '@testing-library/react';
 import { describe, test, expect, vi, afterEach } from 'vitest';
 import { MemoryRouter, Routes, Route } from 'react-router-dom';
-import NotFound from '../../pages/NotFound';
+import { HelmetProvider } from 'react-helmet-async';
+import NotFound from '@/pages/NotFound';
 
 // Mock para el console.error
 const consoleErrorMock = vi.spyOn(console, 'error').mockImplementation(() => {});
@@ -11,9 +12,17 @@ describe('NotFound Page', () => {
     consoleErrorMock.mockReset();
   });
   
+  const renderWithProviders = (component: React.ReactNode) => {
+    return render(
+      <HelmetProvider>
+        {component}
+      </HelmetProvider>
+    );
+  };
+  
   test('renderiza el mensaje de error 404', () => {
     // Simular una ruta que no existe
-    render(
+    renderWithProviders(
       <MemoryRouter initialEntries={['/ruta-inexistente']}>
         <NotFound />
       </MemoryRouter>
@@ -28,7 +37,7 @@ describe('NotFound Page', () => {
   
   test('registra un error en la consola con la ruta inexistente', () => {
     // Simular una ruta específica que no existe
-    render(
+    renderWithProviders(
       <MemoryRouter initialEntries={['/ruta-inexistente']}>
         <NotFound />
       </MemoryRouter>
@@ -43,7 +52,7 @@ describe('NotFound Page', () => {
   
   test('se muestra cuando se accede a una ruta inexistente', () => {
     // Configurar rutas con una ruta para la página NotFound
-    render(
+    renderWithProviders(
       <MemoryRouter initialEntries={['/ruta-inexistente']}>
         <Routes>
           <Route path="/" element={<div>Página de inicio</div>} />

@@ -1,5 +1,6 @@
 import { render, screen, act } from '@/test/test-utils';
 import { describe, expect, it, vi } from 'vitest';
+import { HelmetProvider } from 'react-helmet-async';
 import Index from '@/pages/Index';
 
 vi.mock('@/components/HeroSection', () => ({
@@ -27,9 +28,17 @@ vi.mock('@/components/ChatBot', () => ({
 }));
 
 describe('Index', () => {
+  const renderWithProviders = (component: React.ReactNode) => {
+    return render(
+      <HelmetProvider>
+        {component}
+      </HelmetProvider>
+    );
+  };
+
   it('renderiza correctamente', async () => {
     await act(async () => {
-      render(<Index />);
+      renderWithProviders(<Index />);
     });
     
     // Verificar que el navbar está presente
