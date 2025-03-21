@@ -15,7 +15,7 @@ export const contactConfig = {
   urls: {
     linkedin: "https://www.linkedin.com/in/blockchain-security-devops-finance-devsecops-rust-engineer/",
     github: "https://github.com/",
-    googleCalendar: "https://calendar.app.google/oy7TjX11PNBx6PoJ9",
+    googleCalendar: "https://calendar.google.com/calendar/appointments/schedules/AcZssZ0RKCJXNFIQLYjZhar5z2JTUIK5ap37_6yYwdKoWJtmqjnv4wukx8T-JIMIRGTGqiaORDc2LY3J?gv=true",
     location: "https://maps.app.goo.gl/QnToM6RPniyKprZD7",
   }
 };
