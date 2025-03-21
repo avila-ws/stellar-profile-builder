@@ -2,6 +2,7 @@ import { GraduationCap } from "lucide-react";
 import { Card } from "@/components/ui/card";
 import EducationCard from "./EducationCard";
 import { useLanguage } from "@/hooks/useLanguage";
+import educationUrls from "@/config/education";
 
 const EducationSection = () => {
   const { t } = useLanguage();
@@ -10,7 +11,7 @@ const EducationSection = () => {
   const educationData = [
     {
       institution: tProfile('education.0.institution'),
-      url: "https://web.archive.org/web/20110806134524/http://www.unitec.edu.ve/index5.jsp",
+      url: educationUrls.centralUniversity,
       degrees: [
         {
           title: tProfile('education.0.degree'),
@@ -25,7 +26,7 @@ const EducationSection = () => {
     },
     {
       institution: tProfile('education.2.institution'),
-      url: "https://ujap.edu.ve/",
+      url: educationUrls.forensicAcademy,
       degrees: [
         {
           title: tProfile('education.2.degree'),

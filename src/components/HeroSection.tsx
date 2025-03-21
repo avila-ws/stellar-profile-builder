@@ -5,6 +5,7 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Dialog, DialogContent, DialogTrigger, DialogTitle } from "@/components/ui/dialog";
 import { AspectRatio } from "@/components/ui/aspect-ratio";
 import { useLanguage } from "@/hooks/useLanguage";
+import contactConfig from "@/config/contact";
 
 const HeroSection = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -96,7 +97,7 @@ const HeroSection = () => {
           
           <div className={`flex flex-wrap justify-center gap-3 mb-8 transition-all duration-700 delay-450 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-4"}`}>
             <a 
-              href="https://maps.app.goo.gl/QnToM6RPniyKprZD7" 
+              href={contactConfig.urls.location}
               target="_blank" 
               rel="noopener noreferrer" 
               className={`inline-flex items-center text-sm hover:text-primary transition-colors hover:scale-105 hover:font-medium contact-link relative
@@ -106,7 +107,7 @@ const HeroSection = () => {
             </a>
             <span className="text-muted-foreground">•</span>
             <a 
-              href="https://www.linkedin.com/in/blockchain-security-devops-finance-devsecops-rust-engineer/" 
+              href={contactConfig.urls.linkedin}
               target="_blank" 
               rel="noopener noreferrer" 
               className={`inline-flex items-center text-sm hover:text-primary transition-colors hover:scale-105 hover:font-medium contact-link relative
@@ -116,7 +117,7 @@ const HeroSection = () => {
             </a>
             <span className="text-muted-foreground">•</span>
             <a 
-              href="https://wa.me/443301229696?text=Hello%2C%20I%20would%20like%20to%20get%20in%20touch%20with%20you" 
+              href={`https://wa.me/${contactConfig.phone.whatsappCode}?text=${encodeURIComponent(t('contact.whatsapp_message'))}`}
               target="_blank" 
               rel="noopener noreferrer" 
               className={`inline-flex items-center text-sm hover:text-primary transition-colors hover:scale-105 hover:font-medium contact-link relative
@@ -126,7 +127,7 @@ const HeroSection = () => {
             </a>
             <span className="text-muted-foreground">•</span>
             <a 
-              href="https://calendar.app.google/oy7TjX11PNBx6PoJ9" 
+              href={contactConfig.urls.googleCalendar}
               target="_blank" 
               rel="noopener noreferrer" 
               className={`inline-flex items-center text-sm hover:text-primary transition-colors hover:scale-105 hover:font-medium contact-link relative

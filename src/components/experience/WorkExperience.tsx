@@ -61,7 +61,13 @@ const WorkExperience = ({
         {icon}
       </div>
       
-      <Accordion type="single" collapsible className="mt-0 border-none" value={isExpanded ? "description" : ""}>
+      <Accordion 
+        type="single" 
+        collapsible 
+        className="mt-0 border-none" 
+        value={isExpanded ? "description" : ""}
+        onValueChange={(value) => setIsExpanded(value === "description")}
+      >
         <AccordionItem value="description" className="border-none">
           <div>
             <h3 className="text-xl font-semibold flex items-center">
@@ -94,7 +100,6 @@ const WorkExperience = ({
           
           <AccordionTrigger 
             className="py-1 text-sm text-primary hover:no-underline justify-start p-0"
-            onClick={toggleExpand}
           >
             {isExpanded ? t('experience.hide_details') : t('experience.show_details')}
           </AccordionTrigger>

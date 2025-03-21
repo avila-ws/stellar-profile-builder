@@ -1,6 +1,7 @@
 import { Building } from "lucide-react";
 import { Card } from "@/components/ui/card";
 import { useLanguage } from "@/hooks/useLanguage";
+import companyUrls from "@/config/companies";
 
 interface Company {
   name: string;
@@ -12,12 +13,12 @@ const CompaniesWorked = () => {
   const { t } = useLanguage();
   
   const companies: Company[] = [
-    { name: "R2", description: t('about.companies.r2'), url: "https://r2.co/" },
-    { name: "B89", description: t('about.companies.b89'), url: "https://www.b89.io/" },
-    { name: "BCP", description: t('about.companies.bcp'), url: "https://www.viabcp.com/" },
-    { name: "Keller Williams", description: t('about.companies.kw'), url: "https://www.kw.com/" },
-    { name: "NTT DATA", description: t('about.companies.ntt'), url: "https://pe.nttdata.com/" },
-    { name: "Paraiso Creativo", description: t('about.companies.paraiso'), url: "https://web.archive.org/web/20170914185910/http://paraisocreativo.com/" }
+    { name: "R2", description: t('about.companies.r2'), url: companyUrls.r2 },
+    { name: "B89", description: t('about.companies.b89'), url: companyUrls.b89 },
+    { name: "BCP", description: t('about.companies.bcp'), url: companyUrls.bcp },
+    { name: "Keller Williams", description: t('about.companies.kw'), url: companyUrls.kellerWilliams },
+    { name: "NTT DATA", description: t('about.companies.ntt'), url: companyUrls.nttData },
+    { name: "Paraiso Creativo", description: t('about.companies.paraiso'), url: companyUrls.paraisoCreativo }
   ];
   
   return (
