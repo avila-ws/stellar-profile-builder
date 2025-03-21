@@ -40,7 +40,7 @@ const ContactForm = () => {
           </div>
           
           <div className="space-y-2">
-            <label htmlFor="email" className="text-sm font-medium">{t('contact.email')}</label>
+            <label htmlFor="email" className="text-sm font-medium">{t('contact.email_label')}</label>
             <Input id="email" type="email" placeholder={t('contact.email_placeholder')} required className="transition-all duration-300 focus:scale-101" />
           </div>
         </div>

@@ -95,7 +95,7 @@
     "email": "Email",
     "email_label": "Email",
     "email_placeholder": "Your email",
-    "email": "renzo@avila.ws",
+    "email_address": "renzo@avila.ws",
     "subject": "Subject",
     "subject_placeholder": "Subject",
     "message": "Message",
@@ -117,15 +117,16 @@
   },
   "accessibility": {
     "skip_to_content": "Skip to main content",
-    "toggle": "Toggle",
+    "toggle": "Toggle details",
     "visit_company_website": "Visit {{company}} website",
     "visit_institution_website": "Visit {{institution}} website",
     "email_link": "Send email",
-    "phone_link": "Call or text via WhatsApp",
-    "calendar_link": "Schedule a meeting via calendar",
+    "phone_link": "Call or send WhatsApp message",
+    "calendar_link": "Schedule a meeting",
     "location_link": "View location on map",
-    "linkedin_profile": "LinkedIn Profile",
-    "github_profile": "GitHub Profile"
+    "linkedin_profile": "Visit LinkedIn profile",
+    "github_profile": "Visit GitHub profile",
+    "calendar_iframe": "Google Calendar Appointment Scheduling"
   },
   "footer": {
     "copyright": "© {{year}} Renzo Avila. All rights reserved.",

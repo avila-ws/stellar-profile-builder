@@ -99,7 +99,7 @@
     "email": "Correo Electrónico",
     "email_label": "Correo",
     "email_placeholder": "Tu correo electrónico",
-    "email": "renzo@avila.ws",
+    "email_address": "renzo@avila.ws",
     "subject": "Asunto",
     "subject_placeholder": "Asunto",
     "message": "Mensaje",
@@ -126,10 +126,11 @@
     "visit_institution_website": "Visitar sitio web de {{institution}}",
     "email_link": "Enviar correo electrónico",
     "phone_link": "Llamar o enviar mensaje por WhatsApp",
-    "calendar_link": "Programar una reunión a través del calendario",
+    "calendar_link": "Programar una reunión",
     "location_link": "Ver ubicación en el mapa",
-    "linkedin_profile": "Perfil de LinkedIn",
-    "github_profile": "Perfil de GitHub"
+    "linkedin_profile": "Visitar perfil de LinkedIn",
+    "github_profile": "Visitar perfil de GitHub",
+    "calendar_iframe": "Programación de Citas en Google Calendar"
   },
   "footer": {
     "copyright": "© {{year}} Renzo Avila. Todos los derechos reservados.",
