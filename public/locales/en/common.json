@@ -22,7 +22,37 @@
   },
   "about": {
     "title": "About Me",
-    "summary": "DevSecOps Engineer with 6 years of experience integrating security into CI/CD pipelines and managing ISO 27001-compliant cloud infrastructures. Trilingual in English, Portuguese, and Spanish."
+    "description_1": "With over 6 years of experience as a DevSecOps Engineer, I've dedicated my career to bridging the gap between development, operations, and security. I specialize in creating robust security frameworks that don't slow down innovation.",
+    "description_2": "My work spans across various industries, particularly in fintech and blockchain, where I've implemented security measures that protect sensitive data while enabling rapid deployment cycles.",
+    "languages": "Languages",
+    "achievements": {
+      "title": "Key Achievements",
+      "iso": {
+        "title": "Led ISO 27001 certification",
+        "description": "Reduced security incidents by 50% and enhanced AWS security with robust endpoint protection"
+      },
+      "code": {
+        "title": "Enhanced code analysis",
+        "description": "Improved software protection by 45% and reduced production vulnerabilities by 25%"
+      },
+      "blockchain": {
+        "title": "Blockchain leadership",
+        "description": "Directed key blockchain projects with 60% increase in transaction throughput and 40% decrease in costs"
+      },
+      "cicd": {
+        "title": "CI/CD pipeline automation",
+        "description": "Embedded compliance enforcement, vulnerability scanning, and security gates into development lifecycle"
+      }
+    },
+    "companies": {
+      "title": "Companies I've Worked With",
+      "r2": "NeoBank Mexico",
+      "b89": "NeoBank Peru",
+      "bcp": "Bank Peru",
+      "kw": "Realty US",
+      "ntt": "Consulting Peru",
+      "paraiso": "Consulting VE"
+    }
   },
   "experience": {
     "title": "Experience",
@@ -31,7 +61,8 @@
     "hide_details": "Hide details"
   },
   "education": {
-    "title": "Education"
+    "title": "Education",
+    "click_details": "Click to see details about {{count}} degree{{count, plural, one{} other{s}}}"
   },
   "projects": {
     "title": "Projects",
@@ -63,6 +94,7 @@
   "accessibility": {
     "skip_to_content": "Skip to main content",
     "toggle": "Toggle",
-    "visit_company_website": "Visit {{company}} website"
+    "visit_company_website": "Visit {{company}} website",
+    "visit_institution_website": "Visit {{institution}} website"
   }
 } 

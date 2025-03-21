@@ -1,9 +1,9 @@
-
 import { ChevronDown, ChevronUp } from "lucide-react";
 import { Collapsible, CollapsibleContent } from "@/components/ui/collapsible";
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { useIsMobile } from "@/hooks/use-mobile";
+import { useLanguage } from "@/hooks/useLanguage";
 
 interface EducationCardProps {
   institution: string;
@@ -23,6 +23,7 @@ const EducationCard = ({
 }: EducationCardProps) => {
   const isMobile = useIsMobile();
   const [isOpen, setIsOpen] = useState(defaultOpen && !isMobile);
+  const { t } = useLanguage();
   
   useEffect(() => {
     setIsOpen(defaultOpen && !isMobile);
@@ -40,12 +41,13 @@ const EducationCard = ({
           rel="noopener noreferrer" 
           className="hover:text-primary transition-colors" 
           onClick={e => e.stopPropagation()}
+          aria-label={t('accessibility.visit_institution_website', { institution })}
         >
           {institution}
         </a>
         <Button variant="ghost" size="sm" className="p-0 h-8 w-8 pointer-events-none">
           {isOpen ? <ChevronUp className="h-4 w-4" /> : <ChevronDown className="h-4 w-4" />}
-          <span className="sr-only">Toggle</span>
+          <span className="sr-only">{t('accessibility.toggle')}</span>
         </Button>
       </h4>
       
@@ -64,7 +66,7 @@ const EducationCard = ({
       
       {!isOpen && (
         <div className="mt-1 text-muted-foreground text-sm">
-          Click to see details about {degrees.length} degree{degrees.length > 1 ? 's' : ''}
+          {t('education.click_details', { count: degrees.length })}
         </div>
       )}
     </div>

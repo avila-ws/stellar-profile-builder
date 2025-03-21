@@ -22,7 +22,37 @@
   },
   "about": {
     "title": "Sobre Mí",
-    "summary": "Ingeniero DevSecOps con 6 años de experiencia integrando seguridad en pipelines CI/CD y gestionando infraestructuras en la nube compatibles con ISO 27001. Trilingüe en inglés, portugués y español."
+    "description_1": "Con más de 6 años de experiencia como Ingeniero DevSecOps, he dedicado mi carrera a cerrar la brecha entre desarrollo, operaciones y seguridad. Me especializo en crear marcos de seguridad robustos que no ralentizan la innovación.",
+    "description_2": "Mi trabajo abarca diversas industrias, particularmente en fintech y blockchain, donde he implementado medidas de seguridad que protegen datos sensibles mientras permiten ciclos de despliegue rápidos.",
+    "languages": "Idiomas",
+    "achievements": {
+      "title": "Logros Clave",
+      "iso": {
+        "title": "Dirigí certificación ISO 27001",
+        "description": "Reduje incidentes de seguridad en un 50% y mejoré la seguridad de AWS con protección robusta de endpoints"
+      },
+      "code": {
+        "title": "Análisis de código mejorado",
+        "description": "Mejoré la protección de software en un 45% y reduje vulnerabilidades en producción en un 25%"
+      },
+      "blockchain": {
+        "title": "Liderazgo en blockchain",
+        "description": "Dirigí proyectos clave de blockchain con un aumento del 60% en el rendimiento de transacciones y una disminución del 40% en costos"
+      },
+      "cicd": {
+        "title": "Automatización de pipeline CI/CD",
+        "description": "Incorporé cumplimiento normativo, escaneo de vulnerabilidades y puertas de seguridad en el ciclo de vida de desarrollo"
+      }
+    },
+    "companies": {
+      "title": "Empresas con las que he Trabajado",
+      "r2": "NeoBank México",
+      "b89": "NeoBank Perú",
+      "bcp": "Banco Perú",
+      "kw": "Inmobiliaria EE.UU.",
+      "ntt": "Consultoría Perú",
+      "paraiso": "Consultoría VE"
+    }
   },
   "experience": {
     "title": "Experiencia",
@@ -31,7 +61,8 @@
     "hide_details": "Ocultar detalles"
   },
   "education": {
-    "title": "Educación"
+    "title": "Educación",
+    "click_details": "Haz clic para ver detalles sobre {{count}} título{{count, plural, one{} other{s}}}"
   },
   "projects": {
     "title": "Proyectos",
@@ -67,6 +98,7 @@
   "accessibility": {
     "skip_to_content": "Ir al contenido principal",
     "toggle": "Alternar",
-    "visit_company_website": "Visitar sitio web de {{company}}"
+    "visit_company_website": "Visitar sitio web de {{company}}",
+    "visit_institution_website": "Visitar sitio web de {{institution}}"
   }
 } 

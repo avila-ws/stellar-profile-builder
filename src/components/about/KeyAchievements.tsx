@@ -1,35 +1,32 @@
-
 import { CheckCircle } from "lucide-react";
 import { Card } from "@/components/ui/card";
-
-interface Achievement {
-  title: string;
-  description: string;
-}
-
-const achievements: Achievement[] = [
-  {
-    title: "Led ISO 27001 certification",
-    description: "Reduced security incidents by 50% and enhanced AWS security with robust endpoint protection"
-  },
-  {
-    title: "Enhanced code analysis",
-    description: "Improved software protection by 45% and reduced production vulnerabilities by 25%"
-  },
-  {
-    title: "Blockchain leadership",
-    description: "Directed key blockchain projects with 60% increase in transaction throughput and 40% decrease in costs"
-  },
-  {
-    title: "CI/CD pipeline automation",
-    description: "Embedded compliance enforcement, vulnerability scanning, and security gates into development lifecycle"
-  }
-];
+import { useLanguage } from "@/hooks/useLanguage";
 
 const KeyAchievements = () => {
+  const { t } = useLanguage();
+  
+  const achievements = [
+    {
+      title: t('about.achievements.iso.title'),
+      description: t('about.achievements.iso.description')
+    },
+    {
+      title: t('about.achievements.code.title'),
+      description: t('about.achievements.code.description')
+    },
+    {
+      title: t('about.achievements.blockchain.title'),
+      description: t('about.achievements.blockchain.description')
+    },
+    {
+      title: t('about.achievements.cicd.title'),
+      description: t('about.achievements.cicd.description')
+    }
+  ];
+  
   return (
     <Card className="p-6 border shadow-sm">
-      <h3 className="text-xl font-semibold mb-6">Key Achievements</h3>
+      <h3 className="text-xl font-semibold mb-6">{t('about.achievements.title')}</h3>
       
       <ul className="space-y-4">
         {achievements.map((achievement, index) => (
