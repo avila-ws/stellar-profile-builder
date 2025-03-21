@@ -58,7 +58,11 @@ const HeroSection = () => {
           <div className={`mb-6 transition-all duration-700 delay-150 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-4"}`}>
             <Dialog>
               <DialogTrigger asChild>
-                <div className="cursor-pointer transition-all duration-300 hover:scale-105">
+                <button 
+                  type="button"
+                  className="cursor-pointer transition-all duration-300 hover:scale-105 bg-transparent border-0 p-0"
+                  aria-label="Ver foto de perfil"
+                >
                   <div className="relative w-40 h-40">
                     <div className="absolute inset-0 profile-gradient-border"></div>
                     <Avatar className={`w-40 h-40 transition-all duration-300 rounded-full overflow-hidden relative z-10 ${animateAvatar ? "opacity-100" : "opacity-90"}`}>
@@ -66,7 +70,7 @@ const HeroSection = () => {
                       <AvatarFallback className="text-2xl font-bold">RA</AvatarFallback>
                     </Avatar>
                   </div>
-                </div>
+                </button>
               </DialogTrigger>
               <DialogContent className="p-0 border-0 bg-transparent shadow-none max-w-md w-auto flex items-center justify-center">
                 <DialogTitle className="sr-only">Renzo Avila Profile Photo</DialogTitle>
