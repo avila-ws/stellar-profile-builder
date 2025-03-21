@@ -1,4 +1,3 @@
-
 import React from "react";
 import { Mail, Linkedin, Github, Phone, MapPin, Calendar, ChevronRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -65,7 +64,11 @@ const ContactInfo = ({
           <TooltipProvider>
             <Tooltip>
               <TooltipTrigger asChild>
-                <a href="https://www.linkedin.com/in/blockchain-security-devops-finance-devsecops-rust-engineer/" target="_blank" rel="noopener noreferrer" className="bg-card hover:bg-primary hover:text-white transition-colors p-4 rounded-full border hover:scale-110 transform transition-transform duration-300 shadow-sm hover:shadow-md">
+                <a href="https://www.linkedin.com/in/blockchain-security-devops-finance-devsecops-rust-engineer/" 
+                   target="_blank" 
+                   rel="noopener noreferrer" 
+                   className="bg-card hover:bg-primary hover:text-white transition-colors p-4 rounded-full border hover:scale-110 transform transition-transform duration-300 shadow-sm hover:shadow-md"
+                   aria-label="LinkedIn Profile">
                   <Linkedin className="h-6 w-6" />
                 </a>
               </TooltipTrigger>
@@ -78,7 +81,11 @@ const ContactInfo = ({
           <TooltipProvider>
             <Tooltip>
               <TooltipTrigger asChild>
-                <a href="https://github.com/" target="_blank" rel="noopener noreferrer" className="bg-card hover:bg-primary hover:text-white transition-colors p-4 rounded-full border hover:scale-110 transform transition-transform duration-300 shadow-sm hover:shadow-md">
+                <a href="https://github.com/" 
+                   target="_blank" 
+                   rel="noopener noreferrer" 
+                   className="bg-card hover:bg-primary hover:text-white transition-colors p-4 rounded-full border hover:scale-110 transform transition-transform duration-300 shadow-sm hover:shadow-md"
+                   aria-label="GitHub Profile">
                   <Github className="h-6 w-6" />
                 </a>
               </TooltipTrigger>
