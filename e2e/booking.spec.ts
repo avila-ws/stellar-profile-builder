@@ -36,15 +36,21 @@ test('navegación a la sección de contacto funciona correctamente', async ({ pa
   // Si estamos en un dispositivo móvil, abrir el menú
   if (isMobile) {
     const menuButton = page.getByRole('button', { name: /menu/i });
-    if (await menuButton.isVisible()) {
-      await menuButton.click();
-      // Dar más tiempo para que el menú se abra completamente
-      await page.waitForTimeout(1000);
-    }
+    await expect(menuButton).toBeVisible({ timeout: 10000 });
+    await menuButton.click();
+    // Dar más tiempo para que el menú se abra completamente
+    await page.waitForTimeout(1000);
   }
   
-  // Buscar el enlace de contacto de múltiples maneras
-  const contactLink = page.getByRole('link', { name: /contact/i });
+  // Buscar el enlace de contacto (el enfoque depende de si estamos en móvil o escritorio)
+  let contactLink;
+  if (isMobile) {
+    // En móvil, el enlace podría estar en el menú desplegable
+    contactLink = page.getByRole('link', { name: 'Contact' });
+  } else {
+    // En escritorio, el enlace está en la barra de navegación
+    contactLink = page.getByRole('navigation').getByRole('link', { name: 'Contact' });
+  }
   
   // Esperar a que el enlace sea visible y clickeable
   await contactLink.waitFor({ state: 'visible', timeout: 10000 });
@@ -79,19 +85,18 @@ test('el formulario de contacto funciona correctamente', async ({ page }) => {
     await page.waitForTimeout(500);
   }
   
-  // Buscar campos del formulario con selectores más genéricos
-  // e intentar llenarlos solo si existen
-  const nameField = page.getByLabel(/name/i);
+  // Buscar campos del formulario con selectores más específicos
+  const nameField = page.getByRole('textbox', { name: /name/i });
   if (await nameField.isVisible()) {
     await nameField.fill('Test User');
   }
   
-  const emailField = page.getByLabel(/email/i);
+  const emailField = page.getByRole('textbox', { name: /email/i });
   if (await emailField.isVisible()) {
     await emailField.fill('test@example.com');
   }
   
-  const messageField = page.getByLabel(/message/i);
+  const messageField = page.getByRole('textbox', { name: /message/i });
   if (await messageField.isVisible()) {
     await messageField.fill('This is a test message from Playwright E2E testing');
   }
