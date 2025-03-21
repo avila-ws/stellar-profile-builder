@@ -35,7 +35,7 @@ test('navegación a la sección de contacto funciona correctamente', async ({ pa
   
   // Si estamos en un dispositivo móvil, abrir el menú
   if (isMobile) {
-    const menuButton = page.getByRole('button').filter({ hasText: /menu/i });
+    const menuButton = page.getByRole('button', { name: /menu/i });
     if (await menuButton.isVisible()) {
       await menuButton.click();
       // Dar más tiempo para que el menú se abra completamente
@@ -44,7 +44,7 @@ test('navegación a la sección de contacto funciona correctamente', async ({ pa
   }
   
   // Buscar el enlace de contacto de múltiples maneras
-  const contactLink = page.locator('a[href="#contact"], a:has-text("Contact")').first();
+  const contactLink = page.getByRole('link', { name: /contact/i });
   
   // Esperar a que el enlace sea visible y clickeable
   await contactLink.waitFor({ state: 'visible', timeout: 10000 });
@@ -73,7 +73,7 @@ test('el formulario de contacto funciona correctamente', async ({ page }) => {
   await page.getByRole('heading', { name: 'Get in Touch' }).waitFor();
   
   // Intentar seleccionar la pestaña de mensaje, pero no fallar si no existe
-  const messageTab = page.getByRole('tab').filter({ hasText: /send message/i });
+  const messageTab = page.getByRole('tab', { name: /send message/i });
   if (await messageTab.isVisible()) {
     await messageTab.click();
     await page.waitForTimeout(500);
@@ -81,17 +81,17 @@ test('el formulario de contacto funciona correctamente', async ({ page }) => {
   
   // Buscar campos del formulario con selectores más genéricos
   // e intentar llenarlos solo si existen
-  const nameField = page.locator('input[id="name"], input[name="name"], input[placeholder*="name" i]').first();
+  const nameField = page.getByLabel(/name/i);
   if (await nameField.isVisible()) {
     await nameField.fill('Test User');
   }
   
-  const emailField = page.locator('input[id="email"], input[name="email"], input[placeholder*="email" i], input[type="email"]').first();
+  const emailField = page.getByLabel(/email/i);
   if (await emailField.isVisible()) {
     await emailField.fill('test@example.com');
   }
   
-  const messageField = page.locator('textarea[id="message"], textarea[name="message"], textarea[placeholder*="message" i]').first();
+  const messageField = page.getByLabel(/message/i);
   if (await messageField.isVisible()) {
     await messageField.fill('This is a test message from Playwright E2E testing');
   }

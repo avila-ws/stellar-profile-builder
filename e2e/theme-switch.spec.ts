@@ -8,7 +8,7 @@ test('verificar si hay funcionalidad de tema en la página', async ({ page }) =>
   await page.waitForLoadState('networkidle');
   
   // Verificar si existe el botón de tema usando selectores más específicos
-  const themeButton = page.getByRole('button').filter({ hasText: /theme|mode/i });
+  const themeButton = page.getByRole('button', { name: /theme|mode/i });
   
   // Esperar a que el botón sea visible
   await themeButton.waitFor({ state: 'visible', timeout: 10000 });
