@@ -16,7 +16,9 @@
     "test:e2e": "NODE_NO_WARNINGS=1 playwright test",
     "test:e2e:ui": "NODE_NO_WARNINGS=1 playwright test --ui",
     "test:e2e:report": "playwright show-report",
-    "test:e2e:dev": "playwright test --project=chromium"
+    "test:e2e:dev": "playwright test --project=chromium",
+    "test:a11y": "playwright test e2e/a11y.spec.ts --project=chromium",
+    "test:contrast": "playwright test e2e/contrast.spec.ts --project=chromium"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.9.0",
@@ -71,6 +73,7 @@
     "zod": "^3.23.8"
   },
   "devDependencies": {
+    "@axe-core/playwright": "^4.10.1",
     "@eslint/js": "^9.9.0",
     "@playwright/test": "^1.51.1",
     "@tailwindcss/typography": "^0.5.15",
