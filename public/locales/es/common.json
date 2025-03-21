@@ -10,14 +10,22 @@
   "hero": {
     "title": "Ingeniero DevSecOps y Especialista en Seguridad en la Nube",
     "subtitle": "Seguro por Diseño. Eficiente por Defecto.",
-    "cta": "Ver Proyectos"
+    "cta": "Ver Proyectos",
+    "view_profile_photo": "Ver foto de perfil",
+    "languages_specialties": "Trilingüe en inglés, portugués y español • Especializado en Blockchain, Seguridad AWS e ISO 27001",
+    "security_integration": "Integración de Seguridad",
+    "security_description": "Reducción de incidentes de seguridad en un 50% mediante la implementación de ISO 27001",
+    "cloud_infrastructure": "Infraestructura en la Nube",
+    "cloud_description": "Experto en AWS con experiencia en más de 30 servicios y herramientas",
+    "blockchain_expertise": "Experiencia en Blockchain",
+    "blockchain_description": "Lideró más de 20 proyectos blockchain en América Latina, el Caribe y Europa"
   },
   "about": {
     "title": "Sobre Mí",
     "summary": "Ingeniero DevSecOps con 6 años de experiencia integrando seguridad en pipelines CI/CD y gestionando infraestructuras en la nube compatibles con ISO 27001. Trilingüe en inglés, portugués y español."
   },
   "experience": {
-    "title": "Experiencia Laboral",
+    "title": "Experiencia",
     "present": "Presente",
     "responsibilities": "Responsabilidades"
   },

@@ -10,14 +10,22 @@
   "hero": {
     "title": "DevSecOps Engineer & Cloud Security Specialist",
     "subtitle": "Secure by Design. Efficient by Default.",
-    "cta": "View Projects"
+    "cta": "View Projects",
+    "view_profile_photo": "View profile photo",
+    "languages_specialties": "Trilingual in English, Portuguese, and Spanish • Specialized in Blockchain, AWS Security & ISO 27001",
+    "security_integration": "Security Integration",
+    "security_description": "Reduced security incidents by 50% through ISO 27001 implementation",
+    "cloud_infrastructure": "Cloud Infrastructure",
+    "cloud_description": "AWS expert with experience across 30+ services and tools",
+    "blockchain_expertise": "Blockchain Expertise",
+    "blockchain_description": "Led 20+ blockchain projects across Latin America, Caribbean, and Europe"
   },
   "about": {
     "title": "About Me",
     "summary": "DevSecOps Engineer with 6 years of experience integrating security into CI/CD pipelines and managing ISO 27001-compliant cloud infrastructures. Trilingual in English, Portuguese, and Spanish."
   },
   "experience": {
-    "title": "Work Experience",
+    "title": "Experience",
     "present": "Present",
     "responsibilities": "Responsibilities"
   },
