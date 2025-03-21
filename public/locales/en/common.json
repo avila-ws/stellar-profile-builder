@@ -83,18 +83,44 @@
     }
   },
   "contact": {
-    "title": "Contact Me",
+    "title": "Get in Touch",
+    "lets_connect": "Let's Connect",
+    "send_message": "Send Message",
+    "schedule_meeting": "Schedule Meeting",
+    "form_title": "Send me a message",
+    "info_title": "Contact Information",
     "name": "Name",
+    "name_placeholder": "Your name",
     "email": "Email",
+    "email_label": "Email",
+    "email_placeholder": "Your email",
+    "subject": "Subject",
+    "subject_placeholder": "Subject",
     "message": "Message",
+    "message_placeholder": "Your message",
+    "sending": "Sending...",
     "send": "Send Message",
-    "success": "Message sent successfully!",
-    "error": "There was an error sending your message. Please try again."
+    "success": "Message sent!",
+    "success_description": "Thank you for reaching out. I'll get back to you soon.",
+    "phone_label": "Phone",
+    "location_label": "Location",
+    "location": "Barcelona, Spain",
+    "schedule_label": "Schedule a meeting",
+    "book_calendar": "Book a time on my calendar",
+    "connect_title": "Connect with me",
+    "connect_linkedin": "Connect on LinkedIn",
+    "view_github": "View GitHub Profile"
   },
   "accessibility": {
     "skip_to_content": "Skip to main content",
     "toggle": "Toggle",
     "visit_company_website": "Visit {{company}} website",
-    "visit_institution_website": "Visit {{institution}} website"
+    "visit_institution_website": "Visit {{institution}} website",
+    "email_link": "Send email",
+    "phone_link": "Call or text via WhatsApp",
+    "calendar_link": "Schedule a meeting via calendar",
+    "location_link": "View location on map",
+    "linkedin_profile": "LinkedIn Profile",
+    "github_profile": "GitHub Profile"
   }
 } 

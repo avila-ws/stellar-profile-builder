@@ -88,17 +88,43 @@
   },
   "contact": {
     "title": "Contáctame",
+    "lets_connect": "Conectemos",
+    "send_message": "Enviar Mensaje",
+    "schedule_meeting": "Programar Reunión",
+    "form_title": "Envíame un mensaje",
+    "info_title": "Información de Contacto",
     "name": "Nombre",
+    "name_placeholder": "Tu nombre",
     "email": "Correo Electrónico",
+    "email_label": "Correo",
+    "email_placeholder": "Tu correo electrónico",
+    "subject": "Asunto",
+    "subject_placeholder": "Asunto",
     "message": "Mensaje",
+    "message_placeholder": "Tu mensaje",
+    "sending": "Enviando...",
     "send": "Enviar Mensaje",
-    "success": "¡Mensaje enviado con éxito!",
-    "error": "Hubo un error al enviar tu mensaje. Por favor, inténtalo de nuevo."
+    "success": "¡Mensaje enviado!",
+    "success_description": "Gracias por contactarme. Te responderé pronto.",
+    "phone_label": "Teléfono",
+    "location_label": "Ubicación",
+    "location": "Barcelona, España",
+    "schedule_label": "Programa una reunión",
+    "book_calendar": "Reserva un espacio en mi calendario",
+    "connect_title": "Conéctate conmigo",
+    "connect_linkedin": "Conectar en LinkedIn",
+    "view_github": "Ver Perfil de GitHub"
   },
   "accessibility": {
     "skip_to_content": "Ir al contenido principal",
     "toggle": "Alternar",
     "visit_company_website": "Visitar sitio web de {{company}}",
-    "visit_institution_website": "Visitar sitio web de {{institution}}"
+    "visit_institution_website": "Visitar sitio web de {{institution}}",
+    "email_link": "Enviar correo electrónico",
+    "phone_link": "Llamar o enviar mensaje por WhatsApp",
+    "calendar_link": "Programar una reunión a través del calendario",
+    "location_link": "Ver ubicación en el mapa",
+    "linkedin_profile": "Perfil de LinkedIn",
+    "github_profile": "Perfil de GitHub"
   }
 } 

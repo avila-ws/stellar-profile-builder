@@ -1,12 +1,13 @@
-
 import React, { useState } from "react";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import ContactForm from "./ContactForm";
-import ContactInfo from "./ContactInfo";
+import ContactForm from "@/components/contact/ContactForm";
+import ContactInfo from "@/components/contact/ContactInfo";
 import BookingCalendar from "@/components/BookingCalendar";
+import { useLanguage } from "@/hooks/useLanguage";
 
 const TabsContainer = () => {
   const [activeTab, setActiveTab] = useState("message");
+  const { t } = useLanguage();
   
   const handleScheduleClick = () => {
     // Directly update the active tab state
@@ -28,13 +29,13 @@ const TabsContainer = () => {
           value="message" 
           className="transition-all duration-300 data-[state=active]:bg-primary data-[state=active]:text-primary-foreground"
         >
-          Send Message
+          {t('contact.send_message')}
         </TabsTrigger>
         <TabsTrigger 
           value="schedule" 
           className="transition-all duration-300 data-[state=active]:bg-primary data-[state=active]:text-primary-foreground"
         >
-          Schedule Meeting
+          {t('contact.schedule_meeting')}
         </TabsTrigger>
       </TabsList>
       

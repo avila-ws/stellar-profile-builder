@@ -1,8 +1,8 @@
 import { Shield } from "lucide-react";
-import EducationSection from "./about/EducationSection";
-import LanguageSection from "./about/LanguageSection";
-import KeyAchievements from "./about/KeyAchievements";
-import CompaniesWorked from "./about/CompaniesWorked";
+import EducationSection from "@/components/about/EducationSection";
+import LanguageSection from "@/components/about/LanguageSection";
+import KeyAchievements from "@/components/about/KeyAchievements";
+import CompaniesWorked from "@/components/about/CompaniesWorked";
 import { useLanguage } from "@/hooks/useLanguage";
 
 const AboutSection = () => {

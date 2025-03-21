@@ -1,8 +1,10 @@
-
 import React from "react";
 import TabsContainer from "@/components/contact/TabsContainer";
+import { useLanguage } from "@/hooks/useLanguage";
 
 const ContactSection = () => {
+  const { t } = useLanguage();
+  
   return (
     <section id="contact" className="py-20 bg-muted/50 dark:bg-muted/10 relative overflow-hidden">
       {/* Add decorative elements */}
@@ -11,8 +13,8 @@ const ContactSection = () => {
       
       <div className="container max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
         <div className="text-center mb-16">
-          <span className="inline-block px-3 py-1 text-sm rounded-full bg-primary/10 text-primary mb-4">Let's Connect</span>
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">Get in Touch</h2>
+          <span className="inline-block px-3 py-1 text-sm rounded-full bg-primary/10 text-primary mb-4">{t('contact.lets_connect')}</span>
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">{t('contact.title')}</h2>
           <div className="h-1 w-20 bg-primary mx-auto rounded-full"></div>
         </div>
         

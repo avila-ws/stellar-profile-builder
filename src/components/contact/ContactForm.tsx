@@ -1,14 +1,15 @@
-
 import React, { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
 import { Loader2 } from "lucide-react";
+import { useLanguage } from "@/hooks/useLanguage";
 
 const ContactForm = () => {
   const { toast } = useToast();
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const { t } = useLanguage();
   
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -18,8 +19,8 @@ const ContactForm = () => {
     setTimeout(() => {
       setIsSubmitting(false);
       toast({
-        title: "Message sent!",
-        description: "Thank you for reaching out. I'll get back to you soon.",
+        title: t('contact.success'),
+        description: t('contact.success_description'),
       });
       
       // Reset form
@@ -29,31 +30,31 @@ const ContactForm = () => {
 
   return (
     <div className="bg-card rounded-lg shadow-sm p-6 border h-full">
-      <h3 className="text-2xl font-semibold mb-6">Send me a message</h3>
+      <h3 className="text-2xl font-semibold mb-6">{t('contact.form_title')}</h3>
       
       <form onSubmit={handleSubmit} className="space-y-6">
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
           <div className="space-y-2">
-            <label htmlFor="name" className="text-sm font-medium">Name</label>
-            <Input id="name" placeholder="Your name" required className="transition-all duration-300 focus:scale-101" />
+            <label htmlFor="name" className="text-sm font-medium">{t('contact.name')}</label>
+            <Input id="name" placeholder={t('contact.name_placeholder')} required className="transition-all duration-300 focus:scale-101" />
           </div>
           
           <div className="space-y-2">
-            <label htmlFor="email" className="text-sm font-medium">Email</label>
-            <Input id="email" type="email" placeholder="Your email" required className="transition-all duration-300 focus:scale-101" />
+            <label htmlFor="email" className="text-sm font-medium">{t('contact.email')}</label>
+            <Input id="email" type="email" placeholder={t('contact.email_placeholder')} required className="transition-all duration-300 focus:scale-101" />
           </div>
         </div>
         
         <div className="space-y-2">
-          <label htmlFor="subject" className="text-sm font-medium">Subject</label>
-          <Input id="subject" placeholder="Subject" required className="transition-all duration-300 focus:scale-101" />
+          <label htmlFor="subject" className="text-sm font-medium">{t('contact.subject')}</label>
+          <Input id="subject" placeholder={t('contact.subject_placeholder')} required className="transition-all duration-300 focus:scale-101" />
         </div>
         
         <div className="space-y-2">
-          <label htmlFor="message" className="text-sm font-medium">Message</label>
+          <label htmlFor="message" className="text-sm font-medium">{t('contact.message')}</label>
           <Textarea 
             id="message" 
-            placeholder="Your message" 
+            placeholder={t('contact.message_placeholder')} 
             className="min-h-[150px] transition-all duration-300 focus:scale-101" 
             required 
           />
@@ -66,10 +67,10 @@ const ContactForm = () => {
         >
           {isSubmitting ? (
             <>
-              <Loader2 className="mr-2 h-4 w-4 animate-spin" /> Sending...
+              <Loader2 className="mr-2 h-4 w-4 animate-spin" /> {t('contact.sending')}
             </>
           ) : (
-            'Send Message'
+            t('contact.send')
           )}
         </Button>
       </form>
