@@ -1,10 +1,10 @@
-
 import { useState, useEffect } from "react";
 import { ChevronDown, ChevronUp } from "lucide-react";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
 import { useIsMobile } from "@/hooks/use-mobile";
+import { useLanguage } from "@/hooks/useLanguage";
 
 interface SkillCategoryProps {
   title: string;
@@ -19,6 +19,7 @@ const SkillCategory = ({
 }: SkillCategoryProps) => {
   const isMobile = useIsMobile();
   const [isOpen, setIsOpen] = useState(false);
+  const { t } = useLanguage();
   
   // Reset open state when device type changes
   useEffect(() => {
@@ -41,7 +42,7 @@ const SkillCategory = ({
           </h4>
           <Button variant="ghost" size="sm" className="p-0 h-8 w-8 pointer-events-none">
             {isOpen ? <ChevronUp className="h-4 w-4" /> : <ChevronDown className="h-4 w-4" />}
-            <span className="sr-only">Toggle</span>
+            <span className="sr-only">{t('accessibility.toggle')}</span>
           </Button>
         </div>
         
@@ -62,7 +63,7 @@ const SkillCategory = ({
                   setIsOpen(true);
                 }}
               >
-                <span className="relative z-10">+{skills.length - previewCount} more</span>
+                <span className="relative z-10">{t('skills.show_more', { count: skills.length - previewCount })}</span>
               </Button>
             )}
           </div>}

@@ -1,16 +1,18 @@
-
 import { Server, Lock, Code, Database, Bitcoin } from "lucide-react";
 import SkillCategory from "./SkillCategory";
 import { Card, CardContent } from "@/components/ui/card";
+import { useLanguage } from "@/hooks/useLanguage";
 
 const TechnicalSkills = () => {
+  const { t } = useLanguage();
+  
   return (
     <div>
-      <h3 className="text-2xl font-semibold mb-8">Technical Skills</h3>
+      <h3 className="text-2xl font-semibold mb-8">{t('skills.technical_skills')}</h3>
       
       <div className="space-y-6">
         <SkillCategory 
-          title="AWS Cloud & DevOps" 
+          title={t('skills.categories.aws_cloud')}
           icon={<Server className="h-5 w-5 text-primary" />} 
           skills={[
             // Top 8 most relevant for DevSecOps (shown first)
@@ -35,7 +37,7 @@ const TechnicalSkills = () => {
         />
         
         <SkillCategory 
-          title="Security & Compliance" 
+          title={t('skills.categories.security')} 
           icon={<Lock className="h-5 w-5 text-primary" />} 
           skills={[
             // Top 8 Security Tools (shown first)
@@ -50,7 +52,7 @@ const TechnicalSkills = () => {
         />
         
         <SkillCategory 
-          title="Development" 
+          title={t('skills.categories.development')} 
           icon={<Code className="h-5 w-5 text-primary" />} 
           skills={[
             // Top 8 Core Tools (shown first)
@@ -75,7 +77,7 @@ const TechnicalSkills = () => {
         />
         
         <SkillCategory 
-          title="Databases" 
+          title={t('skills.categories.databases')} 
           icon={<Database className="h-5 w-5 text-primary" />} 
           skills={[
             // Top 8 Database Technologies (shown first)
@@ -90,7 +92,7 @@ const TechnicalSkills = () => {
         />
         
         <SkillCategory 
-          title="Blockchain" 
+          title={t('skills.categories.blockchain')} 
           icon={<Bitcoin className="h-5 w-5 text-primary" />} 
           skills={[
             // Top 8 Core Blockchain Tools (shown first)
@@ -109,7 +111,7 @@ const TechnicalSkills = () => {
         <Card className="p-6">
           <CardContent className="p-0">
             <p className="text-sm text-muted-foreground">
-              My complete tech stack includes 150+ tools and technologies. Click on each category above to see the full list of technologies I've worked with.
+              {t('skills.tech_stack_note')}
             </p>
           </CardContent>
         </Card>

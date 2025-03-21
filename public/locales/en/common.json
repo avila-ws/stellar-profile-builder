@@ -26,8 +26,9 @@
   },
   "experience": {
     "title": "Experience",
-    "present": "Present",
-    "responsibilities": "Responsibilities"
+    "work_history": "Work History",
+    "show_details": "Show details",
+    "hide_details": "Hide details"
   },
   "education": {
     "title": "Education"
@@ -39,13 +40,15 @@
   },
   "skills": {
     "title": "Skills",
+    "technical_skills": "Technical Skills",
+    "show_more": "+{{count}} more",
+    "tech_stack_note": "My complete tech stack includes 150+ tools and technologies. Click on each category above to see the full list of technologies I've worked with.",
     "categories": {
-      "programming": "Programming Languages",
-      "frameworks": "Frameworks & Libraries",
-      "devops": "DevOps & Cloud",
-      "security": "Security",
+      "aws_cloud": "AWS Cloud & DevOps",
+      "security": "Security & Compliance",
+      "development": "Development",
       "databases": "Databases",
-      "other": "Other"
+      "blockchain": "Blockchain"
     }
   },
   "contact": {
@@ -58,6 +61,8 @@
     "error": "There was an error sending your message. Please try again."
   },
   "accessibility": {
-    "skip_to_content": "Skip to main content"
+    "skip_to_content": "Skip to main content",
+    "toggle": "Toggle",
+    "visit_company_website": "Visit {{company}} website"
   }
 } 

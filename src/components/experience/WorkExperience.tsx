@@ -2,6 +2,7 @@ import { Briefcase } from "lucide-react";
 import { useState, useEffect } from "react";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { useIsMobile } from "@/hooks/use-mobile";
+import { useLanguage } from "@/hooks/useLanguage";
 
 interface WorkExperienceProps {
   company: string;
@@ -28,6 +29,7 @@ const WorkExperience = ({
 }: WorkExperienceProps) => {
   const isMobile = useIsMobile();
   const [isExpanded, setIsExpanded] = useState(defaultExpanded && !isMobile);
+  const { t } = useLanguage();
   
   useEffect(() => {
     setIsExpanded(defaultExpanded && !isMobile);
@@ -70,6 +72,7 @@ const WorkExperience = ({
                   rel="noopener noreferrer" 
                   className="hover:text-primary transition-colors"
                   onClick={(e) => e.stopPropagation()}
+                  aria-label={t('accessibility.visit_company_website', { company })}
                 >
                   {company}
                 </a>
@@ -93,7 +96,7 @@ const WorkExperience = ({
             className="py-1 text-sm text-primary hover:no-underline justify-start p-0"
             onClick={toggleExpand}
           >
-            {isExpanded ? "Hide details" : "Show details"}
+            {isExpanded ? t('experience.hide_details') : t('experience.show_details')}
           </AccordionTrigger>
           
           <AccordionContent>
