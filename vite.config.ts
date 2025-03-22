@@ -31,21 +31,25 @@ export default defineConfig(({ mode }) => ({
         "script-src 'self' 'unsafe-inline' 'unsafe-eval' " +
         "https://cdn.gpteng.co " +
         "https://apis.google.com/ " +
+        "https://apis.google.com/js/api.js " +
+        "https://apis.google.com/js/client.js " +
+        "https://static.cloudflareinsights.com/ " +
         "https://*.googleapis.com " +
         "https://*.google.com " +
         "https://*.gstatic.com " +
         "https://www.googletagmanager.com " +
+        "https://play.google.com/ " +
         "data: blob:; " +
+        "connect-src 'self' https://avila.ws https://apis.google.com https://static.cloudflareinsights.com https://play.google.com; " +
         "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://*.gstatic.com; " +
         "font-src 'self' data: https://fonts.gstatic.com; " +
         "img-src 'self' data: blob: https:; " +
-        "connect-src 'self' https://*.google.com https://*.gstatic.com https://*.googleapis.com; " +
-        "frame-src 'self' https://*.google.com; " +
+        "frame-src 'self' https://www.google.com https://avila.ws; " +
         "media-src 'self' blob: https: data:; " +
         "object-src 'none'; " +
         "base-uri 'self'; " +
         "form-action 'self'; " +
-        "frame-ancestors 'self'; " +
+        "frame-ancestors 'self' https://avila.ws; " +
         "worker-src 'self' blob: data:; " +
         "manifest-src 'self'",
 
