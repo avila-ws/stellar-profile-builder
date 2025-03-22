@@ -37,7 +37,7 @@ const App = () => (
         <Toaster />
         <Sonner />
         <VersionLogger />
-        <VersionBadge position="bottom-right" />
+        <VersionBadge position="bottom-left" />
         <BrowserRouter>
           <SkipLink href="#main-content" />
           <Suspense fallback={<LoadingSpinner />}>
