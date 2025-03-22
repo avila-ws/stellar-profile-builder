@@ -3,10 +3,11 @@ vi.mock('@/hooks/use-mobile', () => ({
   useIsMobile: vi.fn()
 }));
 
-import { render, screen } from '@testing-library/react';
+import { render, screen } from '@/test/test-utils';
 import { describe, test, expect, vi, beforeEach } from 'vitest';
 import BookingCalendar from '@/components/BookingCalendar';
 import { useIsMobile } from '@/hooks/use-mobile';
+import commonEN from '@/locales/en/common.json';
 
 describe('BookingCalendar Component', () => {
   const mockUseIsMobile = useIsMobile as unknown as ReturnType<typeof vi.fn>;
@@ -19,7 +20,7 @@ describe('BookingCalendar Component', () => {
 
   test('renderiza el iframe con la URL correcta', () => {
     render(<BookingCalendar />);
-    const iframe = screen.getByTitle('Google Calendar Appointment Scheduling');
+    const iframe = screen.getByTitle(commonEN.accessibility.calendar_iframe);
     expect(iframe).toBeInTheDocument();
     expect(iframe).toHaveAttribute('src', expect.stringContaining('calendar.google.com'));
   });
@@ -29,13 +30,13 @@ describe('BookingCalendar Component', () => {
     vi.mocked(useIsMobile).mockReturnValue(true);
     
     render(<BookingCalendar />);
-    const iframe = screen.getByTitle('Google Calendar Appointment Scheduling');
+    const iframe = screen.getByTitle(commonEN.accessibility.calendar_iframe);
     expect(iframe).toHaveStyle({ minHeight: '1785px' });
   });
 
   test('ajusta la altura del iframe al recibir mensajes de Google Calendar', () => {
     render(<BookingCalendar />);
-    const iframe = screen.getByTitle('Google Calendar Appointment Scheduling');
+    const iframe = screen.getByTitle(commonEN.accessibility.calendar_iframe);
     
     // Simular mensaje de Google Calendar
     window.dispatchEvent(new MessageEvent('message', {
@@ -52,7 +53,7 @@ describe('BookingCalendar Component', () => {
     vi.mocked(useIsMobile).mockReturnValue(true);
     
     render(<BookingCalendar />);
-    const iframe = screen.getByTitle('Google Calendar Appointment Scheduling');
+    const iframe = screen.getByTitle(commonEN.accessibility.calendar_iframe);
     
     // Simular evento de resize
     window.dispatchEvent(new Event('resize'));

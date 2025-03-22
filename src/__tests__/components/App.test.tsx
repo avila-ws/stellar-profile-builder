@@ -1,6 +1,6 @@
 import { render, screen, act } from '@testing-library/react';
 import { describe, test, expect, vi, beforeEach, afterEach } from 'vitest';
-import App from '../../App';
+import App from '@/App';
 
 // Mock de los componentes lazy loaded para que se resuelvan inmediatamente
 vi.mock('@/pages/Index', () => ({
