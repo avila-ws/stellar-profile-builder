@@ -111,15 +111,27 @@
   "languages": [
     {
       "name": "Inglés",
-      "level": "Fluido"
+      "level": "Nativo"
     },
     {
       "name": "Portugués",
-      "level": "Fluido"
+      "level": "Nativo"
     },
     {
       "name": "Español",
       "level": "Nativo"
+    },
+    {
+      "name": "Francés",
+      "level": "Básico"
+    },
+    {
+      "name": "Italiano",
+      "level": "Básico"
+    },
+    {
+      "name": "Catalán",
+      "level": "Básico"
     }
   ],
   "technologies": {
