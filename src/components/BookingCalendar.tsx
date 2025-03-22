@@ -2,6 +2,14 @@ import React, { useEffect, useState, useRef } from "react";
 import { useIsMobile } from "@/hooks/use-mobile";
 import { useLanguage } from "@/hooks/useLanguage";
 import contactConfig from "@/config/contact";
+import { sanitizeText } from "@/lib/security";
+
+const ALLOWED_ORIGINS = [
+  'https://calendar.google.com',
+  'https://www.google.com',
+  'http://localhost:8080',  // Para desarrollo local
+  'http://localhost:3000',  // Para desarrollo local alternativo
+];
 
 const BookingCalendar = () => {
   const isMobile = useIsMobile();
@@ -15,9 +23,15 @@ const BookingCalendar = () => {
     
     // Add message event listener to receive height from iframe content
     const handleMessage = (event: MessageEvent) => {
-      // Ensure the message is from Google Calendar
-      if (event.origin.includes('calendar.google.com') && 
-          event.data && typeof event.data === 'number') {
+      // Validate origin
+      const eventOrigin = event.origin.toLowerCase();
+      if (!ALLOWED_ORIGINS.some(origin => eventOrigin.includes(origin.toLowerCase()))) {
+        console.warn(`Rejected message from unauthorized origin: ${sanitizeText(event.origin)}`);
+        return;
+      }
+
+      // Ensure the message is from Google Calendar and validate data type
+      if (event.data && typeof event.data === 'number' && event.data > 0 && event.data < 10000) {
         // Add padding to the height
         const padding = isMobile ? 250 : 50;
         setIframeHeight(event.data + padding);
@@ -44,6 +58,13 @@ const BookingCalendar = () => {
     };
   }, [isMobile]);
 
+  // Sanitize and validate the calendar URL
+  const calendarUrl = new URL(contactConfig.urls.googleCalendar);
+  if (!calendarUrl.hostname.endsWith('calendar.google.com')) {
+    console.error('Invalid calendar URL detected');
+    return null;
+  }
+
   return (
     <div className="bg-card rounded-lg shadow-sm p-6 border animate-fade-in">
       <h3 className="text-2xl font-semibold mb-6">{t('contact.schedule_meeting')}</h3>
@@ -51,7 +72,7 @@ const BookingCalendar = () => {
       <div className="w-full bg-white rounded-lg overflow-hidden shadow-md">
         <iframe 
           ref={iframeRef}
-          src={contactConfig.urls.googleCalendar}
+          src={calendarUrl.toString()}
           style={{ 
             border: 0, 
             height: `${iframeHeight}px`, 
@@ -62,6 +83,7 @@ const BookingCalendar = () => {
           frameBorder="0"
           title={t('accessibility.calendar_iframe')}
           className="bg-white transition-all duration-300"
+          sandbox="allow-scripts allow-same-origin allow-forms allow-popups"
         ></iframe>
       </div>
     </div>

@@ -16,6 +16,7 @@ import {
 } from "@/components/ui/collapsible";
 import { cn } from "@/lib/utils";
 import { useToast } from "@/hooks/use-toast";
+import { sanitizeHTML, sanitizeText } from "@/lib/security";
 
 type Message = {
   id: string;
@@ -186,9 +187,10 @@ const ChatBot: React.FC = () => {
   
   const handleSend = () => {
     if (!input.trim()) return;
+    const sanitizedInput = sanitizeText(input);
     const userMessage: Message = {
       id: Date.now().toString(),
-      content: input,
+      content: sanitizedInput,
       role: "user",
       timestamp: new Date()
     };
@@ -197,10 +199,10 @@ const ChatBot: React.FC = () => {
     setInput("");
     
     setTimeout(() => {
-      const botResponse = generateResponse(input.trim().toLowerCase(), true);
+      const botResponse = generateResponse(sanitizedInput.trim().toLowerCase(), true);
       const botMessage: Message = {
         id: (Date.now() + 1).toString(),
-        content: botResponse,
+        content: sanitizeHTML(botResponse),
         role: "assistant",
         timestamp: new Date(),
         isHtml: true
@@ -229,7 +231,7 @@ const ChatBot: React.FC = () => {
     }
     const userMessage: Message = {
       id: Date.now().toString(),
-      content: option.text,
+      content: sanitizeText(option.text),
       role: "user",
       timestamp: new Date()
     };
@@ -240,7 +242,7 @@ const ChatBot: React.FC = () => {
       const botResponse = generateResponse(option.keywords[0], true);
       const botMessage: Message = {
         id: (Date.now() + 1).toString(),
-        content: botResponse,
+        content: sanitizeHTML(botResponse),
         role: "assistant",
         timestamp: new Date(),
         isHtml: true
@@ -428,6 +430,8 @@ const ChatBot: React.FC = () => {
               <CardFooter className="p-3 pt-0 flex flex-col">
                 <div className="flex w-full items-center space-x-2">
                   <Textarea
+                    id="chat-message"
+                    name="chat-message"
                     placeholder="Type a message..."
                     className="min-h-10 flex-1 resize-none"
                     value={input}
