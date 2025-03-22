@@ -1,0 +1,132 @@
+{
+  "name": "Renzo Avila",
+  "location": "BCN - ES",
+  "headline": "Ingeniero DevSecOps y Especialista en Seguridad en la Nube",
+  "summary": "Ingeniero DevSecOps con 6 años de experiencia integrando seguridad en pipelines CI/CD y gestionando infraestructuras en la nube compatibles con ISO 27001. Trilingüe en inglés, portugués y español.",
+  "contact": {
+    "linkedin": "LinkedIn",
+    "github": "GitHub",
+    "phone": "+44 330 122 9696",
+    "email": "RENZO@AVILA.WS",
+    "website": "AVILA.WS"
+  },
+  "experience": [
+    {
+      "company": "R2",
+      "type": "NeoBank",
+      "position": "Ingeniero DevSecOps",
+      "location": "México",
+      "period": "Oct 2022 - Presente",
+      "achievements": [
+        "Lideré y coordiné la certificación ISO 27001, reduciendo los incidentes de seguridad en un 50% y mejorando la seguridad de AWS con protección de endpoints robusta y políticas de gestión de incidentes.",
+        "Desarrollé pruebas de seguridad automatizadas e integré análisis de código avanzados, mejorando la protección del software en un 45% y reduciendo las vulnerabilidades en producción en un 25%.",
+        "Realicé auditorías de seguridad y evaluaciones de riesgos proactivas, aumentando las capacidades de detección de amenazas en un 30% y garantizando una respuesta más rápida a incidentes, reduciendo el impacto potencial de ataques en un 20%.",
+        "Diseñé e implementé políticas de seguridad en la nube robustas, asegurando el cumplimiento de estándares de la industria y fortaleciendo la gobernanza de AWS IAM para mitigar riesgos de acceso no autorizado."
+      ]
+    },
+    {
+      "company": "B89",
+      "type": "NeoBank",
+      "position": "Ingeniero DevSecOps",
+      "location": "Perú",
+      "period": "Oct 2020 - Sep 2022",
+      "achievements": [
+        "Establecí y fortalecí la infraestructura de seguridad de B89, reduciendo las vulnerabilidades en un 50% e integrando medidas de seguridad integrales en aplicaciones fintech, mejorando la resiliencia general del sistema.",
+        "Dirigí proyectos clave de blockchain, gestionando infraestructura en múltiples protocolos blockchain, resultando en un aumento del 60% en el rendimiento de transacciones y una disminución del 40% en costos operativos.",
+        "Lideré equipos multifuncionales para integrar seguridad avanzada en soluciones financieras, mejorando la eficiencia operativa en un 35% y mejorando las métricas de calidad en un 30%.",
+        "Automaticé procesos de seguridad en pipelines CI/CD, incorporando cumplimiento normativo, escaneo de vulnerabilidades y puertas de seguridad en el ciclo de vida del desarrollo."
+      ]
+    },
+    {
+      "company": "BCP",
+      "type": "Banco",
+      "position": "Ingeniero DevSecOps",
+      "location": "Perú",
+      "period": "Oct 2019 - Sep 2020",
+      "achievements": [
+        "Lideré iniciativas de ciberseguridad, colaborando con departamentos para supervisar aplicaciones basadas en la nube y nuevas implementaciones, asegurando estándares óptimos y resultando en un aumento del 30% en el tiempo de actividad del sistema.",
+        "Mejoré la seguridad del software integrando técnicas avanzadas de análisis de código, aumentando los estándares de protección en un 35% y reduciendo las vulnerabilidades de código en producción en un 25%.",
+        "Coordiné esfuerzos interdepartamentales, implementando y asegurando nuevas aplicaciones y sistemas bancarios, alineados con los objetivos estratégicos de BCP, llevando a una reducción del 30% en los tiempos de despliegue."
+      ]
+    },
+    {
+      "company": "KELLER WILLIAMS",
+      "type": "Inmobiliaria",
+      "position": "Ingeniero de Software Front-End",
+      "location": "Estados Unidos",
+      "period": "Oct 2018 - Sep 2019",
+      "achievements": [
+        "Optimicé sistemas CRM y ERP con React.js, colaborando con DevOps para automatizar verificaciones de seguridad y agilizar flujos de trabajo, mejorando la experiencia del usuario en un 30%.",
+        "Mejoré la seguridad del front-end e integraciones de API, trabajando con DevOps para mejorar pipelines CI/CD, aumentando la resiliencia y rendimiento del sistema en un 25%.",
+        "Alineé el desarrollo UX/UI con prácticas seguras de DevOps, asegurando pruebas automatizadas, cumplimiento normativo y despliegues sin problemas, mejorando aplicaciones de negocio en un 20%."
+      ]
+    },
+    {
+      "company": "NTT DATA",
+      "type": "Consultora",
+      "position": "Ingeniero Full-Stack de Blockchain",
+      "location": "Perú",
+      "period": "Oct 2015 - Sep 2018",
+      "achievements": [
+        "Lideré más de 20 proyectos de blockchain, mejorando la seguridad y eficiencia para aplicaciones financieras y empresariales en América Latina, el Caribe y Europa.",
+        "Diseñé e implementé arquitecturas blockchain escalables, mejorando la integridad de datos, seguridad y procesos operativos, aumentando la eficiencia en un 40% y reduciendo errores en un 30%.",
+        "Gestioné infraestructura e innovación blockchain, optimizando el rendimiento en un 25%, asegurando despliegue fluido, escalabilidad y confiabilidad para soluciones empresariales."
+      ]
+    },
+    {
+      "company": "PARAISO CREATIVO",
+      "type": "Consultora",
+      "position": "Ingeniero de Software Android",
+      "location": "Venezuela",
+      "period": "Oct 2013 - Sep 2015",
+      "achievements": [
+        "Desarrollé y lancé aplicaciones seguras para Android, integrando geolocalización y sistemas de pago, mejorando la participación de usuarios en un 10% y la eficiencia operativa.",
+        "Optimicé la seguridad y rendimiento de aplicaciones, incorporando integraciones de API seguras y protocolos de encriptación, llevando a un aumento del 40% en la satisfacción del usuario.",
+        "Colaboré con equipos multifuncionales, implementando mejores prácticas en desarrollo seguro de software, mejorando la confiabilidad de las aplicaciones y reduciendo errores en un 20%."
+      ]
+    }
+  ],
+  "education": [
+    {
+      "institution": "Universidad Central de Tecnología",
+      "degree": "Licenciatura en Ingeniería de Sistemas",
+      "description": "Especializado en optimización de negocios impulsada por TI y gestión estratégica de datos."
+    },
+    {
+      "institution": "Universidad Central de Tecnología",
+      "degree": "Licenciatura en Administración y Gestión de Empresas",
+      "description": "Competente en eficiencia operativa y liderazgo administrativo estratégico."
+    },
+    {
+      "institution": "Academia de Ciencias Forenses y Ciberseguridad",
+      "degree": "Diploma en Ciencias Forenses y Criminalística",
+      "description": "Especializado en técnicas forenses y análisis criminal."
+    },
+    {
+      "institution": "Academia de Ciencias Forenses y Ciberseguridad",
+      "degree": "Diploma en Informática Forense y Cibercrimen",
+      "description": "Capacitado en investigación de cibercrimen e informática forense."
+    }
+  ],
+  "languages": [
+    {
+      "name": "Inglés",
+      "level": "Fluido"
+    },
+    {
+      "name": "Portugués",
+      "level": "Fluido"
+    },
+    {
+      "name": "Español",
+      "level": "Nativo"
+    }
+  ],
+  "technologies": {
+    "cloud_devops": "HERRAMIENTAS DE DEVOPS E INFRAESTRUCTURA EN AWS: EC2, EKS, Lambda, Batch, CloudSearch, KMS, SNS, SQS, Blockchain, QLDB, Pinpoint, DynamoDB, RDS, CloudShell, X-Ray, API Gateway, SageMaker, Control Tower, CloudTrail, CloudWatch, CloudFormation, ​​VPC, ELB,VPN, Route 53, Macie, Inspector, Security Lake, GuardDuty, Detective, Cognito, WAF, Secrets Manager, Security Hub, Shield, CloudHSM, IAM Identity Center, Audit Manager, EBS, S3, Glacier, Docker, Kubernetes, Docker registry, Jenkins, JumpCloud, Prometheus, Terraform, Grafana, Argo CD, SSH, MSK, Fargate, CodeBuild, CodePipeline, App Runner.",
+    "security": "SEGURIDAD Y CUMPLIMIENTO: Imperva, Synk, Veracode, Qualys, Fluid Attacks, Fortify, Sonatype, SonarCloud, Okta, Vanta, Anchore, Synopsys Black Duck, Trendmicro, OWASP, Acunetix, Burp Suite, Checkmarx, Prisma Cloud.",
+    "development": "DESARROLLO Y FRAMEWORKS: JavaScript, TypeScript, Java, Python, Rust, Go, C#, PHP, Ruby, SQL, Visual Basic, Swift, Kotlin, HTML/CSS, Bash, Dart, Node.js, Postman, Git, Gitlab, Github, BitBucket, Visual Studio Code, CloudFlare, JSON, VIM, Nano, Heroku, Selenium, Webpack, Firebase Crashlytics, NPM, Google Workspace, React, React.js, React Native, Express.js, Next, Ionic, Angular, Electron, Laravel, Symfony, Rails, Vue.js, jQuery, NativeScript, Django, Flask, Flutter, Pytest, Jest, Mocha, Jasmine, Trello, Slack, Shortcut, Jira, BambooHR, ClickUp, Zeplin, Miro, Figma, Kafka, FastAPI, Nuxt.js, NestJS, Hugo.",
+    "database": "TECNOLOGÍAS DE BASES DE DATOS Y HERRAMIENTAS DE ANÁLISIS DE DATOS: MongoDB, PostgreSQL, MySQL, SnowFlake, SQL Server, DBeaver, Liquibase, TiDB, MariaDB, Metabase, Tableau, Airflow, GraphQL, BigQuery, Redis, Elasticsearch, Redshift, Cassandra, CouchDB.",
+    "blockchain": "BLOCKCHAIN Y TECNOLOGÍAS EMERGENTES: Metamask, Remix, Ethers.js, web3.js, Geth, Ganache, Parity, Infura, Ethereum, Hyperledger Fabric, Truffle, Embark, OpenZeppelin Contracts, Solidity, Corda, Quorum, Ripple, IOTA, Stellar, Cardano, Uport, Oculus Quest, Polkadot, Tezos, Avalanche, Cosmos SDK, Chainlink, Solana, Algorand, Arbitrum."
+  }
+} 

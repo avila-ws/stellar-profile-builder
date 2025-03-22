@@ -1,0 +1,143 @@
+{
+  "navigation": {
+    "home": "Home",
+    "experience": "Experience",
+    "projects": "Projects",
+    "skills": "Skills",
+    "education": "Education",
+    "contact": "Contact",
+    "about": "About"
+  },
+  "hero": {
+    "title": "DevSecOps Engineer & Cloud Security Specialist",
+    "subtitle": "Secure by Design. Efficient by Default.",
+    "cta": "View Projects",
+    "view_profile_photo": "View profile photo",
+    "languages_specialties": "Trilingual in English, Portuguese, and Spanish • Specialized in Blockchain, AWS Security & ISO 27001",
+    "security_integration": "Security Integration",
+    "security_description": "Reduced security incidents by 50% through ISO 27001 implementation",
+    "cloud_infrastructure": "Cloud Infrastructure",
+    "cloud_description": "AWS expert with experience across 30+ services and tools",
+    "blockchain_expertise": "Blockchain Expertise",
+    "blockchain_description": "Led 20+ blockchain projects across Latin America, Caribbean, and Europe"
+  },
+  "about": {
+    "title": "About Me",
+    "description_1": "With over 6 years of experience as a DevSecOps Engineer, I've dedicated my career to bridging the gap between development, operations, and security. I specialize in creating robust security frameworks that don't slow down innovation.",
+    "description_2": "My work spans across various industries, particularly in fintech and blockchain, where I've implemented security measures that protect sensitive data while enabling rapid deployment cycles.",
+    "languages": "Languages",
+    "achievements": {
+      "title": "Key Achievements",
+      "iso": {
+        "title": "Led ISO 27001 certification",
+        "description": "Reduced security incidents by 50% and enhanced AWS security with robust endpoint protection"
+      },
+      "code": {
+        "title": "Enhanced code analysis",
+        "description": "Improved software protection by 45% and reduced production vulnerabilities by 25%"
+      },
+      "blockchain": {
+        "title": "Blockchain leadership",
+        "description": "Directed key blockchain projects with 60% increase in transaction throughput and 40% decrease in costs"
+      },
+      "cicd": {
+        "title": "CI/CD pipeline automation",
+        "description": "Embedded compliance enforcement, vulnerability scanning, and security gates into development lifecycle"
+      }
+    },
+    "companies": {
+      "title": "Companies I've Worked With",
+      "r2": "NeoBank Mexico",
+      "b89": "NeoBank Peru",
+      "bcp": "Bank Peru",
+      "kw": "Realty US",
+      "ntt": "Consulting Peru",
+      "paraiso": "Consulting VE"
+    }
+  },
+  "experience": {
+    "title": "Experience",
+    "work_history": "Work History",
+    "show_details": "Show details",
+    "hide_details": "Hide details"
+  },
+  "education": {
+    "title": "Education",
+    "click_details": "Click to see details about {{count}} degree(s)"
+  },
+  "projects": {
+    "title": "Projects",
+    "view_live": "View Live",
+    "view_code": "View Code"
+  },
+  "skills": {
+    "title": "Skills",
+    "technical_skills": "Technical Skills",
+    "show_more": "+{{count}} more",
+    "tech_stack_note": "My complete tech stack includes 150+ tools and technologies. Click on each category above to see the full list of technologies I've worked with.",
+    "categories": {
+      "aws_cloud": "AWS Cloud & DevOps",
+      "security": "Security & Compliance",
+      "development": "Development",
+      "databases": "Databases",
+      "blockchain": "Blockchain"
+    }
+  },
+  "contact": {
+    "title": "Get in Touch",
+    "lets_connect": "Let's Connect",
+    "send_message": "Send Message",
+    "schedule_meeting": "Schedule Meeting",
+    "form_title": "Send me a message",
+    "info_title": "Contact Information",
+    "name": "Name",
+    "name_placeholder": "Your name",
+    "email": "Email",
+    "email_label": "Email",
+    "email_placeholder": "Your email",
+    "email_address": "renzo@avila.ws",
+    "subject": "Subject",
+    "subject_placeholder": "Subject",
+    "message": "Message",
+    "message_placeholder": "Your message",
+    "sending": "Sending...",
+    "send": "Send Message",
+    "success": "Message sent!",
+    "success_description": "Thank you for reaching out. I'll get back to you soon.",
+    "phone_label": "Phone",
+    "phone": "+44 330 122 9696",
+    "whatsapp_message": "Hello, I would like to get in touch with you",
+    "location_label": "Location",
+    "location": "Barcelona, Spain",
+    "schedule_label": "Schedule a meeting",
+    "book_calendar": "Book a time on my calendar",
+    "connect_title": "Connect with me",
+    "connect_linkedin": "Connect on LinkedIn",
+    "view_github": "View GitHub Profile"
+  },
+  "accessibility": {
+    "skip_to_content": "Skip to main content",
+    "toggle": "Toggle details",
+    "visit_company_website": "Visit {{company}} website",
+    "visit_institution_website": "Visit {{institution}} website",
+    "email_link": "Send email",
+    "phone_link": "Call or send WhatsApp message",
+    "calendar_link": "Schedule a meeting",
+    "location_link": "View location on map",
+    "linkedin_profile": "Visit LinkedIn profile",
+    "github_profile": "Visit GitHub profile",
+    "calendar_iframe": "Google Calendar Appointment Scheduling"
+  },
+  "footer": {
+    "copyright": "© {{year}} Renzo Avila. All rights reserved.",
+    "calendar": "Calendar"
+  },
+  "highlightTerms": {
+    "technical": [
+      "security", "blockchain", "DevOps", "AWS", "led", "developed", "designed", 
+      "implemented", "reduced", "increased", "enhanced", "improved", "50%", "45%", 
+      "40%", "35%", "30%", "25%", "20%", "ISO 27001", "React.js", "integrated", 
+      "automated", "infrastructure", "cybersecurity", "vulnerabilities", "compliance"
+    ]
+  }
+} 

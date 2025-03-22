@@ -2,10 +2,10 @@ import i18n from 'i18next';
 import { initReactI18next } from 'react-i18next';
 
 // Import resources
-import commonEN from '../../public/locales/en/common.json';
-import commonES from '../../public/locales/es/common.json';
-import profileEN from '../../public/locales/en/profile.json';
-import profileES from '../../public/locales/es/profile.json';
+import commonEN from '@/locales/en/common.json';
+import commonES from '@/locales/es/common.json';
+import profileEN from '@/locales/en/profile.json';
+import profileES from '@/locales/es/profile.json';
 
 // Resources containing all namespaces for each language
 const resources = {

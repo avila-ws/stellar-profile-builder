@@ -24,15 +24,14 @@ This project uses `i18next` and `react-i18next` for internationalization. The sy
 
 ```
 project/
-├── public/
-│   └── locales/
-│       ├── en/
-│       │   ├── common.json    # General UI text
-│       │   └── profile.json   # Profile-specific text
-│       └── es/
-│           ├── common.json    # Spanish general UI text
-│           └── profile.json   # Spanish profile-specific text
 ├── src/
+│   ├── locales/           # Translation files
+│   │   ├── en/
+│   │   │   ├── common.json    # General UI text
+│   │   │   └── profile.json   # Profile-specific text
+│   │   └── es/
+│   │       ├── common.json    # Spanish general UI text
+│   │       └── profile.json   # Spanish profile-specific text
 │   ├── hooks/
 │   │   └── useLanguage.ts     # Custom language hook
 │   ├── i18n/
@@ -146,19 +145,32 @@ function Header() {
 
 ## Adding New Languages
 
-1. Create a new language folder in `public/locales/` (e.g., `fr/` for French)
+1. Create a new language folder in `src/locales/` (e.g., `fr/` for French)
 2. Copy the JSON files from an existing language folder
 3. Translate all values in the copied JSON files
 4. Update the language list in the `i18n/config.ts` file:
 
 ```typescript
 // In src/i18n/config.ts
+import commonEN from '@/locales/en/common.json';
+import commonES from '@/locales/es/common.json';
+import profileEN from '@/locales/en/profile.json';
+import profileES from '@/locales/es/profile.json';
+import commonFR from '@/locales/fr/common.json';
+import profileFR from '@/locales/fr/profile.json';
+
 const resources = {
-  en: { ... },
-  es: { ... },
+  en: {
+    common: commonEN,
+    profile: profileEN
+  },
+  es: {
+    common: commonES,
+    profile: profileES
+  },
   fr: {
-    common: require('../../public/locales/fr/common.json'),
-    profile: require('../../public/locales/fr/profile.json')
+    common: commonFR,
+    profile: profileFR
   }
 };
 ```
@@ -203,4 +215,5 @@ t('hello') + ' ' + userName + '!' // "Hello" + " " + "John" + "!"
 
 4. **Keep translation files organized** with consistent key structures
 5. **Document translation keys** with comments for complex texts
-6. **Test with different languages** to ensure layouts don't break with longer texts 
+6. **Test with different languages** to ensure layouts don't break with longer texts
+7. **Always use the `@` alias** for imports rather than relative paths 

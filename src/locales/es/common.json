@@ -1,0 +1,148 @@
+{
+  "navigation": {
+    "home": "Inicio",
+    "experience": "Experiencia",
+    "projects": "Proyectos",
+    "skills": "Habilidades",
+    "education": "Educación",
+    "contact": "Contacto",
+    "about": "Sobre mí"
+  },
+  "hero": {
+    "title": "Ingeniero DevSecOps y Especialista en Seguridad en la Nube",
+    "subtitle": "Seguro por Diseño. Eficiente por Defecto.",
+    "cta": "Ver Proyectos",
+    "view_profile_photo": "Ver foto de perfil",
+    "languages_specialties": "Trilingüe en inglés, portugués y español • Especializado en Blockchain, Seguridad AWS e ISO 27001",
+    "security_integration": "Integración de Seguridad",
+    "security_description": "Reducción de incidentes de seguridad en un 50% mediante la implementación de ISO 27001",
+    "cloud_infrastructure": "Infraestructura en la Nube",
+    "cloud_description": "Experto en AWS con experiencia en más de 30 servicios y herramientas",
+    "blockchain_expertise": "Experiencia en Blockchain",
+    "blockchain_description": "Lideró más de 20 proyectos blockchain en América Latina, el Caribe y Europa"
+  },
+  "about": {
+    "title": "Sobre Mí",
+    "description_1": "Con más de 6 años de experiencia como Ingeniero DevSecOps, he dedicado mi carrera a cerrar la brecha entre desarrollo, operaciones y seguridad. Me especializo en crear marcos de seguridad robustos que no ralentizan la innovación.",
+    "description_2": "Mi trabajo abarca diversas industrias, particularmente en fintech y blockchain, donde he implementado medidas de seguridad que protegen datos sensibles mientras permiten ciclos de despliegue rápidos.",
+    "languages": "Idiomas",
+    "achievements": {
+      "title": "Logros Clave",
+      "iso": {
+        "title": "Dirigí certificación ISO 27001",
+        "description": "Reduje incidentes de seguridad en un 50% y mejoré la seguridad de AWS con protección robusta de endpoints"
+      },
+      "code": {
+        "title": "Análisis de código mejorado",
+        "description": "Mejoré la protección de software en un 45% y reduje vulnerabilidades en producción en un 25%"
+      },
+      "blockchain": {
+        "title": "Liderazgo en blockchain",
+        "description": "Dirigí proyectos clave de blockchain con un aumento del 60% en el rendimiento de transacciones y una disminución del 40% en costos"
+      },
+      "cicd": {
+        "title": "Automatización de pipeline CI/CD",
+        "description": "Incorporé cumplimiento normativo, escaneo de vulnerabilidades y puertas de seguridad en el ciclo de vida de desarrollo"
+      }
+    },
+    "companies": {
+      "title": "Empresas con las que he Trabajado",
+      "r2": "NeoBank México",
+      "b89": "NeoBank Perú",
+      "bcp": "Banco Perú",
+      "kw": "Inmobiliaria EE.UU.",
+      "ntt": "Consultoría Perú",
+      "paraiso": "Consultoría VE"
+    }
+  },
+  "experience": {
+    "title": "Experiencia",
+    "work_history": "Historial Laboral",
+    "show_details": "Mostrar detalles",
+    "hide_details": "Ocultar detalles"
+  },
+  "education": {
+    "title": "Educación",
+    "click_details": "Haz clic para ver detalles sobre {{count}} título(s)"
+  },
+  "projects": {
+    "title": "Proyectos",
+    "view_live": "Ver Demo",
+    "view_code": "Ver Código"
+  },
+  "skills": {
+    "title": "Habilidades",
+    "technical_skills": "Habilidades Técnicas",
+    "show_more": "+{{count}} más",
+    "tech_stack_note": "Mi stack tecnológico completo incluye más de 150 herramientas y tecnologías. Haz clic en cada categoría para ver la lista completa de tecnologías con las que he trabajado.",
+    "categories": {
+      "aws_cloud": "AWS Cloud y DevOps",
+      "security": "Seguridad y Cumplimiento",
+      "development": "Desarrollo",
+      "databases": "Bases de Datos",
+      "blockchain": "Blockchain",
+      "programming": "Lenguajes de Programación",
+      "frameworks": "Frameworks y Bibliotecas",
+      "devops": "DevOps y Cloud",
+      "other": "Otros"
+    }
+  },
+  "contact": {
+    "title": "Contáctame",
+    "lets_connect": "Conectemos",
+    "send_message": "Enviar Mensaje",
+    "schedule_meeting": "Programar Reunión",
+    "form_title": "Envíame un mensaje",
+    "info_title": "Información de Contacto",
+    "name": "Nombre",
+    "name_placeholder": "Tu nombre",
+    "email": "Correo Electrónico",
+    "email_label": "Correo",
+    "email_placeholder": "Tu correo electrónico",
+    "email_address": "renzo@avila.ws",
+    "subject": "Asunto",
+    "subject_placeholder": "Asunto",
+    "message": "Mensaje",
+    "message_placeholder": "Tu mensaje",
+    "sending": "Enviando...",
+    "send": "Enviar Mensaje",
+    "success": "¡Mensaje enviado!",
+    "success_description": "Gracias por contactarme. Te responderé pronto.",
+    "phone_label": "Teléfono",
+    "phone": "+44 330 122 9696",
+    "whatsapp_message": "Hola, me gustaría ponerme en contacto contigo",
+    "location_label": "Ubicación",
+    "location": "Barcelona, España",
+    "schedule_label": "Programa una reunión",
+    "book_calendar": "Reserva un espacio en mi calendario",
+    "connect_title": "Conéctate conmigo",
+    "connect_linkedin": "Conectar en LinkedIn",
+    "view_github": "Ver Perfil de GitHub"
+  },
+  "accessibility": {
+    "skip_to_content": "Ir al contenido principal",
+    "toggle": "Alternar",
+    "visit_company_website": "Visitar sitio web de {{company}}",
+    "visit_institution_website": "Visitar sitio web de {{institution}}",
+    "email_link": "Enviar correo electrónico",
+    "phone_link": "Llamar o enviar mensaje por WhatsApp",
+    "calendar_link": "Programar una reunión",
+    "location_link": "Ver ubicación en el mapa",
+    "linkedin_profile": "Visitar perfil de LinkedIn",
+    "github_profile": "Visitar perfil de GitHub",
+    "calendar_iframe": "Programación de Citas en Google Calendar"
+  },
+  "footer": {
+    "copyright": "© {{year}} Renzo Avila. Todos los derechos reservados.",
+    "calendar": "Calendario"
+  },
+  "highlightTerms": {
+    "technical": [
+      "seguridad", "blockchain", "DevOps", "AWS", "lideré", "desarrollé", "diseñé", 
+      "implementé", "reduje", "aumenté", "mejoré", "50%", "45%", "40%", "35%", "30%", 
+      "25%", "20%", "ISO 27001", "React.js", "integré", "automaticé", "infraestructura", 
+      "ciberseguridad", "vulnerabilidades", "cumplimiento", "certificación", "auditorías", 
+      "evaluaciones", "políticas", "protección"
+    ]
+  }
+} 
