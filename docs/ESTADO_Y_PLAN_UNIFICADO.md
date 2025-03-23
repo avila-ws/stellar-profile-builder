@@ -23,7 +23,7 @@ El objetivo principal es mostrar mis habilidades como desarrollador mientras pro
 | 4. Internacionalización | 6/10 | 0/0 | 4/10 | 60% |
 | 5. Optimización de rendimiento | 5/16 | 2/16 | 9/16 | 31% |
 | 6. Seguridad | 5/21 | 0/0 | 16/21 | 24% |
-| 7. Refactorización | 13/15 | 1/15 | 1/15 | 87% |
+| 7. Refactorización | 14/15 | 1/15 | 0/15 | 93% |
 | 8. Testing | 10/22 | 1/22 | 11/22 | 45% |
 | 9. SEO | 3/14 | 0/0 | 11/14 | 21% |
 | 10. UX | 0/14 | 2/14 | 12/14 | 0% |
@@ -39,7 +39,7 @@ El objetivo principal es mostrar mis habilidades como desarrollador mientras pro
 | 20. Cumplimiento y Regulaciones | 0/10 | 0/0 | 10/10 | 0% |
 | 21. Privacidad por Diseño | 0/7 | 0/0 | 7/7 | 0% |
 | 22. Internacionalización Legal | 0/4 | 0/0 | 4/4 | 0% |
-| **TOTAL** | **67/236** | **9/236** | **160/236** | **28%** |
+| **TOTAL** | **68/236** | **9/236** | **159/236** | **29%** |
 
 ## 🔥 Tareas Actuales (En Foco)
 
@@ -293,7 +293,7 @@ function LanguageSwitch() {
    - ✅ Eliminación de carpetas vacías y sin uso
    - ✅ Corrección de importaciones en componentes UI
    - 🚧 Refactorizar ChatBot para reducir bundle
-   - 🔲 Componentes grandes/monolíticos
+   - ✅ Componentes grandes/monolíticos
      - ✅ HeroSection.tsx - Dividido en subcomponentes más pequeños y reutilizables
      - ✅ WorkExperience.tsx - Convertido en tarjetas de experiencia individuales
      - ✅ ProjectsSection.tsx - Movido a rama feature/projects-section para desarrollo separado
