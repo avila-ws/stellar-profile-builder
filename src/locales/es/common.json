@@ -2,7 +2,6 @@
   "navigation": {
     "home": "Inicio",
     "experience": "Experiencia",
-    "projects": "Proyectos",
     "skills": "Habilidades",
     "education": "Educación",
     "contact": "Contacto",
@@ -11,7 +10,6 @@
   "hero": {
     "title": "Ingeniero DevSecOps y Especialista en Seguridad en la Nube",
     "subtitle": "Seguro por Diseño. Eficiente por Defecto.",
-    "cta": "Ver Proyectos",
     "view_profile_photo": "Ver foto de perfil",
     "languages_specialties": "Trilingüe en inglés, portugués y español • Especializado en Blockchain, Seguridad AWS e ISO 27001",
     "security_integration": "Integración de Seguridad",
@@ -64,11 +62,6 @@
   "education": {
     "title": "Educación",
     "click_details": "Haz clic para ver detalles sobre {{count}} título(s)"
-  },
-  "projects": {
-    "title": "Proyectos",
-    "view_live": "Ver Demo",
-    "view_code": "Ver Código"
   },
   "skills": {
     "title": "Habilidades",

@@ -2,7 +2,6 @@
   "navigation": {
     "home": "Home",
     "experience": "Experience",
-    "projects": "Projects",
     "skills": "Skills",
     "education": "Education",
     "contact": "Contact",
@@ -11,7 +10,6 @@
   "hero": {
     "title": "DevSecOps Engineer & Cloud Security Specialist",
     "subtitle": "Secure by Design. Efficient by Default.",
-    "cta": "View Projects",
     "view_profile_photo": "View profile photo",
     "languages_specialties": "Trilingual in English, Portuguese, and Spanish • Specialized in Blockchain, AWS Security & ISO 27001",
     "security_integration": "Security Integration",
@@ -64,11 +62,6 @@
   "education": {
     "title": "Education",
     "click_details": "Click to see details about {{count}} degree(s)"
-  },
-  "projects": {
-    "title": "Projects",
-    "view_live": "View Live",
-    "view_code": "View Code"
   },
   "skills": {
     "title": "Skills",
