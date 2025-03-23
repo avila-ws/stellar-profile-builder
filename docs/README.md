@@ -6,14 +6,11 @@ Esta carpeta contiene toda la documentación técnica y de referencia del proyec
 
 | Documento | Descripción |
 |-----------|-------------|
+| [Estado y Plan de Desarrollo](./ESTADO_Y_PLAN.md) | Documento central con estado actual, plan detallado, optimización, planificación y refactorización de componentes. |
 | [Guía de Internacionalización](./I18N_GUIDE.md) | Explica el sistema i18n del proyecto y cómo añadir nuevos idiomas. |
-| [Refactorización de Componentes](./REFACTORING_COMPONENTS.md) | Plan para refactorizar componentes del proyecto. |
 | [Mejoras de Accesibilidad](./ACCESSIBILITY_FIXES.md) | Lista de mejoras de accesibilidad implementadas y pendientes. |
-| [Estado y Plan de Desarrollo](./ESTADO_Y_PLAN.md) | Plan detallado con el estado actual y mejoras planificadas para el proyecto. |
 | [Guía de Testing](./GUIA_TESTING.md) | Guía completa sobre testing, cobertura y ejemplos de tests para el proyecto. |
-| [Optimización](./OPTIMIZACION.md) | Estrategias y recomendaciones para optimizar el rendimiento de la aplicación. |
 | [Herramientas de Monitoreo](./HERRAMIENTAS_MONITOREO.md) | Documentación sobre herramientas de monitoreo, análisis y observabilidad. |
-| [Planificación y Recursos](./PLANIFICACION.md) | Planificación temporal, estimaciones y asignación de recursos. |
 | [Currículum de Referencia](./DevSecOps_Renzo_Avila_Resume.md) | Versión de referencia del CV en markdown. |
 
 ## Contribución a la Documentación
