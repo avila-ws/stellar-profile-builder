@@ -1,6 +1,6 @@
 import React from "react";
 import { ChevronDown, X } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import Button from "@/components/ui/button";
 import { CardHeader, CardTitle } from "@/components/ui/card";
 import { CollapsibleTrigger } from "@/components/ui/collapsible";
 import { cn } from "@/lib/utils";

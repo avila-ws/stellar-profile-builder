@@ -1,4 +1,4 @@
-import { Button } from "@/components/ui/button";
+import Button from "@/components/ui/button";
 import { useLanguage } from "@/hooks/useLanguage";
 import { Globe } from "lucide-react";
 

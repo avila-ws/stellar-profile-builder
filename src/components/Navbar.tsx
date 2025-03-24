@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { cn } from "@/lib/utils";
 import { useTheme } from "@/context/ThemeProvider";
 import { Menu, Moon, Sun, X } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import Button from "@/components/ui/button";
 import { useLanguage } from "@/hooks/useLanguage";
 import { LanguageSelector } from "@/components/ui/language-selector";
 

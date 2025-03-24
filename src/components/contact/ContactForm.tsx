@@ -1,11 +1,10 @@
 import React, { useState } from "react";
-import { Button } from "@/components/ui/button";
+import Button from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
 import { Loader2 } from "lucide-react";
 import { useLanguage } from "@/hooks/useLanguage";
-import { sanitizeText } from "@/lib/security";
 
 const ContactForm = () => {
   const { toast } = useToast();
@@ -15,15 +14,6 @@ const ContactForm = () => {
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIsSubmitting(true);
-    
-    // Get form data and sanitize it
-    const formData = new FormData(e.currentTarget);
-    const sanitizedData = {
-      name: sanitizeText(formData.get('name') as string),
-      email: sanitizeText(formData.get('email') as string),
-      subject: sanitizeText(formData.get('subject') as string),
-      message: sanitizeText(formData.get('message') as string),
-    };
     
     // Simulate form submission delay
     setTimeout(() => {

@@ -1,9 +1,8 @@
 import { Shield, Code, Cloud } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import Button from "@/components/ui/button";
 import { useEffect, useState } from "react";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Dialog, DialogContent, DialogTrigger, DialogTitle } from "@/components/ui/dialog";
-import { AspectRatio } from "@/components/ui/aspect-ratio";
 import { useLanguage } from "@/hooks/useLanguage";
 import contactConfig from "@/config/contact";
 

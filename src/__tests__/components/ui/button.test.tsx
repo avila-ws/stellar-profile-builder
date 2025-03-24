@@ -1,6 +1,6 @@
 import { render, screen } from '@testing-library/react';
+import Button from '@/components/ui/button';
 import { describe, test, expect } from 'vitest';
-import { Button } from '@/components/ui/button';
 
 describe('Button Component', () => {
   test('renderiza correctamente con el texto proporcionado', () => {
