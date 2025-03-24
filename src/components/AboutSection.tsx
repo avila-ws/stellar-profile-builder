@@ -1,4 +1,3 @@
-import { Shield } from "lucide-react";
 import EducationSection from "@/components/about/EducationSection";
 import LanguageSection from "@/components/about/LanguageSection";
 import KeyAchievements from "@/components/about/KeyAchievements";
