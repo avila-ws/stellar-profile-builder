@@ -26,7 +26,7 @@ El objetivo principal es mostrar mis habilidades como desarrollador mientras pro
 | 7. Refactorización | 19/19 | 0/0 | 0/19 | 100% |
 | 8. Testing | 14/22 | 1/22 | 7/22 | 64% |
 | 9. SEO | 3/14 | 0/0 | 11/14 | 21% |
-| 10. UX | 0/14 | 2/14 | 12/14 | 0% |
+| 10. UX | 1/14 | 1/14 | 12/14 | 7% |
 | 11. Documentación | 0/7 | 3/7 | 4/7 | 0% |
 | 12. Monitoreo y Analytics | 2/14 | 0/0 | 12/14 | 14% |
 | 13. Plan de Contingencia | 6/6 | 0/0 | 0/0 | 100% |
@@ -39,7 +39,7 @@ El objetivo principal es mostrar mis habilidades como desarrollador mientras pro
 | 20. Cumplimiento y Regulaciones | 0/10 | 0/0 | 10/10 | 0% |
 | 21. Privacidad por Diseño | 0/7 | 0/0 | 7/7 | 0% |
 | 22. Internacionalización Legal | 0/4 | 0/0 | 4/4 | 0% |
-| **TOTAL** | **79/236** | **8/236** | **149/236** | **33%** |
+| **TOTAL** | **80/236** | **7/236** | **149/236** | **34%** |
 
 ## 🔥 Tareas Actuales (En Foco)
 
@@ -70,6 +70,7 @@ Estas son las próximas tareas a abordar una vez completadas las actuales:
 
 | Tarea | Descripción | Impacto |
 |-------|-------------|---------|
+| ✅ Implementación del efecto parpadeante en icono Calendar | Se añadió una animación de parpadeo sutil para atraer la atención al calendario de reservas | Mejora de la experiencia de usuario y aumento de visibilidad para la funcionalidad de contacto |
 | ✅ Implementación de useCallback en use-chatbot.ts | Se refactorizó el hook para usar correctamente useCallback y corregir las dependencias faltantes | Mejora en el rendimiento del chatbot y eliminación de advertencias de React Hooks |
 | ✅ Refactorización de contextos y hooks | Se separaron contextos, hooks y tipos en archivos independientes (ThemeProvider, form, toggle) | Compatibilidad con Fast Refresh y mejor estructura de código |
 | ✅ Optimización de estructura de testing | Reorganización de utils de testing en archivos separados con propósito específico | Mejor organización y compatibilidad con Fast Refresh |
@@ -607,6 +608,12 @@ npx lighthouse http://localhost:8080 --view --only-categories=accessibility
      - 🔲 Navegación por swipe
      - 🔲 Gestos multitáctiles para zoom/navegación
      - 🔲 Haptic feedback (vibración) para acciones
+   - 🚧 Refinamiento de efectos hover y animaciones para mayor claridad
+   - 🔲 ⭐ Mejorar contrastes para accesibilidad
+   - 🔲 Implementación de micro-interacciones
+     - 🔲 Feedback sutil para hover/click
+     - 🔲 Transiciones entre estados de UI
+     - 🔲 Animaciones de confirmación de acciones
 
 ### 11. Documentación
    - 🚧 Organización de archivos de documentación
