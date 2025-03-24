@@ -6,7 +6,7 @@ type LanguageToggleResult = {
   currentLanguage: Language;
   toggleLanguage: () => void;
   setLanguage: (lang: Language) => void;
-  t: (key: string, options?: any) => string;
+  t: (key: string, options?: Record<string, unknown>) => string;
 };
 
 /**
