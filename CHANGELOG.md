@@ -16,11 +16,13 @@ y este proyecto adhiere a [Semantic Versioning](https://semver.org/spec/v2.0.0.h
 - Problemas de compilación relacionados con importaciones de módulos
 - Error de carga de módulos dinámicos durante el despliegue en Lovable mediante configuración de rutas relativas
 - Actualización de rutas en index.html de absolutas a relativas para compatibilidad con entornos de despliegue
+- Vulnerabilidades de seguridad en dependencias (esbuild y nanoid)
 
 ### Cambiado
 - Refactorizado código para utilizar de manera consistente la nueva estructura modular
 - Actualizado documento de estado y plan con las mejoras recientes
 - Configuración de Vite modificada para usar rutas relativas con `base: "./"`
+- Actualización de Vite a la versión 6.2.2 y demás dependencias a versiones seguras
 
 ## [1.0.1] - 2025-02-10
 
