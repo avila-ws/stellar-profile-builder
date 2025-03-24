@@ -1,6 +1,6 @@
 // Formato: v[Mayor].[Menor].[Parche]-[Entorno]
 // Incrementar el número de parche con cada despliegue
-export const APP_VERSION = 'v1.0.1-prod';
+export const APP_VERSION = 'v1.0.2-prod';
 
 // Fecha de compilación/actualización (se actualiza automáticamente al compilar)
 export const BUILD_DATE = new Date().toISOString();
