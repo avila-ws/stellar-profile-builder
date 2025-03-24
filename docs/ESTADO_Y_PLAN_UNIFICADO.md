@@ -21,10 +21,10 @@ El objetivo principal es mostrar mis habilidades como desarrollador mientras pro
 | 2. Componentes principales | 4/4 | 0/0 | 0/0 | 100% |
 | 3. Accesibilidad | 11/15 | 0/0 | 4/15 | 73% |
 | 4. Internacionalización | 6/10 | 0/0 | 4/10 | 60% |
-| 5. Optimización de rendimiento | 6/16 | 1/16 | 9/16 | 38% |
+| 5. Optimización de rendimiento | 7/16 | 2/16 | 7/16 | 44% |
 | 6. Seguridad | 5/21 | 0/0 | 16/21 | 24% |
-| 7. Refactorización | 15/15 | 0/15 | 0/15 | 100% |
-| 8. Testing | 10/22 | 1/22 | 11/22 | 45% |
+| 7. Refactorización | 19/19 | 0/0 | 0/19 | 100% |
+| 8. Testing | 14/22 | 1/22 | 7/22 | 64% |
 | 9. SEO | 3/14 | 0/0 | 11/14 | 21% |
 | 10. UX | 0/14 | 2/14 | 12/14 | 0% |
 | 11. Documentación | 0/7 | 3/7 | 4/7 | 0% |
@@ -39,7 +39,7 @@ El objetivo principal es mostrar mis habilidades como desarrollador mientras pro
 | 20. Cumplimiento y Regulaciones | 0/10 | 0/0 | 10/10 | 0% |
 | 21. Privacidad por Diseño | 0/7 | 0/0 | 7/7 | 0% |
 | 22. Internacionalización Legal | 0/4 | 0/0 | 4/4 | 0% |
-| **TOTAL** | **70/236** | **7/236** | **159/236** | **30%** |
+| **TOTAL** | **79/236** | **8/236** | **149/236** | **33%** |
 
 ## 🔥 Tareas Actuales (En Foco)
 
@@ -70,6 +70,11 @@ Estas son las próximas tareas a abordar una vez completadas las actuales:
 
 | Tarea | Descripción | Impacto |
 |-------|-------------|---------|
+| ✅ Implementación de useCallback en use-chatbot.ts | Se refactorizó el hook para usar correctamente useCallback y corregir las dependencias faltantes | Mejora en el rendimiento del chatbot y eliminación de advertencias de React Hooks |
+| ✅ Refactorización de contextos y hooks | Se separaron contextos, hooks y tipos en archivos independientes (ThemeProvider, form, toggle) | Compatibilidad con Fast Refresh y mejor estructura de código |
+| ✅ Optimización de estructura de testing | Reorganización de utils de testing en archivos separados con propósito específico | Mejor organización y compatibilidad con Fast Refresh |
+| ✅ Mejora de tipado en useLanguage | Reemplazo de `any` por `Record<string, unknown>` | Tipado más específico y eliminación de advertencias de TypeScript |
+| ✅ Limpieza de declaraciones TypeScript | Simplificación de vitest.d.ts eliminando interfaces innecesarias | Código más limpio y eliminación de errores de linting |
 | ✅ División de componentes monolíticos | HeroSection y WorkExperience fueron refactorizados en subcomponentes más pequeños y reutilizables | Mejora de mantenibilidad y legibilidad del código |
 | ✅ Movimiento de ProjectsSection a rama separada | La sección de proyectos fue aislada en una rama feature/projects-section para desarrollo independiente | Reducción de problemas TypeScript en la rama principal |
 | ✅ Limpieza de código no utilizado | Eliminación de carpetas vacías y código no utilizado, incluyendo src/constants/, src/types/ y otros | Reducción del tamaño del proyecto y mejora de rendimiento |
@@ -214,6 +219,10 @@ function LanguageSwitch() {
    - ✅ Eliminación de componentes no utilizados (36 archivos eliminados)
    - ✅ Limpieza de dependencias no utilizadas
    - ✅ Optimización de importaciones no utilizadas
+   - ✅ Estructura de código compatible con Fast Refresh
+     - ✅ Separación de hooks y componentes en archivos independientes
+     - ✅ Asegurar que los archivos de componentes solo exporten componentes
+     - ✅ Mover constantes y utilidades a archivos separados
    - 🚧 Análisis y reducción del tamaño del bundle
      - 🔲 Ejecutar `npm run build -- --analyze` para identificar elementos grandes
      - 🔲 Buscar duplicaciones de dependencias
@@ -303,9 +312,15 @@ function LanguageSwitch() {
      - ✅ División en componentes más pequeños
      - ✅ Optimización de importaciones
      - ✅ Mejora de la estructura del código
+     - ✅ Implementación correcta de useCallback y dependencias de hooks
    - ✅ Optimización de importaciones en archivos de test
      - ✅ Eliminación de importaciones no utilizadas
      - ✅ Mejora de configuración ESLint para detección de errores
+   - ✅ Separación de componentes y utilidades
+     - ✅ Movimiento de hooks a archivos independientes (useFormField, useTheme)
+     - ✅ Extracción de contextos a archivos dedicados (ThemeContext)
+     - ✅ Separación de constantes de estilo en archivos propios (toggleVariants)
+     - ✅ Reorganización de utilidades de testing en archivos con propósito específico
    - 🔲 Componentes con lógica duplicada
      - 🔲 Extraer lógica compartida en componentes tipo tarjeta
      - 🔲 Extraer lógica de validación en componentes de formulario
@@ -330,6 +345,11 @@ function LanguageSwitch() {
    - ✅ Pruebas E2E básicas (mejoradas y robustas)
    - ✅ Pruebas de accesibilidad E2E
    - ✅ Optimización de importaciones en archivos de test
+   - ✅ Reorganización de estructura de testing
+     - ✅ Separación de AllTheProviders en test-providers.tsx
+     - ✅ Extracción de la función render a test-render.ts
+     - ✅ Creación de índice de compatibilidad en test-utils.ts
+     - ✅ Separación de funciones de testing en testing-functions.ts
    - 🚧 Implementar test end-to-end para flujo principal
    - 🔲 Cobertura global actual: 81.46% - Incrementar a > 90%
    - 🔲 ThemeProvider (86.66%)
