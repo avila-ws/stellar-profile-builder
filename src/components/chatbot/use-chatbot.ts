@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef, useEffect, useCallback } from "react";
 import { sanitizeHTML, sanitizeText } from "@/lib/security";
 import { Message, QuickOption, PredefinedResponse } from "./chatbot-types";
 import { welcomeMessage, fallbackResponse } from "./chatbot-data";
@@ -21,48 +21,13 @@ export const useChatBot = (
   const [hasInteracted, setHasInteracted] = useState(false);
   const messagesEndRef = useRef<HTMLDivElement>(null);
   
-  // Initialize welcome message when chat opens
-  useEffect(() => {
-    if (isOpen && messages.length === 0) {
-      const welcomeMsg: Message = {
-        id: Date.now().toString(),
-        content: welcomeMessage,
-        isHtml: true,
-        role: "assistant",
-        timestamp: new Date()
-      };
-      setMessages([welcomeMsg]);
-    }
-  }, [isOpen, messages.length]);
-  
-  // Scroll to bottom when messages change
-  useEffect(() => {
-    if (messagesEndRef.current?.scrollIntoView) {
-      messagesEndRef.current.scrollIntoView({ behavior: "smooth" });
-    }
-  }, [messages]);
-  
-  // Set up global click handler for quick options in HTML
-  useEffect(() => {
-    window.quickOptionClick = (optionId: string) => {
-      const option = quickOptions.find(opt => opt.id === optionId);
-      if (option) {
-        handleQuickOption(option);
-      }
-    };
-
-    return () => {
-      delete window.quickOptionClick;
-    };
-  }, []);
-  
   // Format timestamp for display
   const formatTime = (date: Date) => {
     return date.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
   };
   
   // Generate response based on user input
-  const generateResponse = (userInput: string, showOptions: boolean = false): string => {
+  const generateResponse = useCallback((userInput: string, showOptions: boolean = false): string => {
     for (const item of predefinedResponses) {
       if (item.keywords.some(keyword => userInput.includes(keyword))) {
         let finalResponse = item.response;
@@ -101,10 +66,10 @@ export const useChatBot = (
     }
     
     return response;
-  };
+  }, [predefinedResponses]);
   
   // Handle quick option selection
-  const handleQuickOption = (option: QuickOption) => {
+  const handleQuickOption = useCallback((option: QuickOption) => {
     if (!hasInteracted) {
       setHasInteracted(true);
     }
@@ -128,7 +93,42 @@ export const useChatBot = (
       };
       setMessages(prev => [...prev, botMessage]);
     }, 500);
-  };
+  }, [hasInteracted, setHasInteracted, setMessages, generateResponse]);
+  
+  // Initialize welcome message when chat opens
+  useEffect(() => {
+    if (isOpen && messages.length === 0) {
+      const welcomeMsg: Message = {
+        id: Date.now().toString(),
+        content: welcomeMessage,
+        isHtml: true,
+        role: "assistant",
+        timestamp: new Date()
+      };
+      setMessages([welcomeMsg]);
+    }
+  }, [isOpen, messages.length]);
+  
+  // Scroll to bottom when messages change
+  useEffect(() => {
+    if (messagesEndRef.current?.scrollIntoView) {
+      messagesEndRef.current.scrollIntoView({ behavior: "smooth" });
+    }
+  }, [messages]);
+  
+  // Set up global click handler for quick options in HTML
+  useEffect(() => {
+    window.quickOptionClick = (optionId: string) => {
+      const option = quickOptions.find(opt => opt.id === optionId);
+      if (option) {
+        handleQuickOption(option);
+      }
+    };
+
+    return () => {
+      delete window.quickOptionClick;
+    };
+  }, [quickOptions, handleQuickOption]);
   
   // Handle sending a message
   const handleSend = () => {
