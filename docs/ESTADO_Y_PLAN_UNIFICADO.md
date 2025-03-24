@@ -70,6 +70,7 @@ Estas son las próximas tareas a abordar una vez completadas las actuales:
 
 | Tarea | Descripción | Impacto |
 |-------|-------------|---------|
+| ✅ Corrección de importaciones de useTheme | Se actualizaron las rutas de importación del hook useTheme en múltiples componentes UI | Corrección de errores de compilación y mejor compatibilidad con la estructura modular del proyecto |
 | ✅ Implementación del efecto parpadeante en icono Calendar | Se añadió una animación de parpadeo sutil para atraer la atención al calendario de reservas | Mejora de la experiencia de usuario y aumento de visibilidad para la funcionalidad de contacto |
 | ✅ Implementación de useCallback en use-chatbot.ts | Se refactorizó el hook para usar correctamente useCallback y corregir las dependencias faltantes | Mejora en el rendimiento del chatbot y eliminación de advertencias de React Hooks |
 | ✅ Refactorización de contextos y hooks | Se separaron contextos, hooks y tipos en archivos independientes (ThemeProvider, form, toggle) | Compatibilidad con Fast Refresh y mejor estructura de código |
