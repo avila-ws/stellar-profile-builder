@@ -14,6 +14,7 @@
     "test:watch": "vitest watch",
     "test:ui": "vitest --ui",
     "test:coverage": "vitest run --coverage",
+    "test:coverage:no100": "node exclude-100-percent-coverage.cjs && vitest run --config vitest.no100.config.ts --coverage",
     "test:e2e": "NODE_NO_WARNINGS=1 playwright test",
     "test:e2e:ui": "NODE_NO_WARNINGS=1 playwright test --ui",
     "test:e2e:report": "playwright show-report",
