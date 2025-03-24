@@ -15,6 +15,7 @@ y este proyecto adhiere a [Semantic Versioning](https://semver.org/spec/v2.0.0.h
 - Rutas de importación incorrectas del hook useTheme en múltiples componentes UI 
 - Problemas de compilación relacionados con importaciones de módulos
 - Error de carga de módulos dinámicos durante el despliegue en Lovable mediante configuración de rutas relativas
+- Actualización de rutas en index.html de absolutas a relativas para compatibilidad con entornos de despliegue
 
 ### Cambiado
 - Refactorizado código para utilizar de manera consistente la nueva estructura modular
