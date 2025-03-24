@@ -1,8 +1,14 @@
 import { useState, useRef, useEffect } from "react";
-import { useToast } from "@/hooks/use-toast";
 import { sanitizeHTML, sanitizeText } from "@/lib/security";
 import { Message, QuickOption, PredefinedResponse } from "./chatbot-types";
 import { welcomeMessage, fallbackResponse } from "./chatbot-data";
+
+// Extender la interfaz Window para incluir quickOptionClick
+declare global {
+  interface Window {
+    quickOptionClick?: (optionId: string) => void;
+  }
+}
 
 export const useChatBot = (
   predefinedResponses: PredefinedResponse[],
@@ -14,7 +20,6 @@ export const useChatBot = (
   const [isExpanded, setIsExpanded] = useState(true);
   const [hasInteracted, setHasInteracted] = useState(false);
   const messagesEndRef = useRef<HTMLDivElement>(null);
-  const { toast } = useToast();
   
   // Initialize welcome message when chat opens
   useEffect(() => {
@@ -39,7 +44,7 @@ export const useChatBot = (
   
   // Set up global click handler for quick options in HTML
   useEffect(() => {
-    (window as any).quickOptionClick = (optionId: string) => {
+    window.quickOptionClick = (optionId: string) => {
       const option = quickOptions.find(opt => opt.id === optionId);
       if (option) {
         handleQuickOption(option);
@@ -47,7 +52,7 @@ export const useChatBot = (
     };
 
     return () => {
-      delete (window as any).quickOptionClick;
+      delete window.quickOptionClick;
     };
   }, []);
   
