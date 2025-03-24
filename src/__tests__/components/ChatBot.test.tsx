@@ -1,7 +1,6 @@
 import { render, screen, fireEvent, waitFor } from '@testing-library/react';
 import { describe, test, expect, vi, beforeEach } from 'vitest';
 import ChatBot from '@/components/ChatBot';
-import userEvent from '@testing-library/user-event';
 
 // Mock del hook useToast
 vi.mock('@/hooks/use-toast', () => ({

@@ -1,6 +1,6 @@
 import { renderHook, act } from '@testing-library/react';
 import { describe, test, expect, beforeEach } from 'vitest';
-import { useToast, toast } from '@/hooks/use-toast';
+import { useToast } from '@/hooks/use-toast';
 
 describe('useToast Hook', () => {
   // Limpiar los toasts antes de cada prueba

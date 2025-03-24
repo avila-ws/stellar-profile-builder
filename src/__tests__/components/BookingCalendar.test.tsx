@@ -10,7 +10,6 @@ import { useIsMobile } from '@/hooks/use-mobile';
 import commonEN from '@/locales/en/common.json';
 
 describe('BookingCalendar Component', () => {
-  const mockUseIsMobile = useIsMobile as unknown as ReturnType<typeof vi.fn>;
   
   beforeEach(() => {
     vi.clearAllMocks();
