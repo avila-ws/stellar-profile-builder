@@ -1,5 +1,5 @@
 import { getVersionInfo } from "@/config/version";
-import { useTheme } from "@/context/ThemeProvider";
+import { useTheme } from "@/context/use-theme";
 
 interface VersionBadgeProps {
   position?: "bottom-right" | "bottom-left" | "top-right" | "top-left";

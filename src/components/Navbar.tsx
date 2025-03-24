@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { cn } from "@/lib/utils";
-import { useTheme } from "@/context/ThemeProvider";
+import { useTheme } from "@/context/use-theme";
 import { Menu, Moon, Sun, X } from "lucide-react";
 import Button from "@/components/ui/button";
 import { useLanguage } from "@/hooks/useLanguage";
