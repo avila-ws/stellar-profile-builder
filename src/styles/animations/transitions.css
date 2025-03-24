@@ -1,4 +1,3 @@
-
 /* Fade and slide transitions */
 .fade-in {
   animation: fadeIn 0.5s ease-out;
@@ -22,6 +21,15 @@
 
 .float-animation {
   animation: float 3s ease-in-out infinite;
+}
+
+.animate-subtle-glow {
+  animation: subtleGlow 1.5s ease-in-out infinite;
+}
+
+.calendar-blink {
+  animation: calendarBlink 1s ease-in-out infinite;
+  transform-origin: center;
 }
 
 /* Staggered animations for list items */

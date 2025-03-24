@@ -44,7 +44,7 @@ const ContactInfo = ({
         
         <div onClick={onScheduleClick} className="flex items-center gap-4 group cursor-pointer hover:bg-primary/5 p-2 rounded-md transition-all duration-300 transform hover:translate-x-1 scale-in relative" aria-label={t('accessibility.calendar_link')}>
           <div className="bg-primary/10 p-3 rounded-full transition-all duration-300 group-hover:bg-primary group-hover:text-white pulse-animation">
-            <Calendar className="h-6 w-6 text-primary group-hover:text-white" />
+            <Calendar className="h-6 w-6 text-primary group-hover:text-white calendar-blink" />
           </div>
           <div className="flex-1">
             <p className="text-sm text-muted-foreground">{t('contact.schedule_label')}</p>
