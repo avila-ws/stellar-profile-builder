@@ -1,42 +1,23 @@
-import React, { useState, useRef, useEffect } from "react";
-import { Button } from "@/components/ui/button";
-import { Textarea } from "@/components/ui/textarea";
-import { MessageCircle, X, Send, ChevronDown } from "lucide-react";
-import { 
-  Card, 
-  CardContent, 
-  CardFooter, 
-  CardHeader, 
-  CardTitle 
-} from "@/components/ui/card";
-import { 
-  Collapsible, 
-  CollapsibleContent, 
-  CollapsibleTrigger 
-} from "@/components/ui/collapsible";
-import { cn } from "@/lib/utils";
-import { useToast } from "@/hooks/use-toast";
-import { sanitizeHTML, sanitizeText } from "@/lib/security";
-import { predefinedResponses, quickOptions } from "@/components/chatbot/chatbot-data";
-import { Message, QuickOption } from "@/components/chatbot/chatbot-types";
-import { ChatButton } from "@/components/chatbot/ChatButton";
-import { ChatHeader } from "@/components/chatbot/ChatHeader";
-import { ChatMessages } from "@/components/chatbot/ChatMessages";
-import { ChatInput } from "@/components/chatbot/ChatInput";
-import { useChatBot } from "@/components/chatbot/use-chatbot";
+import React from "react";
+import { Card, CardContent, CardFooter } from "@/components/ui/card";
+import { Collapsible, CollapsibleContent } from "@/components/ui/collapsible";
+import { predefinedResponses, quickOptions } from "./chatbot/chatbot-data";
+import { ChatButton } from "./chatbot/ChatButton";
+import { ChatHeader } from "./chatbot/ChatHeader";
+import { ChatMessages } from "./chatbot/ChatMessages";
+import { ChatInput } from "./chatbot/ChatInput";
+import { useChatBot } from "./chatbot/use-chatbot";
 
 const ChatBot: React.FC = () => {
   const {
     isOpen,
     setIsOpen,
     messages,
-    setMessages,
     input, 
     setInput,
     isExpanded, 
     setIsExpanded,
     hasInteracted,
-    setHasInteracted,
     messagesEndRef,
     handleSend,
     handleQuickOption,
