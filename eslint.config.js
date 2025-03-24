@@ -9,13 +9,19 @@ export default tseslint.config(
   {
     extends: [js.configs.recommended, ...tseslint.configs.recommended],
     files: ["**/*.{ts,tsx}"],
+    ignores: ["*.config.ts", "vite.config.ts", "playwright.config.ts", "e2e/**/*.ts"],
     languageOptions: {
       ecmaVersion: 2020,
       globals: globals.browser,
+      parser: tseslint.parser,
+      parserOptions: {
+        project: "./tsconfig.app.json"
+      }
     },
     plugins: {
       "react-hooks": reactHooks,
       "react-refresh": reactRefresh,
+      "@typescript-eslint": tseslint.plugin
     },
     rules: {
       ...reactHooks.configs.recommended.rules,
@@ -23,7 +29,16 @@ export default tseslint.config(
         "warn",
         { allowConstantExport: true },
       ],
-      "@typescript-eslint/no-unused-vars": "off",
+      "@typescript-eslint/no-unused-vars": ["error", {
+        "vars": "all",
+        "args": "after-used",
+        "ignoreRestSiblings": false,
+        "varsIgnorePattern": "",
+        "argsIgnorePattern": "",
+        "destructuredArrayIgnorePattern": "",
+        "caughtErrorsIgnorePattern": ""
+      }],
+      "no-unused-vars": "off"
     },
   }
 );
