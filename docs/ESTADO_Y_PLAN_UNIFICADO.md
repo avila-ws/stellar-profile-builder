@@ -21,8 +21,8 @@ El objetivo principal es mostrar mis habilidades como desarrollador mientras pro
 | 2. Componentes principales | 4/4 | 0/0 | 0/0 | 100% |
 | 3. Accesibilidad | 11/15 | 0/0 | 4/15 | 73% |
 | 4. Internacionalización | 6/10 | 0/0 | 4/10 | 60% |
-| 5. Optimización de rendimiento | 7/16 | 2/16 | 7/16 | 44% |
-| 6. Seguridad | 5/21 | 0/0 | 16/21 | 24% |
+| 5. Optimización de rendimiento | 8/16 | 2/16 | 6/16 | 50% |
+| 6. Seguridad | 6/21 | 0/0 | 15/21 | 29% |
 | 7. Refactorización | 19/19 | 0/0 | 0/19 | 100% |
 | 8. Testing | 14/22 | 1/22 | 7/22 | 64% |
 | 9. SEO | 3/14 | 0/0 | 11/14 | 21% |
@@ -39,7 +39,7 @@ El objetivo principal es mostrar mis habilidades como desarrollador mientras pro
 | 20. Cumplimiento y Regulaciones | 0/10 | 0/0 | 10/10 | 0% |
 | 21. Privacidad por Diseño | 0/7 | 0/0 | 7/7 | 0% |
 | 22. Internacionalización Legal | 0/4 | 0/0 | 4/4 | 0% |
-| **TOTAL** | **80/236** | **7/236** | **149/236** | **34%** |
+| **TOTAL** | **82/236** | **7/236** | **147/236** | **35%** |
 
 ## 🔥 Tareas Actuales (En Foco)
 
@@ -70,6 +70,7 @@ Estas son las próximas tareas a abordar una vez completadas las actuales:
 
 | Tarea | Descripción | Impacto |
 |-------|-------------|---------|
+| ✅ Actualización de dependencias y resolución de vulnerabilidades | Se actualizó Vite a v6.2.2 y otras dependencias para resolver vulnerabilidades en esbuild y nanoid | Mejora en la seguridad de la aplicación y eliminación de advertencias de vulnerabilidades |
 | ✅ Corrección de importaciones de useTheme | Se actualizaron las rutas de importación del hook useTheme en múltiples componentes UI | Corrección de errores de compilación y mejor compatibilidad con la estructura modular del proyecto |
 | ✅ Implementación del efecto parpadeante en icono Calendar | Se añadió una animación de parpadeo sutil para atraer la atención al calendario de reservas | Mejora de la experiencia de usuario y aumento de visibilidad para la funcionalidad de contacto |
 | ✅ Implementación de useCallback en use-chatbot.ts | Se refactorizó el hook para usar correctamente useCallback y corregir las dependencias faltantes | Mejora en el rendimiento del chatbot y eliminación de advertencias de React Hooks |
@@ -225,6 +226,7 @@ function LanguageSwitch() {
      - ✅ Separación de hooks y componentes en archivos independientes
      - ✅ Asegurar que los archivos de componentes solo exporten componentes
      - ✅ Mover constantes y utilidades a archivos separados
+   - ✅ Actualización a Vite v6.2.2 para mejor rendimiento y seguridad
    - 🚧 Análisis y reducción del tamaño del bundle
      - 🔲 Ejecutar `npm run build -- --analyze` para identificar elementos grandes
      - 🔲 Buscar duplicaciones de dependencias
@@ -256,6 +258,7 @@ function LanguageSwitch() {
    - ✅ Protección XSS (implementada en componentes como ChatBot y ContactForm)
    - ✅ Headers de seguridad adicionales (X-Content-Type-Options, X-Frame-Options, etc.)
    - ✅ Configuración de cookies seguras (SameSite, Secure, HttpOnly)
+   - ✅ Resolución de vulnerabilidades en dependencias (esbuild y nanoid)
    - 🔲 Auditoría de seguridad y correcciones
    - 🔲 Implementar autenticación JWT
    - 🔲 Sistema avanzado de autorización y control de acceso
