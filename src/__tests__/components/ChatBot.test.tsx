@@ -55,7 +55,8 @@ describe('ChatBot Component', () => {
     // Debe haber botones con emojis para las opciones rápidas
     const optionButtons = screen.getAllByRole('button').filter(btn => {
       const text = btn.textContent || '';
-      return /[💼🛠️📱⛓️🔒📍]/.test(text);
+      // Buscar cualquier emoji común en los botones de opción rápida
+      return text.includes('💼') || text.includes('📱') || text.includes('🔒');
     });
     expect(optionButtons.length).toBeGreaterThan(0);
   });
@@ -134,7 +135,8 @@ describe('ChatBot Component', () => {
     // Buscar un botón de opción rápida
     const optionButtons = screen.getAllByRole('button').filter(btn => {
       const text = btn.textContent || '';
-      return /[💼🛠️📱⛓️🔒📍]/.test(text);
+      // Buscar cualquier emoji común en los botones de opción rápida
+      return text.includes('💼') || text.includes('📱') || text.includes('🔒');
     });
     expect(optionButtons.length).toBeGreaterThan(0);
     
@@ -159,7 +161,8 @@ describe('ChatBot Component', () => {
     // Verificar que aparecen todas las opciones rápidas (al menos 6)
     const optionButtons = screen.getAllByRole('button').filter(btn => {
       const text = btn.textContent || '';
-      return /[💼🛠️📱⛓️🔒📍]/.test(text);
+      // Buscar cualquier emoji común en los botones de opción rápida
+      return text.includes('💼') || text.includes('📱') || text.includes('🔒');
     });
     
     expect(optionButtons.length).toBeGreaterThanOrEqual(6);
