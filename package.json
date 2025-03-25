@@ -5,8 +5,10 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
+    "build": "vite build && node scripts/cleanup-images.js",
     "build:dev": "vite build --mode development",
+    "build:analyze": "vite build --minify false",
+    "build:stats": "vite build --mode production",
     "lint": "eslint .",
     "lint:strict": "eslint \"src/**/*.{ts,tsx}\" --max-warnings=0",
     "preview": "vite preview",
@@ -20,7 +22,15 @@
     "test:e2e:report": "playwright show-report",
     "test:e2e:dev": "playwright test --project=chromium",
     "test:a11y": "playwright test e2e/a11y.spec.ts --project=chromium",
-    "test:contrast": "playwright test e2e/contrast.spec.ts --project=chromium"
+    "test:contrast": "playwright test e2e/contrast.spec.ts --project=chromium",
+    "analyze-bundle": "node scripts/analyze-bundle.js",
+    "analyze-bundle:detailed": "vite build --config vite.analyze.config.ts",
+    "find-duplicates": "node scripts/find-duplicates.cjs",
+    "analyze": "npm run analyze-bundle && npm run find-duplicates",
+    "analyze:all": "npm run analyze-bundle && npm run analyze-bundle:detailed && npm run find-duplicates",
+    "analyze:packages": "scripts/analyze-duplicates.sh",
+    "serve:report": "npx http-server dist -o /bundle-analysis.md",
+    "optimize-images": "node scripts/optimize-images.js"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.10.0",
@@ -81,11 +91,33 @@
     "jsdom": "^26.0.0",
     "lovable-tagger": "^1.1.7",
     "postcss": "^8.5.3",
+    "rollup-plugin-visualizer": "^5.14.0",
+    "sharp": "^0.33.5",
+    "string-width": "5.1.2",
+    "strip-ansi": "7.1.0",
+    "wrap-ansi": "8.1.0",
     "tailwindcss": "^3.4.17",
     "ts-node": "^10.9.2",
     "typescript": "^5.8.2",
     "typescript-eslint": "^8.27.0",
-    "vite": "^6.2.2",
+    "vite": "^5.4.15",
     "vitest": "^3.0.9"
+  },
+  "overrides": {
+    "string-width": "5.1.2",
+    "strip-ansi": "7.1.0",
+    "wrap-ansi": "8.1.0"
+  },
+  "resolutions": {
+    "string-width": "5.1.2",
+    "strip-ansi": "7.1.0",
+    "wrap-ansi": "8.1.0"
+  },
+  "pnpm": {
+    "overrides": {
+      "string-width": "5.1.2",
+      "strip-ansi": "7.1.0",
+      "wrap-ansi": "8.1.0"
+    }
   }
 }
