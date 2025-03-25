@@ -1,3 +1,4 @@
+
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -38,7 +39,7 @@ const App = () => (
         <Sonner />
         <VersionLogger />
         <VersionBadge position="bottom-left" />
-        <BrowserRouter>
+        <BrowserRouter basename="">
           <SkipLink href="#main-content" />
           <Suspense fallback={<LoadingSpinner />}>
             <Routes>
