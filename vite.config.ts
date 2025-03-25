@@ -7,7 +7,7 @@ import { visualizer } from 'rollup-plugin-visualizer'
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode, command }) => ({
-  base: "./", // Cambiado de "/" a "./" para utilizar rutas relativas
+  base: "./", // Usando rutas relativas para compatibilidad con Lovable
   server: {
     host: "::",
     port: 8080,
@@ -26,10 +26,10 @@ export default defineConfig(({ mode, command }) => ({
         "object-src 'none'; " +
         "base-uri 'self'; " +
         "form-action 'self'; " +
-        "frame-ancestors 'self' https://*.lovableproject.com https://*.lovable.app https://*.lovable.dev; " +
+        "frame-ancestors 'self' https://*.lovableproject.com https://*.lovable.app https://*.lovable.dev https://lovable.dev; " +
         "worker-src 'self' blob: data:; " +
         "manifest-src 'self'" :
-        // Versión más restrictiva para producción
+        // Versión más restrictiva para producción, pero permitiendo Lovable
         "default-src 'self'; " +
         "script-src 'self' 'unsafe-inline' 'unsafe-eval' " +
         "https://cdn.gpteng.co " +
@@ -47,12 +47,12 @@ export default defineConfig(({ mode, command }) => ({
         "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://*.gstatic.com; " +
         "font-src 'self' data: https://fonts.gstatic.com; " +
         "img-src 'self' data: blob: https:; " +
-        "frame-src 'self' https://*.google.com https://avila.ws; " +
+        "frame-src 'self' https://*.google.com https://avila.ws https://lovable.dev https://*.lovable.dev; " +
         "media-src 'self' blob: https: data:; " +
         "object-src 'none'; " +
         "base-uri 'self'; " +
         "form-action 'self'; " +
-        "frame-ancestors 'self' https://avila.ws https://*.google.com https://*.lovableproject.com https://*.lovable.app https://*.lovable.dev; " +
+        "frame-ancestors 'self' https://avila.ws https://*.google.com https://*.lovableproject.com https://*.lovable.app https://*.lovable.dev https://lovable.dev; " +
         "worker-src 'self' blob: data:; " +
         "manifest-src 'self'",
 
@@ -61,7 +61,7 @@ export default defineConfig(({ mode, command }) => ({
       'X-Frame-Options': 'SAMEORIGIN',
       'X-XSS-Protection': '1; mode=block',
       
-      // Headers CORS
+      // Headers CORS ajustados para permitir lovable.dev
       'Access-Control-Allow-Origin': '*',
       'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, OPTIONS',
       'Access-Control-Allow-Headers': 'Origin, X-Requested-With, Content-Type, Accept, Authorization',
@@ -78,7 +78,8 @@ export default defineConfig(({ mode, command }) => ({
       '1ea06da7-316a-40c1-96c1-33bf4405384b.lovableproject.com',
       '.lovableproject.com',
       '.lovable.app',
-      '.lovable.dev'
+      '.lovable.dev',
+      'lovable.dev'
     ],
   },
   plugins: [
