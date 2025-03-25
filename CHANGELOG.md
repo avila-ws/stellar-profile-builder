@@ -10,6 +10,7 @@ y este proyecto adhiere a [Semantic Versioning](https://semver.org/spec/v2.0.0.h
 ### Añadido
 - Efecto parpadeante en el icono Calendar para mejorar visibilidad y experiencia de usuario
 - Entrada en documentación sobre nuevas mejoras en UI
+- Script automatizado para excluir archivos con 100% de cobertura del reporte de pruebas, mejorando la visibilidad de archivos que necesitan más tests
 
 ### Corregido
 - Rutas de importación incorrectas del hook useTheme en múltiples componentes UI 

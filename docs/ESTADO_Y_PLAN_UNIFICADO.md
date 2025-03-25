@@ -355,6 +355,7 @@ function LanguageSwitch() {
      - ✅ Extracción de la función render a test-render.ts
      - ✅ Creación de índice de compatibilidad en test-utils.ts
      - ✅ Separación de funciones de testing en testing-functions.ts
+   - ✅ Script automatizado para excluir archivos con 100% de cobertura del reporte de pruebas
    - 🚧 Implementar test end-to-end para flujo principal
    - 🔲 Cobertura global actual: 81.46% - Incrementar a > 90%
    - 🔲 ThemeProvider (86.66%)
