@@ -5,6 +5,52 @@ Todas las modificaciones notables a este proyecto serán documentadas en este ar
 El formato está basado en [Keep a Changelog](https://keepachangelog.com/es-ES/1.0.0/),
 y este proyecto adhiere a [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.0.4] - 2025-03-26
+
+### Añadido
+- Optimización avanzada de imágenes:
+  - Script `optimize-images.js` para conversión automática a WebP
+  - Script `cleanup-images.js` para limpieza de imágenes originales
+  - Integración de optimización de imágenes en el proceso de build
+
+### Optimizado
+- Reducción significativa del tamaño de imágenes:
+  - Avatar: de 1.84 MB a 0.02 MB (98.75% de reducción)
+  - og-image: de 0.22 MB a 0.01 MB (93.75% de reducción)
+- Reducción del tamaño total del bundle de 3.7 MB a 1.6 MB
+
+### Cambiado
+- Actualización de referencias de imágenes PNG a WebP en componentes
+- Integración de limpieza de imágenes en el script de build
+- Actualización de metadatos OpenGraph para usar imágenes WebP
+
+## [1.0.3] - 2025-03-25
+
+### Añadido
+- Scripts de análisis de bundle y optimización:
+  - `analyze-bundle`: Análisis detallado del tamaño del bundle
+  - `analyze-bundle:detailed`: Generación de reporte detallado en formato Markdown
+  - `find-duplicates`: Detección de dependencias duplicadas
+  - `analyze:all`: Ejecución completa de todos los análisis
+  - `serve:report`: Servidor para visualizar reportes de análisis
+- Configuración de rollup-plugin-visualizer para análisis visual del bundle
+- Reportes detallados de tamaño de bundle y dependencias duplicadas
+- Optimización de imágenes con conversión a formato WebP
+
+### Corregido
+- Identificación de dependencias duplicadas (no críticas para el rendimiento):
+  - `string-width` (versiones 5.1.2 y 4.2.3)
+  - `strip-ansi` (versiones 7.1.0 y 6.0.1)
+  - `wrap-ansi` (versiones 8.1.0 y 7.0.0)
+  Nota: Estas duplicaciones son necesarias para compatibilidad entre módulos CommonJS y ESM, y no afectan el tamaño del bundle final
+- Optimización de tamaño de bundle mediante code-splitting
+- Mejora en la estructura de chunks para mejor caching
+
+### Cambiado
+- Actualización de la configuración de Vite para optimización de bundle
+- Mejora en la documentación de scripts de análisis y optimización
+- Reorganización de la estructura de archivos para mejor mantenibilidad
+
 ## [1.0.2] - 2025-03-24
 
 ### Añadido
