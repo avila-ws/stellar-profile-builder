@@ -11,17 +11,19 @@ import { HelmetProvider } from "react-helmet-async";
 import { getVersionInfo } from "@/config/version";
 import { VersionBadge } from "@/components/ui/version-badge";
 
-// Configuración de ruta base para adaptarse a Lovable
-const isLovableEnv = window.location.hostname.includes('lovable');
-const basePath = isLovableEnv ? '' : '';
+// Configuration for Lovable environment
+const isLovableEnv = window.location.hostname.includes('lovable') || 
+                     window.location.hostname.includes('lovableproject');
+console.log('Environment detection:', isLovableEnv ? 'Lovable environment' : 'Standard environment', 
+            'Hostname:', window.location.hostname);
 
-// Lazy loading de componentes
+// Lazy loading components
 const Index = lazy(() => import("@/pages/Index"));
 const NotFound = lazy(() => import("@/pages/NotFound"));
 
 const helmetContext = {};
 
-// Componente que muestra la información de versión
+// Component to display version information
 const VersionLogger = () => {
   useEffect(() => {
     const versionInfo = getVersionInfo();
@@ -44,7 +46,7 @@ const App = () => (
         <Sonner />
         <VersionLogger />
         <VersionBadge position="bottom-left" />
-        <BrowserRouter basename={basePath}>
+        <BrowserRouter basename="/">
           <SkipLink href="#main-content" />
           <Suspense fallback={<LoadingSpinner />}>
             <Routes>

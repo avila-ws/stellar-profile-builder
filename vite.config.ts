@@ -7,12 +7,12 @@ import { visualizer } from 'rollup-plugin-visualizer'
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode, command }) => ({
-  base: "./", // Usando rutas relativas para compatibilidad con Lovable
+  base: "/", // Use root relative path for Lovable compatibility
   server: {
     host: "::",
     port: 8080,
     cors: {
-      origin: "*", // Más permisivo para entornos de desarrollo
+      origin: "*", // More permissive for development
       allowedHeaders: ["Origin", "X-Requested-With", "Content-Type", "Accept", "Authorization"],
       methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
       credentials: true,
@@ -32,7 +32,7 @@ export default defineConfig(({ mode, command }) => ({
         "object-src 'none'; " +
         "base-uri 'self'; " +
         "form-action 'self'; " +
-        "frame-ancestors 'self' https://*.lovableproject.com https://*.lovable.app https://*.lovable.dev https://lovable.dev; " +
+        "frame-ancestors 'self' https://*.lovableproject.com https://*.lovable.app https://*.lovable.dev https://lovable.dev https://id-preview--*.lovable.app; " +
         "worker-src 'self' blob: data:; " +
         "manifest-src 'self'" :
         // Versión más restrictiva para producción, pero permitiendo Lovable
@@ -48,8 +48,11 @@ export default defineConfig(({ mode, command }) => ({
         "https://*.gstatic.com " +
         "https://www.googletagmanager.com " +
         "https://play.google.com/ " +
+        "https://lovable.dev " +
+        "https://*.lovable.dev " +
+        "https://*.lovableproject.com " +
         "data: blob:; " +
-        "connect-src 'self' https://avila.ws https://apis.google.com https://static.cloudflareinsights.com https://play.google.com https://*.googleapis.com wss://*.lovableproject.com wss://*.lovable.app wss://*.lovable.dev; " +
+        "connect-src 'self' https://avila.ws https://apis.google.com https://static.cloudflareinsights.com https://play.google.com https://*.googleapis.com wss://*.lovableproject.com wss://*.lovable.app wss://*.lovable.dev https://lovable.dev https://*.lovable.dev https://*.lovableproject.com; " +
         "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://*.gstatic.com; " +
         "font-src 'self' data: https://fonts.gstatic.com; " +
         "img-src 'self' data: blob: https:; " +
@@ -58,13 +61,12 @@ export default defineConfig(({ mode, command }) => ({
         "object-src 'none'; " +
         "base-uri 'self'; " +
         "form-action 'self'; " +
-        "frame-ancestors 'self' https://avila.ws https://*.google.com https://*.lovableproject.com https://*.lovable.app https://*.lovable.dev https://lovable.dev; " +
+        "frame-ancestors 'self' https://avila.ws https://*.google.com https://*.lovableproject.com https://*.lovable.app https://*.lovable.dev https://lovable.dev https://id-preview--*.lovable.app; " +
         "worker-src 'self' blob: data:; " +
         "manifest-src 'self'",
 
       // Headers adicionales de seguridad
       'X-Content-Type-Options': 'nosniff',
-      'X-Frame-Options': 'SAMEORIGIN',
       'X-XSS-Protection': '1; mode=block',
       
       // Headers CORS ajustados para permitir lovable.dev
