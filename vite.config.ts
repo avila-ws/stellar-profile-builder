@@ -67,6 +67,13 @@ export default defineConfig(({ mode, command }) => ({
         'HttpOnly'
       ].join('; ')
     },
+    // Permitir hosts de Lovable
+    allowedHosts: [
+      '1ea06da7-316a-40c1-96c1-33bf4405384b.lovableproject.com',
+      '.lovableproject.com',
+      '.lovable.app',
+      '.lovable.dev'
+    ],
   },
   plugins: [
     react(),
