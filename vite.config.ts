@@ -11,6 +11,12 @@ export default defineConfig(({ mode, command }) => ({
   server: {
     host: "::",
     port: 8080,
+    cors: {
+      origin: "*", // Más permisivo para entornos de desarrollo
+      allowedHeaders: ["Origin", "X-Requested-With", "Content-Type", "Accept", "Authorization"],
+      methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+      credentials: true,
+    },
     headers: {
       // CSP más permisivo para permitir scripts durante desarrollo
       'Content-Security-Policy': mode === 'development' ? 
@@ -21,7 +27,7 @@ export default defineConfig(({ mode, command }) => ({
         "font-src 'self' data: https://fonts.gstatic.com; " +
         "img-src 'self' data: blob: https:; " +
         "connect-src 'self' ws: wss: http: https:; " +
-        "frame-src 'self' https://*.google.com; " +
+        "frame-src 'self' https://*.google.com https://*.lovableproject.com https://*.lovable.app https://*.lovable.dev https://lovable.dev; " +
         "media-src 'self' blob: https: data:; " +
         "object-src 'none'; " +
         "base-uri 'self'; " +
@@ -47,7 +53,7 @@ export default defineConfig(({ mode, command }) => ({
         "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://*.gstatic.com; " +
         "font-src 'self' data: https://fonts.gstatic.com; " +
         "img-src 'self' data: blob: https:; " +
-        "frame-src 'self' https://*.google.com https://avila.ws https://lovable.dev https://*.lovable.dev; " +
+        "frame-src 'self' https://*.google.com https://avila.ws https://lovable.dev https://*.lovable.dev https://*.lovableproject.com; " +
         "media-src 'self' blob: https: data:; " +
         "object-src 'none'; " +
         "base-uri 'self'; " +
@@ -79,7 +85,8 @@ export default defineConfig(({ mode, command }) => ({
       '.lovableproject.com',
       '.lovable.app',
       '.lovable.dev',
-      'lovable.dev'
+      'lovable.dev',
+      'id-preview--1ea06da7-316a-40c1-96c1-33bf4405384b.lovable.app'
     ],
   },
   plugins: [
