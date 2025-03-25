@@ -28,7 +28,7 @@ const ProfileAvatar = ({ isVisible, animateAvatar, name }: ProfileAvatarProps) =
             <div className="relative w-40 h-40">
               <div className="absolute inset-0 profile-gradient-border"></div>
               <Avatar className={`w-40 h-40 transition-all duration-300 rounded-full overflow-hidden relative z-10 ${animateAvatar ? "opacity-100" : "opacity-90"}`}>
-                <AvatarImage src="/lovable-uploads/74204ed6-b70d-42fc-962a-ad475ddd4383.png" alt={name} />
+                <AvatarImage src="/lovable-uploads/74204ed6-b70d-42fc-962a-ad475ddd4383.webp" alt={name} />
                 <AvatarFallback className="text-2xl font-bold">RA</AvatarFallback>
               </Avatar>
             </div>
@@ -38,7 +38,7 @@ const ProfileAvatar = ({ isVisible, animateAvatar, name }: ProfileAvatarProps) =
           <DialogTitle className="sr-only">{name} Profile Photo</DialogTitle>
           <div className="relative w-full">
             <div className="aspect-square overflow-hidden rounded-full border-4 border-primary/20 shadow-xl">
-              <img src="/lovable-uploads/74204ed6-b70d-42fc-962a-ad475ddd4383.png" alt={name} className="w-full h-full object-cover" />
+              <img src="/lovable-uploads/74204ed6-b70d-42fc-962a-ad475ddd4383.webp" alt={name} className="w-full h-full object-cover" />
             </div>
           </div>
         </DialogContent>
