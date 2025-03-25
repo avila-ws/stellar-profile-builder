@@ -25,7 +25,7 @@ export default defineConfig(({ mode, command }) => ({
         "object-src 'none'; " +
         "base-uri 'self'; " +
         "form-action 'self'; " +
-        "frame-ancestors 'self'; " +
+        "frame-ancestors 'self' https://*.lovableproject.com https://*.lovable.app https://*.lovable.dev; " +
         "worker-src 'self' blob: data:; " +
         "manifest-src 'self'" :
         // Versión más restrictiva para producción
@@ -42,7 +42,7 @@ export default defineConfig(({ mode, command }) => ({
         "https://www.googletagmanager.com " +
         "https://play.google.com/ " +
         "data: blob:; " +
-        "connect-src 'self' https://avila.ws https://apis.google.com https://static.cloudflareinsights.com https://play.google.com https://*.googleapis.com; " +
+        "connect-src 'self' https://avila.ws https://apis.google.com https://static.cloudflareinsights.com https://play.google.com https://*.googleapis.com wss://*.lovableproject.com wss://*.lovable.app wss://*.lovable.dev; " +
         "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://*.gstatic.com; " +
         "font-src 'self' data: https://fonts.gstatic.com; " +
         "img-src 'self' data: blob: https:; " +
@@ -51,7 +51,7 @@ export default defineConfig(({ mode, command }) => ({
         "object-src 'none'; " +
         "base-uri 'self'; " +
         "form-action 'self'; " +
-        "frame-ancestors 'self' https://avila.ws https://*.google.com; " +
+        "frame-ancestors 'self' https://avila.ws https://*.google.com https://*.lovableproject.com https://*.lovable.app https://*.lovable.dev; " +
         "worker-src 'self' blob: data:; " +
         "manifest-src 'self'",
 
@@ -59,6 +59,11 @@ export default defineConfig(({ mode, command }) => ({
       'X-Content-Type-Options': 'nosniff',
       'X-Frame-Options': 'SAMEORIGIN',
       'X-XSS-Protection': '1; mode=block',
+      
+      // Headers CORS
+      'Access-Control-Allow-Origin': '*',
+      'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, OPTIONS',
+      'Access-Control-Allow-Headers': 'Origin, X-Requested-With, Content-Type, Accept, Authorization',
       
       // Headers para cookies
       'Set-Cookie': [
