@@ -12,14 +12,23 @@ if (!rootElement) {
   throw new Error("Failed to find the root element");
 }
 
-// Check if we're deployed on Vercel
-const isVercel = window.location.hostname.includes('vercel.app') || 
-                 window.location.hostname.includes('avila.ws');
+// Check if we're actually running on Vercel's infrastructure
+const isVercelInfrastructure = () => {
+  // Check for Vercel's specific headers or environment
+  const headers = document.querySelector('meta[name="vercel-deployment"]');
+  const isVercelDeployment = headers !== null;
+  
+  // Check if we're on a Vercel domain
+  const isVercelDomain = window.location.hostname.includes('vercel.app');
+  
+  // Only consider it a Vercel deployment if we're actually on Vercel's infrastructure
+  return isVercelDeployment || isVercelDomain;
+};
 
 createRoot(rootElement).render(
   <>
     <App />
-    {isVercel && (
+    {isVercelInfrastructure() && (
       <>
         <SpeedInsights/>
         <Analytics />
