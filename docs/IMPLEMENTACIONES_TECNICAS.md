@@ -378,3 +378,162 @@ Esta implementación permite:
 - Análisis de rutas populares
 - Monitoreo del rendimiento del sitio
 - Todo sin cookies ni identificación personal de usuarios 
+
+## 14. Optimización de First Contentful Paint (FCP)
+
+### Precarga de recursos críticos en HTML
+
+```html
+<!-- index.html -->
+<head>
+  <!-- Preload critical CSS -->
+  <link rel="preload" href="./src/index.css" as="style" />
+  <!-- Preload main script -->
+  <link rel="preload" href="./src/main.tsx" as="script" type="module" />
+  <!-- Font preloading if using web fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+</head>
+
+<body>
+  <div id="root"></div>
+  <!-- Diferir scripts no críticos -->
+  <script src="https://cdn.gpteng.co/gptengineer.js" type="module" defer></script>
+  <script type="module" src="./src/main.tsx"></script>
+</body>
+```
+
+### Optimización de la carga de componentes de React
+
+```tsx
+// ResourcePreloader.tsx - Componente para precarga inteligente
+const ResourcePreloader = () => {
+  useEffect(() => {
+    // Precargar el componente principal después de que la página esté idle
+    const preloadMainComponent = () => {
+      const importPromise = import("@/pages/Index");
+      // Iniciar carga en segundo plano
+      return importPromise;
+    };
+    
+    // Usar requestIdleCallback para precargar cuando el navegador esté inactivo
+    if ('requestIdleCallback' in window) {
+      window.requestIdleCallback(() => {
+        preloadMainComponent();
+      });
+    } else {
+      // Fallback para navegadores que no soportan requestIdleCallback
+      setTimeout(preloadMainComponent, 1000);
+    }
+  }, []);
+  
+  return null;
+};
+
+// Reorganización para priorizar el contenido principal
+const App = () => (
+  <>
+    <ResourcePreloader />
+    <ThemeProvider>
+      <BrowserRouter>
+        {/* Contenido crítico primero */}
+        <MainContent />
+      </BrowserRouter>
+      
+      {/* Componentes no críticos después */}
+      <Toaster />
+      <VersionBadge />
+    </ThemeProvider>
+  </>
+);
+```
+
+### Configuración optimizada de Vite
+
+```typescript
+// vite.config.ts
+import preload from 'vite-plugin-preload'
+
+export default defineConfig({
+  plugins: [
+    react({
+      // Optimizar la configuración de SWC para React
+      devTarget: 'es2022',
+    }),
+    // Plugin para precargar recursos automáticamente
+    preload()
+  ],
+  build: {
+    // Optimizar para carga más rápida
+    target: 'es2020',
+    // Añadir módulo de precarga
+    modulePreload: { polyfill: true },
+    rollupOptions: {
+      output: {
+        // Optimizar entrega de assets
+        assetFileNames: 'assets/[name].[hash].[ext]',
+        chunkFileNames: 'assets/[name].[hash].js',
+        entryFileNames: 'assets/[name].[hash].js',
+      }
+    },
+    esbuildOptions: {
+      // Optimizar lógica, agregar tree-shaking agresivo
+      treeShaking: true,
+      // Optimizar para tamaño
+      minifyWhitespace: true,
+      minifyIdentifiers: true,
+      minifySyntax: true,
+    },
+  }
+});
+```
+
+### Script de build optimizado
+
+```json
+// package.json
+{
+  "scripts": {
+    "build:optimized": "NODE_ENV=production vite build --mode production && node scripts/cleanup-images.js && node scripts/optimize-images.js"
+  }
+}
+```
+
+## 15. Implementación de Vercel Analytics y Speed Insights
+
+### Instalación del SDK
+
+```bash
+npm install @vercel/analytics @vercel/speed-insights
+```
+
+### Implementación en React
+
+```tsx
+// En src/main.tsx
+import { createRoot } from 'react-dom/client'
+import { SpeedInsights } from '@vercel/speed-insights/react'
+import { Analytics } from '@vercel/analytics/react'
+import App from '@/App.tsx'
+
+createRoot(document.getElementById("root")!).render(
+  <>
+    <App />
+    <SpeedInsights />
+    <Analytics />
+  </>
+);
+```
+
+### Configuración en vercel.json
+
+```json
+// vercel.json - NOTA: Esta configuración ha sido reemplazada por el SDK
+// Ya no se recomienda configurarlo así debido a problemas de validación
+{
+  "framework": "vite",
+  "github": {
+    "silent": true
+  }
+}
+``` 
