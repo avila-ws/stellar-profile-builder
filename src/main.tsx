@@ -19,4 +19,4 @@ createRoot(rootElement).render(
     <SpeedInsights/>
     <Analytics />
   </>
-);
+)
