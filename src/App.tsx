@@ -1,18 +1,18 @@
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { ThemeProvider } from "@/context/ThemeProvider";
-import { Suspense, lazy, useEffect, startTransition } from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { Suspense, lazy, useEffect } from "react";
 import LoadingSpinner from "@/components/ui/loading-spinner";
 import { SkipLink } from "@/components/ui/skip-link";
 import { HelmetProvider } from "react-helmet-async";
 import { getVersionInfo } from "@/config/version";
 import { VersionBadge } from "@/components/ui/version-badge";
 
-// Lazy loading de componentes
-const Index = lazy(() => import("@/pages/Index"));
-const NotFound = lazy(() => import("@/pages/NotFound"));
+// Lazy loading de componentes con rutas relativas
+const Index = lazy(() => import("./pages/Index"));
+const NotFound = lazy(() => import("./pages/NotFound"));
 
 const helmetContext = {};
 
@@ -20,17 +20,12 @@ const helmetContext = {};
 const VersionLogger = () => {
   useEffect(() => {
     const versionInfo = getVersionInfo();
-    // Usar startTransition para operaciones no críticas
-    startTransition(() => {
-      console.log(
-        `%c📦 Stellar Profile Builder %c${versionInfo.formattedString}`,
-        "color: #3b82f6; font-weight: bold; font-size: 14px;",
-        "color: #10b981; font-weight: normal; font-size: 12px;"
-      );
-      
-      // Evento de carga inicial - se registrará automáticamente por SpeedInsights
-      console.log('App initialized, SpeedInsights should track automatically');
-    });
+    console.log(
+      `📦 Stellar Profile Builder ${versionInfo.formattedString}`
+    );
+    
+    // Evento de carga inicial - se registrará automáticamente por SpeedInsights
+    console.log('App initialized, SpeedInsights should track automatically');
   }, []);
   
   return null;
@@ -41,11 +36,11 @@ const ResourcePreloader = () => {
   useEffect(() => {
     // Precargar el componente principal después de que la página esté idle
     const preloadMainComponent = () => {
-      const importPromise = import("@/pages/Index");
+      const importPromise = import("./pages/Index");
       // Iniciar carga en segundo plano
       return importPromise;
     };
-    
+
     // Usar requestIdleCallback para precargar cuando el navegador esté inactivo
     if ('requestIdleCallback' in window) {
       window.requestIdleCallback(() => {
@@ -56,7 +51,7 @@ const ResourcePreloader = () => {
       setTimeout(preloadMainComponent, 1000);
     }
   }, []);
-  
+
   return null;
 };
 
@@ -70,16 +65,14 @@ const App = () => (
           <Suspense fallback={<LoadingSpinner />}>
             <Routes>
               <Route path="/" element={<Index />} />
-              {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
               <Route path="*" element={<NotFound />} />
             </Routes>
           </Suspense>
+          <Toaster />
+          <Sonner />
+          <VersionLogger />
+          <VersionBadge position="bottom-left" />
         </BrowserRouter>
-        {/* Componentes no críticos para el FCP, cargarlos después */}
-        <Toaster />
-        <Sonner />
-        <VersionLogger />
-        <VersionBadge position="bottom-left" />
       </TooltipProvider>
     </ThemeProvider>
   </HelmetProvider>
