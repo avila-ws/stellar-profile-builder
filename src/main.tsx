@@ -8,7 +8,7 @@ import '@/i18n/config' // Import i18n configuration
 createRoot(document.getElementById("root")!).render(
   <>
     <App />
-    <SpeedInsights debug={true} />
+    <SpeedInsights/>
     <Analytics />
   </>
 );
