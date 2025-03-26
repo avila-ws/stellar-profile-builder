@@ -341,3 +341,40 @@ export const useLanguage = (namespace?: string) => {
   };
 };
 ``` 
+
+## 13. Implementación de Vercel Analytics
+
+Para monitorear el tráfico y comportamiento de los usuarios de forma respetuosa con la privacidad, se ha implementado Vercel Analytics.
+
+### Instalación del paquete
+
+```bash
+npm i @vercel/analytics
+```
+
+### Implementación en la aplicación React
+
+```tsx
+// src/main.tsx
+import { createRoot } from 'react-dom/client'
+import { SpeedInsights } from '@vercel/speed-insights/react'
+import { Analytics } from '@vercel/analytics/react'
+import App from '@/App.tsx'
+import '@/index.css'
+import '@/i18n/config' // Import i18n configuration
+
+createRoot(document.getElementById("root")!).render(
+  <>
+    <App />
+    <SpeedInsights />
+    <Analytics />
+  </>
+);
+```
+
+Esta implementación permite:
+- Seguimiento de páginas vistas
+- Medición de tasas de rebote
+- Análisis de rutas populares
+- Monitoreo del rendimiento del sitio
+- Todo sin cookies ni identificación personal de usuarios 
