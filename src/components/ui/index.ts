@@ -1,5 +1,6 @@
 // Archivo índice para componentes UI
-export { Button, buttonVariants } from "./button";
+export { Button } from "./button";
+export { buttonVariants } from "./button-utils";
 export { Tabs, TabsContent, TabsList, TabsTrigger } from "./tabs";
 export { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "./accordion";
 export { Dialog, DialogContent, DialogTitle, DialogTrigger } from "./dialog";
