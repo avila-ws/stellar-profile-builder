@@ -26,7 +26,7 @@ El objetivo principal es mostrar mis habilidades como desarrollador mientras pro
 | 7. Refactorización | 19/19 | 0/0 | 0/19 | 100% |
 | 8. Testing | 14/22 | 1/22 | 7/22 | 64% |
 | 9. SEO | 3/14 | 0/0 | 11/14 | 21% |
-| 10. UX | 1/14 | 1/14 | 12/14 | 7% |
+| 10. UX | 2/14 | 0/14 | 12/14 | 14% |
 | 11. Documentación | 0/7 | 3/7 | 4/7 | 0% |
 | 12. Monitoreo y Analytics | 4/14 | 5/14 | 5/14 | 29% |
 | 13. Plan de Contingencia | 6/6 | 0/0 | 0/0 | 100% |
@@ -79,6 +79,7 @@ Estas son las próximas tareas a abordar una vez completadas las actuales:
 
 | Tarea | Descripción | Impacto |
 |-------|-------------|---------|
+| ✅ Corrección de consistencia visual en sección de idiomas | Se eliminó el comportamiento de acordeón innecesario y se unificó el estilo con otras secciones | Mejor experiencia de usuario y coherencia visual en la aplicación |
 | ✅ Optimización del First Contentful Paint | Se implementaron técnicas avanzadas para mejorar el FCP con precarga de recursos y optimización de Vite | Reducción del tiempo de carga inicial y mejor experiencia de usuario |
 | ✅ Integración de Vercel Analytics y Speed Insights | Se implementó correctamente el monitoreo de rendimiento mediante los componentes oficiales de Vercel | Mejor visibilidad del rendimiento real de usuarios y puntuación de Core Web Vitals |
 | ✅ Actualización de versión y configuración | Se actualizó la versión a v1.0.4 en src/config/version.ts y package.json para mantener consistencia con CHANGELOG | Mejora en el seguimiento y gestión de versiones |
@@ -720,6 +721,11 @@ npx lighthouse http://localhost:8080 --view --only-categories=accessibility
      - 🔲 Feedback sutil para hover/click
      - 🔲 Transiciones entre estados de UI
      - 🔲 Animaciones de confirmación de acciones
+   - ✅ Implementación del efecto parpadeante en icono Calendar
+   - ✅ Corrección de consistencia visual en sección de idiomas
+   - 🚧 Refinamiento de efectos hover y animaciones
+   - 🔲 Mejorar transiciones de página
+   - 🔲 Optimizar experiencia móvil
 
 ### 11. Documentación
    - 🚧 Organización de archivos de documentación

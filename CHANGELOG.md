@@ -24,6 +24,10 @@ y este proyecto adhiere a [Semantic Versioning](https://semver.org/spec/v2.0.0.h
 - Actualización de la documentación con nuevas técnicas de optimización
 - Optimización de configuración de Vite para mejor rendimiento
 
+### Corregido
+- Inconsistencia visual en la sección de idiomas para mantener un diseño uniforme con otras secciones
+- Eliminación del comportamiento de acordeón innecesario en LanguageSection
+
 ## [1.0.4] - 2025-03-26
 
 ### Añadido
