@@ -102,12 +102,23 @@ export default defineConfig(({ mode, command }) => ({
     target: 'es2020',
     // Añadir módulo de precarga
     modulePreload: { polyfill: true },
+    // Asegurar que no haya problemas con las URLs de importaciones dinámicas
+    assetsInlineLimit: 4096,
+    // Mejorar compatibilidad con diferentes entornos de despliegue
+    dynamicImportVarsOptions: {
+      warnOnError: true,
+      exclude: []
+    },
     rollupOptions: {
       output: {
+        // Formato de carga más compatible con diversos entornos
+        format: 'es',
         // Optimizar entrega de assets
         assetFileNames: 'assets/[name].[hash].[ext]',
         chunkFileNames: 'assets/[name].[hash].js',
         entryFileNames: 'assets/[name].[hash].js',
+        // Evitar rutas dinámicas para carga de módulos
+        hoistTransitiveImports: false,
         manualChunks: {
           'vendor': [
             'react', 
