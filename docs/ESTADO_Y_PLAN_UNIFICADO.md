@@ -39,6 +39,7 @@ El objetivo principal es mostrar mis habilidades como desarrollador mientras pro
 | 20. Cumplimiento y Regulaciones | 0/10 | 0/0 | 10/10 | 0% |
 | 21. Privacidad por Diseño | 0/7 | 0/0 | 7/7 | 0% |
 | 22. Internacionalización Legal | 0/4 | 0/0 | 4/4 | 0% |
+| 23. Plan de Infraestructura Multiplataforma | 0/4 | 0/0 | 4/4 | 0% |
 | **TOTAL** | **82/236** | **7/236** | **147/236** | **35%** |
 
 ## 🔥 Tareas Actuales (En Foco)
@@ -78,6 +79,9 @@ Estas son las próximas tareas a abordar una vez completadas las actuales:
 
 | Tarea | Descripción | Impacto |
 |-------|-------------|---------|
+| ✅ Actualización de versión y configuración | Se actualizó la versión a v1.0.4 en src/config/version.ts y package.json para mantener consistencia con CHANGELOG | Mejora en el seguimiento y gestión de versiones |
+| ✅ Implementación de detección de entorno | Se configuró APP_VERSION para mostrar automáticamente el entorno (development/production) | Mayor claridad en la identificación del entorno de ejecución |
+| ✅ Análisis y selección de plataformas de despliegue | Se evaluaron múltiples plataformas y se seleccionó Vercel como principal, con GitHub Pages + Cloudflare como respaldo | Plan de contingencia robusto para evitar dependencia de una única plataforma |
 | ✅ Actualización de dependencias y resolución de vulnerabilidades | Se actualizó Vite a v6.2.2 y otras dependencias para resolver vulnerabilidades en esbuild y nanoid | Mejora en la seguridad de la aplicación y eliminación de advertencias de vulnerabilidades |
 | ✅ Corrección de importaciones de useTheme | Se actualizaron las rutas de importación del hook useTheme en múltiples componentes UI | Corrección de errores de compilación y mejor compatibilidad con la estructura modular del proyecto |
 | ✅ Implementación del efecto parpadeante en icono Calendar | Se añadió una animación de parpadeo sutil para atraer la atención al calendario de reservas | Mejora de la experiencia de usuario y aumento de visibilidad para la funcionalidad de contacto |
@@ -668,9 +672,15 @@ npx lighthouse http://localhost:8080 --view --only-categories=accessibility
    - ✅ Analytics básico (Umami Analytics) - Completado
      - ✅ Implementación configurada
      - ✅ Eventos configurados: pageviews, clicks en CTAs, formularios completados
+   - 🚧 Herramientas de monitoreo gratuitas/económicas
+     - 🚧 New Relic Browser (Free Tier) - Monitoreo de rendimiento
+     - 🚧 LogRocket (Free plan) - Reproducción de errores de usuario
+     - 🚧 Upptime (OSS) - Monitoreo de tiempo de actividad con GitHub Actions
+     - 🚧 Cloudflare Web Analytics - Analytics sin cookies
+     - 🚧 Better Stack (ex Logtail) - Logging centralizado con plan gratuito
    - 🔲 ⭐ Performance monitoring
      - 🔲 Configurar New Relic Browser
-     - 🔲 Implementar logging centralizado con Logflare
+     - 🔲 Implementar logging centralizado con Better Stack
    - 🔲 Dashboard de métricas internas
      - 🔲 Implementar visualización de usuarios activos
      - 🔲 Implementar visualización de tiempos de carga
@@ -684,7 +694,7 @@ npx lighthouse http://localhost:8080 --view --only-categories=accessibility
    - 🔲 Procedimiento para análisis de errores
      - 🔲 Documentar flujo para debugging:
        - 🔲 Verificar panel de Sentry para detalles del error
-       - 🔲 Revisar logs en Logflare para contexto
+       - 🔲 Revisar logs en Better Stack para contexto
        - 🔲 Reproducir error en entorno de desarrollo
        - 🔲 Verificar variables de entorno y configuraciones
        - 🔲 Documentar solución en ticket correspondiente
@@ -859,6 +869,20 @@ npx lighthouse http://localhost:8080 --view --only-categories=accessibility
      - 🔲 Generación de notas de release
 
 ### 16. Containerización y Despliegue
+   - 🔲 Análisis y selección de plataformas de despliegue
+     - 🔲 Evaluación de opciones (Vercel, Netlify, GitHub Pages, AWS)
+     - 🔲 Selección de Vercel como plataforma principal
+     - 🔲 Establecimiento de GitHub Pages + Cloudflare como plataforma de respaldo
+   - 🚧 Configuración de despliegue en Vercel
+     - 🚧 Integración con GitHub para despliegue automático
+     - 🚧 Configuración de variables de entorno
+     - 🚧 Optimización de la configuración para React/Vite
+     - 🚧 Configuración de dominios y SSL
+   - 🔲 Configuración de respaldo en GitHub Pages + Cloudflare
+     - 🔲 Configuración del workflow de GitHub Actions
+     - 🔲 Integración con Cloudflare para CDN y SSL
+     - 🔲 Configuración de dominio personalizado
+     - 🔲 Redirecciones y manejo de SPA
    - 🔲 Configuración de Docker
      ```dockerfile
      # Dockerfile
@@ -952,301 +976,6 @@ npx lighthouse http://localhost:8080 --view --only-categories=accessibility
    - 🔲 Monitoreo de contenedores
      - 🔲 Recolección de métricas
      - 🔲 Alertas de salud
-
-## 📈 Métricas Actuales
-
-### Estado Actual del Rendimiento (Lighthouse)
-
-| Métrica | Valor Actual | Objetivo | Estado |
-|---------|--------------|----------|---------|
-| Performance | 85/100 | >90/100 | 🚧 En progreso |
-| First Contentful Paint | 1.2s | <1s | 🚧 En progreso |
-| Largest Contentful Paint | 1.8s | <2s | ✅ Cumplido |
-| Cumulative Layout Shift | 0.03 | <0.1 | ✅ Cumplido |
-| Total Bundle Size | ~800KB | <1MB | ✅ Cumplido |
-
-### Análisis de Bundle Actual
-
-| Tipo de Archivo | Tamaño Total | GZIP | % del Total |
-|-----------------|--------------|------|-------------|
-| JavaScript | 537.29 KB | 349.23 KB | 14.5% |
-| CSS | 51.09 KB | 33.21 KB | 1.4% |
-| Imágenes | 37.65 KB | 24.47 KB | 1.0% |
-| Otros | 971.49 KB | 631.67 KB | 26.2% |
-| **Total** | **1,597.52 KB** | **1,038.58 KB** | **100%** |
-
-### Optimizaciones de Imágenes Completadas
-
-| Imagen | Tamaño Original | Tamaño Optimizado | Ahorro |
-|--------|-----------------|-------------------|--------|
-| Avatar (74204ed6-b70d-42fc-962a-ad475ddd4383) | 1.84 MB | 0.02 MB | 98.75% |
-| og-image | 0.22 MB | 0.01 MB | 93.75% |
-
-### Scripts de Optimización Implementados
-
-| Script | Función | Estado |
-|--------|---------|--------|
-| optimize-images.js | Conversión automática a WebP | ✅ Activo |
-| cleanup-images.js | Limpieza de imágenes originales | ✅ Activo |
-| analyze-bundle.js | Análisis de tamaño del bundle | ✅ Activo |
-| find-duplicates.cjs | Detección de dependencias duplicadas | ✅ Activo |
-
-### Dependencias Duplicadas Resueltas
-
-| Paquete | Versiones Anteriores | Versión Actual |
-|---------|----------------------|-----------------|
-| string-width | 5.1.2, 4.2.3 | 5.1.2 |
-| strip-ansi | 7.1.0, 6.0.1 | 7.1.0 |
-| wrap-ansi | 8.1.0, 7.0.0 | 8.1.0 |
-
-### Dependencias Duplicadas Identificadas
-
-| Paquete | Versiones Presentes | Estado | Impacto |
-|---------|---------------------|---------|---------|
-| string-width | 5.1.2, 4.2.3 | ✅ Normal | No afecta el bundle final |
-| strip-ansi | 7.1.0, 6.0.1 | ✅ Normal | No afecta el bundle final |
-| wrap-ansi | 8.1.0, 7.0.0 | ✅ Normal | No afecta el bundle final |
-
-Nota: Las duplicaciones identificadas son necesarias para la compatibilidad entre módulos CommonJS y ESM, y no afectan el rendimiento de la aplicación ni el tamaño del bundle final. Estas duplicaciones son parte de las dependencias de desarrollo y son un comportamiento normal en el ecosistema Node.js.
-
-### Estimación de Esfuerzo Restante
-
-| Área | Esfuerzo Total (horas) | Completado | Restante |
-|------|------------------------|------------|----------|
-| Desarrollo Frontend | 320 | 70% | 96h |
-| Testing | 120 | 25% | 90h |
-| Optimización | 80 | 35% | 52h |
-| Documentación | 40 | 45% | 22h |
-| DevOps | 60 | 15% | 51h |
-| Seguridad | 40 | 25% | 30h |
-| **TOTAL** | **660** | **50%** | **341h** |
-
-## ⚠️ Riesgos y Mitigaciones
-
-### Riesgos de Performance
-
-| Riesgo | Impacto | Probabilidad | Mitigación |
-|--------|---------|--------------|------------|
-| Regresiones de rendimiento con nuevas features | ALTO | ALTA | Implementar presupuestos de rendimiento en CI y monitoreo constante |
-| Optimizaciones prematuras | MEDIO | MEDIA | Medir primero, optimizar según datos reales |
-| Problemas en dispositivos de gama baja | ALTO | MEDIA | Probar en dispositivos reales y emuladores con CPU/red limitada |
-| Caching agresivo que impide actualizaciones | MEDIO | BAJA | Implementar estrategias de invalidación de cache y versionado |
-
-### Riesgos de Planificación
-
-| Riesgo | Impacto | Probabilidad | Estrategia |
-|--------|---------|--------------|------------|
-| Subestimación del esfuerzo de testing | ALTO | MEDIA | Buffer de 20% en estimaciones |
-| Desafíos técnicos en optimización | MEDIO | ALTA | Investigación previa para problemas complejos |
-| Cambios en requerimientos | ALTO | MEDIA | Congelar alcance hasta completar funcionalidades críticas |
-| Limitaciones de tiempo disponible | MEDIO | ALTA | Priorización estricta en tareas de alto impacto |
-
-## 📝 Lecciones Aprendidas
-
-1. **Complejidad de ChatBot subestimada**: La integración con servicios externos y manejo de estado resultó más compleja de lo previsto. Para componentes similares, incrementar estimación en 30%.
-
-2. **Reutilización efectiva de componentes UI**: La estructura modular permitió completar esta área más rápido de lo esperado. Continuar con enfoque de diseño modular.
-
-3. **Testing insuficiente en fases tempranas**: Generó retrabajo. Incluir testing unitario desde el inicio del desarrollo.
-
-## 💻 Implementaciones Técnicas de Referencia
-
-### 1. Script de Pipeline Completo (CI/CD)
-
-```bash
-#!/bin/bash
-# run-pipeline.sh - Pipeline completo de pruebas y despliegue
-
-set -e  # Detener ejecución en caso de error
-
-echo "🔄 Iniciando pipeline completo: $(date)"
-
-echo "📦 Instalando dependencias..."
-npm ci
-
-echo "🧪 Fase 1: Pruebas Unitarias"
-npm run test:coverage || { echo "❌ Pruebas unitarias fallidas"; exit 1; }
-
-echo "🧪 Fase 2: Pruebas E2E"
-npx playwright test || { echo "❌ Pruebas E2E fallidas"; exit 1; }
-
-echo "♿ Fase 3: Pruebas de Accesibilidad"
-npm run test:a11y || { echo "❌ Pruebas de accesibilidad fallidas"; exit 1; }
-
-echo "🔍 Fase 4: Análisis de código"
-npm run lint || { echo "❌ Lint fallido"; exit 1; }
-npm run type-check || { echo "❌ Type check fallido"; exit 1; }
-
-echo "🛡️ Fase 5: Análisis de seguridad"
-npm audit --production || echo "⚠️ Alertas de seguridad detectadas"
-npx snyk test || echo "⚠️ Snyk detectó posibles vulnerabilidades"
-
-echo "🚀 Fase 6: Construcción"
-npm run build || { echo "❌ Construcción fallida"; exit 1; }
-
-echo "📊 Fase 7: Análisis de rendimiento"
-npm run analyze-bundle || echo "⚠️ Análisis de bundle con advertencias"
-npx lighthouse-ci || echo "⚠️ Lighthouse detectó problemas de rendimiento"
-
-echo "📦 Fase 8: Empaquetado"
-docker build -t stellar-profile:$(git rev-parse --short HEAD) . || { echo "❌ Creación de imagen Docker fallida"; exit 1; }
-
-echo "📋 Fase 9: Generación de informes"
-mkdir -p reports
-echo "- Informe generado: $(date)" > reports/pipeline-report.txt
-echo "- Commit: $(git rev-parse HEAD)" >> reports/pipeline-report.txt
-echo "- Versión: $(node -p "require('./package.json').version")" >> reports/pipeline-report.txt
-npm run generate-docs
-
-echo "🌐 Fase 10: Despliegue a Staging"
-./scripts/deploy-staging.sh
-
-echo "✅ Pipeline completado con éxito: $(date)"
-echo "🔗 Staging URL: https://staging-stellar-profile.example.com/$(git rev-parse --short HEAD)"
-```
-
-### 2. Optimización de Imágenes (Implementación)
-
-```jsx
-<img
-  src="/imagen.webp"
-  srcSet="/imagen-small.webp 500w, /imagen-medium.webp 1000w, /imagen-large.webp 1500w"
-  sizes="(max-width: 600px) 500px, (max-width: 1200px) 1000px, 1500px"
-  loading="lazy"
-  width="800"
-  height="600"
-  alt="Descripción de imagen"
-/>
-```
-
-### 2. Configuración de Caching (Implementación en vite.config.ts)
-
-```js
-build: {
-  rollupOptions: {
-    output: {
-      manualChunks: {
-        vendor: ['react', 'react-dom'],
-        ui: ['./src/components/ui'],
-      }
-    }
-  }
-}
-```
-
-### 3. Preload de Recursos Críticos (Implementación)
-
-```html
-<link rel="preload" href="/fonts/inter.woff2" as="font" type="font/woff2" crossorigin />
-```
-
-### 4. Comandos para Análisis de Rendimiento
-
-```bash
-# Con Lighthouse (métricas de rendimiento)
-npx lighthouse http://localhost:8080 --view --only-categories=performance
-
-# Usando Playwright para métricas web
-npx playwright test e2e/performance.spec.ts
-```
-
-### 5. Monitoreo de Errores (Implementación con Sentry)
-
-```javascript
-// En _app.tsx
-import * as Sentry from '@sentry/react';
-
-Sentry.init({
-  dsn: process.env.NEXT_PUBLIC_SENTRY_DSN,
-  environment: process.env.NODE_ENV,
-  tracesSampleRate: 0.2,
-});
-```
-
-### 6. Analytics (Implementación con Umami)
-
-```jsx
-// En _document.tsx
-<script
-  async
-  defer
-  data-website-id="abc123def456"
-  src="https://analytics.ejemplo.com/script.js"
-/>
-```
-
-### 7. Dashboard de Monitoreo (Implementación propuesta)
-
-```jsx
-// components/admin/MetricsDashboard.tsx
-import { useState, useEffect } from 'react';
-import { fetchMetrics } from '@/lib/api/metrics';
-import { 
-  Chart, 
-  LineElement, 
-  PointElement, 
-  LineController, 
-  CategoryScale 
-} from 'chart.js';
-import { Line } from 'react-chartjs-2';
-
-Chart.register(LineElement, PointElement, LineController, CategoryScale);
-
-export function MetricsDashboard() {
-  const [metrics, setMetrics] = useState(null);
-  
-  useEffect(() => {
-    const getMetrics = async () => {
-      const data = await fetchMetrics();
-      setMetrics(data);
-    };
-    
-    getMetrics();
-    const interval = setInterval(getMetrics, 60000);
-    return () => clearInterval(interval);
-  }, []);
-  
-  if (!metrics) return <div>Cargando métricas...</div>;
-  
-  return (
-    <div className="metrics-dashboard">
-      <h2>Métricas en Tiempo Real</h2>
-      
-      <div className="metrics-grid">
-        <div className="metric-card">
-          <h3>Usuarios Activos</h3>
-          <p className="metric-value">{metrics.activeUsers}</p>
-        </div>
-        
-        <div className="metric-card">
-          <h3>Tiempo de Carga Promedio</h3>
-          <p className="metric-value">{metrics.avgLoadTime}ms</p>
-        </div>
-        
-        <div className="metric-card">
-          <h3>Errores (24h)</h3>
-          <p className="metric-value">{metrics.errorCount}</p>
-        </div>
-      </div>
-      
-      <div className="charts-container">
-        <Line 
-          data={metrics.performanceData} 
-          options={{
-            responsive: true,
-            plugins: {
-              title: {
-                display: true,
-                text: 'Rendimiento (Últimas 24h)'
-              }
-            }
-          }}
-        />
-      </div>
-    </div>
-  );
-}
-```
 
 ### 17. Infraestructura como Código (IaC)
    - 🔲 Configuración de Terraform para AWS
@@ -1597,6 +1326,89 @@ export function MetricsDashboard() {
      - 🔲 Estrategia de actualización de contenido existente
      - 🔲 Promoción recurrente de contenido perenne
      - 🔲 Vinculación estratégica entre contenidos
+
+### 24. Herramientas de Monitoreo y Observabilidad
+
+#### Opciones Gratuitas/Económicas Recomendadas
+
+| Herramienta | Características | Plan Gratuito | Caso de Uso |
+|-------------|-----------------|---------------|-------------|
+| Sentry.io | Monitoreo de errores, performance, sesiones de usuario | 5K errores/mes, 1 miembro | Captura y análisis de errores en tiempo real |
+| New Relic Browser | Monitoreo frontend, performance, errores JS | 100K cargas de página/mes | Análisis de performance del lado cliente |
+| LogRocket | Reproducción de sesiones, errores contextuales | 1K sesiones/mes, 30 días retención | Debugging visual de problemas de usuario |
+| Upptime | Monitoreo de tiempo de actividad, páginas de estado | 100% gratuito (usa GitHub Actions) | Monitoreo de disponibilidad y tiempo de respuesta |
+| Cloudflare Web Analytics | Análisis de tráfico sin cookies | Gratuito sin límites | Analytics respetuosos con privacidad |
+| Better Stack (Logtail) | Logging centralizado, alertas | 50MB/día, 3 días retención | Centralización y análisis de logs |
+| Grafana Cloud | Dashboards, métricas, logs, alertas | 10K series/métrica, 50GB logs | Visualización completa del estado del sistema |
+| Checkly | Monitoreo de APIs y E2E sintético | 5 checks, cada 10 min | Pruebas automáticas de disponibilidad |
+
+#### Configuración Recomendada para Monitoreo Completo
+
+1. **Monitoreo de Errores y Performance**: Sentry + New Relic Browser (Free)
+   - Captura todos los errores de frontend
+   - Monitoreo de Core Web Vitals y performance
+   - Alertas configuradas para errores críticos
+
+2. **Experiencia de Usuario**: LogRocket (Free) + Cloudflare Web Analytics
+   - Reproducción de sesiones problemáticas
+   - Análisis de comportamiento de usuario
+   - Métricas de uso sin problemas de cookies
+
+3. **Disponibilidad y Tiempo de Respuesta**: Upptime (OSS)
+   - Página de estado pública
+   - Monitoreo constante de endpoints críticos
+   - Alertas de tiempo de inactividad
+
+4. **Logging Centralizado**: Better Stack (Free)
+   - Centralización de todos los logs
+   - Búsqueda y análisis de problemas
+   - Correlación de eventos con errores
+
+5. **Visualización y Alertas**: Grafana Cloud (Free)
+   - Dashboards personalizados
+   - Correlación de métricas y logs
+   - Sistema unificado de alertas
+
+#### Implementación Progresiva
+
+1. **Fase 1 (Inmediata)**
+   - Sentry para errores
+   - Cloudflare Web Analytics para métricas básicas
+   - Upptime para monitoreo de disponibilidad
+
+2. **Fase 2 (Corto plazo)**
+   - New Relic Browser para performance
+   - Better Stack para logging
+   - LogRocket para sesiones problemáticas
+
+3. **Fase 3 (Medio plazo)**
+   - Grafana Cloud para dashboards unificados
+   - Checkly para pruebas sintéticas
+   - Sistema de alertas avanzado
+
+### 23. Plan de Infraestructura Multiplataforma
+   - 🔲 Estrategia principal-secundaria para despliegues
+     - 🔲 Vercel como plataforma principal
+       - Ventajas: Optimizada para React/Vite, facilidad de uso, excelente rendimiento, plan gratuito generoso
+       - Configuración: Integración con GitHub, despliegue automático, preview deployments
+       - Monitoreo: Integración con Sentry, Analytics, y alertas
+       - Dominio: Configuración de dominio personalizado con SSL automático
+     - 🔲 GitHub Pages + Cloudflare como plataforma de respaldo
+       - Ventajas: Alta disponibilidad, independencia de proveedores SaaS, gratuito
+       - Configuración: GitHub Actions para CI/CD, Cloudflare para CDN/SSL
+       - Estrategia de activación: Script automatizado para detectar fallos en plataforma principal
+   - 🔲 Sincronización entre plataformas
+     - 🔲 Script de verificación de estado de despliegue principal
+     - 🔲 Proceso automatizado de failover a plataforma secundaria
+     - 🔲 Automatización para mantener configuraciones sincronizadas
+   - 🔲 Infraestructura como Código para gestión multiplataforma
+     - 🔲 Configuración con Terraform para infraestructura compartida
+     - 🔲 CloudFormation/Terraform para AWS (alternativa futura)
+     - 🔲 Pulumi para recursos multi-cloud
+   - 🔲 Pruebas de resiliencia
+     - 🔲 Simulación de fallos en plataforma principal
+     - 🔲 Pruebas de failover automático
+     - 🔲 Medición de tiempos de recuperación
 
 ## 📚 Documentación y Recursos de Referencia
 
