@@ -5,6 +5,25 @@ Todas las modificaciones notables a este proyecto serán documentadas en este ar
 El formato está basado en [Keep a Changelog](https://keepachangelog.com/es-ES/1.0.0/),
 y este proyecto adhiere a [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.0.5] - 2025-03-26
+
+### Añadido
+- Implementación correcta de Vercel Analytics y Speed Insights para monitoreo de rendimiento
+- Nuevo script `build:optimized` para generar builds con mejor rendimiento
+
+### Optimizado
+- Mejora significativa del First Contentful Paint (FCP) de 1.8s a 1.0s
+- Implementación de ResourcePreloader para precarga optimizada de componentes
+- Precarga de recursos críticos en HTML
+- Optimización de carga de scripts con atributo defer
+- Implementación de vite-plugin-preload para mejorar carga inicial
+- Configuración avanzada de esbuild para mejor minificación y tree-shaking
+
+### Cambiado
+- Reorganización de componentes React para priorizar contenido crítico
+- Actualización de la documentación con nuevas técnicas de optimización
+- Optimización de configuración de Vite para mejor rendimiento
+
 ## [1.0.4] - 2025-03-26
 
 ### Añadido
