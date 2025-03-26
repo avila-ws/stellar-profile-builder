@@ -79,7 +79,7 @@ Estas son las próximas tareas a abordar una vez completadas las actuales:
 
 | Tarea | Descripción | Impacto |
 |-------|-------------|---------|
-| ✅ Corrección de consistencia visual en sección de idiomas | Se eliminó el comportamiento de acordeón innecesario y se unificó el estilo con otras secciones | Mejor experiencia de usuario y coherencia visual en la aplicación |
+| ✅ Mejora de consistencia visual en sección de idiomas | Se mantuvo la funcionalidad de acordeón mientras se mejoró la apariencia visual para hacerla coherente con otras secciones | Mejor experiencia de usuario preservando la interactividad original |
 | ✅ Optimización del First Contentful Paint | Se implementaron técnicas avanzadas para mejorar el FCP con precarga de recursos y optimización de Vite | Reducción del tiempo de carga inicial y mejor experiencia de usuario |
 | ✅ Integración de Vercel Analytics y Speed Insights | Se implementó correctamente el monitoreo de rendimiento mediante los componentes oficiales de Vercel | Mejor visibilidad del rendimiento real de usuarios y puntuación de Core Web Vitals |
 | ✅ Actualización de versión y configuración | Se actualizó la versión a v1.0.4 en src/config/version.ts y package.json para mantener consistencia con CHANGELOG | Mejora en el seguimiento y gestión de versiones |
@@ -722,7 +722,7 @@ npx lighthouse http://localhost:8080 --view --only-categories=accessibility
      - 🔲 Transiciones entre estados de UI
      - 🔲 Animaciones de confirmación de acciones
    - ✅ Implementación del efecto parpadeante en icono Calendar
-   - ✅ Corrección de consistencia visual en sección de idiomas
+   - ✅ Mejora de consistencia visual en sección de idiomas
    - 🚧 Refinamiento de efectos hover y animaciones
    - 🔲 Mejorar transiciones de página
    - 🔲 Optimizar experiencia móvil

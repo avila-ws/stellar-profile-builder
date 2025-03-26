@@ -25,8 +25,8 @@ y este proyecto adhiere a [Semantic Versioning](https://semver.org/spec/v2.0.0.h
 - Optimización de configuración de Vite para mejor rendimiento
 
 ### Corregido
-- Inconsistencia visual en la sección de idiomas para mantener un diseño uniforme con otras secciones
-- Eliminación del comportamiento de acordeón innecesario en LanguageSection
+- Mejorada la consistencia visual en la sección de idiomas, manteniendo la funcionalidad de acordeón
+- Añadida indicación de clic para visualizar idiomas cuando está colapsado
 
 ## [1.0.4] - 2025-03-26
 
