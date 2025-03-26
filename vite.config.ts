@@ -52,7 +52,7 @@ export default defineConfig(({ mode, command }) => ({
         "object-src 'none'; " +
         "base-uri 'self'; " +
         "form-action 'self'; " +
-        "frame-ancestors 'self' https://avila.ws https://*.google.com; " +
+        "frame-ancestors 'self' https://avila.ws https://*.google.com https://*.lovable.dev https://*.lovable.app; " +
         "worker-src 'self' blob: data:; " +
         "manifest-src 'self'",
 
