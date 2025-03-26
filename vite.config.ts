@@ -1,4 +1,3 @@
-
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react-swc";
 import path from "path";
@@ -7,16 +6,10 @@ import { visualizer } from 'rollup-plugin-visualizer'
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode, command }) => ({
-  base: "/", // Use root relative path for Lovable compatibility
+  base: "./",
   server: {
     host: "::",
     port: 8080,
-    cors: {
-      origin: "*", // More permissive for development
-      allowedHeaders: ["Origin", "X-Requested-With", "Content-Type", "Accept", "Authorization"],
-      methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
-      credentials: true,
-    },
     headers: {
       // CSP más permisivo para permitir scripts durante desarrollo
       'Content-Security-Policy': mode === 'development' ? 
@@ -27,15 +20,15 @@ export default defineConfig(({ mode, command }) => ({
         "font-src 'self' data: https://fonts.gstatic.com; " +
         "img-src 'self' data: blob: https:; " +
         "connect-src 'self' ws: wss: http: https:; " +
-        "frame-src 'self' https://*.google.com https://*.lovableproject.com https://*.lovable.app https://*.lovable.dev https://lovable.dev; " +
+        "frame-src 'self' https://*.google.com; " +
         "media-src 'self' blob: https: data:; " +
         "object-src 'none'; " +
         "base-uri 'self'; " +
         "form-action 'self'; " +
-        "frame-ancestors 'self' https://*.lovableproject.com https://*.lovable.app https://*.lovable.dev https://lovable.dev https://id-preview--*.lovable.app; " +
+        "frame-ancestors 'self'; " +
         "worker-src 'self' blob: data:; " +
         "manifest-src 'self'" :
-        // Versión más restrictiva para producción, pero permitiendo Lovable
+        // Versión más restrictiva para producción
         "default-src 'self'; " +
         "script-src 'self' 'unsafe-inline' 'unsafe-eval' " +
         "https://cdn.gpteng.co " +
@@ -48,31 +41,24 @@ export default defineConfig(({ mode, command }) => ({
         "https://*.gstatic.com " +
         "https://www.googletagmanager.com " +
         "https://play.google.com/ " +
-        "https://lovable.dev " +
-        "https://*.lovable.dev " +
-        "https://*.lovableproject.com " +
         "data: blob:; " +
-        "connect-src 'self' https://avila.ws https://apis.google.com https://static.cloudflareinsights.com https://play.google.com https://*.googleapis.com wss://*.lovableproject.com wss://*.lovable.app wss://*.lovable.dev https://lovable.dev https://*.lovable.dev https://*.lovableproject.com; " +
+        "connect-src 'self' https://avila.ws https://apis.google.com https://static.cloudflareinsights.com https://play.google.com https://*.googleapis.com; " +
         "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://*.gstatic.com; " +
         "font-src 'self' data: https://fonts.gstatic.com; " +
         "img-src 'self' data: blob: https:; " +
-        "frame-src 'self' https://*.google.com https://avila.ws https://lovable.dev https://*.lovable.dev https://*.lovableproject.com; " +
+        "frame-src 'self' https://*.google.com https://avila.ws; " +
         "media-src 'self' blob: https: data:; " +
         "object-src 'none'; " +
         "base-uri 'self'; " +
         "form-action 'self'; " +
-        "frame-ancestors 'self' https://avila.ws https://*.google.com https://*.lovableproject.com https://*.lovable.app https://*.lovable.dev https://lovable.dev https://id-preview--*.lovable.app; " +
+        "frame-ancestors 'self' https://avila.ws https://*.google.com; " +
         "worker-src 'self' blob: data:; " +
         "manifest-src 'self'",
 
       // Headers adicionales de seguridad
       'X-Content-Type-Options': 'nosniff',
+      'X-Frame-Options': 'SAMEORIGIN',
       'X-XSS-Protection': '1; mode=block',
-      
-      // Headers CORS ajustados para permitir lovable.dev
-      'Access-Control-Allow-Origin': '*',
-      'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, OPTIONS',
-      'Access-Control-Allow-Headers': 'Origin, X-Requested-With, Content-Type, Accept, Authorization',
       
       // Headers para cookies
       'Set-Cookie': [
@@ -81,15 +67,6 @@ export default defineConfig(({ mode, command }) => ({
         'HttpOnly'
       ].join('; ')
     },
-    // Permitir hosts de Lovable
-    allowedHosts: [
-      '1ea06da7-316a-40c1-96c1-33bf4405384b.lovableproject.com',
-      '.lovableproject.com',
-      '.lovable.app',
-      '.lovable.dev',
-      'lovable.dev',
-      'id-preview--1ea06da7-316a-40c1-96c1-33bf4405384b.lovable.app'
-    ],
   },
   plugins: [
     react(),

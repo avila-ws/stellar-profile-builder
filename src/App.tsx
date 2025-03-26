@@ -1,4 +1,3 @@
-
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -11,19 +10,13 @@ import { HelmetProvider } from "react-helmet-async";
 import { getVersionInfo } from "@/config/version";
 import { VersionBadge } from "@/components/ui/version-badge";
 
-// Configuration for Lovable environment
-const isLovableEnv = window.location.hostname.includes('lovable') || 
-                     window.location.hostname.includes('lovableproject');
-console.log('Environment detection:', isLovableEnv ? 'Lovable environment' : 'Standard environment', 
-            'Hostname:', window.location.hostname);
-
-// Lazy loading components
+// Lazy loading de componentes
 const Index = lazy(() => import("@/pages/Index"));
 const NotFound = lazy(() => import("@/pages/NotFound"));
 
 const helmetContext = {};
 
-// Component to display version information
+// Componente que muestra la información de versión
 const VersionLogger = () => {
   useEffect(() => {
     const versionInfo = getVersionInfo();
@@ -32,7 +25,6 @@ const VersionLogger = () => {
       "color: #3b82f6; font-weight: bold; font-size: 14px;",
       "color: #10b981; font-weight: normal; font-size: 12px;"
     );
-    console.log("Entorno detectado:", isLovableEnv ? "Lovable" : "Producción");
   }, []);
   
   return null;
@@ -46,7 +38,7 @@ const App = () => (
         <Sonner />
         <VersionLogger />
         <VersionBadge position="bottom-left" />
-        <BrowserRouter basename="/">
+        <BrowserRouter>
           <SkipLink href="#main-content" />
           <Suspense fallback={<LoadingSpinner />}>
             <Routes>
