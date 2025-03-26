@@ -63,6 +63,9 @@
     "title": "Educación",
     "click_details": "Haz clic para ver detalles sobre {{count}} título(s)"
   },
+  "languages": {
+    "click_to_view": "Haz clic para ver idiomas"
+  },
   "skills": {
     "title": "Habilidades",
     "technical_skills": "Habilidades Técnicas",

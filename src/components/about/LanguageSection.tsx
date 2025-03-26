@@ -22,7 +22,7 @@ const LanguageSection = () => {
   };
   
   return (
-    <Card className="p-6 border border-border">
+    <Card className="p-6 border border-border cursor-pointer hover:bg-accent/10 transition-colors" onClick={toggleAccordion}>
       <Accordion 
         type="single" 
         collapsible 
@@ -31,12 +31,12 @@ const LanguageSection = () => {
         onValueChange={(value) => setLanguagesOpen(value === "languages")}
       >
         <AccordionItem value="languages" className="border-none">
-          <div className="flex items-center justify-between cursor-pointer" onClick={toggleAccordion}>
+          <div className="flex items-center justify-between">
             <h3 className="text-xl font-semibold flex items-center">
               <Globe className="h-6 w-6 text-primary mr-2 flex-shrink-0" />
               {t('about.languages')}
             </h3>
-            <AccordionTrigger className="hover:no-underline py-0 p-0 flex">
+            <AccordionTrigger className="hover:no-underline py-0 p-0 flex" onClick={(e) => e.stopPropagation()}>
               <span className="sr-only">{t('accessibility.toggle')}</span>
             </AccordionTrigger>
           </div>

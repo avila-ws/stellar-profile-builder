@@ -63,6 +63,9 @@
     "title": "Education",
     "click_details": "Click to see details about {{count}} degree(s)"
   },
+  "languages": {
+    "click_to_view": "Click to view languages"
+  },
   "skills": {
     "title": "Skills",
     "technical_skills": "Technical Skills",
