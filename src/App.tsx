@@ -25,6 +25,9 @@ const VersionLogger = () => {
       "color: #3b82f6; font-weight: bold; font-size: 14px;",
       "color: #10b981; font-weight: normal; font-size: 12px;"
     );
+    
+    // Evento de carga inicial - se registrará automáticamente por SpeedInsights
+    console.log('App initialized, SpeedInsights should track automatically');
   }, []);
   
   return null;
