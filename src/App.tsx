@@ -1,3 +1,4 @@
+
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -10,9 +11,10 @@ import { HelmetProvider } from "react-helmet-async";
 import { getVersionInfo } from "@/config/version";
 import { VersionBadge } from "@/components/ui/version-badge";
 
-// Lazy loading de componentes
-const Index = lazy(() => import("@/pages/Index"));
-const NotFound = lazy(() => import("@/pages/NotFound"));
+// Use dynamic imports with explicit relative path reference
+// This ensures they load correctly in various environments
+const Index = lazy(() => import("./pages/Index"));
+const NotFound = lazy(() => import("./pages/NotFound"));
 
 const helmetContext = {};
 
@@ -41,7 +43,7 @@ const ResourcePreloader = () => {
   useEffect(() => {
     // Precargar el componente principal después de que la página esté idle
     const preloadMainComponent = () => {
-      const importPromise = import("@/pages/Index");
+      const importPromise = import("./pages/Index");
       // Iniciar carga en segundo plano
       return importPromise;
     };
@@ -65,7 +67,7 @@ const App = () => (
     <ThemeProvider>
       <TooltipProvider>
         <ResourcePreloader />
-        <BrowserRouter>
+        <BrowserRouter basename="">
           <SkipLink href="#main-content" />
           <Suspense fallback={<LoadingSpinner />}>
             <Routes>

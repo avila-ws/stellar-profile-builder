@@ -1,3 +1,4 @@
+
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react-swc";
 import path from "path";
@@ -7,7 +8,9 @@ import preload from 'vite-plugin-preload'
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode, command }) => ({
+  // Use relative paths with './' instead of absolute paths
   base: "./",
+  
   server: {
     host: "::",
     port: 8080,
@@ -52,7 +55,7 @@ export default defineConfig(({ mode, command }) => ({
         "object-src 'none'; " +
         "base-uri 'self'; " +
         "form-action 'self'; " +
-        "frame-ancestors 'self' https://avila.ws https://*.google.com; " +
+        "frame-ancestors 'self' https://avila.ws https://*.google.com https://*.lovable.dev https://*.lovable.app; " +
         "worker-src 'self' blob: data:; " +
         "manifest-src 'self'",
 
@@ -113,7 +116,7 @@ export default defineConfig(({ mode, command }) => ({
       output: {
         // Formato de carga más compatible con diversos entornos
         format: 'es',
-        // Optimizar entrega de assets
+        // Optimizar entrega de assets - using relative paths
         assetFileNames: 'assets/[name].[hash].[ext]',
         chunkFileNames: 'assets/[name].[hash].js',
         entryFileNames: 'assets/[name].[hash].js',
