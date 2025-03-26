@@ -22,7 +22,7 @@ const LanguageSection = () => {
   };
   
   return (
-    <Card className="p-6">
+    <Card className="p-6 border border-border">
       <Accordion 
         type="single" 
         collapsible 
