@@ -3,6 +3,7 @@ import react from "@vitejs/plugin-react-swc";
 import path from "path";
 import { componentTagger } from "lovable-tagger";
 import { visualizer } from 'rollup-plugin-visualizer'
+import preload from 'vite-plugin-preload'
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode, command }) => ({
@@ -69,7 +70,12 @@ export default defineConfig(({ mode, command }) => ({
     },
   },
   plugins: [
-    react(),
+    react({
+      // Optimizar la configuración de SWC para React
+      jsxImportSource: undefined,
+      devTarget: 'es2022',
+      plugins: []
+    }),
     mode === 'development' &&
     componentTagger(),
     visualizer({
@@ -77,7 +83,9 @@ export default defineConfig(({ mode, command }) => ({
       open: true,
       gzipSize: true,
       brotliSize: true,
-    })
+    }),
+    // Plugin para precargar recursos automáticamente
+    preload()
   ].filter(Boolean),
   resolve: {
     alias: {
@@ -87,8 +95,19 @@ export default defineConfig(({ mode, command }) => ({
   build: {
     sourcemap: mode === 'development',
     reportCompressedSize: true,
+    // Optimizar tamaño de chunks
+    chunkSizeWarningLimit: 800,
+    cssCodeSplit: true,
+    // Optimizar para carga más rápida
+    target: 'es2020',
+    // Añadir módulo de precarga
+    modulePreload: { polyfill: true },
     rollupOptions: {
       output: {
+        // Optimizar entrega de assets
+        assetFileNames: 'assets/[name].[hash].[ext]',
+        chunkFileNames: 'assets/[name].[hash].js',
+        entryFileNames: 'assets/[name].[hash].js',
         manualChunks: {
           'vendor': [
             'react', 
@@ -122,6 +141,14 @@ export default defineConfig(({ mode, command }) => ({
     minify: 'esbuild',
     esbuildOptions: {
       drop: mode === 'production' ? ['console', 'debugger'] : [],
+      // Optimizar lógica, agregar tree-shaking agresivo
+      treeShaking: true,
+      // Optimizar formato de salida
+      format: 'esm',
+      // Optimizar para tamaño
+      minifyWhitespace: true,
+      minifyIdentifiers: true,
+      minifySyntax: true,
     },
   }
 }));
