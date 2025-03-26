@@ -1,0 +1,9 @@
+{
+  "framework": "vite",
+  "speedInsights": {
+    "enabled": true
+  },
+  "github": {
+    "silent": true
+  }
+} 
