@@ -50,7 +50,6 @@ Estas son las tareas en las que estoy trabajando actualmente:
 |-------|------------|-----------|
 | 🚧 Implementar estrategias de caching | 16h | Alta |
 | 🚧 Optimizar carga de fuentes | 8h | Media |
-| 🚧 Implementar preload de recursos críticos | 8h | Alta |
 | 🚧 Optimizar código con React.memo | 12h | Media |
 | 🚧 Implementar CDN | 16h | Alta |
 | 🚧 Configurar Service Worker | 16h | Alta |
@@ -79,6 +78,7 @@ Estas son las próximas tareas a abordar una vez completadas las actuales:
 
 | Tarea | Descripción | Impacto |
 |-------|-------------|---------|
+| ✅ Implementación de preload de recursos críticos | Se implementó correctamente la precarga de recursos críticos mediante vite-plugin-preload y optimización del HTML | Mejora significativa en el tiempo de carga inicial y Core Web Vitals |
 | ✅ Mejora de consistencia visual en sección de idiomas | Se mantuvo la funcionalidad de acordeón mientras se mejoró la apariencia visual para hacerla coherente con otras secciones | Mejor experiencia de usuario preservando la interactividad original |
 | ✅ Optimización del First Contentful Paint | Se implementaron técnicas avanzadas para mejorar el FCP con precarga de recursos y optimización de Vite | Reducción del tiempo de carga inicial y mejor experiencia de usuario |
 | ✅ Integración de Vercel Analytics y Speed Insights | Se implementó correctamente el monitoreo de rendimiento mediante los componentes oficiales de Vercel | Mejor visibilidad del rendimiento real de usuarios y puntuación de Core Web Vitals |
