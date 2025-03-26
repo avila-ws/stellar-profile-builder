@@ -5,6 +5,20 @@ Todas las modificaciones notables a este proyecto serán documentadas en este ar
 El formato está basado en [Keep a Changelog](https://keepachangelog.com/es-ES/1.0.0/),
 y este proyecto adhiere a [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.0.6] - 2025-03-27
+
+### Añadido
+- Implementación de visualización condicional de logs con parámetro `showVersion=true`
+- Detección inteligente de infraestructura de Vercel para cargar Analytics
+
+### Optimizado
+- Mejora en la compatibilidad con múltiples plataformas de despliegue (Vercel y Lovable)
+- Eliminación de errores de consola al desplegar en plataformas distintas a Vercel
+
+### Cambiado
+- Comportamiento de logs para mantener la consola limpia por defecto
+- Implementación de detección específica de infraestructura Vercel
+
 ## [1.0.5] - 2025-03-26
 
 ### Añadido

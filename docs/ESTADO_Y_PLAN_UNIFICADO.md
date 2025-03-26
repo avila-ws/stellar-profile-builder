@@ -28,7 +28,7 @@ El objetivo principal es mostrar mis habilidades como desarrollador mientras pro
 | 9. SEO | 3/14 | 0/0 | 11/14 | 21% |
 | 10. UX | 2/14 | 0/14 | 12/14 | 14% |
 | 11. Documentación | 0/7 | 3/7 | 4/7 | 0% |
-| 12. Monitoreo y Analytics | 4/14 | 5/14 | 5/14 | 29% |
+| 12. Monitoreo y Analytics | 6/14 | 3/14 | 5/14 | 43% |
 | 13. Plan de Contingencia | 6/6 | 0/0 | 0/0 | 100% |
 | 14. Ideas Futuras | 0/7 | 0/0 | 7/7 | 0% |
 | 15. CI/CD y Automatización | 0/9 | 0/0 | 9/9 | 0% |
@@ -78,6 +78,8 @@ Estas son las próximas tareas a abordar una vez completadas las actuales:
 
 | Tarea | Descripción | Impacto |
 |-------|-------------|---------|
+| ✅ Implementación de detección inteligente de infraestructura Vercel | Se añadió una detección inteligente para cargar Vercel Analytics solo cuando la aplicación se ejecuta realmente en infraestructura Vercel | Mejora de compatibilidad con múltiples plataformas de despliegue y eliminación de errores de consola |
+| ✅ Implementación de logs condicionales | Se modificó el componente VersionLogger para mostrar información solo cuando se incluye el parámetro ?showVersion=true en la URL | Consola más limpia para usuarios finales mientras se mantiene la capacidad de debugging |
 | ✅ Implementación de preload de recursos críticos | Se implementó correctamente la precarga de recursos críticos mediante vite-plugin-preload y optimización del HTML | Mejora significativa en el tiempo de carga inicial y Core Web Vitals |
 | ✅ Mejora de consistencia visual en sección de idiomas | Se mantuvo la funcionalidad de acordeón mientras se mejoró la apariencia visual para hacerla coherente con otras secciones | Mejor experiencia de usuario preservando la interactividad original |
 | ✅ Optimización del First Contentful Paint | Se implementaron técnicas avanzadas para mejorar el FCP con precarga de recursos y optimización de Vite | Reducción del tiempo de carga inicial y mejor experiencia de usuario |
@@ -752,6 +754,12 @@ npx lighthouse http://localhost:8080 --view --only-categories=accessibility
      - ✅ Seguimiento de páginas vistas y rutas populares
      - ✅ Medición de tasas de rebote
      - ✅ Análisis sin cookies ni identificación personal (privacy-friendly) 
+   - ✅ Detección inteligente de infraestructura Vercel para Analytics
+     - ✅ Carga condicional basada en detección de entorno real
+     - ✅ Compatibilidad con múltiples plataformas de despliegue
+   - ✅ Implementación de logs condicionales con parámetro URL
+     - ✅ Visualización de información de versión solo con ?showVersion=true
+     - ✅ Consola limpia por defecto para usuarios finales
    - 🚧 Herramientas de monitoreo gratuitas/económicas
      - 🚧 New Relic Browser (Free Tier) - Monitoreo de rendimiento
      - 🚧 LogRocket (Free plan) - Reproducción de errores de usuario
