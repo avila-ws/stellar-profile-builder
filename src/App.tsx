@@ -20,13 +20,18 @@ const helmetContext = {};
 // Componente que muestra la información de versión
 const VersionLogger = () => {
   useEffect(() => {
-    const versionInfo = getVersionInfo();
-    console.log(
-      `📦 Stellar Profile Builder ${versionInfo.formattedString}`
-    );
+    const urlParams = new URLSearchParams(window.location.search);
+    const shouldShowVersion = urlParams.get('showVersion') === 'true';
     
-    // Evento de carga inicial - se registrará automáticamente por SpeedInsights
-    console.log('App initialized, SpeedInsights should track automatically');
+    if (shouldShowVersion) {
+      const versionInfo = getVersionInfo();
+      console.log(
+        `📦 Stellar Profile Builder ${versionInfo.formattedString}`
+      );
+      
+      // Evento de carga inicial - se registrará automáticamente por SpeedInsights
+      console.log('App initialized, SpeedInsights should track automatically');
+    }
   }, []);
   
   return null;
