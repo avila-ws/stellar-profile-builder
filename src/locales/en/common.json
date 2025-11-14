@@ -21,7 +21,7 @@
   },
   "about": {
     "title": "About Me",
-    "description_1": "With over 6 years of experience as a DevSecOps Engineer, I've dedicated my career to bridging the gap between development, operations, and security. I specialize in creating robust security frameworks that don't slow down innovation.",
+    "description_1": "With over 15 years of experience as a Security Cloud & DevSecOps Engineer, I've dedicated my career to bridging the gap between development, operations, security, and AI-driven automation. I specialize in creating robust security frameworks and compliant guardrails that don't slow down innovation.",
     "description_2": "My work spans across various industries, particularly in fintech and blockchain, where I've implemented security measures that protect sensitive data while enabling rapid deployment cycles.",
     "languages": "Languages",
     "achievements": {
@@ -45,12 +45,11 @@
     },
     "companies": {
       "title": "Companies I've Worked With",
+      "iag": "International Airline Group Spain",
       "r2": "NeoBank Mexico",
       "b89": "NeoBank Peru",
       "bcp": "Bank Peru",
-      "kw": "Realty US",
-      "ntt": "Consulting Peru",
-      "paraiso": "Consulting VE"
+      "ntt": "Consulting Europe & Latam"
     }
   },
   "experience": {

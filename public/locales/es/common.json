@@ -23,7 +23,7 @@
   },
   "about": {
     "title": "Sobre Mí",
-    "description_1": "Con más de 6 años de experiencia como Ingeniero DevSecOps, he dedicado mi carrera a cerrar la brecha entre desarrollo, operaciones y seguridad. Me especializo en crear marcos de seguridad robustos que no ralentizan la innovación.",
+    "description_1": "Con más de 15 años de experiencia como Ingeniero de Seguridad en la Nube y DevSecOps, he dedicado mi carrera a cerrar la brecha entre desarrollo, operaciones, seguridad y automatización impulsada por IA. Me especializo en crear marcos de seguridad robustos y guardrails de cumplimiento que no frenan la innovación.",
     "description_2": "Mi trabajo abarca diversas industrias, particularmente en fintech y blockchain, donde he implementado medidas de seguridad que protegen datos sensibles mientras permiten ciclos de despliegue rápidos.",
     "languages": "Idiomas",
     "achievements": {
@@ -47,12 +47,11 @@
     },
     "companies": {
       "title": "Empresas con las que he Trabajado",
+      "iag": "International Airline Group España",
       "r2": "NeoBank México",
       "b89": "NeoBank Perú",
       "bcp": "Banco Perú",
-      "kw": "Inmobiliaria EE.UU.",
-      "ntt": "Consultoría Perú",
-      "paraiso": "Consultoría VE"
+      "ntt": "Consultoría Europa y Latam"
     }
   },
   "experience": {

@@ -11,7 +11,7 @@ describe('AboutSection', () => {
     expect(title).toBeDefined();
     
     // Verificar que el contenido está presente
-    const content = screen.getByText(/bridging the gap between development, operations, and security/i);
+    const content = screen.getByText(/bridging the gap between development, operations, security/i);
     expect(content).toBeDefined();
     
     // Verificar que el texto sobre la experiencia está presente

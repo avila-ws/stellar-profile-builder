@@ -4,8 +4,10 @@ import { initReactI18next } from 'react-i18next';
 // Import resources
 import commonEN from '@/locales/en/common.json';
 import commonES from '@/locales/es/common.json';
+import commonCA from '@/locales/ca/common.json';
 import profileEN from '@/locales/en/profile.json';
 import profileES from '@/locales/es/profile.json';
+import profileCA from '@/locales/ca/profile.json';
 
 // Resources containing all namespaces for each language
 const resources = {
@@ -16,6 +18,10 @@ const resources = {
   es: {
     common: commonES,
     profile: profileES
+  },
+  ca: {
+    common: commonCA,
+    profile: profileCA
   }
 };
 
@@ -27,7 +33,9 @@ const getDefaultLanguage = (): string => {
     
     // Use browser language if available
     const browserLang = navigator.language.split('-')[0];
-    if (browserLang === 'es' || browserLang === 'en') return browserLang;
+    if (browserLang === 'es' || browserLang === 'en' || browserLang === 'ca') {
+      return browserLang;
+    }
   }
   
   return 'en'; // Default fallback language

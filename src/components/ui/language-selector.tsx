@@ -5,7 +5,7 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import { useLanguage } from "@/hooks/useLanguage";
+import { useLanguage, Language } from "@/hooks/useLanguage";
 import { Check, Globe } from "lucide-react";
 
 interface LanguageSelectorProps {
@@ -15,10 +15,14 @@ interface LanguageSelectorProps {
 export function LanguageSelector({ className }: LanguageSelectorProps) {
   const { currentLanguage, setLanguage } = useLanguage();
 
-  const languages = [
+  const languages: { code: Language; label: string }[] = [
     { code: "en", label: "English" },
-    { code: "es", label: "Español" }
+    { code: "es", label: "Español" },
+    { code: "ca", label: "Català" }
   ];
+
+  const currentLabel =
+    languages.find((language) => language.code === currentLanguage)?.label || "English";
 
   return (
     <DropdownMenu>
@@ -30,14 +34,14 @@ export function LanguageSelector({ className }: LanguageSelectorProps) {
           aria-label="Select language"
         >
           <Globe className="h-4 w-4 mr-2" />
-          <span>{currentLanguage === "en" ? "English" : "Español"}</span>
+          <span>{currentLabel}</span>
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end">
         {languages.map((language) => (
           <DropdownMenuItem
             key={language.code}
-            onClick={() => setLanguage(language.code as "en" | "es")}
+            onClick={() => setLanguage(language.code)}
             className="flex items-center justify-between"
           >
             {language.label}

@@ -4,6 +4,7 @@
  */
 
 export const companyUrls = {
+  iag: "https://www.iairgroup.com/",
   r2: "https://r2.co/",
   b89: "https://www.b89.io/",
   bcp: "https://www.viabcp.com/",

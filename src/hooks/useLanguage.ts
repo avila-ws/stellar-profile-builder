@@ -1,7 +1,8 @@
 import { useTranslation } from 'react-i18next';
 import { useState, useEffect, useCallback } from 'react';
 
-type Language = 'en' | 'es';
+export type Language = 'en' | 'es' | 'ca';
+export const SUPPORTED_LANGUAGES: Language[] = ['en', 'es', 'ca'];
 type LanguageToggleResult = {
   currentLanguage: Language;
   toggleLanguage: () => void;
@@ -16,30 +17,34 @@ type LanguageToggleResult = {
  */
 export const useLanguage = (namespace = 'common'): LanguageToggleResult => {
   const { i18n, t } = useTranslation(namespace);
+  const initialLang = (i18n.language?.substring(0, 2) as Language) || 'en';
   const [currentLanguage, setCurrentLanguage] = useState<Language>(
-    (i18n.language?.substring(0, 2) as Language) || 'en'
+    SUPPORTED_LANGUAGES.includes(initialLang) ? initialLang : 'en'
   );
 
   // Update current language state when i18n language changes
   useEffect(() => {
-    const language = i18n.language?.substring(0, 2);
-    if (language === 'en' || language === 'es') {
+    const language = i18n.language?.substring(0, 2) as Language;
+    if (language && SUPPORTED_LANGUAGES.includes(language)) {
       setCurrentLanguage(language);
     }
   }, [i18n.language]);
 
   // Toggle between languages
   const toggleLanguage = useCallback(() => {
-    const newLanguage: Language = currentLanguage === 'en' ? 'es' : 'en';
-    i18n.changeLanguage(newLanguage);
-    localStorage.setItem('i18nextLng', newLanguage);
+    const currentIndex = SUPPORTED_LANGUAGES.indexOf(currentLanguage);
+    const nextLanguage = SUPPORTED_LANGUAGES[(currentIndex + 1) % SUPPORTED_LANGUAGES.length];
+    i18n.changeLanguage(nextLanguage);
+    localStorage.setItem('i18nextLng', nextLanguage);
   }, [currentLanguage, i18n]);
 
   // Set specific language
   const setLanguage = useCallback(
     (lang: Language) => {
-      i18n.changeLanguage(lang);
-      localStorage.setItem('i18nextLng', lang);
+      if (SUPPORTED_LANGUAGES.includes(lang)) {
+        i18n.changeLanguage(lang);
+        localStorage.setItem('i18nextLng', lang);
+      }
     },
     [i18n]
   );

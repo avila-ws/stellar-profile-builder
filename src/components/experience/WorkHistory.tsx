@@ -4,6 +4,24 @@ import { useLanguage } from "@/hooks/useLanguage";
 import companyUrls from "@/config/companies";
 import companyIcons from "@/config/company-icons";
 
+type CompanyKey = keyof typeof companyUrls;
+
+const companyKeyMap: Record<string, CompanyKey> = {
+  IAG: "iag",
+  R2: "r2",
+  B89: "b89",
+  BCP: "bcp",
+  "NTT DATA": "nttData",
+  "NTT DATA EUROPE & LATAM": "nttData"
+};
+
+const normalizeCompanyName = (company?: string) => company?.trim().toUpperCase() ?? "";
+
+const getCompanyKey = (company?: string): CompanyKey => {
+  const normalized = normalizeCompanyName(company);
+  return companyKeyMap[normalized] ?? "paraisoCreativo";
+};
+
 const WorkHistory = () => {
   const isMobile = useIsMobile();
   const { t } = useLanguage();
@@ -23,40 +41,20 @@ const WorkHistory = () => {
           const achievements = Array.isArray(experience.achievements) 
             ? experience.achievements 
             : [];
-            
-          // Obtener la URL de la empresa basado en el índice
-          const getCompanyUrl = () => {
-            switch(index) {
-              case 0: return companyUrls.r2;
-              case 1: return companyUrls.b89;
-              case 2: return companyUrls.bcp;
-              case 3: return companyUrls.kellerWilliams;
-              case 4: return companyUrls.nttData;
-              default: return companyUrls.paraisoCreativo;
-            }
-          };
           
-          // Obtener el icono de la empresa basado en el índice
-          const getCompanyIcon = () => {
-            switch(index) {
-              case 0: return companyIcons.r2;
-              case 1: return companyIcons.b89;
-              case 2: return companyIcons.bcp;
-              case 3: return companyIcons.kellerWilliams;
-              case 4: return companyIcons.nttData;
-              default: return companyIcons.paraisoCreativo;
-            }
-          };
+          const companyKey = getCompanyKey(experience.company);
+          const companyUrl = companyUrls[companyKey] ?? companyUrls.paraisoCreativo;
+          const companyIcon = companyIcons[companyKey] ?? companyIcons.paraisoCreativo;
             
           return (
             <WorkExperience
               key={index}
               company={`${experience.company} – ${experience.type}`}
-              companyUrl={getCompanyUrl()}
+              companyUrl={companyUrl}
               role={experience.position}
               period={experience.period}
               location={experience.location}
-              icon={getCompanyIcon()}
+              icon={companyIcon}
               description={achievements}
               defaultExpanded={index < 2 && !isMobile}
               isLast={index === experiences.length - 1}

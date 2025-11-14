@@ -1,4 +1,4 @@
-import { Building2, Building, Home, Palmtree, Landmark, Server } from "lucide-react";
+import { Building2, Building, Home, Palmtree, Landmark, Server, Globe } from "lucide-react";
 import React from "react";
 
 /**
@@ -7,6 +7,7 @@ import React from "react";
  */
 
 export const companyIcons = {
+  iag: <Globe className="h-5 w-5 text-primary" />,
   r2: <Building2 className="h-5 w-5 text-primary" />,
   b89: <Building className="h-5 w-5 text-primary" />,
   bcp: <Landmark className="h-5 w-5 text-primary" />,

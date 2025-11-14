@@ -1,0 +1,175 @@
+{
+  "navigation": {
+    "home": "Inici",
+    "experience": "Experiència",
+    "skills": "Habilitats",
+    "education": "Educació",
+    "contact": "Contacte",
+    "about": "Sobre mi"
+  },
+  "hero": {
+    "title": "Enginyer DevSecOps i Especialista en Seguretat al Núvol",
+    "subtitle": "Segur des del Disseny. Eficient per Defecte.",
+    "view_profile_photo": "Veure foto de perfil",
+    "languages_specialties": "Trilingüe en anglès, portuguès i espanyol • Especialitzat en Blockchain, Seguretat AWS i ISO 27001",
+    "security_integration": "Integració de Seguretat",
+    "security_description": "Reducció dels incidents de seguretat en un 50% mitjançant la implantació d’ISO 27001",
+    "cloud_infrastructure": "Infraestructura al Núvol",
+    "cloud_description": "Expert en AWS amb experiència en més de 30 serveis i eines",
+    "blockchain_expertise": "Experiència en Blockchain",
+    "blockchain_description": "Va liderar més de 20 projectes blockchain a Llatinoamèrica, el Carib i Europa"
+  },
+  "about": {
+    "title": "Sobre Mi",
+    "description_1": "Amb més de 15 anys d’experiència com a Enginyer de Seguretat al Núvol i DevSecOps, he dedicat la meva carrera a reduir la distància entre desenvolupament, operacions, seguretat i automatització impulsada per IA. Em especialitzo a crear marcs de seguretat robustos i guardrails de compliment que no frenen la innovació.",
+    "description_2": "La meva trajectòria abraça múltiples indústries, especialment fintech i blockchain, on he implementat mesures de seguretat que protegeixen dades sensibles i, al mateix temps, permeten cicles de desplegament ràpids.",
+    "languages": "Idiomes",
+    "achievements": {
+      "title": "Fites Clau",
+      "iso": {
+        "title": "Va liderar la certificació ISO 27001",
+        "description": "Va reduir els incidents de seguretat en un 50% i va reforçar AWS amb protecció robusta d’endpoints"
+      },
+      "code": {
+        "title": "Anàlisi de codi ampliada",
+        "description": "Va millorar la protecció del programari en un 45% i va reduir les vulnerabilitats en producció en un 25%"
+      },
+      "blockchain": {
+        "title": "Lideratge en blockchain",
+        "description": "Va dirigir projectes clau amb un augment del 60% en el throughput i una reducció del 40% en costos"
+      },
+      "cicd": {
+        "title": "Automatització de pipelines CI/CD",
+        "description": "Va incorporar compliment normatiu, escaneig de vulnerabilitats i portes de seguretat al cicle de desenvolupament"
+      }
+    },
+    "companies": {
+      "title": "Empreses amb què he treballat",
+      "iag": "International Airline Group Espanya",
+      "r2": "NeoBank Mèxic",
+      "b89": "NeoBank Perú",
+      "bcp": "Banc Perú",
+      "ntt": "Consultoria Europa i Latam"
+    }
+  },
+  "experience": {
+    "title": "Experiència",
+    "work_history": "Historial laboral",
+    "show_details": "Mostrar detalls",
+    "hide_details": "Amagar detalls"
+  },
+  "education": {
+    "title": "Educació",
+    "click_details": "Fes clic per veure detalls sobre {{count}} titulació(ns)"
+  },
+  "languages": {
+    "click_to_view": "Fes clic per veure idiomes"
+  },
+  "skills": {
+    "title": "Habilitats",
+    "technical_skills": "Habilitats tècniques",
+    "show_more": "+{{count}} més",
+    "tech_stack_note": "El meu stack complet inclou més de 150 eines i tecnologies. Fes clic a cada categoria per veure la llista completa de tecnologies amb què he treballat.",
+    "categories": {
+      "aws_cloud": "AWS Cloud i DevOps",
+      "security": "Seguretat i Compliment",
+      "development": "Desenvolupament",
+      "databases": "Bases de Dades",
+      "blockchain": "Blockchain",
+      "programming": "Llenguatges de Programació",
+      "frameworks": "Frameworks i Biblioteques",
+      "devops": "DevOps i Núvol",
+      "other": "Altres"
+    }
+  },
+  "projects": {
+    "title": "Projectes",
+    "view_live": "Veure demo",
+    "view_code": "Veure codi"
+  },
+  "contact": {
+    "title": "Contacta’m",
+    "lets_connect": "Connectem",
+    "send_message": "Enviar missatge",
+    "schedule_meeting": "Programar reunió",
+    "form_title": "Envia’m un missatge",
+    "info_title": "Informació de contacte",
+    "name": "Nom",
+    "name_placeholder": "El teu nom",
+    "email": "Correu electrònic",
+    "email_label": "Correu",
+    "email_placeholder": "El teu correu electrònic",
+    "email_address": "renzo@avila.ws",
+    "subject": "Assumpte",
+    "subject_placeholder": "Assumpte",
+    "message": "Missatge",
+    "message_placeholder": "El teu missatge",
+    "sending": "Enviant...",
+    "send": "Enviar missatge",
+    "success": "Missatge enviat!",
+    "success_description": "Gràcies per contactar-me. Et respondré aviat.",
+    "phone_label": "Telèfon",
+    "phone": "+44 330 122 9696",
+    "whatsapp_message": "Hola, m’agradaria posar-me en contacte amb tu",
+    "location_label": "Ubicació",
+    "location": "Barcelona, Espanya",
+    "schedule_label": "Programa una reunió",
+    "book_calendar": "Reserva un espai al meu calendari",
+    "connect_title": "Connecta amb mi",
+    "connect_linkedin": "Connecta a LinkedIn",
+    "view_github": "Veure perfil de GitHub"
+  },
+  "accessibility": {
+    "skip_to_content": "Anar al contingut principal",
+    "toggle": "Alternar",
+    "visit_company_website": "Visitar el lloc web de {{company}}",
+    "visit_institution_website": "Visitar el lloc web de {{institution}}",
+    "email_link": "Enviar correu electrònic",
+    "phone_link": "Trucar o enviar missatge per WhatsApp",
+    "calendar_link": "Programar una reunió",
+    "location_link": "Veure ubicació al mapa",
+    "linkedin_profile": "Visitar el perfil de LinkedIn",
+    "github_profile": "Visitar el perfil de GitHub",
+    "calendar_iframe": "Planificació de cites a Google Calendar"
+  },
+  "footer": {
+    "copyright": "© {{year}} Renzo Avila. Tots els drets reservats.",
+    "calendar": "Calendari"
+  },
+  "highlightTerms": {
+    "technical": [
+      "seguretat",
+      "blockchain",
+      "DevOps",
+      "AWS",
+      "va liderar",
+      "va desenvolupar",
+      "va dissenyar",
+      "va implementar",
+      "va reduir",
+      "va augmentar",
+      "va millorar",
+      "50%",
+      "45%",
+      "40%",
+      "35%",
+      "30%",
+      "25%",
+      "20%",
+      "ISO 27001",
+      "React.js",
+      "va integrar",
+      "va automatitzar",
+      "infraestructura",
+      "ciberseguretat",
+      "vulnerabilitats",
+      "compliment",
+      "certificació",
+      "auditories",
+      "avaluacions",
+      "polítiques",
+      "protecció"
+    ]
+  }
+}
+

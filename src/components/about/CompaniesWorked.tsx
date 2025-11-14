@@ -13,12 +13,11 @@ const CompaniesWorked = () => {
   const { t } = useLanguage();
   
   const companies: Company[] = [
+    { name: "IAG", description: t('about.companies.iag'), url: companyUrls.iag },
     { name: "R2", description: t('about.companies.r2'), url: companyUrls.r2 },
     { name: "B89", description: t('about.companies.b89'), url: companyUrls.b89 },
     { name: "BCP", description: t('about.companies.bcp'), url: companyUrls.bcp },
-    { name: "Keller Williams", description: t('about.companies.kw'), url: companyUrls.kellerWilliams },
-    { name: "NTT DATA", description: t('about.companies.ntt'), url: companyUrls.nttData },
-    { name: "Paraiso Creativo", description: t('about.companies.paraiso'), url: companyUrls.paraisoCreativo }
+    { name: "NTT DATA Europe & Latam", description: t('about.companies.ntt'), url: companyUrls.nttData }
   ];
   
   return (
