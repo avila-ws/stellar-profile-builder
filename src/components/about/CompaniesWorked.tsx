@@ -17,7 +17,7 @@ const CompaniesWorked = () => {
     { name: "R2", description: t('about.companies.r2'), url: companyUrls.r2 },
     { name: "B89", description: t('about.companies.b89'), url: companyUrls.b89 },
     { name: "BCP", description: t('about.companies.bcp'), url: companyUrls.bcp },
-    { name: "NTT DATA Europe & Latam", description: t('about.companies.ntt'), url: companyUrls.nttData }
+    { name: "NTT DATA", description: t('about.companies.ntt'), url: companyUrls.nttData }
   ];
   
   return (
