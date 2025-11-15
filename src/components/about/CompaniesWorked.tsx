@@ -34,11 +34,11 @@ const CompaniesWorked = () => {
             href={company.url} 
             target="_blank" 
             rel="noopener noreferrer" 
-            className="flex flex-col items-center p-2 hover:bg-accent rounded-md transition-colors"
+            className="flex flex-col items-center p-3 text-center gap-1 min-h-[110px] hover:bg-accent rounded-md transition-colors"
             aria-label={t('accessibility.visit_company_website', { company: company.name })}
           >
-            <span className="font-medium">{company.name}</span>
-            <span className="text-xs text-muted-foreground">{company.description}</span>
+            <span className="font-medium text-sm leading-tight">{company.name}</span>
+            <span className="text-xs text-muted-foreground leading-tight">{company.description}</span>
           </a>
         ))}
       </div>
